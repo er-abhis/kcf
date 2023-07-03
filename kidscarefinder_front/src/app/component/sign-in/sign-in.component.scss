@@ -1,0 +1,416 @@
+.logsign_popup::-webkit-scrollbar {
+  width: 5px;
+}
+
+.logsign_popup::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+.logsign_popup::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 5px;
+}
+
+.logsign_popup {
+  max-height: 662px;
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+.loginCust .form-group {
+  margin-bottom: 10px;
+}
+
+.logError {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+// .loginCust .remem_block {
+//   margin-top: 10px;
+// }
+
+.loginCust .remem_block {
+  margin: 15px 0px 0px !important;
+}
+
+.loginCust .submit_block {
+  padding-top: 15px !important;
+}
+
+.logsign_popup .popup_form .form-control::placeholder {
+  font-size: 14px;
+  color: var(--blackColor);
+}
+
+::ng-deep .mat-select-panel {
+  max-height: 170px !important;
+}
+
+.mat-error {
+  margin-top: 0px !important;
+}
+
+::ng-deep .CustomModal .mat-dialog-container {
+  border-radius: 25px;
+}
+
+.alreadyAcct {
+  margin: 20px 0 0;
+}
+
+.mat-error {
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.otpscreen .popup_leftside {
+  min-height: 300px;
+}
+
+.error-mess-fixes {
+  position: relative;
+}
+
+// .error-mess {
+//   position: absolute;
+//   top: 37px;
+//   margin-top: 10px;
+// }
+
+::ng-deep .error-mess-two {
+  font-family: 'Nunito';
+  position: absolute;
+  left: 0;
+  top: 52px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+// ---------------------Loader Css Start -----------------------
+.loaderCustom {
+  position: relative;
+  height: 100%;
+  margin-top: 18px;
+  border-radius: 12px;
+}
+
+.loaderCustom::after {
+  position: absolute;
+  content: "";
+  background: var(--whiteColor);
+  z-index: 3;
+}
+
+.loaderPreschool {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  display: inline-block;
+}
+
+.loaderPreschool img {
+  height: 200px;
+}
+
+.loaderPreschoolFixed {
+  width: 60%;
+  height: 100%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+// ---------------------Loader Css End -----------------------
+
+// ============ login multiple dropdown start ============
+::ng-deep .loginCust .mat-form-field-appearance-fill .mat-form-field-underline::before {
+  height: 0;
+}
+
+::ng-deep .loginCust .mat-form-field-appearance-fill:not(.mat-form-field-disabled) .mat-form-field-flex:hover~.mat-form-field-underline .mat-form-field-ripple {
+  opacity: 0;
+}
+
+::ng-deep .loginCust .mat-form-field-appearance-fill .mat-form-field-flex {
+  padding: 0;
+}
+
+::ng-deep .loginCust .mat-form-field-type-mat-select .mat-select {
+  border: 1px solid #164789;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+::ng-deep .loginCust .mat-form-field-appearance-fill .mat-form-field-infix {
+  padding: 0 0 0.75em;
+}
+
+::ng-deep .loginCust .mat-form-field-infix {
+  border-top: 0 solid transparent;
+}
+
+::ng-deep .loginCust .mat-select-placeholder {
+  font-family: "Nunito";
+  color: var(--blackColor) !important;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.multiDropserach {
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: #e7e7e7;
+  padding: 5px 5px;
+  border-radius: 0;
+  border: none;
+  outline: none;
+  height: 40px;
+}
+
+.multiDropserach span.sIcon {
+  background: var(--primaryLight);
+  color: var(--whiteColor);
+  width: 35px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+}
+
+.multiDropserach input {
+  height: 32px;
+  border-radius: 0;
+  padding: 0 10px;
+}
+
+.SelectBusinessArea .provider_start .mat-icon {
+  width: 28px;
+  height: 28px;
+}
+
+::ng-deep .loginCust .mat-select-arrow {
+  border-left: 12px solid rgba(0, 0, 0, 0) !important;
+  border-right: 12px solid rgba(0, 0, 0, 0) !important;
+  border-top: 12px solid !important;
+}
+
+::ng-deep .loginCust .mat-select-arrow {
+  color: var(--blackColor);
+  border:none !important;
+}
+
+::ng-deep .mat-select-arrow::after {
+  top: -4px;
+  right: -6px;
+  width: 18px;
+  height: 10px;
+}
+
+::ng-deep .loginCust .mat-form-field-appearance-fill .mat-select-arrow-wrapper {
+  transform: translateY(0%);
+}
+
+::ng-deep .sanVibhu mat-option {
+  border-bottom: 1px solid #000;
+}
+
+::ng-deep div#signup_provider-panel {
+  transform: inherit !important;
+  margin-top: 28px;
+  border-radius: 0;
+  left: 30px !important;
+  min-width: 525px !important;
+  position: absolute;
+}
+
+::ng-deep .mat-select-panel .mat-option {
+  border-bottom: 1px solid var(--blackColor);
+  padding: 0 12px;
+  font-size: 16px !important;
+  font-weight: 400;
+}
+::ng-deep .mat-select .mat-select-value {
+  color: #b9b9b9;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+::ng-deep input.mat-input-element {
+  font-size: 16px;
+}
+
+
+.mat-option.mat-active {
+  background: transparent !important;
+  color: var(--blackColor);
+}
+
+::ng-deep .mat-pseudo-checkbox {
+  width: 18px !important;
+  height: 18px !important;
+  border: 2.5px solid var(--blackColor) !important;
+  border-radius: 2px;
+  color: var(--blackColor) !important;
+}
+
+::ng-deep .mat-primary .mat-pseudo-checkbox-checked {
+  background: transparent;
+  border: 2.3px solid var(--blackColor) !important;
+}
+::ng-deep .mat-primary .mat-pseudo-checkbox-checked::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: var(--blackColor);
+  border: 2.2px solid var(--whiteColor);
+  border-radius: 1px;
+}
+::ng-deep .mat-pseudo-checkbox-checked::after {
+  opacity: 0 !important;
+}
+
+
+// ============ login multiple dropdown exit ============
+
+// ---------------------tooltip Css start -----------------------
+::ng-deep .tooltipManageOut .mat-form-field-appearance-fill .mat-form-field-flex {
+  padding-top: 0 !important;
+}
+
+::ng-deep .tooltipManageOut .mat-form-field-infix {
+  border-top: 0;
+}
+
+::ng-deep .form-group.sanVibhu .mat-form-field-infix {
+  padding-bottom: 5px;
+}
+
+.tooltipManage {
+  width: 100%;
+}
+
+.form-group.sanVibhu {
+  margin-top: 3px;
+  margin-bottom: 0 !important;
+}
+
+.tooltipManage mat-label {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.tooltipManage button {
+  background: transparent;
+}
+
+::ng-deep .tooltipManage .mat-raised-button {
+  box-shadow: none;
+  min-width: 0;
+  padding: 0;
+  position: relative;
+  top: -2px;
+  left: 6px;
+}
+
+.tooltipManage .mat-raised-button svg {
+  width: 15px;
+  height: 15px;
+}
+
+.tooltipManage .mat-raised-button path {
+  fill: #0e2e58;
+}
+
+.tooltipManage button.mat-tooltip-trigger {
+  line-height: 20px;
+}
+
+::ng-deep .mat-tooltip {
+  font-family: "Nunito";
+  font-size: 15px;
+  color: #fff;
+  border-radius: 4px;
+  margin: 14px;
+  max-width: 250px;
+  padding-left: 8px;
+  padding-right: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transform: scale(0);
+}
+
+// ---------------------tooltip Css exit -----------------------
+
+// new css changes
+::ng-deep {
+  .sanVibhu .mat-form-field .mat-select.mat-select-invalid .mat-select-arrow {
+    color: var(--blackColor);
+  }
+
+  .sanVibhu .mat-error {
+    color: var(--blackColor);
+    margin-top: 1px !important;
+    font-size: 11px;
+    font-weight: 400;
+    font-family: 'Nunito';
+  }
+
+  .sanVibhu .mat-form-field-appearance-fill .mat-form-field-ripple {
+    height: 0;
+  }
+}
+
+::ng-deep .mat-select-value-text {
+  color: #000 !important;
+}
+
+// .loginCust .form-group {
+//   margin-bottom: 15px;
+// }
+
+
+// ================ media query start
+
+@media screen and (max-width:1400px) {
+  .logsign_popup {
+    max-height: 630px;
+  }
+  ::ng-deep .mat-select-panel {
+    max-height: 148px !important;
+  }
+
+ }
+
+ @media screen and (max-width:1366px) {
+  .logsign_popup {
+    max-height: 560px;
+  }
+ }
+
+
+@media screen and (max-width:1199) {
+  .mat-select-panel {
+    max-height: 100px !important;
+  }
+
+  ::ng-deep .logsign_popup {
+    max-height: 570px;
+  }
+
+}
+
+// ================ media query exit

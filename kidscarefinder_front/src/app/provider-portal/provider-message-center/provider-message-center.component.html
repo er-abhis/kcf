@@ -1,0 +1,18 @@
+<div class="mainBgColor">
+  <app-header></app-header>
+  <section class="userSignupOuter">
+    <div class="customCombine customCombineProviderPort">
+      <app-provider-setting-sidebar></app-provider-setting-sidebar>
+        <div class="contentright">
+          <div class="contentrightBg provMsg">
+            <app-messenger (subsriptionChange)="subsriptionChange($event)"></app-messenger>
+          </div>
+
+            <!-- <div class="cancleAccoutBtn">
+                <a href="#" class="btn btn-outline-primary">Cancel Account</a>
+            </div> -->
+
+        </div>
+    </div>
+  </section>
+</div>

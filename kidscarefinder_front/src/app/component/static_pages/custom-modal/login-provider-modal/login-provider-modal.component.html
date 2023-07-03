@@ -1,0 +1,49 @@
+<div class="providerModal loginModal">
+  <div class="termHeading loginModalbg">
+    <h1 class="termh1 h1Flex">
+      <span class="modalIcon">
+        <svg width="51" height="50" viewBox="0 0 51 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0.5 35.3571L4.78572 25L0.5 14.6429L10.8571 10.3571L15.1429 0L25.5 4.28572L35.8571 0L40.1429 10.3571L50.5 14.6429L46.2143 25L50.5 35.3571L40.1429 39.6429L35.8571 50L25.5 45.7143L15.1429 50L10.8571 39.6429L0.5 35.3571Z" fill="white"/>
+        <path d="M28.0512 32.6531V37.7551H22.9492V32.6531H28.0512Z" fill="#772162"/>
+        <path d="M28.0512 12.2449V27.551H22.9492V12.2449H28.0512Z" fill="#772162"/>
+        </svg>
+      </span>
+      You’re currently logged in as a user</h1>
+  </div>
+    <div class="innerBox">
+      <div class="termContent">
+        <h2 class="termh2">Would you like to register with Kids Care Finder as a provider?</h2>
+        <p class="termPara">At this time, we require individuals who would like to sign up both
+          as a user and a provider to have two separate accounts with two separate email addresses
+        </p>
+        <div class="loginModalFlex">
+          <button type="checkbox" class="btn modalButton" (click)="openModal()">
+            Yes, log me out and continue <br> to
+              register as provider with new email
+          </button>
+          <button type="checkbox" class="btn modalOutline btn-outline-primary" (click)="closeModal()">
+            No, exit this screen
+          </button>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+
+<!-- <div class="providerModal">
+    <h1 class="text-center">You’re currently logged in as a user</h1>
+    <div class="innerBox">
+        <h2 class="text-center">Would you like to register with Kids Care Finder as a provider?</h2>
+        <p class="p-4 px-3">At this time, we require individuals who would like to sign up both
+            as a user and a provider to have two separate accounts with two separate email addresses</p>
+
+        <div class="text-center text-wrap">
+            <button class="btn modalButton px-3" (click)="openModal()">Yes, log me out and continue <br> to
+                register as provider with new email</button>
+
+            <button class="btn modalButton px-3" (click)="closeModal()">Exit Screen</button>
+        </div>
+    </div>
+</div> -->

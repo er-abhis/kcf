@@ -1,0 +1,63 @@
+// .menuText{
+//     margin: 9px 14px;
+//     font-size: 30px;
+//     width: bold;
+//     font-weight: 700;
+//     color: black;
+//     cursor: pointer;
+// }
+.menuText {
+  margin: 0px;
+  font-size: 30px;
+  font-weight: 700;
+  color: black;
+  cursor: pointer;
+  position: absolute;
+  z-index: 999;
+}
+
+.menuImg {
+  margin: 0px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+  object-fit: cover;
+  cursor: pointer;
+  position: absolute;
+  z-index: 999;
+  object-position: top;
+}
+
+// .FootMeessage {
+//     background: #6CA3C6;
+//     border: 1px solid #FFFFFF;
+//     border-radius: 10px;
+//     width: 10px;
+//     height: 22px;
+//     padding: 8px;
+//     color: #FFFFFF;
+//     text-align: center;
+//     font-family: 'Nunito';
+//     font-style: normal;
+//     font-weight: 800;
+//     font-size: 16px;
+//     line-height: 22px;
+//     margin-left: 10px;
+// }
+
+.FootMeessage {
+  background: #6ca3c6;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  padding: 8px 10px;
+  color: #ffffff;
+  text-align: center;
+  font-family: "Nunito";
+  font-weight: 700;
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+#user_menu .notSignedIn {
+  margin-top: -15px;
+}

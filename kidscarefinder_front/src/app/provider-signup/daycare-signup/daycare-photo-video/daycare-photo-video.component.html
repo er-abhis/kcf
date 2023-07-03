@@ -1,0 +1,188 @@
+<div class="signUpPhotoVideoSection">
+  <div class="PhotoVideoSteps0" *ngIf="stepCount === 0">
+    <form [formGroup]="photoLogoFormGroup">
+      <div class="main_block sect_head">
+        <h2 class="sect_title">Would you like to upload a
+          photo or
+          logo?
+        </h2>
+      </div>
+      <div class="licenceBtns radioButtons">
+        <mat-radio-group matInput aria-labelledby="example-radio-group-label" class="example-radio-group"
+          formControlName="option" required>
+          <span *ngFor="let season of PhotoVideoNoYes" class="spanRadio">
+            <mat-radio-button (change)="radioChange($event,season)" class="example-radio-button form-control1"
+              [value]="season">
+              {{season}}
+            </mat-radio-button>
+          </span>
+        </mat-radio-group>
+      </div>
+
+      <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 mx-auto" *ngIf="uploadFilePhotoVideo">
+        <div class="uploadFilesComponent">
+          <div class="profilePicture">
+            <h3 *ngIf="url == '' || url == null">No file uploaded</h3>
+            <img *ngIf="url" [src]="url? url: '' " alt="" />
+          </div>
+          <div class="profileUpload">
+            <div class="profileUploadBtn">
+              <input class="form-control ng-hide" type="file" formControlName="upload_files" accept=".png, .jpg, .jpeg"
+                (change)="onSelectFile($event)" id="choose-file" />
+              <label class="chsefile" for="choose-file"><img src="../../../../assets/images/upload.svg" alt="" />
+                <span class="spanArrow">Upload Image</span></label>
+            </div>
+            <button type="button" *ngIf="url" (click)="delete()" class="btn btn-outline-secondary">
+              <img src="../../../../assets/images/delete.svg" alt="" />
+              <span class="spanRemove">Remove Image</span>
+            </button>
+          </div>
+
+          <p class="profileDisclaim"><span style="color: red;">*</span> Upload Images with supported file type (.png,
+            .jpg)</p>
+        </div>
+
+        <div class="alertCustom icon2x">
+          <span class="exclamation">!</span>
+          Photo will be pending until reviewed and
+          published by a
+          site administrator
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="PhotoVideoSteps1" *ngIf="stepCount === 1">
+    <form [formGroup]="shortIntroVideoFormGroup">
+      <div class="main_block sect_head">
+        <h2 class="sect_title sect_titleLineHeight">Would you like to upload a
+          short
+          introduction video?</h2>
+      </div>
+      <div class="licenceBtns radioButtons">
+        <mat-radio-group matInput aria-labelledby="example-radio-group-label" class="example-radio-group"
+          formControlName="uploadVideo">
+          <span *ngFor="let season of UploadVideoNoYes" class="spanRadio">
+            <mat-radio-button (change)="introVideoChange($event,season)" class="example-radio-button form-control1"
+              [value]="season">
+              {{season}}
+            </mat-radio-button>
+          </span>
+        </mat-radio-group>
+      </div>
+      <div class="col-sm-5 mx-auto" *ngIf="videoUploadURL">
+        <div class="videoURLAlert">
+          <h2 class="sect_title">Add URL to YouTube Video</h2>
+          <input matInput placeholder="URL" class="urlInput
+              fullInput mb-4" (keydown.space)="$event.preventDefault()" value="" formControlName="video_url" required>
+          <span style="color: red" class="errorSpan"
+            *ngIf="(urlInput?.touched ||  urlInput.dirty || urlSubmitted) && urlInput.errors">
+            <mat-error *ngIf="urlInput.errors['required']">URL is required</mat-error>
+            <mat-error *ngIf="urlInput.errors['pattern']">URL is invalid</mat-error>
+          </span>
+          <div class="alertCustom">
+            <span class="exclamation">!</span>
+            Video will be pending until reviewed and
+            published
+            by a site administrator
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="PhotoVideoSteps2" *ngIf="stepCount === 2">
+    <form [formGroup]="reviewStepThreeForm">
+      <div class="container p-0">
+        <div class="StepDetailsLists stepDetail3">
+          <div class="row">
+            <div class="col-sm-12 mx-auto">
+              <div class="main_block sect_head
+                  StepDetailHeading">
+                <h2 class="titleDetails">Review | Step 3: Photo/ video</h2>
+                <p class="smallTextDetails">Review and edit photo/ video</p>
+              </div>
+            </div>
+            <div class="detailsRow detailsRowMobile">
+              <div class="DetailPhotoLeft bgWhiteDetails phodetaiL disable-section">
+                <div class="detailsColBg">
+                  <h3 class="headingBlackText">Photo</h3>
+                  <h3>Would you like to add a photo or logo?</h3>
+                  <mat-radio-group matInput aria-labelledby="example-radio-group-label" class="radioBasic"
+                    formControlName="stepDetailPhotoUpload">
+                    <span *ngFor="let season of
+                        StepDetailVideo" class="spanRadio">
+                      <mat-radio-button disabled class="example-radio-button
+                          form-control1" [value]="season">
+                        {{season}}
+                      </mat-radio-button>
+                    </span>
+                  </mat-radio-group>
+                  <div class="uploadRemovPhotoBtns">
+                    <div class="profilePicture">
+                      <h3 class="text-center" *ngIf="url == '' || url == null">No file uploaded</h3>
+                      <img *ngIf="url" [src]="url? url: '' " alt="" class="responsive-img photoUploads" width="800" />
+                    </div>
+                    <div class="profileUpload">
+                      <div class="profileUploadBtn">
+                        <input class="form-control ng-hide" type="file" formControlName="upload_files"
+                          accept=".png, .jpg, .jpeg" (change)="onSelectFile($event)" id="choose-file" />
+                        <label class="chsefile" for="choose-file"><img src="../../../../assets/images/upload.svg"
+                            alt="" />
+                          <span class="spanArrow">Upload Image</span></label>
+                      </div>
+                      <button type="button" *ngIf="url" (click)="delete()" class="btn btn-outline-secondary">
+                        <img src="../../../../assets/images/delete.svg" alt="" />
+                        <span class="spanRemove">Remove Image</span>
+                      </button>
+                    </div>
+
+                    <h6 class="greyText">Upload documents
+                      with
+                      supported file type (.png, .jpg)
+                    </h6>
+                  </div>
+                </div>
+              </div>
+              <div class="DetailPhotoRight bgWhiteDetails phodetaiR introVideo">
+                <div class="detailsColBg">
+
+                  <h3 class="headingBlackText">Introduction
+                    video
+                  </h3>
+                  <h3>Would you like to add link to a
+                    short
+                    introduction video?</h3>
+                  <mat-radio-group matInput aria-labelledby="example-radio-group-label" class="radioBasic"
+                    formControlName="stepDetailVideoUpload" required>
+                    <span *ngFor="let season of
+                        StepDetailVideo" class="spanRadio">
+                      <mat-radio-button disabled class="example-radio-button
+                          form-control1" [value]="season">
+                        {{season}}
+                      </mat-radio-button>
+                    </span>
+                  </mat-radio-group>
+                  <h3>URL to Youtube Video</h3>
+                  <input matInput placeholder="URL" class="urlInput fullInput"
+                    [value]="is_intro_video_uploaded?videoUrl:''" readonly>
+                  <div class="detailPreviwSec">
+                    <ng-container *ngIf="videoSrc && is_intro_video_uploaded">
+                      <h3>Preview</h3>
+                      <div class="videoPlay">
+                        <div class="videoIntro">
+                          <ng-container *ngIf="videoSrc && is_intro_video_uploaded">
+                            <iframe width="100%" height="100%" [src]="videoSrc"></iframe>
+                          </ng-container>
+                          <a *ngIf="!is_intro_video_uploaded" href="javascript:void(0);" class="playBtn"></a>
+                        </div>
+                      </div>
+                    </ng-container>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

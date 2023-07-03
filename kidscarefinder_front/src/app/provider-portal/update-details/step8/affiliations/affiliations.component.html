@@ -1,0 +1,134 @@
+<div class="mainBgColor">
+    <app-header></app-header>
+    <section class="userSignupOuter">
+      <div class="customCombine">
+        <app-update-details-sidebar></app-update-details-sidebar>
+        <div class="contentright">
+          <div class="contentrightBg">
+            <div class="accountSetting">
+              <div class="headingbg">
+                <h1 class="headingh1">Affiliations</h1>
+              </div>
+            </div>
+            <div class="paymentInformartion">
+              <div class="addBriefBoxOuter">
+                <div class="addBriefBox cardBox boxshadow">
+                    <div class="addBriefDetail StepDetailsLists stepDetail4 stepDetail8">
+                      <form [formGroup]="stepsReligiousDetailsForm">
+                        <div class="detailsRow">
+                          <div class="DetailPhotoLeft bgWhiteDetails">
+                            <div class="detailsColBg">
+                              <h3 class="headingBlackText">Religious affiliations</h3>
+                              <h3>Do you have religious affiliations?</h3>
+                              <mat-radio-group aria-label="Select an option" formControlName="religious" >
+                                <mat-radio-button [checked]="is_religion_affliliation == true" value="1">Yes</mat-radio-button>
+                                <mat-radio-button [checked]="is_religion_affliliation == false" value="2">No</mat-radio-button>
+                              </mat-radio-group>
+                              <h3>Religious affiliations:</h3>
+
+                              <div class="childYearDropdowns">
+                                <div class="SelectTime arrowmodi">
+                                  <mat-label>
+                                    <mat-select formControlName="religiousDrop" placeholder="Select" multiple>
+                                      <mat-option *ngFor="let toppingReligious of toppingListReligious"  [value]="toppingReligious.id">
+                                        {{toppingReligious.value}}</mat-option>
+                                    </mat-select>
+                                  </mat-label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                <!-- Next Section -->
+                          <div class="DetailPhotoRight bgWhiteDetails">
+                            <div class="detailsColBg">
+                              <h3 class="headingBlackText">Languages</h3>
+                              <h3>Do you offer programs any language other than English?</h3>
+                              <mat-radio-group aria-label="Select an option" formControlName="language" >
+                                <mat-radio-button [checked]="is_other_language == true" value="1">Yes</mat-radio-button>
+                                <mat-radio-button [checked]="is_other_language == false" value="2">No</mat-radio-button>
+                              </mat-radio-group>
+
+                              <h3>Languages:</h3>
+                              <div class="childYearDropdowns">
+                                <div class="SelectTime arrowmodi">
+                                  <mat-label>
+                                    <mat-select placeholder="Select additional language(s)" formControlName="languageDrop"
+                                      multiple>
+                                      <mat-option value="Select additional language(s) ">
+                                        Select additional language(s)</mat-option>
+                                        <mat-option *ngFor="let toppingslanguage of toppingListlanguage"  [value]="toppingslanguage.id">
+                                          {{toppingslanguage.value}}</mat-option>
+                                    </mat-select>
+                                  </mat-label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="detailsRow">
+                          <div class="w-100 p-3">
+                          <div class="cardBox boxshadow">
+                            <h3 class="headingBlackText">Affiliated providers</h3>
+                            <h3>Do you offer private primary school (TK-12) program?</h3>
+                            <mat-radio-group aria-label="Select an option" formControlName="affiliatedProvider" >
+                              <mat-radio-button [checked]="is_tk12_program == true" value="1">Yes</mat-radio-button>
+                              <mat-radio-button [checked]="is_tk12_program == false" value="2">No</mat-radio-button>
+                            </mat-radio-group>
+                            <h3>Do you have affiliated provider types?</h3>
+                            <mat-radio-group aria-label="Select an option" formControlName="affiliatedProviderType" >
+                              <mat-radio-button [checked]="is_affiliated_provider == true" value="1">Yes</mat-radio-button>
+                              <mat-radio-button [checked]="is_affiliated_provider == false" value="2">No</mat-radio-button>
+                            </mat-radio-group>
+
+                            <!-- Add more Affiliated Prrovider type Section Start  -->
+                            <h3 class="headingBlackText">Affiliated providers:</h3>
+                            <div class="col-12 mx-auto">
+                              <div class="profleTable steptable">
+                                <div class="table-responsive">
+                                  <table class="table table-hover">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col"></th>
+                                        <th scope="col">Provider type</th>
+                                        <th scope="col">Provider name</th>
+                                        <th scope="col">Provider page URL</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td>
+                                          <svg width="18" height="19" viewBox="0 0 18 19" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                              d="M9 0.5C13.977 0.5 18 4.523 18 9.5C18 14.477 13.977 18.5 9 18.5C4.023 18.5 0 14.477 0 9.5C0 4.523 4.023 0.5 9 0.5ZM12.231 5L9 8.231L5.769 5L4.5 6.269L7.731 9.5L4.5 12.731L5.769 14L9 10.769L12.231 14L13.5 12.731L10.269 9.5L13.5 6.269L12.231 5Z"
+                                              fill="#B9B9B9" />
+                                          </svg>
+                                        </td>
+                                        <td>Jane</td>
+                                        <td>Faster</td>
+                                        <td>Administrator</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- Add more Affiliated Prrovider type Section Start  -->
+
+                          </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                </div>
+              </div>
+                      <div class="settingSave">
+                        <button class="saveShareBtn" mat-focus-indicator mat-button mat-button-base color="primary"><span
+                            class="saveIcon"></span> Save</button>
+                      </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>

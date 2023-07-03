@@ -1,0 +1,14 @@
+<div class="trainedExpand">
+  <div class="inputGroup">
+    <div class="d-flex">
+      <label class="form-label inputColorsize" [for]="'time-picker' + uniqueId">{{label}}</label>
+      <span class="mandatory">*</span>
+      <span style="color: red" *ngIf="(isFormSubmitted && control.errors)">
+        <mat-error class="m-0 ms-2" *ngIf="control.errors['required']">Required*</mat-error>
+      </span>
+    </div>
+    <input class="inputBlock" [formControl]="control" aria-label="default time" [id]="'time-picker' + uniqueId"
+           [ngxTimepicker]="defaultValueC" [value]="'05:11 pm'" readonly>
+    <ngx-material-timepicker #defaultValueC></ngx-material-timepicker>
+  </div>
+</div>

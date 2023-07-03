@@ -1,0 +1,88 @@
+.shareBoxFixed {
+  padding: 15px;
+  height: 725px;
+  overflow: auto;
+}
+
+.contentrightBg {
+  border: 1px solid #8AD5FF;
+}
+@media screen and (max-width:767px){
+  .accountBillingFlex{
+    flex-direction: column;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .contentrightBg{
+    background-color: transparent;
+    border: none;
+  }
+  .headingbg{
+    background-color: transparent;
+    border-bottom: none;
+  }
+  .paratop{
+    line-height: 22px;
+  }
+  .headingh1{
+    font-weight: 800 !important;
+  }
+  .headingbgBtn a.btn-light{
+    font-size: 16px;
+  }
+  .accountBillBtn{
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+  }
+  // .accountBillBtn .matPrimary.mat-button.mat-primary{
+  //   padding: 0px 14px 0px 5px;
+  // }
+  .paymentInformartionCard .payinfoh2{
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 0px;
+  }
+  .paymentInformartionCard p.paypara{
+    font-size: 12px;
+  }
+  .reviewPayment h5.stepPlan{
+    font-size: 14px;
+  }
+  .reviewPayment h1.reviewPayh1{
+    font-size: 20px;
+  }
+  .usernameLink{
+    display: flex;
+    justify-content: center;
+  }
+  .subscriptionLeft p.subscpPara{
+    font-size: 16px;
+    margin: 0px;
+  }
+  .subscriptionRight{
+    margin-top: 0px;
+  }
+  .stepSubsTotal p.subTotalPara{
+    font-size: 14px;
+  }
+  .stepSubsTotal span.subTotalPrice{
+    font-size: 20px;
+  }
+  .paymentContinue{
+    text-align: center;
+  }
+  .accountBillBtn .matPrimary.mat-button.mat-primary{
+    font-size: 12px;
+  }
+  .accountBillBtn .strokedPrimary.mat-stroked-button{
+    font-size: 12px;
+  }
+  .cancleAccoutBtn a.btn-outline-primary{
+    font-size: 14px;
+  }
+  .paymentContinue .btn-primary{
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,193 @@
+<div class="mainBgColor">
+  <app-header></app-header>
+  <section class="userSignupOuter">
+    <div class="customCombine customCombineProviderPort">
+      <app-user-sidebar></app-user-sidebar>
+      <div class="contentright">
+        <app-mobo-top-menu></app-mobo-top-menu>
+        <div class="contentrightBg">
+          <div class="accountSetting">
+            <div class="headingbg">
+              <h1 class="headingh1">My Providers</h1>
+              <p class="paratop">This information will not be shared unless you’ve authorized</p>
+            </div>
+          </div>
+          <div class="shareBoxFixed">
+            <div class="paymentInformartion">
+              <div class="tabelCombine">
+                <div class="flexTitleTable">
+                  <h3 class="providerh3">My Favorites</h3>
+                  <a href="javascript:void(0)">
+                    <svg width="37" height="35" viewBox="0 0 37 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="0.800781" y="0.5" width="35.7" height="34" rx="4.5" fill="white" />
+                      <path
+                        d="M11.1504 18.75H26.1504V16.25H11.1504M7.40039 10V12.5H29.9004V10M16.1504 25H21.1504V22.5H16.1504V25Z"
+                        fill="#164789" />
+                      <rect x="0.800781" y="0.5" width="35.7" height="34" rx="4.5" stroke="#D9D9D9" />
+                    </svg>
+                  </a>
+                </div>
+                <div class="profleTable boxshadow">
+                  <div class="table-responsive">
+                    <table class="table table-striped table-bordered">
+                      <thead>
+                        <tr>
+                          <th scope="col"></th>
+                          <th scope="col">Provider Name</th>
+                          <th scope="col">Type</th>
+                          <th scope="col">Date Added</th>
+                          <th scope="col" class="action-tbl">Remove</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let item of favouriteList">
+                          <td class="action-tbl"><a href="javascript:void(0)">
+                              <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M10.4988 1.6992C16.2376 -4.19993 30.5859 6.12291 10.4988 19.3966C-9.58822 6.1242 4.76005 -4.19993 10.4988 1.6992Z"
+                                  fill="#772162" />
+                              </svg>
+                            </a></td>
+                          <td><a style="color: black;
+                                            text-decoration: none;" href="javascript:void(0)"
+                              (click)="goToMyProviderPage(item?.provider?.id)">{{item?.provider?.organization_name |
+                              titlecase}}</a>
+                          </td>
+                          <td>{{item?.provider?.provider_type === 'PRE_SCHOOL'?'Preschool':
+                            item?.provider?.provider_type}}</td>
+                          <td>{{item?.date_added | date:'shortDate'}}</td>
+                          <td class="action-tbl"><a href="javascript:void(0)" (click)="confirmDelete(item)">
+                              <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                  d="M15.5 11H5.5V9H15.5M10.5 0C9.18678 0 7.88642 0.258658 6.67317 0.761205C5.45991 1.26375 4.35752 2.00035 3.42893 2.92893C1.55357 4.8043 0.5 7.34784 0.5 10C0.5 12.6522 1.55357 15.1957 3.42893 17.0711C4.35752 17.9997 5.45991 18.7362 6.67317 19.2388C7.88642 19.7413 9.18678 20 10.5 20C13.1522 20 15.6957 18.9464 17.5711 17.0711C19.4464 15.1957 20.5 12.6522 20.5 10C20.5 8.68678 20.2413 7.38642 19.7388 6.17317C19.2362 4.95991 18.4997 3.85752 17.5711 2.92893C16.6425 2.00035 15.5401 1.26375 14.3268 0.761205C13.1136 0.258658 11.8132 0 10.5 0Z"
+                                  fill="#B50000" />
+                              </svg>
+                            </a></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+              </div>
+              <div class="tabelCombine">
+                <div class="flexTitleTable">
+                  <h3 class="providerh3">My Providers Activity</h3>
+                  <a href="javascript:void(0)">
+                    <svg style="margin-left: 5px" width="37" height="35" viewBox="0 0 37 35" fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <rect x="0.800781" y="0.5" width="35.7" height="34" rx="4.5" fill="white" />
+                      <path
+                        d="M11.1504 18.75H26.1504V16.25H11.1504M7.40039 10V12.5H29.9004V10M16.1504 25H21.1504V22.5H16.1504V25Z"
+                        fill="#164789" />
+                      <rect x="0.800781" y="0.5" width="35.7" height="34" rx="4.5" stroke="#D9D9D9" />
+                    </svg>
+                  </a>
+                </div>
+                <div class="profleTable boxshadow scrollTable provActivityTable">
+                  <div class="table-responsive">
+                    <table class="table table-striped table-bordered">
+                      <thead>
+                        <tr>
+                          <th scope="col"> Provider Name</th>
+                          <th scope="col">
+                            <div class="mproFilter">
+                              Type
+                              <span class="sortIcon" (click)="sort('type')">
+                              <svg  width="48" height="40" viewBox="0 0 48 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="1.04639" y="0.5" width="46.4537" height="39" rx="4.5" fill="white"/>
+                                <path d="M21.7318 13.1707L24.9025 10L28.0732 13.1707H21.7318ZM28.0732 26.8293L24.9025 30L21.7318 26.8293H28.0732ZM21.3805 22.2439H18.561L17.8586 24.878H15.5464L18.561 15.122H21.4879L24.5415 24.878H22.1415L21.3805 22.2439ZM18.883 20.6634H21.0586L20.4439 18.5951L20.1903 17.6488L19.9464 16.7122H19.9171L19.7025 17.6585L19.4683 18.6146L18.883 20.6634ZM25.4391 24.878V23.6488L30.0732 17.0439V16.9854H25.8781V15.122H32.9318V16.4293L28.4049 22.9268V23.0049H33V24.878H25.4391Z" fill="#164789"/>
+                                <rect x="1.04639" y="0.5" width="46.4537" height="39" rx="4.5" stroke="#D9D9D9"/>
+                                </svg>
+                              </span>
+                            </div>
+                          </th>
+                          <th scope="col">
+                            <div class="mproFilter">
+                              Child Name
+                              <span class="sortIcon" (click)="sort('child_name')">
+                                <svg  width="48" height="40" viewBox="0 0 48 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <rect x="1.04639" y="0.5" width="46.4537" height="39" rx="4.5" fill="white"/>
+                                  <path d="M21.7318 13.1707L24.9025 10L28.0732 13.1707H21.7318ZM28.0732 26.8293L24.9025 30L21.7318 26.8293H28.0732ZM21.3805 22.2439H18.561L17.8586 24.878H15.5464L18.561 15.122H21.4879L24.5415 24.878H22.1415L21.3805 22.2439ZM18.883 20.6634H21.0586L20.4439 18.5951L20.1903 17.6488L19.9464 16.7122H19.9171L19.7025 17.6585L19.4683 18.6146L18.883 20.6634ZM25.4391 24.878V23.6488L30.0732 17.0439V16.9854H25.8781V15.122H32.9318V16.4293L28.4049 22.9268V23.0049H33V24.878H25.4391Z" fill="#164789"/>
+                                  <rect x="1.04639" y="0.5" width="46.4537" height="39" rx="4.5" stroke="#D9D9D9"/>
+                                  </svg>
+                              </span>
+                            </div>
+                          </th>
+                          <th scope="col">Child Age</th>
+                          <th scope="col">
+                            <div class="mproFilter">
+                              Status
+                              <span class="sortIcon" (click)="sort('status')">
+                              <svg  width="48" height="40" viewBox="0 0 48 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="1.04639" y="0.5" width="46.4537" height="39" rx="4.5" fill="white"/>
+                                <path d="M21.7318 13.1707L24.9025 10L28.0732 13.1707H21.7318ZM28.0732 26.8293L24.9025 30L21.7318 26.8293H28.0732ZM21.3805 22.2439H18.561L17.8586 24.878H15.5464L18.561 15.122H21.4879L24.5415 24.878H22.1415L21.3805 22.2439ZM18.883 20.6634H21.0586L20.4439 18.5951L20.1903 17.6488L19.9464 16.7122H19.9171L19.7025 17.6585L19.4683 18.6146L18.883 20.6634ZM25.4391 24.878V23.6488L30.0732 17.0439V16.9854H25.8781V15.122H32.9318V16.4293L28.4049 22.9268V23.0049H33V24.878H25.4391Z" fill="#164789"/>
+                                <rect x="1.04639" y="0.5" width="46.4537" height="39" rx="4.5" stroke="#D9D9D9"/>
+                                </svg>
+                              </span>
+                            </div>
+                          </th>
+                        <th scope="col">
+                          <div class="mproFilter">
+                            Date
+                            <span class="sortIcon" (click)="sort('date')">
+                              <svg width="43" height="40" viewBox="0 0 43 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="1.27783" y="0.5" width="41.2222" height="39" rx="4.5" fill="white"/>
+                                <path d="M28.5556 30L24.1112 25.5556H27.4445V14.4444H24.1112L28.5556 10L33.0001 14.4444H29.6667V25.5556H33.0001M10.7778 27.7778V25.5556H21.8889V27.7778M10.7778 21.1111V18.8889H18.5556V21.1111M10.7778 14.4444V12.2222H15.2223V14.4444H10.7778Z" fill="#164789"/>
+                                <rect x="1.27783" y="0.5" width="41.2222" height="39" rx="4.5" stroke="#D9D9D9"/>
+                                </svg>
+                            </span>
+                          </div>
+
+
+                        </th>
+                          <th scope="col" class="action-tbl">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let item of myProviderList.Others">
+                          <td>
+                            <a style="color: black;
+                                            text-decoration: none;" href="javascript:void(0)"
+                              (click)="goToMyProviderPage(item?.provider?.id)">{{item?.provider?.organization_name |
+                              titlecase}}</a>
+                          </td>
+                          <td>{{item?.provider?.provider_type === 'PRE_SCHOOL'?'Preschool':
+                            item?.provider?.provider_type}}</td>
+                          <td
+                            *ngIf="(item?.child.expected_due_date && item?.child?.first_name) || ((!item?.child.expected_due_date && item?.child?.first_name))">
+                            {{ subString(ucFirst(item?.child?.first_name),0,10) }}&nbsp;{{
+                            usLast(item?.child?.last_name) }}.
+                          </td>
+                          <td *ngIf="item?.child.expected_due_date && !item?.child?.first_name">Pregnancy
+                            ({{item?.child.expected_due_date | date:'MM/dd/YYYY'}})</td>
+                          <td>{{item?.child?.age}}</td>
+                          <td>{{item?.request_status}}</td>
+                          <td>{{item?.updated_at | date:'shortDate'}}</td>
+                          <td class="action-tbl"><a (click)="handleActions(item,item.request_status)"
+                              href="javascript:void(0)">{{actions[item.request_status]}}</a></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+              </div>
+              <!-- <div class="paymentContinue">
+                <a href="javascript:void(0)" class="btn btn-primary">Continue</a>
+              </div> -->
+
+            </div>
+          </div>
+
+        </div>
+        <!-- <div class="cancleAccoutBtn">
+                <a href="javascript:void(0)" class="btn btn-outline-primary">Cancel Account</a>
+            </div> -->
+
+      </div>
+    </div>
+  </section>
+</div>

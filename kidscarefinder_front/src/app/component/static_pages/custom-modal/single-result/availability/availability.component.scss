@@ -1,0 +1,50 @@
+::ng-deep .CustomModal .mat-dialog-container {
+  overflow-x: hidden;
+  width: 320px;
+  margin: auto;
+  min-height: 375px;
+  border-radius: 20px;
+}
+.resultMessagePopup h1.resultMsgPopTitle {
+  background: #F3F3F3;
+  border-bottom: 1px solid #767676;
+  font-family: 'Nunito';
+  color: var(--blackColor);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 40px;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+}
+.resultMessagePopTable {
+  padding: 0px 30px;
+}
+.resultMessagePopTable table.table.table-bordered.table-striped {
+  border: 1px solid var(--blackColor);
+}
+.resultMessagePopTable .table th, .resultMessagePopTable .table td {
+  font-size: 22px;
+  font-weight: 600;
+  padding: 20px;
+}
+.resultMessageBtn {
+  background: #F3F3F3;
+  border-top: 1px solid #767676;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 0px;
+  margin-top: 20px;
+}
+.resultMessageBtn .modalBtn {
+  font-family: 'Nunito';
+  background: #0E2E58;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 600;
+  padding: 12px;
+  min-width: 113px;
+  min-height: 60px;
+  border-radius: 40px;
+}

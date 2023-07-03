@@ -1,0 +1,857 @@
+<div class="col-12">
+  <div class="signUpIntroSection">
+    <div class="introSteps1 basicIntroSteps" *ngIf="stepCount === 0">
+      <div class="main_block sect_head">
+        <h2 class="sect_title">Let’s get started!</h2>
+        <p>
+          To become a provider with Kids Care Finder, you will need to complete
+          our unique provider questionnaire. This will help provide users with
+          all of the information they need to find a provider that meets their
+          family’s unique needs.
+        </p>
+      </div>
+      <div class="signupIntro">
+        <div class="leftWhiteContent">
+          <p>As a Preschool provider, you will have the option to:</p>
+          <ul class="introLists">
+            <li>Send messages to-and-from users from your Message Center</li>
+            <li>Easily manage a waitlist for your Preschool</li>
+            <li>Accept and review online applications</li>
+            <li>
+              Offer enrollment to users that is fast, simple, and paper-free
+            </li>
+            <li>
+              Fill openings quickly with our Search Result Optimization service
+            </li>
+          </ul>
+        </div>
+        <div class="rightVideoContent">
+          <div class="playMobile">
+            <p>
+              Watch this short walkthrough video on our provider questionnaire
+            </p>
+            <div class="videoIntro">
+              <a href="javascript:void(0);" class="playBtn"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="alertCustom">
+        <span class="exclamation">!</span>
+        Note: This questionnaire takes approximately 15-20 minutes to complete.
+        If you cannot complete the full questionnaire upon starting, you will
+        have the option to save your progress and finish the remaining steps at
+        a later time
+      </div>
+    </div>
+    <div class="introSteps2 basicIntroSteps" *ngIf="stepCount === 1">
+      <form [formGroup]="accountBasicInfo" [ngClass]="{ loaderCustom: showLoader }">
+        <div class="loaderPreschool" *ngIf="showLoader">
+          <img src="../../../../assets/images/loader.gif" alt="" />
+        </div>
+        <div class="main_block sect_head">
+          <h2 class="sect_title">
+            We need to start by creating an account for you
+          </h2>
+          <p>You will be the primary administrator for the Preschool</p>
+        </div>
+        <div class="alertStep1">
+          <div class="alertCustom">
+            <span class="exclamation">!</span>
+            You will have the opportunity to add additional administrators later
+            on in the questionnaire
+          </div>
+        </div>
+        <div class="container containerMobile">
+          <div class="row starHide">
+            <div class="col-xxl-4 col-xl-6 col-lg-4 col-md-4 col-sm-6">
+              <mat-form-field appearance="fill">
+                <mat-label>First name</mat-label>
+                <input matInput type="text" placeholder="Enter First Name" formControlName="first_name" id="first_name"
+                  name="first_name" autocomplete="off" maxlength="30" />
+                <span style="color: red" *ngIf="
+                    submitted &&
+                    accControls['first_name']?.touched &&
+                    accControls['first_name'].errors
+                  ">
+                  <mat-error *ngIf="accControls['first_name'].errors['required']">First name is required</mat-error>
+                  <mat-error *ngIf="accControls['first_name'].errors['pattern']">First name is invalid</mat-error>
+                </span>
+              </mat-form-field>
+            </div>
+            <div class="col-xxl-4 col-xl-6 col-lg-4 col-md-4 col-sm-6">
+              <mat-form-field appearance="fill">
+                <mat-label>Last name</mat-label>
+                <input matInput placeholder="Enter Last Name" type="text" formControlName="last_name" id="last_name"
+                  name="last_name" autocomplete="off" maxlength="30" />
+                <span style="color: red" *ngIf="
+                    submitted &&
+                    accControls['last_name']?.touched &&
+                    accControls['last_name'].errors
+                  ">
+                  <mat-error *ngIf="accControls['last_name'].errors['required']">Last name is required</mat-error>
+                  <mat-error *ngIf="accControls['last_name'].errors['pattern']">Last name is invalid</mat-error>
+                </span>
+              </mat-form-field>
+            </div>
+
+            <div class="col-xxl-4 col-xl-6 col-lg-4 col-md-4 col-sm-6">
+              <mat-form-field appearance="fill">
+                <mat-label>Position/ title</mat-label>
+                <input matInput placeholder="Enter Position/title" type="text" formControlName="position" id="position"
+                  name="position" autocomplete="off" />
+                <span style="color: red" *ngIf="
+                    submitted &&
+                    accControls['position']?.touched &&
+                    accControls['position'].errors
+                  ">
+                  <mat-error *ngIf="accControls['position'].errors['required']">Job title is required</mat-error>
+                </span>
+              </mat-form-field>
+            </div>
+            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6">
+              <mat-form-field appearance="fill">
+                <mat-label>E-mail address</mat-label>
+                <input matInput placeholder="Enter email address" type="text" formControlName="email" id="email"
+                  name="email" autocomplete="off" />
+                <span style="color: red" *ngIf="
+                    submitted &&
+                    accControls['email']?.touched &&
+                    accControls['email'].errors
+                  ">
+                  <mat-error *ngIf="accControls['email'].errors['required']">Email is required</mat-error>
+                  <mat-error *ngIf="accControls['email'].errors['pattern']">Email is invalid</mat-error>
+                </span>
+              </mat-form-field>
+            </div>
+            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6">
+              <mat-form-field appearance="fill">
+                <mat-label>Phone number</mat-label>
+                <input matInput placeholder="Enter Contact Number" type="text" formControlName="contact"
+                  mask="000-000-0000" id="contact" name="contact" autocomplete="off" />
+                <span style="color: red" *ngIf="
+                    submitted &&
+                    accControls['contact']?.touched &&
+                    accControls['contact'].errors
+                  ">
+                  <mat-error *ngIf="accControls['contact'].errors['required']">Contact number is required</mat-error>
+                  <mat-error *ngIf="accControls['contact'].errors['minlength']">Please enter valid contact
+                    number</mat-error>
+                </span>
+              </mat-form-field>
+            </div>
+            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 tooltipManageOut">
+              <mat-form-field appearance="fill">
+                <div class="tooltipManage">
+                  <mat-label>Create your password</mat-label>
+                  <button mat-raised-button matTooltip="Password must be at least eight characters in length,
+                  contain at least one uppercase and one lowercase letter,
+                  one number,
+                  and at least one special character" aria-label="Displays a tooltip">
+                    <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M11.5 7.5H9.5V5.5H11.5M11.5 15.5H9.5V9.5H11.5M10.5 0.5C9.18678 0.5 7.88642 0.758658 6.67317 1.2612C5.45991 1.76375 4.35752 2.50035 3.42893 3.42893C1.55357 5.3043 0.5 7.84784 0.5 10.5C0.5 13.1522 1.55357 15.6957 3.42893 17.5711C4.35752 18.4997 5.45991 19.2362 6.67317 19.7388C7.88642 20.2413 9.18678 20.5 10.5 20.5C13.1522 20.5 15.6957 19.4464 17.5711 17.5711C19.4464 15.6957 20.5 13.1522 20.5 10.5C20.5 9.18678 20.2413 7.88642 19.7388 6.67317C19.2362 5.45991 18.4997 4.35752 17.5711 3.42893C16.6425 2.50035 15.5401 1.76375 14.3268 1.2612C13.1136 0.758658 11.8132 0.5 10.5 0.5Z"
+                        fill="white" />
+                    </svg>
+                  </button>
+
+                  <input matInput placeholder="Enter password" type="password" formControlName="password" id="password"
+                    name="password" autocomplete="off" />
+                  <span style="color: red"
+                    *ngIf="submitted && accControls['password']?.touched && accControls['password'].errors">
+                    <mat-error *ngIf="accControls['password'].errors['required']">Password is required</mat-error>
+                    <mat-error *ngIf="accControls['password'].errors['pattern']">
+                      Please enter a valid password
+                    </mat-error>
+                  </span>
+                </div>
+              </mat-form-field>
+            </div>
+            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6">
+              <mat-form-field appearance="fill">
+                <mat-label>Confirm your password</mat-label>
+                <input matInput placeholder="Confirm password" type="password" formControlName="confirmPassword"
+                  id="confirmPassword" name="confirmPassword" autocomplete="off" />
+                <span style="color: red" *ngIf="
+                    submitted && accControls['confirmPassword']?.touched && accControls['confirmPassword'].errors">
+                  <mat-error *ngIf="accControls['confirmPassword'].errors['required']">
+                    Confirm password is required
+                  </mat-error>
+                  <mat-error *ngIf="accControls['confirmPassword'].errors['passwordNotMatch']">
+                    {{customAlertMessage.passwordMismatch[2].message}}
+                  </mat-error>
+                </span>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="termBton">
+          <button type="submit" [hidden]="'true'"></button>
+          <button type="submit" class="termsAndCondition btn btn-primary" (click)="openProviderTerms('providerModal')">
+            <input class="form-check-input" [checked]="termsConditions" aria-hidden="true" type="checkbox" value=""
+              id="flexCheckDefault" />
+            Accept Terms and Conditions
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="introSteps3 PreSchoolInfo basicIntroSteps" *ngIf="stepCount === 2">
+      <form [formGroup]="preSchoolGroup">
+        <div class="main_block sect_head">
+          <h2 class="sect_title sect_titleMobile">
+            What's your Preschool name?
+          </h2>
+        </div>
+        <div class="container containerMobile">
+          <div class="row">
+            <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-5 col-sm-6 mx-auto manageInput">
+              <mat-form-field appearance="fill">
+                <input matInput type="text" placeholder="Enter Preschool Name" formControlName="organization_name"
+                  id="organization_name" name="organization_name" autocomplete="off" />
+                <span style="color: red" *ngIf="
+                    locationSubmitted && lControls['organization_name'].errors
+                  ">
+                  <mat-error *ngIf="lControls['organization_name'].errors['required']">Preschool name is
+                    required</mat-error>
+                  <mat-error *ngIf="lControls['organization_name'].errors['pattern']">Preschool name is
+                    invalid</mat-error>
+
+                </span>
+                <!-- <span style="color: red" *ngIf="
+                (f['first_name'].errors &&
+                  f['first_name'].touched) ||
+                (userSubmitted && f['first_name'].errors)
+              ">
+              <mat-error *ngIf="f['first_name'].errors['required']">First name can't be
+                blank</mat-error>
+              <mat-error *ngIf="f['first_name'].errors['pattern']">First name is invalid</mat-error>
+            </span> -->
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="main_block sect_head">
+              <h2 class="sect_title sect_titleMobile">
+                What’s your Preschool address?
+              </h2>
+            </div>
+            <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-5 col-sm-6 mx-auto manageInput">
+              <mat-form-field appearance="fill">
+                <input matInput placeholder="Enter Address" type="text" ngx-google-places-autocomplete
+                  (onAddressChange)="AddressChange($event)" class="form-control" autocomplete="off" id="pre_address"
+                  formControlName="street_address" />
+                <span style="color: red" *ngIf="
+                    locationSubmitted && lControls['street_address'].errors
+                  ">
+                  <mat-error *ngIf="lControls['street_address'].errors['required']">Address can't be blank</mat-error>
+                </span>
+                <input hidden matInput #latitude formControlName="latitude" />
+                <input hidden matInput #longitude formControlName="longitude" />
+                <input hidden matInput formControlName="city" />
+                <input hidden matInput formControlName="state" />
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-6 mx-auto">
+            <div class="alertCustom textmanage">
+              <span class="exclamation">
+                <svg width="5" height="20" viewBox="0 0 5 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0.277344 0H4.72179V12.2222H0.277344V0ZM0.277344 20V15.5556H4.72179V20H0.277344Z"
+                    fill="#772162" />
+                </svg>
+              </span>
+              We're currently only available in <a>San Diego County</a>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- ------------Provider Setting -> Get start -> Lets Get start -> Continue ->Continue Page End---------------- -->
+
+    <!-- ------------Provider Setting -> Get start -> Lets Get start -> Continue ->Continue -> Next Page Start---------------- -->
+    <div class="introSteps3 PreSchoolInfo basicIntroSteps" *ngIf="stepCount === 3">
+      <form [formGroup]="basicInfoLicensedGroup">
+        <div class="main_block sect_head">
+          <h2 class="sect_title">
+            Are you a licensed provider?
+          </h2>
+        </div>
+        <div class="licenceBtns radioButtons">
+          <mat-radio-group matInput aria-labelledby="example-radio-group-label44" class="example-radio-group"
+            formControlName="licensedInfo" (change)="changeLicenseOption($event)">
+            <span *ngFor="let license of BasicLicensedVals" class="spanRadio">
+              <mat-radio-button [ngClass]="{ disableBtnBg: license == 'No' }" class="example-radio-button form-control1"
+                [value]="license">
+                {{ license }}
+              </mat-radio-button>
+            </span>
+          </mat-radio-group>
+        </div>
+        <span style="color: red; text-align: center" *ngIf="
+            licenceSubmitted &&
+            lMainControls['licensedInfo']?.touched &&
+            lMainControls['licensedInfo'].errors
+          ">
+          <mat-error *ngIf="lMainControls['licensedInfo'].errors['required']">Please select a value</mat-error>
+        </span>
+      </form>
+    </div>
+
+    <div class="introSteps4 PreLicenced basicIntroSteps" *ngIf="stepCount === 4">
+      <form [formGroup]="licenseInfoGroup">
+        <div class="main_block sect_head">
+          <h2 class="sect_title sect_titleMobile">
+            What is your license information?
+          </h2>
+        </div>
+        <input matInput type="text" formControlName="license_id" hidden id="license_id" name="license_id"
+          autocomplete="off" />
+        <div class="container containerMobile">
+          <div class="row">
+            <div class="col-sm-8 mx-auto">
+              <div class="container containerMobile">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <mat-form-field appearance="fill" hideRequiredMarker>
+                      <mat-label class="">Preschool EIN</mat-label>
+                      <input matInput type="text" placeholder="Enter EIN Number" formControlName="ein" id="ein"
+                        name="ein" autocomplete="off" maxlength="120" />
+                      <span style="color: red" *ngIf="
+                          EINsubmitted &&
+                          licenceControls['ein']?.touched &&
+                          licenceControls['ein'].errors
+                        ">
+                        <mat-error *ngIf="licenceControls['ein'].errors['required']">Preschool EIN is
+                          required</mat-error>
+                        <mat-error *ngIf="licenceControls['ein'].errors['pattern']">Please enter number
+                          value</mat-error>
+                      </span>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <mat-form-field appearance="fill" hideRequiredMarker>
+                      <mat-label>Preschool license number</mat-label>
+                      <input matInput placeholder="Enter Licence Number" type="text" formControlName="license_no"
+                        id="license_no" name="license_no" autocomplete="off" />
+                      <span style="color: red" *ngIf="
+                          EINsubmitted &&
+                          licenceControls['license_no']?.touched &&
+                          licenceControls['license_no'].errors
+                        ">
+                        <mat-error *ngIf="
+                            licenceControls['license_no'].errors['required']
+                          ">Preschool license number is required</mat-error>
+                        <mat-error *ngIf="
+                            licenceControls['license_no'].errors['pattern']
+                          ">Please enter number only</mat-error>
+                      </span>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-4 col-sm-6">
+                    <mat-form-field appearance="fill" hideRequiredMarker>
+                      <mat-label>Issuing agency</mat-label>
+                      <input matInput placeholder="Enter Agency" type="text" formControlName="issuing_agency"
+                        id="issuing_agency" name="issuing_agency" autocomplete="off" maxlength="120" />
+                      <span style="color: red" *ngIf="
+                          EINsubmitted &&
+                          licenceControls['issuing_agency']?.touched &&
+                          licenceControls['issuing_agency'].errors
+                        ">
+                        <mat-error *ngIf="
+                            licenceControls['issuing_agency'].errors['required']
+                          ">Issuing agency is required</mat-error>
+                      </span>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                    <mat-form-field appearance="fill" hideRequiredMarker>
+                      <mat-label>License type</mat-label>
+                      <input matInput placeholder="Enter Licence type" type="text" formControlName="license_type"
+                        id="license_type" name="license_type" autocomplete="off" maxlength="120" />
+                      <span style="color: red" *ngIf="
+                          EINsubmitted &&
+                          licenceControls['license_type']?.touched &&
+                          licenceControls['license_type'].errors
+                        ">
+                        <mat-error *ngIf="
+                            licenceControls['license_type'].errors['required']
+                          ">Licence type is required</mat-error>
+                      </span>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="col-sm-12">
+                    <div class="tooltipManage toolforCDS">
+                      <mat-form-field appearance="fill" hideRequiredMarker>
+                        <div class="toolcombine">
+                          <mat-label>CDS code</mat-label>
+                          <button type="button" mat-raised-button
+                            matTooltip="The 14-digit CDS code is the official, unique identification of a school within California. The first two digits identify the county, the next five digits identify the school district, and the last seven digits identify the school."
+                            aria-label="Displays a tooltip">
+                            <svg width="21" height="21" viewBox="0 0 21 21" fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                d="M11.5 7.5H9.5V5.5H11.5M11.5 15.5H9.5V9.5H11.5M10.5 0.5C9.18678 0.5 7.88642 0.758658 6.67317 1.2612C5.45991 1.76375 4.35752 2.50035 3.42893 3.42893C1.55357 5.3043 0.5 7.84784 0.5 10.5C0.5 13.1522 1.55357 15.6957 3.42893 17.5711C4.35752 18.4997 5.45991 19.2362 6.67317 19.7388C7.88642 20.2413 9.18678 20.5 10.5 20.5C13.1522 20.5 15.6957 19.4464 17.5711 17.5711C19.4464 15.6957 20.5 13.1522 20.5 10.5C20.5 9.18678 20.2413 7.88642 19.7388 6.67317C19.2362 5.45991 18.4997 4.35752 17.5711 3.42893C16.6425 2.50035 15.5401 1.76375 14.3268 1.2612C13.1136 0.758658 11.8132 0.5 10.5 0.5Z"
+                                fill="white" />
+                            </svg>
+                          </button>
+                        </div>
+
+                        <input matInput placeholder="Enter CDS code" type="text" formControlName="cds_code"
+                          id="cds_code" name="cds_code" autocomplete="off" maxlength="14" />
+                        <span style="color: red" *ngIf="
+                          EINsubmitted &&
+                          licenceControls['cds_code']?.touched &&
+                          licenceControls['cds_code'].errors
+                        ">
+                          <mat-error *ngIf="
+                            licenceControls['cds_code'].errors['required']
+                          ">CDS code is required</mat-error>
+                        </span>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="alertLicenced">
+                      <div class="alertCustom">
+                        <span class="exclamation exclamationMobile">!</span>
+                        Licenses will be verified using a third-party partner.
+                        Upon validation, you will receive a verified license
+                        badge next to your Preschool’s name
+                        <div class="alertImage"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- ------------Provider Setting -> Get start -> Lets Get start -> Continue ->Continue ->Next Page End---------------- -->
+
+    <!-- ------------Provider Setting -> Get start -> Lets Get start -> Continue ->Continue ->Next-> NextPage Start---------------- -->
+    <div class="introSteps3 PreSchoolInfo basicIntroSteps" *ngIf="stepCount === 5">
+      <form [formGroup]="licenseWebGroup">
+        <div class="main_block sect_head">
+          <h2 class="sect_title">
+            Does your Preschool have a website?
+          </h2>
+        </div>
+        <div class="licenceBtns radioButtons basicInfo">
+          <mat-radio-group matInput aria-labelledby="example-radio-group-label" class="example-radio-group"
+            formControlName="is_website">
+            <span *ngFor="let hasUrl of websiteVals" class="spanRadio">
+              <mat-radio-button class="example-radio-button form-control1" [value]="hasUrl"
+                (change)="hasWebsiteUrl($event)">
+                {{ hasUrl }}
+              </mat-radio-button>
+            </span>
+          </mat-radio-group>
+          <span style="color: red" *ngIf="
+              webSubmitted &&
+              webControls['is_website']?.touched &&
+              webControls['is_website'].errors
+            ">
+            <mat-error *ngIf="webControls['is_website'].errors['required']">Licence type is required</mat-error>
+          </span>
+        </div>
+        <ng-container *ngIf="hasWebsite">
+          <div class="main_block sect_head">
+            <h2 class="sect_title sect_titleMobile">
+              What is your Preschool's website?
+            </h2>
+          </div>
+          <div class="container containerMobile">
+            <div class="row">
+              <div class="col-sm-6 mx-auto">
+                <div class="container containerMobile">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <mat-form-field appearance="fill">
+                        <input matInput type="text" placeholder="Enter preschool website" formControlName="website_link"
+                          id="website_link" name="website_link" autocomplete="off" />
+                        <span style="color: red" *ngIf="
+                            webSubmitted &&
+                            webControls['website_link']?.touched &&
+                            webControls['website_link'].errors
+                          ">
+                          <mat-error *ngIf="
+                              webControls['website_link'].errors['required']
+                            ">Website is required</mat-error>
+                          <mat-error *ngIf="
+                              webControls['website_link'].errors['pattern']
+                            ">Please enter valid link</mat-error>
+                        </span>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </form>
+    </div>
+    <!-- ------------Provider Setting -> Get start -> Lets Get start -> Continue ->Continue ->Next-> NextPage End---------------- -->
+
+    <!-- ------------Provider Setting -> Get start -> Lets Get start -> Continue ->Continue ->Next-> Next -> Next Page Start---------------- -->
+    <div class="introSteps5 PreLicenced" *ngIf="stepCount === 6">
+      <form [formGroup]="groupCategoryForm" novalidate>
+        <div class="main_block sect_head">
+          <h2 class="sect_title sect_titleMobile">
+            Which age groups do you offer programs for?
+          </h2>
+        </div>
+        <div class="container containerMobile">
+          <div class="offerProgbox">
+            <div class="PreCheckBoxGroup PreCheckBoxGroupMobile basiPad">
+              <ng-container *ngFor="let category of categoryAgeGroups; let i = index" formArrayName="checkArray">
+                <mat-checkbox [value]="category.agegroupcategory.id" (change)="onCheckboxChange($event)"
+                  [checked]="category.is_present" class="mobileCheckBox">{{
+                  category?.agegroupcategory?.agegroupcategory
+                  }}</mat-checkbox>
+              </ng-container>
+              <span style="color: red"
+                *ngIf="this.groupCategoryForm.controls['checkArray']?.errors?.['required'] && ageGroupSubmitted">
+                <mat-error>
+                  Checkbox is required, select atleast one value.</mat-error>
+              </span>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- ------------Provider Setting -> Get start -> Lets Get start -> Continue ->Continue ->Next-> Next -> Next Page End---------------- -->
+
+    <!-- ------------Provider Setting -> Get start -> Lets Get start -> Continue ->Continue ->Next-> Next -> Next -> Next Page Start---------------- -->
+    <div class="introSteps6 PreLicenced basicIntroSteps" *ngIf="stepCount === 7">
+      <div class="main_block sect_head">
+        <h2 class="sect_title">
+          How would you describe your preschool?
+        </h2>
+        <div class="alertCustom alertCustomNew">
+          <span class="exclamation">!</span>
+          This will be visible to users on your customized provider page
+        </div>
+        <h6 class="titleSmall">
+          This will be visible to users on your customized provider page
+        </h6>
+      </div>
+      <div class="container containerMobile">
+        <div class="row">
+          <div class="col-sm-12 mx-auto">
+            <div class="container containerMobile">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="PreDescribetext">
+                    <textarea placeholder="Describe Your Preschool.." [(ngModel)]="description"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="introSteps6 PreLicenced basicIntroSteps" *ngIf="stepCount === 8">
+      <div class="container p-0">
+        <div class="StepDetailsLists stepDetailBasicFirst">
+          <div class="row">
+            <div class="col-sm-12 mx-auto">
+              <div class="main_block sect_head StepDetailHeading">
+                <h2 class="titleDetails">Review | Step 1: Basic information</h2>
+                <p class="smallTextDetails">
+                  Review and edit basic information details
+                </p>
+              </div>
+            </div>
+            <form [formGroup]="mainSteppeGroup" class="p-0">
+              <div class="detailsRowMobile detailsRow">
+                <div class="DetailPhotoLeft bgWhiteDetails fullWidthColmn">
+                  <h3 class="headingBlackText">Photo</h3>
+                  <div class="detailsColBg">
+                    <div class="row calMobile gx-3">
+                      <div class="col calMobileTwo">
+                        <!-- <div class="BoxHead">BoxHead</div> -->
+                        <div class="basicFormGroup newbasicFormGroup itemOrderOne">
+                          <h3 style="margin: 0px">First name</h3>
+                          <mat-form-field appearance="fill">
+                            <input matInput placeholder="" value="Jane" type="text" autocomplete="off"
+                              formControlName="first_name" readonly />
+                          </mat-form-field>
+                        </div>
+                        <div class="basicFormGroup newbasicFormGroup itemOrderTwo">
+                          <h3 style="margin: 0px">E-mail address</h3>
+                          <mat-form-field appearance="fill">
+                            <input matInput placeholder="" value="janefoster@therhoadesschool.com" type="text"
+                              autocomplete="off" formControlName="email" readonly />
+                          </mat-form-field>
+                        </div>
+                        <div class="basicFormGroup newbasicFormGroup itemOrder itemOrderThree">
+                          <h3 style="margin: 0px">Last name</h3>
+                          <mat-form-field appearance="fill">
+                            <input matInput placeholder="" value="Foster" type="text" autocomplete="off"
+                              formControlName="last_name" readonly />
+                          </mat-form-field>
+                        </div>
+                        <div class="basicFormGroup newbasicFormGroup itemOrderFour">
+                          <h3 style="margin: 0px">Phone number</h3>
+                          <mat-form-field appearance="fill">
+                            <input matInput placeholder="" value="(999) 999-9999" type="text" autocomplete="off"
+                              formControlName="phone" readonly />
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="col PasChan">
+                        <div class="basicFormGroup mob_basicFormGroup">
+                          <h3 style="margin: 0px" class="MobilePassword">Password</h3>
+                          <button mat-button (click)="changePassword()" class="inputButton">
+                            Change Password
+                          </button>
+                        </div>
+                      </div>
+
+                      <!-- <div class="col">
+                        <div class="basicFormGroup">
+                          <h3 style="margin: 0px">Last name</h3>
+                          <mat-form-field appearance="fill">
+                            <input
+                              matInput
+                              placeholder=""
+                              value="Foster"
+                              type="text"
+                              autocomplete="off"
+                              formControlName="last_name"
+                              readonly
+                            />
+                          </mat-form-field>
+                        </div>
+                        <div class="basicFormGroup">
+                          <h3 style="margin: 0px">Phone number</h3>
+                          <mat-form-field appearance="fill">
+                            <input
+                              matInput
+                              placeholder=""
+                              value="(999) 999-9999"
+                              type="text"
+                              autocomplete="off"
+                              formControlName="phone"
+                              readonly
+                            />
+                          </mat-form-field>
+                        </div>
+                      </div> -->
+
+
+                      <!-- <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-4 col-md-12">
+                    <div class="basicFormGroup">
+                      <h3 style="margin: 0px">Password</h3>
+                      <button
+                        mat-button
+                        (click)="changePassword()"
+                        class="inputButton"
+                      >
+                        Change Password
+                      </button>
+                    </div>
+                  </div> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="detailsRowMobile detailsRow">
+                <div class="DetailPhotoLeft bgWhiteDetails fullWidthColmn">
+                  <div class="detailsColBg">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="basicFormGroup inputLock">
+                          <h3 style="margin: 0px">Provider type</h3>
+                          <mat-form-field appearance="fill">
+                            <input matInput placeholder="" value="Preschool" type="text" autocomplete="off"
+                              formControlName="provider_type" readonly />
+                          </mat-form-field>
+                        </div>
+                        <div class="basicFormGroup">
+                          <h3 style="margin: 0px">Preschool address</h3>
+                          <mat-form-field appearance="fill">
+                            <input matInput placeholder="" formControlName="address" type="text" autocomplete="off"
+                              readonly />
+                          </mat-form-field>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="basicFormGroup">
+                          <h3 style="margin: 0px">Preschool name</h3>
+                          <mat-form-field appearance="fill">
+                            <input matInput placeholder="" value="The Rhoades School" type="text" autocomplete="off"
+                              formControlName="organization_name" readonly />
+                          </mat-form-field>
+                        </div>
+                        <div class="basicFormGroup">
+                          <h3 style="margin: 0px">Preschool website</h3>
+                          <mat-form-field appearance="fill">
+                            <input matInput placeholder="" value="www.thehoadesschools.com" type="text"
+                              autocomplete="off" formControlName="website_link" readonly />
+                          </mat-form-field>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="detailsRowMobile detailsRow">
+                <div class="DetailPhotoLeft bgWhiteDetails seventyWidth">
+                  <div class="detailsColBg">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <h3 class="headingBlackText">License Information</h3>
+                        <div class="basicFormGroup inputLock">
+                          <h3>Are you a licensed provider?</h3>
+                          <mat-radio-group matInput aria-labelledby="example-radio-group-label" class="radioBasic"
+                            formControlName="is_license" readonly>
+                            <span *ngFor="let season of StepDetailPhoto" class="spanRadio">
+                              <mat-radio-button class="example-radio-button form-control1" [value]="season"
+                                [disabled]="true">
+                                {{ season }}
+                              </mat-radio-button>
+                            </span>
+                          </mat-radio-group>
+                        </div>
+                        <div class="basicFormGroup">
+                          <h3>Preschool EIN</h3>
+                          <mat-form-field appearance="fill">
+                            <input matInput placeholder="" value="999999999" type="text" autocomplete="off"
+                              formControlName="ein" readonly />
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="basicFormGroup">
+                          <h3>License number</h3>
+                          <mat-form-field appearance="fill">
+                            <input matInput placeholder="" value="999988989" type="text" autocomplete="off"
+                              formControlName="license_no" readonly />
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="basicFormGroup">
+                          <h3>Issuing agency</h3>
+                          <mat-form-field appearance="fill">
+                            <input matInput placeholder="" value="State of calefornia" type="text" autocomplete="off"
+                              formControlName="issuing_agency" readonly />
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="basicFormGroup">
+                          <h3>License type</h3>
+                          <mat-form-field appearance="fill">
+                            <input matInput placeholder="" value="Limited libility company" type="text"
+                              autocomplete="off" formControlName="license_type" readonly />
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="basicFormGroup">
+                        <h3>CDS Code</h3>
+                        <mat-form-field appearance="fill">
+                          <input matInput placeholder="" value="CDS code" type="text" autocomplete="off"
+                            formControlName="cds_code" readonly />
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="DetailPhotoLeft bgWhiteDetails ThirtyWidth ThirtyWidthMob">
+                  <div class="detailsColBg">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <h3 class="headingBlackText">Age groups</h3>
+                        <div class="basicFormGroup inputLock">
+                          <h3>Which age group do you offer programs for?</h3>
+                          <div class="col-sm-12 mx-auto">
+                            <div class="container containerMobile">
+                              <div class="row">
+                                <div class="col-sm-12">
+                                  <div class="PreCheckBoxGroup matCheckBlack" formGroupName="checkArray">
+                                    <ng-container *ngFor="
+                                        let item of mainSteppeGroup.get(
+                                          'checkArray'
+                                        )?.value
+                                      ">
+                                      <mat-checkbox [value]="item.id" disabled [checked]="item.is_present">{{
+                                        item.agegroupcategory.agegroupcategory
+                                        }}</mat-checkbox>
+                                    </ng-container>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="detailsRowMobile detailsRow">
+                <div class="DetailPhotoLeft bgWhiteDetails fullWidthColmn">
+                  <div class="detailsColBg">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="basicFormGroup textAreaMat">
+                          <h3 class="headingBlackText">
+                            Preschool Description
+                          </h3>
+                          <mat-form-field appearance="fill">
+                            <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+                              cdkAutosizeMinRows="2" cdkAutosizeMaxRows="3" name="desc" formControlName="description"
+                              readonly>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</textarea>
+                          </mat-form-field>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-------------------------------mat-dialog ------------------------------------->
+<ng-template #modalTemp>
+  <mat-dialog-content>
+    <div class="row">
+      <div class="col-12">
+        <div class="modalMody">
+          <h2 class="modalh2">
+            Preschool providers <span class="mstbold">must</span> be licensed
+          </h2>
+          <p class="modalpara modalparaMob">
+            If your answer is no, then consider changing your provider type
+          </p>
+        </div>
+      </div>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close color="primary" (click)="changeToYes()">
+      Change my answer to <b>'YES'</b>
+    </button>
+    <button mat-raised-button mat-dialog-close color="primary" (click)="changeProvider()">
+      Take me back to select provider type
+    </button>
+  </mat-dialog-actions>
+</ng-template>

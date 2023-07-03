@@ -1,0 +1,318 @@
+* {
+  scrollbar-width: auto;
+  scrollbar-color: var(--primaryLight);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--whiteColor);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--primaryLight);
+  border-radius: 10px;
+  border: 1px solid #ffffff;
+}
+
+::ng-deep .CustomModal .mat-dialog-container {
+  border-radius: 10px;
+}
+
+::ng-deep  .mat-select-panel {
+  position: absolute;
+  min-width: 250px !important;
+  top: 42px;
+  margin-left: 5px;
+  border-radius: 0px !important;
+  border: 1px solid var(--primaryLight);
+}
+::ng-deep .mat-select-panel .mat-option {
+  font-family: 'Nunito';
+  font-size: 16px !important;
+  font-weight: 700;
+  height: 37px !important;
+  line-height: 37px !important;
+}
+
+
+.onlinebgPop {
+  padding: 25px 15px;
+  background: var(--primaryColor);
+  color: var(--whiteColor);
+  border-radius: 10px 10px 0 0;
+  border: 1px solid #8AD5FF;
+  border-bottom: 1px solid #D9D9D9;
+}
+
+.onlinebgPop h1.headingh1 {
+  font-family: 'Nunito';
+  font-size: 32px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.onlinePopCustom {
+  background: #e7f6ff;
+  padding: 30px 30px 20px;
+}
+
+.onlinePopCust {
+  background: #e7f6ff;
+  padding: 30px;
+}
+
+.onlinePopup {
+  width: 100%;
+  max-height: 500px;
+  overflow-y: scroll;
+}
+
+.onlinePopup .onlinePopupItem {
+  background: var(--whiteColor);
+  padding: 10px 20px;
+  box-shadow: 3px 6px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.onlinePopup .onlinePopupItem:last-child {
+  margin-bottom: 0px;
+}
+
+.onlinePopflex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.onlineflexhead h2.onlinetitle {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--primaryLight);
+  margin-bottom: 0;
+}
+
+.mandatory {
+  color: red;
+}
+
+.healthSelectOut {
+  width: 250px;
+}
+
+.healthSelect {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--primaryLight);
+}
+
+.inputColorsize {
+  color: var(--primaryLight);
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+
+::ng-deep .mat-select-arrow::after {
+  top: -9px;
+  width: 20px;
+  height: 12px;
+}
+
+mat-label {
+  color: var(--blackColor) !important;
+  font-weight: bold;
+}
+
+::ng-deep .mat-select .mat-select-value {
+  font-family: 'Nunito';
+  color: var(--blackColor);
+  font-size: 18px;
+  font-weight: 600;
+}
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: var(--blackColor);
+}
+
+::ng-deep .healthSelect .mat-form-field-wrapper {
+  padding-bottom: 1.34375em;
+}
+
+::ng-deep .healthSelect .mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: var(--whiteColor);
+  border: 1px solid var(--primaryLight);
+  border-radius: 0px;
+  padding: 0em .75em 0 .75em;
+}
+
+::ng-deep .healthSelect .mat-form-field-label-wrapper {
+  top: 0em;
+  padding-top: 0em;
+}
+
+::ng-deep .healthSelect .mat-form-field-appearance-fill .mat-form-field-label {
+  top: 0em;
+}
+
+::ng-deep .healthSelect .mat-form-field-label-wrapper label {
+  font-weight: 600;
+  font-size: 18px;
+  color: #000;
+  line-height: initial;
+  top: -4px;
+}
+
+::ng-deep .healthSelect .mat-form-field-type-mat-select .mat-select {
+  border: 0px solid #d9d9d9;
+  padding: 0px;
+}
+
+::ng-deep .healthSelect .mat-select-arrow-wrapper {
+  margin-top: 10px;
+}
+
+
+.onlinepopBtn {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.mat-stroked-button {
+  background: transparent;
+  border: 1px solid var(--primaryColor);
+  color: var(--primaryColor);
+}
+
+.mat-raised-button {
+  color: var(--whiteColor);
+  background: var(--primaryLight) !important;
+}
+
+::ng-deep .mat-button-base {
+  font-family: 'Nunito', sans-serif;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 600;
+  border: 1px solid var(--primaryLight);
+  border-radius: 10px !important;
+  padding: 15px !important;
+  min-width: 70px;
+  height: 57px;
+}
+
+.onlinepopBtn .raisedBtn {
+  background: var(--primaryColor);
+  border: 1px solid var(--primaryColor);
+  color: var(--whiteColor);
+}
+
+
+::ng-deep .form-control.brdblu {
+  border: 1px solid var(--primaryLight);
+  border-radius: 10px;
+}
+
+
+
+// apply online popup css
+
+::ng-deep .form-label-md {
+  font-family: "Nunito";
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+::ng-deep input.form-control[type="text"] {
+  height: 35px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--blackColor);
+}
+::ng-deep input.form-control[type="email"] {
+  height: 35px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--blackColor);
+}
+::ng-deep input.form-control[type="textarea"] {
+  height: 35px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--blackColor);
+}
+input.form-control::placeholder {
+  color: var(--blackColor);
+}
+input.form-control:-ms-input-placeholder {
+ color: var(--blackColor);
+}
+
+input.form-control::-ms-input-placeholder {
+ color: var(--blackColor);
+}
+
+
+.onlineSelect {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border: 1px solid var(--blackColor);
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.onlineSelect h3.applyAutofile {
+  font-family: "Nunito";
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--primaryLight);
+  margin: 0;
+}
+::ng-deep .healthSelect .mat-form-field-infix {
+  padding: 0;
+  border-top: 0px;
+}
+::ng-deep .healthSelect .mat-form-field-wrapper {
+  padding-bottom: 0;
+}
+
+::ng-deep .healthSelect .mat-form-field-underline  {
+  bottom: 0px;
+}
+
+::ng-deep .healthSelect .mat-select-arrow {
+  width: 0;
+  height: 0;
+  border-left: 10px solid rgba(0,0,0,0);
+  border-right: 10px solid rgba(0,0,0,0);
+  border-top: 10px solid;
+  margin: 0px;
+  color: var(--blackColor);
+}
+
+// apply online popup css
+
+
+// media query start
+@media screen and (max-width:1400px) {
+ .onlinePopup {
+    max-height: 435px;
+  }
+}
+
+@media screen and (max-width:1366px) {
+  .onlinePopup {
+     max-height: 370px;
+   }
+ }

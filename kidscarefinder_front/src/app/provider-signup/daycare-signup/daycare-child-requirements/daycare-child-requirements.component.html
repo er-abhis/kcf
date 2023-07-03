@@ -1,0 +1,152 @@
+<div class="signUpChildNeedSection">
+    <div class="ChildNeedSteps0" *ngIf="stepCount === 0">
+        <form [formGroup]="childNeedCareGroup">
+            <div class="main_block sect_head">
+                <h2 class="sect_title">
+                    Do you have a minimum age requirement for kids to attend your facility
+                    ?
+                </h2>
+            </div>
+            <div class="licenceBtns radioButtons">
+                <mat-radio-group matInput aria-labelledby="example-radio-group-label" class="example-radio-group"
+                    formControlName="is_minimum_age" required>
+                    <span *ngFor="let season of attendFacilityYesNo" class="spanRadio">
+                        <mat-radio-button (change)="attendFacilityChange($event, season)"
+                            class="example-radio-button form-control1" [value]="season">
+                            {{ season }}
+                        </mat-radio-button>
+                    </span>
+                </mat-radio-group>
+            </div>
+            <div class="col-xl-5 col-lg-5 col-md-6 col-sm-12 mx-auto" *ngIf="yearMonthReqYes">
+                <div class="childYearDropdowns">
+                    <div class="SelectTime arrowmodi">
+                        <mat-label>Years </mat-label>
+                        <mat-select placeholder="" formControlName="minimum_age_years" style="max-width: 60px">
+                            <mat-option [value]=0>0</mat-option>
+                            <mat-option [value]=1>1</mat-option>
+                            <mat-option [value]=2>2</mat-option>
+                            <mat-option [value]=3>3</mat-option>
+                            <mat-option [value]=4>4</mat-option>
+                            <mat-option [value]=5>5</mat-option>
+                        </mat-select>
+                        <mat-label>Months </mat-label>
+                        <mat-select placeholder="" formControlName="minimum_age_months" style="max-width: 60px">
+                            <mat-option [value]="0">0</mat-option>
+                            <mat-option [value]="1">1</mat-option>
+                            <mat-option [value]="2">2</mat-option>
+                            <mat-option [value]="3">3</mat-option>
+                            <mat-option [value]="4">4</mat-option>
+                            <mat-option [value]="5">5</mat-option>
+                            <mat-option [value]="6">6</mat-option>
+                            <mat-option [value]="7">7</mat-option>
+                            <mat-option [value]="8">8</mat-option>
+                            <mat-option [value]="9">9</mat-option>
+                            <mat-option [value]="10">10</mat-option>
+                            <mat-option [value]="11">11</mat-option>
+                        </mat-select>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="ChildNeedSteps1" *ngIf="stepCount === 1">
+        <form [formGroup]="childNeedCareGroup">
+            <div class="main_block sect_head">
+                <h2 class="sect_title">Do you require kids to be potty trained?</h2>
+            </div>
+            <div class="licenceBtns radioButtons">
+                <mat-radio-group matInput aria-labelledby="example-radio-group-label" class="example-radio-group"
+                    formControlName="is_potty_trained" required>
+                    <span *ngFor="let season of pottyTrainnedYesNo" class="spanRadio">
+                        <mat-radio-button class="example-radio-button form-control1" [value]="season">
+                            {{ season }}
+                        </mat-radio-button>
+                    </span>
+                </mat-radio-group>
+            </div>
+        </form>
+    </div>
+    <div class="ChildNeedSteps2" *ngIf="stepCount === 2">
+        <form [formGroup]="stepsChildNeedsDetailsForm">
+            <div class="container p-0">
+                <div class="StepDetailsLists stepDetail4">
+                    <div class="row">
+                        <div class="col-sm-12 mx-auto">
+                            <div class="main_block sect_head StepDetailHeading">
+                                <h2 class="titleDetails">
+                                    Review | Step 4: Child requirements
+                                </h2>
+                                <p class="smallTextDetails">
+                                    Review and edit child requirements
+                                </p>
+                            </div>
+                        </div>
+                        <div class="detailsRow detailsRowMobile">
+                            <div class="DetailPhotoLeft bgWhiteDetails">
+                                <div class="detailsColBg">
+                                    <h3 class="headingBlackText">Age requirement</h3>
+                                    <h3>
+                                        Do you have a minimum age requirement to attend your
+                                        facility?
+                                    </h3>
+                                    <mat-radio-group matInput aria-labelledby="example-radio-group-label"
+                                        class="radioBasic" formControlName="attendFacDetails" required>
+                                        <span *ngFor="let season of attendFacDetailsYesNo" class="spanRadio">
+                                            <mat-radio-button disabled="true" class="example-radio-button form-control1"
+                                                [value]="season">
+                                                {{ season }}
+                                            </mat-radio-button>
+                                        </span>
+                                    </mat-radio-group>
+                                    <ng-container *ngIf="yearMonthReqYes">
+                                        <h3>Minimum age requirement</h3>
+                                        <div class="childYearDropdowns">
+                                            <div class="SelectTime arrowmodi">
+                                                <mat-label class="selectLabel">Years </mat-label>
+                                                <mat-select formControlName="minimumAgeYear" [disabled]="true">
+                                                    <mat-option [value]="
+                                stepsChildNeedsDetailsForm.get('minimumAgeYear')
+                                  ?.value
+                              ">{{
+                                                        stepsChildNeedsDetailsForm.get("minimumAgeYear")
+                                                        ?.value
+                                                        }}</mat-option>
+                                                </mat-select>
+                                                <mat-label class="selectLabel">Months </mat-label>
+                                                <mat-select formControlName="minimumAgeMonth" [disabled]="true">
+                                                    <mat-option [value]="
+                                stepsChildNeedsDetailsForm.get('minimumAgeMonth')
+                                  ?.value
+                              ">{{
+                                                        stepsChildNeedsDetailsForm.get("minimumAgeMonth")
+                                                        ?.value
+                                                        }}</mat-option>
+                                                </mat-select>
+                                            </div>
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                            <div class="DetailPhotoRight bgWhiteDetails provRMargin provRMarginMob">
+                                <div class="detailsColBg">
+                                    <h3 class="headingBlackText">Potty training requirement</h3>
+                                    <h3>Do you require kids to be potty trained?</h3>
+                                    <mat-radio-group matInput aria-labelledby="example-radio-group-label"
+                                        class="radioBasic" formControlName="pottyTrainnedDetails" required>
+                                        <span *ngFor="let season of attendFacDetailsYesNo" class="spanRadio">
+                                            <mat-radio-button disabled="true" class="example-radio-button form-control1"
+                                                [value]="season">
+                                                {{ season }}
+                                            </mat-radio-button>
+                                        </span>
+                                    </mat-radio-group>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

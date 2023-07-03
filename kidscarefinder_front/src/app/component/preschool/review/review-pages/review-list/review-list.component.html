@@ -1,0 +1,22 @@
+<div class="reviwLists" *ngFor="let item of reviewList">
+  <div class="leftReviewContent">
+    <div class="imgUserRev">
+      <img class="menuText"
+        src="{{item?.profile_photo?item?.profile_photo: '../../../../../../assets/images//avtar1.svg'}}"
+        (error)="onImgError($event)" alt="" />
+      <!-- <span class="user_btn" ><p class="menuText" *ngIf="item.user?.first_name ">{{ item.user?.first_name[0]  }}</p></span> -->
+    </div>
+    <p *ngIf="item.user?.first_name">{{ item.user?.first_name }} {{ item.user?.last_name[0] }}.</p>
+  </div>
+  <div class="reviewRightContnet">
+    <div class="review_rating">
+      <mat-icon *ngFor="let item of Array(item.rating)">{{'star'}}</mat-icon>
+      <mat-icon *ngFor="let item of Array(5-Math.ceil(item.rating))">{{'star_border'}}</mat-icon>
+    </div>
+
+    <!-- <div class="review_rating"><i *ngFor="let item of Array(item.rating)" class="fa-solid fa-star"></i></div> -->
+    <div class="ratingText">
+      <p>{{item.review}}</p>
+    </div>
+  </div>
+</div>

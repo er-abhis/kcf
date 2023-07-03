@@ -1,0 +1,62 @@
+<div class="bs-sign-up-step-one">
+  <div *ngIf="isScreenActive('welcome')">
+    <div class="heading text-white text-center my-3">Let’s get started!</div>
+    <div class="sub-heading text-center text-white">
+      To be come a provider with Kids Care Finder, you will need to complete our unique provider
+      questionnaire.
+    </div>
+    <div class="sub-heading text-center text-white">
+      This will help provide users with all of the information they need to find a provider that meets their
+      family’s unique needs.
+    </div>
+    <div class="row bg-white">
+      <div class="col-md-8">
+        <div class="p-3 pt-4">
+          <div>As a Babysitter provider, you will have the option to:</div>
+          <div>
+            <ul>
+              <li>Send messages to-and-from users from your Message Center</li>
+              <li>Easily manage a waitlist when you are not accepting new bookings</li>
+              <li>Review and accept online booking requests</li>
+              <li>Fill openings quickly with our Search Result Optimization service</li>
+              <li>Have your own customized provider page - like having your own website!</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 border-start">
+        <div>
+          Watch this short walkthrough video on our provider questionnaire
+        </div>
+        <div class="d-flex justify-content-center align-items-center walkthrough-video">
+          <img ngSrc="../../../../../assets/images/playBtn.svg" alt="" height="141" width="142">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <app-form-alert message="Only first name, last initial and age will be displayed to the public." width="540"></app-form-alert>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-center my-3">
+        <button (click)="continueToSubStep('register-form')" class="btn btn-primary submit-button submit-button-default">
+          <div>
+            <span class="label">Continue</span>
+            <span class="icon"></span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+  <app-bs-signup-step-one-sub-step-one (stepCompleted)="stepCompleted('register-form', $event)"
+                                       *ngIf="isScreenActive('register-form')"
+  ></app-bs-signup-step-one-sub-step-one>
+  <app-basic-info-description
+    (navigateTo)="navigateTo($event)"
+    (stepCompleted)="stepCompleted('description', $event)" *ngIf="isScreenActive('description')"
+  ></app-basic-info-description>
+  <app-review-step-one [basicInfoRegisterFormData]="basicInfoRegisterForm" [basicInfoDescriptionFormData]="basicInfoDescriptionForm"  *ngIf="isScreenActive('review-step-one')"></app-review-step-one>
+</div>
+
+

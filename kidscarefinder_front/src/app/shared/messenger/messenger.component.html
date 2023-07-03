@@ -1,0 +1,242 @@
+<div class="accountSetting">
+  <div class="accountHeading messageTop messageTopMov">
+    <h1>Message Center <span class="msgnotify msgnotifyMov" *ngIf="newMessagesCount">{{newMessagesCount}}</span></h1>
+    <div class="mCenterSearch">
+      <div class="headingbgSearch">
+        <mat-form-field appearance="fill">
+          <input type="search" matInput placeholder="Search messages" [(ngModel)]="searchText">
+        </mat-form-field>
+        <button class="hedflxBtn" mat-button>
+          <svg width="26" height="25" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M9.78571 0C12.2484 0 14.6103 0.978313 16.3517 2.71972C18.0931 4.46113 19.0714 6.82299 19.0714 9.28571C19.0714 11.5857 18.2286 13.7 16.8429 15.3286L17.2286 15.7143H18.3571L25.5 22.8571L23.3571 25L16.2143 17.8571V16.7286L15.8286 16.3429C14.2 17.7286 12.0857 18.5714 9.78571 18.5714C7.32299 18.5714 4.96113 17.5931 3.21972 15.8517C1.47831 14.1103 0.5 11.7484 0.5 9.28571C0.5 6.82299 1.47831 4.46113 3.21972 2.71972C4.96113 0.978313 7.32299 0 9.78571 0ZM9.78571 2.85714C6.21429 2.85714 3.35714 5.71429 3.35714 9.28571C3.35714 12.8571 6.21429 15.7143 9.78571 15.7143C13.3571 15.7143 16.2143 12.8571 16.2143 9.28571C16.2143 5.71429 13.3571 2.85714 9.78571 2.85714Z"
+              fill="#D9D9D9" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="messageCenterBg shareBoxFixed">
+  <div class="messageCenterFlex">
+    <div class="messageConversation">
+      <div class="messageTitle">
+        <h3 class="messageh3">Conversations</h3>
+        <a href="javascript:void(0)">
+          <svg width="26" height="17" viewBox="0 0 26 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4.25 9.91667H21.25V7.08333H4.25M0 0V2.83333H25.5V0M9.91667 17H15.5833V14.1667H9.91667V17Z"
+              fill="black" />
+          </svg>
+        </a>
+      </div>
+      <div class="messageConversationBox">
+        <ul>
+          <h2 *ngIf="msgLength == 0"> No conversation present</h2>
+
+          <ng-container *ngFor="let chatroom of (allChatRooms$ | async) | messageFilter : searchText: user_type">
+
+            <li class=""
+              [ngClass]="{'active': (chatroom?.user?.id == selectedUser?.id && user_type =='PROVIDER') || (chatroom?.provider?.id == selectedUser?.id && user_type =='USER') }"
+              (click)="selectChatRoom(chatroom,chatroom?.room_id)">
+              <div class="msgConvers">
+                <!-- <img src="assets/images/rhode.svg" alt=""> -->
+                <!-- <span class="user_btn"><p class="menuText">{{ this.welcome_name }}</p></span> -->
+                <ng-container *ngIf="user_type =='PROVIDER'">
+                  <span class="user_btn">
+                    <p class="menuText">{{chatroom?.user?.first_name[0]}}</p>
+                  </span>
+                </ng-container>
+                <ng-container *ngIf="user_type =='USER'">
+                  <span class="user_btn">
+                    <p class="menuText">{{chatroom?.provider?.organization_name?.[0] ||
+                      chatroom?.provider?.prov_organization_name?.[0]}}</p>
+                  </span>
+                </ng-container>
+              </div>
+              <div class="msgText">
+                <ng-container *ngIf="user_type =='PROVIDER'">
+                  <h4 class="msghead"><span
+                      (click)="redirectCheck('USER',chatroom?.user?.id,chatroom?.user_account_id)">{{chatroom?.user?.first_name}}
+                      {{chatroom?.user?.last_name}}</span><span class="msgdate">{{chatroom?.sent_at |
+                      date:'shortDate'}}</span></h4>
+                </ng-container>
+                <ng-container *ngIf="user_type =='USER'">
+                  <h4 class="msghead"><span
+                      (click)="redirectCheck('PROVIDER',chatroom?.provider?.id,chatroom?.provider?.id)">{{chatroom?.provider?.organization_name
+                      || chatroom?.provider?.prov_organization_name}}</span><span class="msgdate">{{chatroom?.sent_at |
+                      date:'shortDate'}}</span></h4>
+                </ng-container>
+                <p class="msgInterst">{{chatroom?.message}}</p>
+                <a *ngIf="!chatroom?.is_read && ((chatroom?.is_provider && this.user_type == 'USER') || (!chatroom?.is_provider && this.user_type == 'PROVIDER'))"
+                  class="msgNew" href="javascript:void(0)">New</a>
+              </div>
+            </li>
+          </ng-container>
+        </ul>
+      </div>
+    </div>
+    <div class="messageRhode" *ngIf="selectedUser?.id">
+      <div class="messageRhodeInn">
+        <div class="massageArrow" (click)="hideSidebar()">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M15.9999 7.00008V9.00008H3.99991L9.49991 14.5001L8.07991 15.9201L0.159912 8.00008L8.07991 0.0800781L9.49991 1.50008L3.99991 7.00008H15.9999Z"
+              fill="black" />
+          </svg>
+          <p>{{(selectedUser?.organization_name || selectedUser?.prov_organization_name
+            )?(selectedUser?.organization_name || selectedUser?.prov_organization_name): (selectedUser?.first_name +
+            ' ' + selectedUser?.last_name)}}</p>
+        </div>
+        <div class="RhodeInnTitle">
+          <div class="msgConversRight">
+            <span class="user_btn">
+              <p class="menuText">{{(selectedUser?.organization_name ||
+                selectedUser?.prov_organization_name)?(selectedUser?.organization_name?.[0] ||
+                selectedUser?.prov_organization_name?.[0]):
+                selectedUser?.first_name[0]}}</p>
+            </span>
+          </div>
+          <div class="rhodeText">
+            <h4 class="rhodhead profile" (click)="goToProfile()">
+              {{(selectedUser?.organization_name ||
+              selectedUser?.prov_organization_name)?(selectedUser?.organization_name ||
+              selectedUser?.prov_organization_name): (selectedUser?.first_name +
+              ' ' + selectedUser?.last_name)}}</h4>
+            <p class="rhodeInterst" *ngIf="selectedUser['provider-category']">{{selectedUser['provider-category']}}</p>
+            <p class="rhodeInterst" *ngIf="selectedUser['provider_type']">{{(selectedUser['provider_type'] ==
+              'PRE_SCHOOL')?'Preschool': selectedUser['provider_type']}}</p>
+            <p class="rhodeInterst" *ngIf="user_type == 'PROVIDER' && this.chatRoomMessages.length && this.chatRoomMessages[this.chatRoomMessages.length -1] && this.chatRoomMessages[this.chatRoomMessages.length -1]?.child?.[0]">Parent to {{getChildDetails(this.chatRoomMessages[this.chatRoomMessages.length -1]?.child)}}</p>
+          </div>
+
+          <a class="rhodgrid" href="javascript:void(0)">
+
+            <svg width="20" height="6" viewBox="0 0 20 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M15 3C15 2.33696 15.2634 1.70107 15.7322 1.23223C16.2011 0.763393 16.837 0.5 17.5 0.5C18.163 0.5 18.7989 0.763393 19.2678 1.23223C19.7366 1.70107 20 2.33696 20 3C20 3.66304 19.7366 4.29893 19.2678 4.76777C18.7989 5.23661 18.163 5.5 17.5 5.5C16.837 5.5 16.2011 5.23661 15.7322 4.76777C15.2634 4.29893 15 3.66304 15 3ZM7.5 3C7.5 2.33696 7.76339 1.70107 8.23223 1.23223C8.70107 0.763393 9.33696 0.5 10 0.5C10.663 0.5 11.2989 0.763393 11.7678 1.23223C12.2366 1.70107 12.5 2.33696 12.5 3C12.5 3.66304 12.2366 4.29893 11.7678 4.76777C11.2989 5.23661 10.663 5.5 10 5.5C9.33696 5.5 8.70107 5.23661 8.23223 4.76777C7.76339 4.29893 7.5 3.66304 7.5 3ZM0 3C0 2.33696 0.263392 1.70107 0.732233 1.23223C1.20107 0.763393 1.83696 0.5 2.5 0.5C3.16304 0.5 3.79893 0.763393 4.26777 1.23223C4.73661 1.70107 5 2.33696 5 3C5 3.66304 4.73661 4.29893 4.26777 4.76777C3.79893 5.23661 3.16304 5.5 2.5 5.5C1.83696 5.5 1.20107 5.23661 0.732233 4.76777C0.263392 4.29893 0 3.66304 0 3Z"
+                fill="black" />
+            </svg>
+          </a>
+        </div>
+        <div class="rhodeBlueOuter chatRoomConv">
+          <div *ngFor="let chatRoomMessage of chatRoomMessages">
+            <ng-container *ngIf="chatRoomMessage?.is_provider">
+              <div class="stepCount">
+                <span class="stepDate">{{chatRoomMessage?.sent_at | date:'MMM Y'}}</span>
+              </div>
+              <div class="rhodeBlue" [ngClass]="{'rhodedark': user_type =='PROVIDER'}">
+                <div class="rhodeBlueBox">
+                  <div class="msgConversRight">
+                    <span class="user_btn">
+                      <p class="menuText">{{ chatRoomMessage?.provider?.organization_name?.[0] ||
+                        chatRoomMessage?.provider?.prov_organization_name?.[0]}}</p>
+                    </span>
+                  </div>
+                  <div class="rhodeBlueText">
+                    <h4 class="rhodhead profile" (click)="goToProfile('PROVIDER',chatRoomMessage?.provider?.id)">
+                      {{chatRoomMessage?.provider?.organization_name ||
+                      chatRoomMessage?.provider?.prov_organization_name}} . {{chatRoomMessage?.sent_at |
+                      date:'shortTime'}}</h4>
+                    <p>{{chatRoomMessage?.message}}</p>
+                    <!-- <div class="rhodereferText">
+                      <h4 class="rhodrefer">Please refer to our provider page to apply:</h4>
+                      <a class="referlink" href="#">kidscarefinder.com/therhodesschool</a>
+                    </div> -->
+                    <h5 class="blureadon" *ngIf="chatRoomMessage?.is_read">Read on {{chatRoomMessage?.read_at |
+                      date:'shortDate'}} at {{chatRoomMessage?.read_at | date:'shortTime'}}</h5>
+                  </div>
+
+                </div>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="!chatRoomMessage?.is_provider">
+              <div class="stepCount">
+                <span class="stepDate">{{chatRoomMessage?.sent_at | date:'MMM Y'}}</span>
+              </div>
+              <div class="rhodeBlue" [ngClass]="{'rhodedark': user_type =='USER'}">
+                <div class="rhodeBlueBox">
+                  <div class="msgConversRight">
+                    <span class="user_btn">
+                      <p class="menuText">{{ chatRoomMessage?.user?.first_name[0] }}</p>
+                    </span>
+                  </div>
+                  <div class="rhodeBlueText">
+                    <h4 class="rhodhead profile" (click)="goToProfile('USER',selectedUser?.user_account_id)">
+                      {{chatRoomMessage?.user?.first_name}} {{chatRoomMessage?.user?.last_name}} .
+                      {{chatRoomMessage?.sent_at | date:'shortTime'}}</h4>
+                      <div class="italic" *ngIf="chatRoomMessage?.child?.length">Inquiring for: {{getChildDetails(chatRoomMessage?.child,1 | date:'MM/dd/YYYY')}}</div>
+                    <!-- <h5 class="bluInqure"><span>Inquering for: </span> Austin, age 2; Aubrey, age 3</h5> -->
+                    <p>{{chatRoomMessage?.message}}</p>
+
+                    <h5 class="blureadon" *ngIf="chatRoomMessage?.is_read">Read on {{chatRoomMessage?.read_at |
+                      date:'shortDate'}} at {{chatRoomMessage?.read_at | date:'shortTime'}}</h5>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <div class="quickMessage">
+          <div class="quickMessageInn" *ngIf="user_type == 'USER'">
+            <span class="quickinset">Insert quick message:</span>
+            <div class="quickList">
+              <a href="javascript:void(0)" class="quickLink" (click)="setQuickMessage('Schedule a tour')">Schedule a
+                tour</a>
+              <a href="javascript:void(0)" class="quickLink" (click)="setQuickMessage('Confirm availability')">Confirm
+                availability</a>
+              <a href="javascript:void(0)" class="quickLink"
+                (click)="setQuickMessage('Request additional information')">Request enrollment</a>
+              <a href="javascript:void(0)" class="quickLink"
+                (click)="setQuickMessage('Follow up on application')">Follow up on application</a>
+              <a href="javascript:void(0)" class="quickLink" (click)="setQuickMessage('Request phone call')">Schedule
+                phone call</a>
+            </div>
+          </div>
+          <div class="quickMessageInn" *ngIf="user_type == 'PROVIDER'">
+            <span class="quickinsetProv">Insert quick actions:</span>
+            <div class="quickList">
+              <a href="javascript:void(0)" class="quickLink" (click)="setProvQuickActions('Invite to tour')">Invite to
+                tour</a>
+              <a href="javascript:void(0)" class="quickLink" (click)="setProvQuickActions('Add to waitlist')">Add to
+                waitlist</a>
+              <a href="javascript:void(0)" class="quickLink" (click)="setProvQuickActions('Invite to apply')">Invite to
+                apply</a>
+              <a href="javascript:void(0)" class="quickLink" (click)="setProvQuickActions('Invite to enroll')">Invite to
+                enroll</a>
+            </div>
+          </div>
+        </div>
+        <div class="rhodeAreatextBox">
+          <div class="rhodeAreatext">
+            <form [formGroup]="messengerForm">
+              <textarea formControlName="message" id="w3review" rows="6" cols="50" placeholder="Write a message..."
+                class="bg-light fs-5 lh-sm ng-pristine ng-touched ng-valid text-secondary"></textarea>
+            </form>
+          </div>
+          <div class="AreaIcon">
+            <svg width="20" height="13" viewBox="0 0 20 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2.35 12.35L10 4.71667L17.65 12.35L20 10L10 0L0 10L2.35 12.35Z" fill="black" />
+            </svg>
+          </div>
+          <div class="rhodeAreaBtn rhodeAreaBtnMobile">
+            <button class="tblmovbtn" [disabled]="disabled" mat-raised-button color="primary"
+              (click)="sendMessage()">Send</button>
+          </div>
+        </div>
+        <div class="rhodeAreaBtn">
+          <button class="tblmovbtn" [disabled]="disabled" mat-raised-button color="primary"
+            (click)="sendMessage()">Send</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- <div class="paymentContinue">
+      <a href="#" class="btn btn-primary">Continue</a>
+  </div> -->
+
+</div>
+
+<!-- <div class="cancleAccoutBtn">
+<a href="#" class="btn btn-outline-primary">Cancel Account</a>
+</div> -->

@@ -1,0 +1,225 @@
+<div class="mainBgColor">
+  <app-header></app-header>
+  <section class="userSignupOuter">
+    <div class="customCombine">
+      <app-update-details-sidebar></app-update-details-sidebar>
+      <div class="contentright">
+        <div class="contentrightBg">
+          <div class="accountSetting">
+            <div class="headingbg">
+              <h1 class="headingh1">Basic information</h1>
+            </div>
+          </div>
+          <div class="paymentInformartion">
+            <div class="addBriefBoxOuter">
+              <div class="addBriefBox cardBox boxshadow">
+                <div class="addBriefDetail">
+                  <form [formGroup]="mainSteppeGroup">
+                    <div class="addBriefInner p-0 border-0">
+                      <div class="row">
+                        <div class="col-xxl-10 col-xl-10 col-lg-10 col-md-9 col-sm-12">
+                          <div class="row">
+                            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                              <div class="mb-3">
+                                <label class="form-label-md">First Name</label>
+                                <input class="form-control" type="text" placeholder="" aria-label="default"
+                                  formControlName="first_name">
+                              </div>
+                            </div>
+                            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                              <div class="mb-3">
+                                <label class="form-label-md">Last Name</label>
+                                <input class="form-control" type="text" placeholder="" aria-label="default"
+                                  formControlName="last_name">
+                              </div>
+                            </div>
+                            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                              <div class="mb-3">
+                                <label class="form-label-md">E-mail address</label>
+                                <input class="form-control" type="email" placeholder="" aria-label="default"
+                                  formControlName="email">
+                              </div>
+                            </div>
+                            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                              <div class="mb-3">
+                                <label class="form-label-md">Phone Number</label>
+                                <input class="form-control" type="text" placeholder="" aria-label="default"
+                                  formControlName="phone">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-3 col-sm-12">
+                          <div class="col-12">
+                            <div class="mb-3 updateBasicbtn">
+                              <label class="form-label-md">Password</label>
+                              <button mat-raised-button color="primary" (click)="changePassword()">Change
+                                Password</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="addBriefBox cardBox boxshadow marginTop3">
+                      <div class="addBriefDetail">
+                          <div class="addBriefInner p-0 border-0">
+                            <div class="row">
+                              <div class="col-12">
+                                <div class="row">
+                                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                    <div class="mb-3">
+                                      <label class="form-label-md">Provider type</label>
+                                      <input class="form-control" type="text" placeholder="" aria-label="default"
+                                        formControlName="provider_type">
+                                    </div>
+                                  </div>
+                                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                    <div class="mb-3">
+                                      <label class="form-label-md">Preschool name</label>
+                                      <input class="form-control" type="text" placeholder="" aria-label="default"
+                                        formControlName="organization_name">
+                                    </div>
+                                  </div>
+                                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                    <div class="mb-3">
+                                      <label class="form-label-md">Preschool address</label>
+                                      <input class="form-control" type="text" placeholder="" aria-label="default"
+                                        formControlName="address">
+                                    </div>
+                                  </div>
+                                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                    <div class="mb-3">
+                                      <label class="form-label-md">Preschool website</label>
+                                      <input class="form-control" type="text" placeholder="" aria-label="default"
+                                        formControlName="website_link">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="detailsLicense marginTop3">
+                      <div class="detailsLicenseInfo addBriefBox cardBox boxshadow">
+                        <h3 class="licenseh3">License Information</h3>
+                        <div class="detailsLicenseData">
+                          <div class="inputGroup">
+                            <label class="form-label inputColorsize">Are you a licensed provider?</label>
+                            <!-- <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                                <label class="form-check-label" for="flexRadioDefault1">Yes</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                                <label class="form-check-label" for="flexRadioDefault2">No</label>
+                              </div> -->
+                            <mat-radio-group matInput aria-labelledby="example-radio-group-label" class="radioBasic"
+                              formControlName="is_license">
+                              <span *ngFor="let season of StepDetailPhoto" class="spanRadio">
+                                <mat-radio-button class="example-radio-button form-control1" [value]="season">
+                                  {{season}}
+                                </mat-radio-button>
+                              </span>
+                            </mat-radio-group>
+                          </div>
+                        </div>
+                        <div class="row mt-2">
+                          <div class="col-12">
+                            <div class="mb-3">
+                              <label class="form-label-md">Preschool EIN</label>
+                              <input class="form-control" type="text" placeholder="" aria-label="default"
+                                formControlName="ein">
+                            </div>
+                          </div>
+                          <div class="col-12">
+                            <div class="row">
+                              <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                                <div class="mb-3">
+                                  <label class="form-label-md">License number</label>
+                                  <input class="form-control" type="text" placeholder="" aria-label="default"
+                                    formControlName="license_no">
+                                </div>
+                              </div>
+                              <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                                <div class="mb-3">
+                                  <label class="form-label-md">Issuing agency</label>
+                                  <input class="form-control" type="text" placeholder="" aria-label="default"
+                                    formControlName="issuing_agency">
+                                </div>
+                              </div>
+                              <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                                <div class="mb-3">
+                                  <label class="form-label-md">License type</label>
+                                  <input class="form-control" type="text" placeholder="" aria-label="default"
+                                    formControlName="license_type">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="detailsLicenseAge addBriefBox cardBox boxshadow">
+                        <h3 class="licenseh3">Age groups</h3>
+                          <div class="licenseAgeData">
+                            <label for="" class="form-label inputColorsize">Which age groups do you offer programs
+                              for?</label>
+                            <!-- <div class="licensehAgeRow">
+                                <div class="form-check form-check-inline">
+                                  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                                  <label class="form-check-label" for="inlineCheckbox1">Infant</label>
+                                </div>
+                              </div>
+                              <div class="licensehAgeRow">
+                                <div class="form-check form-check-inline">
+                                  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                  <label class="form-check-label" for="inlineCheckbox2">Toddler</label>
+                                </div>
+                              </div>
+                              <div class="licensehAgeRow">
+                                <div class="form-check form-check-inline">
+                                  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                  <label class="form-check-label" for="inlineCheckbox2">Preschool</label>
+                                </div>
+                              </div>
+                              <div class="licensehAgeRow">
+                                <div class="form-check form-check-inline">
+                                  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                  <label class="form-check-label" for="inlineCheckbox2">Pre-K</label>
+                                </div>
+                              </div> -->
+                            <div class="PreCheckBoxGroup matCheckBlack" formGroupName="checkArray">
+                              <ng-container *ngFor="let item of mainSteppeGroup.get('checkArray')?.value">
+                                <mat-checkbox [value]="item.id"
+                                  [checked]="item.is_present">{{item.agegroupcategory.agegroupcategory}}</mat-checkbox>
+                              </ng-container>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="addBriefBox cardBox boxshadow marginTop3">
+                      <div class="detailsLicensePreschool">
+                          <div class="paymentMethodLeft">
+                            <h3 class="licenseh3">Preschool Description</h3>
+                            <div class="descriptionBox">
+                              <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" autocomplete="off"
+                                formControlName="description"
+                                placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."></textarea>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+                    <div class="settingSave">
+                      <button class="saveShareBtn" mat-focus-indicator mat-button mat-button-base color="primary"><span
+                          class="saveIcon"></span> Save</button>
+                    </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

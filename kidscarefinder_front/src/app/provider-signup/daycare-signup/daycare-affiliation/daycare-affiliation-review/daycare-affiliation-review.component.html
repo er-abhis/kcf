@@ -1,0 +1,125 @@
+<form [formGroup]="stepsReligiousDetailsForm">
+  <div class="container p-0">
+    <div class="StepDetailsLists stepDetail4 stepDetail8">
+      <div class="row">
+        <div class="col-sm-12 mx-auto">
+          <div class="main_block sect_head StepDetailHeading">
+            <h2 class="titleDetails">Review | Step 8: Affiliations</h2>
+            <p class="smallTextDetails">Review and edit affiliations</p>
+          </div>
+        </div>
+        <div class="detailsRow detailsRowMobile dropdwnstep8">
+          <div class="DetailPhotoLeft bgWhiteDetails provLMargin equal50Max">
+            <div class="detailsColBg">
+              <h3 class="headingBlackText">Religious affiliations</h3>
+              <h3>Do you have religious affiliations?</h3>
+              <mat-radio-group aria-label="Select an option" formControlName="religious" [disabled]="true">
+                <mat-radio-button [checked]="is_religion_affliliation == true" value="1">Yes</mat-radio-button>
+                <mat-radio-button [checked]="is_religion_affliliation == false" value="2">No</mat-radio-button>
+              </mat-radio-group>
+              <h3>Religious affiliations:</h3>
+
+              <div class="childYearDropdowns">
+                <div class="SelectTime arrowmodi">
+                  <mat-label>
+                    <ng-container *ngIf="!is_religion_affliliation"> Not selected</ng-container>
+                    <mat-select *ngIf="is_religion_affliliation" formControlName="religiousDrop" [disabled]="true"
+                      placeholder="Select religious affiliations" multiple>
+                      <mat-option *ngFor="let toppingReligious of toppingListReligious" [value]="toppingReligious.id">
+                        {{toppingReligious.religion}}</mat-option>
+                    </mat-select>
+                  </mat-label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Next Section -->
+          <div class="DetailPhotoRight bgWhiteDetails equal50Max">
+            <div class="detailsColBg">
+              <h3 class="headingBlackText">Languages</h3>
+              <h3>Do you offer programs any language other than English?</h3>
+              <mat-radio-group aria-label="Select an option" formControlName="language" [disabled]="true">
+                <mat-radio-button [checked]="is_other_language == true" value="1">Yes</mat-radio-button>
+                <mat-radio-button [checked]="is_other_language == false" value="2">No</mat-radio-button>
+              </mat-radio-group>
+
+              <h3>Languages:</h3>
+              <div class="childYearDropdowns">
+                <div class="SelectTime arrowmodi">
+                  <mat-label>
+                    <ng-container *ngIf="!is_other_language">Not selected</ng-container>
+                    <mat-select *ngIf="is_other_language" placeholder="Select additional language(s)"
+                      formControlName="languageDrop" [disabled]="true" multiple>
+                      <mat-option value="Select additional language(s) ">
+                        Select additional language(s)</mat-option>
+                      <mat-option *ngFor="let toppingslanguage of toppingListlanguage" [value]="toppingslanguage.id">
+                        {{toppingslanguage.language}}</mat-option>
+                    </mat-select>
+                  </mat-label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="detailsRow detailsRowMobile">
+          <div class="w-100 p-md-3">
+            <div class="cardBox boxshadow">
+              <h3 class="headingBlackText">Affiliated providers</h3>
+              <h3>Do you offer private primary school (TK-12) program?</h3>
+              <mat-radio-group aria-label="Select an option" formControlName="affiliatedProvider" [disabled]="true">
+                <mat-radio-button [checked]="is_tk12_program == true" value="1">Yes</mat-radio-button>
+                <mat-radio-button [checked]="is_tk12_program == false" value="2">No</mat-radio-button>
+              </mat-radio-group>
+              <h3>Do you have affiliated provider types?</h3>
+              <mat-radio-group aria-label="Select an option" formControlName="affiliatedProviderType" [disabled]="true">
+                <mat-radio-button [checked]="is_affiliated_provider == true" value="1">Yes</mat-radio-button>
+                <mat-radio-button [checked]="is_affiliated_provider == false" value="2">No</mat-radio-button>
+              </mat-radio-group>
+
+              <h3 class="headingBlackText" *ngIf="is_affiliated_provider == true">Affiliated providers:</h3>
+              <div class="col-12 mx-auto" *ngIf="is_affiliated_provider == true">
+                <div class="profleTable steptable">
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th scope="col">Provider type</th>
+                          <th scope="col">Provider name</th>
+                          <th scope="col">Provider page URL</th>
+                        </tr>
+                        <tr style="text-align: center;" *ngIf="!affiliatedProvidersList.length">
+                          You haven't added an affiliated provider type yet. Click 'Add affiliated provider type' to get
+                          started.
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let item of affiliatedProvidersList">
+                          <td>{{ item?.provider_type === 'PRE_SCHOOL'?'Preschool': item?.provider_type }}</td>
+                          <td>{{item?.first_name}} {{item?.last_name}}</td>
+                          <td>{{item?.affiliated_provider_url}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div class="addChild">
+                      <a href="javascript:void(0)">
+                        <span class="addchildIcon">
+                          <svg width="35" height="21" viewBox="0 0 35 21" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                              d="M27.5003 17.6429V20.5H10.3574V17.6429C10.3574 17.6429 10.3574 11.9286 18.9288 11.9286C27.5003 11.9286 27.5003 17.6429 27.5003 17.6429ZM23.2146 4.78572C23.2146 3.93808 22.9632 3.10948 22.4923 2.4047C22.0214 1.69992 21.352 1.15061 20.5689 0.826232C19.7858 0.501857 18.9241 0.416985 18.0927 0.582351C17.2614 0.747716 16.4978 1.15589 15.8984 1.75526C15.299 2.35463 14.8908 3.11827 14.7255 3.94961C14.5601 4.78096 14.645 5.64268 14.9694 6.42579C15.2937 7.2089 15.843 7.87824 16.5478 8.34916C17.2526 8.82008 18.0812 9.07143 18.9288 9.07143C20.0655 9.07143 21.1556 8.6199 21.9593 7.81617C22.763 7.01245 23.2146 5.92236 23.2146 4.78572ZM27.786 12.0143C28.5669 12.7347 29.1965 13.6035 29.638 14.5699C30.0795 15.5363 30.324 16.5809 30.3574 17.6429V20.5H34.6431V17.6429C34.6431 17.6429 34.6431 12.7143 27.786 12.0143ZM26.0717 0.500002C25.6401 0.50026 25.2111 0.567735 24.8003 0.700001C25.6361 1.89853 26.0842 3.32455 26.0842 4.78572C26.0842 6.24688 25.6361 7.6729 24.8003 8.87143C25.2111 9.0037 25.6401 9.07117 26.0717 9.07143C27.2083 9.07143 28.2984 8.6199 29.1022 7.81617C29.9059 7.01245 30.3574 5.92236 30.3574 4.78572C30.3574 3.64907 29.9059 2.55899 29.1022 1.75526C28.2984 0.951531 27.2083 0.500002 26.0717 0.500002ZM11.786 7.64286H7.50028V3.35714H4.64314V7.64286H0.357422V10.5H4.64314V14.7857H7.50028V10.5H11.786V7.64286Z"
+                              fill="#164789" />
+                          </svg>
+                        </span>
+                        <span class="addChildtext">Add affiliated provider type</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

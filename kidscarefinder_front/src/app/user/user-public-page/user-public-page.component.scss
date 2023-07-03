@@ -1,0 +1,356 @@
+.searchPublicUserBg {
+  background-image: linear-gradient(179.93deg, #093B84 0.06%, #A7DFEC 102.84%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.searchPublicUser {
+  margin-top: 15px;
+}
+
+.singleTopFlex {
+  padding: 0 20px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.singleToptext h5 {
+  color: var(--whiteColor);
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+.opacitypt5{
+opacity: 0.5;
+}
+
+.singleTopFlex .backToResult {
+  background: #fff;
+  border-radius: 30px;
+  padding: 15px 20px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.4;
+  display: inline-flex;
+  align-items: center;
+  text-align: center;
+  column-gap: 10px;
+  color: var(--primaryLight);
+  text-decoration: none;
+}
+
+.singleRhodeCust {
+  position: relative;
+}
+.main_block.inner_main_block.singleRhodeCust a.add_favrt_provider {
+border-radius: 30px;
+}
+.school_profile_info a.school_titleWeb:hover {
+color: var(--whiteColor);
+}
+
+.school_profile .inner_main_block .add_favrt_provider {
+position: absolute;
+top: 20px;
+right: 20px;
+background: #fff;
+border-radius: 15px;
+padding: 20px 20px;
+font-weight: 700;
+font-size: 20px;
+height: inherit;
+line-height: inherit;
+display: inline-flex;
+align-items: center;
+text-align: center;
+column-gap: 10px;
+color: #772162;
+z-index: 1;
+text-decoration: none;
+}
+.singleRhodeCust a.add_favrt_provider svg {
+width: 24px;
+height: 24px;
+}
+.singleRhodeCust a.add_favrt_provider path {
+fill: #772162;
+}
+
+
+
+.verify_block strong{
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 0 5px;
+}
+
+
+::ng-deep .checkAddition {
+width: 750px;
+margin: auto;
+}
+
+::ng-deep .reviewPostSection h2.sect_titl {
+font-family: 'Nunito';
+font-size: 32px;
+font-weight: 400;
+color: var(--blackColor);
+}
+::ng-deep .reviewPostSection h2.sect_titl a {
+font-weight: 600;
+color: var(--blackColor);
+text-transform:capitalize;
+}
+
+::ng-deep .headerPipe {
+display: inline-block;
+height: 50px;
+width: 4px;
+margin: 0 15px;
+background: #fff;
+}
+
+::ng-deep .reviewPostForm .matRatingBtn {
+font-size: 50px;
+width: 50px;
+height: 50px;
+line-height: 50px;
+}
+
+::ng-deep .reviewPostForm .matRatingBtn .mat-icon {
+font-size: 50px;
+width: 50px;
+height: 50px;
+line-height: 50px;
+}
+::ng-deep .iconCard.PreeIcon4 {
+background-size: 15px;
+}
+::ng-deep .sect_inner_block.main_block h2.sect_title {
+font-size: 36px;
+font-weight: 800;
+}
+
+::ng-deep .reviewPostForm p.RatingText {
+color: #333;
+font-size: 16px;
+margin: 15px 0 10px;
+}
+
+::ng-deep .school_profile_info h2.school_titleSub {
+margin-bottom: 15px;
+}
+
+
+// css new add
+
+.publicUserButtonsSection {
+  padding: 20px 15px;
+  background: var(--primaryColor);
+  border-radius: 0;
+  position: relative;
+}
+.premiumButtons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+}
+
+.premiumButtons button{
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primaryLight);
+  padding: 16px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 59px;
+}
+
+.aboutFamilyResutl {
+  padding: 20px 40px 30px;
+  background: var(--primaryLight);
+  border-top: 1px solid #d9d9d9;
+  border-bottom: 1px solid #d9d9d9;
+  border-radius: 0;
+  position: relative;
+}
+.aboutFamilyResutl h2.heading {
+  font-family: 'Nunito';
+  font-size: 36px;
+  font-weight: 800;
+  text-align: center;
+  color: var(--whiteColor);
+  margin-bottom: 20px;
+}
+.aboutFamilyResultIn {
+  background: var(--whiteColor);
+  padding:30px 20px;
+  border-radius: 20px;
+  word-wrap: break-word;
+}
+.aboutFamilyResultIn .paragraph{
+  font-family: 'Nunito';
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 27px;
+  color: var(--primaryLight);
+  margin-bottom: 0;
+}
+
+.publicUserPhoto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 30px 25px;
+}
+.userPhotoCenter {
+  width: auto;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.userPhotoCircle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+.userPhotoCircle img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+}
+.userPhotoCenter h2.publich2 {
+  font-family: "Nunito";
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--whiteColor);
+  margin: 20px 0 10px;
+  text-shadow: 3px 3px 0px rgba(1, 1, 1, 0.1);
+}
+
+.userPhotoCenter h3.publich3 {
+  font-family: "Nunito";
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--whiteColor);
+  margin-bottom: 10px;
+  text-shadow: 3px 3px 0px rgba(1, 1, 1, 0.1);
+}
+.userPhotoCenter h6.publich6 {
+  font-family: "Nunito";
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--whiteColor);
+  margin-bottom: 0px;
+  text-shadow: 3px 3px 0px rgba(1, 1, 1, 0.1);
+}
+
+
+
+
+
+.AdditionalCards {
+  background: #2c2c2c;
+  border: 0px;
+  border-color: #8ad5ff;
+  padding: 20px 0 20px;
+}
+.prfileChildBg {
+  background: #2c2c2c;
+}
+// .prfileChildGrid {
+//   display: grid;
+//   grid-template-columns: repeat(4, 1fr);
+//   gap: 15px;
+// }
+.prfileChildGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+}
+.prfileChildBox {
+  background: #fff;
+  height: 132px;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  width: 23%;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.editChild {
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  top: 6px;
+  right: 32px;
+  background: var(--primaryColor);
+  color: var(--whiteColor);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.editChild .mat-icon {
+  width: 11px;
+  height: 11px;
+  font-size: 11px;
+}
+.prfileChildBox .austinh4 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 10px 0px 5px;
+  word-break: break-all;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.prfileChildBox .austinh5 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--primaryLight);
+  margin: 0;
+}
+.prfileChildBox .austinh5.dateItelic {
+  font-weight: 400;
+  font-style: italic;
+}
+.prfileChildTwoin {
+  display: flex;
+  flex-wrap: wrap;
+}
+.prfileChildTwoin .prfileChildItem {
+  width: 50%;
+  padding: 15px 0;
+  border-right: 1px solid #ccc;
+}
+.prfileChildTwoin .prfileChildItem:last-child {
+  border-right: 0px solid #ccc;
+}
+
+.prfileChildBg h2.heading {
+  font-family: "Nunito";
+  font-size: 36px;
+  font-weight: 800;
+  text-align: center;
+  color: var(--whiteColor);
+  margin-bottom: 20px;
+}

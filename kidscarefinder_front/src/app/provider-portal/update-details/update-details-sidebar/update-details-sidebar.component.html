@@ -1,0 +1,124 @@
+<div class="sidebarleft">
+    <nav class="sidebar">
+        <div class="userPortal">
+          <span class="userportIcon">
+            <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12.5 0.5C10.9241 0.5 9.36371 0.810389 7.9078 1.41345C6.45189 2.0165 5.12902 2.90042 4.01472 4.01472C1.76428 6.26516 0.5 9.3174 0.5 12.5C0.5 15.6826 1.76428 18.7348 4.01472 20.9853C5.12902 22.0996 6.45189 22.9835 7.9078 23.5866C9.36371 24.1896 10.9241 24.5 12.5 24.5C15.6826 24.5 18.7348 23.2357 20.9853 20.9853C23.2357 18.7348 24.5 15.6826 24.5 12.5C24.5 10.9241 24.1896 9.36371 23.5866 7.9078C22.9835 6.45189 22.0996 5.12902 20.9853 4.01472C19.871 2.90042 18.5481 2.0165 17.0922 1.41345C15.6363 0.810389 14.0759 0.5 12.5 0.5ZM6.584 20.036C7.1 18.956 10.244 17.9 12.5 17.9C14.756 17.9 17.9 18.956 18.416 20.036C16.784 21.332 14.732 22.1 12.5 22.1C10.268 22.1 8.216 21.332 6.584 20.036ZM20.132 18.296C18.416 16.208 14.252 15.5 12.5 15.5C10.748 15.5 6.584 16.208 4.868 18.296C3.644 16.7 2.9 14.684 2.9 12.5C2.9 7.208 7.208 2.9 12.5 2.9C17.792 2.9 22.1 7.208 22.1 12.5C22.1 14.684 21.356 16.7 20.132 18.296ZM12.5 5.3C10.172 5.3 8.3 7.172 8.3 9.5C8.3 11.828 10.172 13.7 12.5 13.7C14.828 13.7 16.7 11.828 16.7 9.5C16.7 7.172 14.828 5.3 12.5 5.3ZM12.5 11.3C12.0226 11.3 11.5648 11.1104 11.2272 10.7728C10.8896 10.4352 10.7 9.97739 10.7 9.5C10.7 9.02261 10.8896 8.56477 11.2272 8.22721C11.5648 7.88964 12.0226 7.7 12.5 7.7C12.9774 7.7 13.4352 7.88964 13.7728 8.22721C14.1104 8.56477 14.3 9.02261 14.3 9.5C14.3 9.97739 14.1104 10.4352 13.7728 10.7728C13.4352 11.1104 12.9774 11.3 12.5 11.3Z" fill="white"/>
+            </svg>
+            </span>
+          <h5 class="userportMain">Provider Portal</h5>
+        </div>
+          <div class="userProfle">
+              <div class="userIcon">
+                  <img src="assets/images/user_image.png" alt="user_image">
+              </div>
+              <h4 class="userTitle">The Rhoades School</h4>
+              <h6 class="providerId">Provider ID: <b>kcfrhoades1</b></h6>
+              <a class="viewpublic" href="javascript:void(0)">View Public Provider Page URL</a>
+          </div>
+          <ul class="nav flex-column proivset" id="nav_accordion">
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#uaCollapse">
+                <label class="setnavnabel">The Rhoades School (Preschool)</label>
+                <mat-icon class="mat-icon-rtl-mirror ms-auto">expand_more</mat-icon>
+              </a>
+              <div class="collapse collapseCustom" id="uaCollapse">
+                <ul class="settingDropdown">
+                  <li class="dropdownLink">
+                    <p class="toglpara">Search result optimization</p>
+                    <div class="navTogbtn">
+                      <mat-slide-toggle>On</mat-slide-toggle>
+                    </div>
+                  </li>
+                  <li class="dropdownLink">
+                    <p class="toglpara">Waitlist</p>
+                    <div class="navTogbtn">
+                      <mat-slide-toggle>Off</mat-slide-toggle>
+                    </div>
+                  </li>
+                  <li class="dropdownLink">
+                    <p class="toglpara">Online applications</p>
+                    <div class="navTogbtn">
+                      <mat-slide-toggle>On</mat-slide-toggle>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li> -->
+
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/providerSettings/update-details/step1']" routerLinkActive="router-link-active">
+                <span class="navIcon">
+                  <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M16 12.2305H14V14.2305H16M16 8.23047H14V10.2305H16M18 16.2305H10V14.2305H12V12.2305H10V10.2305H12V8.23047H10V6.23047H18M8 4.23047H6V2.23047H8M8 8.23047H6V6.23047H8M8 12.2305H6V10.2305H8M8 16.2305H6V14.2305H8M4 4.23047H2V2.23047H4M4 8.23047H2V6.23047H4M4 12.2305H2V10.2305H4M4 16.2305H2V14.2305H4M10 4.23047V0.230469H0V18.2305H20V4.23047H10Z" fill="white"/>
+                  </svg>
+                </span>
+                <span class="navTxthid">Update provider details</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/providerSettings/update-details/step1']" routerLinkActive="router-link-active">
+                <span class="navTxthid">1. Basic information</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/providerSettings/update-details/step2']" routerLinkActive="router-link-active">
+                <span class="navTxthid">2. Schedule/ availability</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/providerSettings/update-details/step3']" routerLinkActive="router-link-active">
+                <span class="navTxthid">3. Photo/ video</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/providerSettings/update-details/step4']" routerLinkActive="router-link-active">
+                <span class="navTxthid">4. Child requirements</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/providerSettings/update-details/step5']" routerLinkActive="router-link-active">
+                <span class="navTxthid">5. Meals & snacks</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/providerSettings/update-details/step6']" routerLinkActive="router-link-active">
+                <span class="navTxthid">6. Teacher-to-child ratio</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/providerSettings/update-details/step7']" routerLinkActive="router-link-active">
+                <span class="navTxthid">7. Tuition</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/providerSettings/update-details/step8']" routerLinkActive="router-link-active">
+                <span class="navTxthid">8. Affiliation</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/providerSettings/update-details/step9']" routerLinkActive="router-link-active">
+                <span class="navTxthid">9. Admin & settings</span>
+              </a>
+            </li>
+          </ul>
+      </nav>
+      <!-- back button -->
+      <div class="returnUpdate">
+        <a class="returnAchor" [routerLink]="['/providerSettings/my-information']">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 8.73737V11.2626H4.84848L11.7929 18.2071L10 20L0 10L10 0L11.7929 1.79293L4.84848 8.73737H20Z" fill="white"/>
+          </svg>
+          <span class="returntext">Return to Provider Portal</span>
+        </a>
+      </div>
+    </div>

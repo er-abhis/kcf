@@ -1,0 +1,235 @@
+<div class="mainBgColor">
+  <app-header></app-header>
+  <section class="userSignupOuter">
+    <div class="customCombine customCombineProviderPort">
+      <ng-container *ngIf="toggleSidebar">
+        <app-user-sidebar></app-user-sidebar>
+      </ng-container>
+      <div class="contentright">
+        <app-mobo-top-menu></app-mobo-top-menu>
+        <div class="contentrightBg">
+          <!-- My profile heading -->
+          <div class="accountSetting">
+            <div class="headingbg">
+              <h1 class="headingh1 fw-bold">My Profile</h1>
+              <p class="paratop">
+                Your first name, photo, family description and children's
+                name(s) and age(s) are visible to providers.
+              </p>
+            </div>
+          </div>
+
+          <div class="CombineOuter">
+            <!-- Basic Form Starts -->
+            <div class="shareBoxFixed">
+              <div class="shareCombine">
+                <div class="row gx-3">
+                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                    <form [formGroup]="profile_photoForm" class="notifyFrmequal">
+                      <div class="sharingCard cardBox">
+                        <h2 class="headingh2">Profile photo</h2>
+                        <div class="profileChoseBox">
+                          <div class="profileChoseFlex">
+                            <div class="profilePicture">
+                              <img [src]="url ? url : imageUrl" alt="" />
+                            </div>
+                            <div class="profileUpload">
+                              <div class="profileUploadBtn">
+                                <input (change)="onSelectFile($event)" class="form-control" type="file"
+                                  formControlName="profile_photo" accept=".png, .jpg, .jpeg" id="choose-file" />
+                                <label class="chsefile" for="choose-file">
+                                  <img src="../../../../assets/images/upload.svg" alt />
+                                  <span class="spanArrow">Upload Image</span>
+                                </label>
+                              </div>
+                              <button *ngIf="url" (click)="delete()" type="button" class="btn btn-outline-secondary">
+                                <img src="../../../../assets/images/delete.svg" alt />
+                                <span class="spanRemove">Remove Image</span>
+                              </button>
+                            </div>
+                          </div>
+                          <!-- <p class="profileDisclaim">Disclaimer text for photos</p> -->
+                          <p class="profileDisclaim">
+                            <span style="color: red">*</span>
+                            Upload Images with supported file type (.png, .jpg)
+                          </p>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+
+                  <!-- ---------------------------------- User section start ----------------------------- -->
+                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                    <!-- <form [formGroup]="basicInfoForm" (ngSubmit)="userProfile()" class="notifyFrmequal"> -->
+                    <form [formGroup]="basicInfoForm" class="notifyFrmequal">
+                      <div class="usernameCard cardBox">
+                        <h2 class="headingh2">Basic info</h2>
+                        <div class="basicInfo">
+                          <div class="row">
+                            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                              <div class="mb-2">
+                                <label class="form-label">First Name</label>
+                                <input class="form-control" type="text" (keydown.space)="$event.preventDefault()"
+                                  required placeholder aria-label="default input example" autocomplete="off"
+                                  formControlName="first_name" />
+                                <span style="color: red" *ngIf="
+                                    (f['first_name'].errors &&
+                                      f['first_name'].touched) ||
+                                    (userSubmitted && f['first_name'].errors)
+                                  ">
+                                  <mat-error *ngIf="f['first_name'].errors['required']">First name can't be
+                                    blank</mat-error>
+                                  <mat-error *ngIf="f['first_name'].errors['pattern']">First name is invalid</mat-error>
+                                </span>
+                              </div>
+                            </div>
+                            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                              <div class="mb-2">
+                                <label class="form-label">Last Name</label>
+                                <input class="form-control" type="text" (keydown.space)="$event.preventDefault()"
+                                  placeholder aria-label="default input example" autocomplete="off"
+                                  formControlName="last_name" />
+                                <span style="color: red" *ngIf="
+                                    (f['last_name'].errors &&
+                                      f['last_name'].touched) ||
+                                    (userSubmitted && f['last_name'].errors)
+                                  ">
+                                  <mat-error *ngIf="f['last_name'].errors['required']">Last name can't be
+                                    blank</mat-error>
+                                  <mat-error *ngIf="f['last_name'].errors['pattern']">Last name is invalid</mat-error>
+                                </span>
+                              </div>
+                            </div>
+
+                            <div class="col-12">
+                              <div class="mb-2">
+                                <label class="form-label">Address</label>
+                                <input (onAddressChange)="AddressChange($event)" type="text"
+                                  ngx-google-places-autocomplete class="form-control" autocomplete="off"
+                                  formControlName="address" />
+                                <span style="color: red" *ngIf="
+                                    (f['address'].errors &&
+                                      f['address'].touched) ||
+                                    (userSubmitted && f['address'].errors)
+                                  ">
+                                  <mat-error *ngIf="f['address'].errors['required']">Address can't be blank</mat-error>
+                                  <mat-error *ngIf="f['address'].errors['pattern']">White space not allow</mat-error>
+                                </span>
+                                <input #latitude [value]="latitudedata" hidden matInput formControlName="latitude" />
+                                <input #longitude [value]="longitudedata" hidden matInput formControlName="longitude" />
+                              </div>
+                            </div>
+
+                            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                              <div class="mb-2">
+                                <label class="form-label">Phone Number</label>
+                                <input class="form-control" type="text" mask="000-000-0000" autocomplete="off"
+                                  formControlName="contact" />
+                                <span style="color: red" *ngIf="
+                                    (f['contact'].errors &&
+                                      f['contact'].touched) ||
+                                    (userSubmitted && f['contact'].errors)
+                                  ">
+                                  <mat-error *ngIf="f['contact'].errors['required']">Contact number is
+                                    required</mat-error>
+                                  <mat-error *ngIf="f['contact'].errors['minlength']">Number should be min
+                                    10</mat-error>
+                                </span>
+                              </div>
+                            </div>
+                            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                              <div class="mb-2">
+                                <label class="form-label">Email</label>
+                                <input class="form-control" type="email" readonly placeholder
+                                  aria-label="default input example" autocomplete="off" formControlName="email" />
+                                <span style="color: red" *ngIf="
+                                    (f['email'].errors && f['email'].touched) ||
+                                    (userSubmitted && f['email'].errors)
+                                  ">
+                                  <mat-error *ngIf="f['email'].errors['required']">Email can't be blank</mat-error>
+                                  <mat-error *ngIf="f['email'].errors['pattern']">Email is invalid</mat-error>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!-- ---------------------------------- User section End ----------------------------- -->
+
+              <div class="paymentInformartion">
+                <div class="paymentInformartionCard">
+                  <div class="paymentMethodLeft">
+                    <h2 class="childh2">My Children</h2>
+                    <p class="childPara">
+                      Only your child’s first name and age will be visible to
+                      providers.
+                    </p>
+                    <app-my-children></app-my-children>
+                  </div>
+                </div>
+                <!-- Description form starts -->
+                <form [formGroup]="descriptionForm">
+                  <div class="familyDescriptionCard">
+                    <div class="paymentMethodLeft">
+                      <h2 class="fw-bold headingh2">Family Description</h2>
+
+                      <div class="descriptionBox">
+                        <textarea class="form-control" [(ngModel)]="role"
+                        [maxlength]="maxChars" id="exampleFormControlTextarea1" rows="5" autocomplete="off"
+                          formControlName="family_description"></textarea>
+                        <span style="color: red" *ngIf="
+                            (g['family_description'].errors &&
+                              g['family_description'].touched) ||
+                            (userSubmitted && g['family_description'].errors)
+                          ">
+                          <mat-error *ngIf="g['family_description'].errors['required']">
+                            Please Enter Family Descriptions</mat-error>
+                        </span>
+                        <label class="countFamily" [ngClass]="{'fw-bold text-danger':role.length == 300}">{{role.length==0? chars:role.length}}/{{maxChars}}</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="familyDescriptionCard">
+                    <div class="paymentMethodLeft">
+                      <h2 class="fw-bold headingh2 mb-1">
+                        Provider types I'm interested in
+                      </h2>
+                      <p>Select all that apply</p>
+
+                      <div class="profileInterstBox">
+                        <div class="row">
+                          <!-- item in items | orderBy: 'id' -->
+                          <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12"
+                            *ngFor="let item of providerTypeArray">
+                            <div class="form-check">
+                              <input class="form-check-input" [checked]="selected_provider.includes(item.id)"
+                                (change)="onSelected(item, $event)" type="checkbox"
+                                name="providerTypeArray_{{ item.id }}" id="providerTypeArray_{{ item.id }}" />
+                              <label class="form-check-label" for="providerTypeArray_{{ item.id }}">
+                                {{ item.providercategory }}
+                              </label>
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <div class="profileContinue">
+                  <button (click)="SubmitData()" type="submit" class="btn btn-primary">
+                    Continue
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

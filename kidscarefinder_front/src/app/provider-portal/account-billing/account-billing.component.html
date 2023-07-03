@@ -1,0 +1,275 @@
+<div class="mainBgColor">
+  <app-header></app-header>
+  <section class="userSignupOuter">
+    <div class="customCombine customCombineProviderPort">
+      <app-provider-setting-sidebar></app-provider-setting-sidebar>
+      <div class="contentright">
+        <div class="contentrightBg">
+          <div class="accountSetting">
+            <div class="headingbg">
+              <div class="headingbgFlex">
+                <div class="headingbgText">
+                  <h1 class="headingh1">Account type and billing</h1>
+                  <p class="paratop">Update your account type and payment information here as needed.</p>
+                </div>
+                <div class="headingbgBtn">
+                  <a href="javascript:void(0)" routerLink="/providerSettings/provider-support" class="btn btn-light">
+                    <span class="watchBtn"><svg width="20" height="21" viewBox="0 0 20 21" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M13.07 9.72192L12.17 10.6419C11.45 11.3619 11 11.9719 11 13.4719H9V12.9719C9 11.8619 9.45 10.8619 10.17 10.1419L11.41 8.88192C11.78 8.52192 12 8.02192 12 7.47192C12 6.36192 11.1 5.47192 10 5.47192C9.46957 5.47192 8.96086 5.68264 8.58579 6.05771C8.21071 6.43278 8 6.94149 8 7.47192H6C6 6.41106 6.42143 5.39364 7.17157 4.6435C7.92172 3.89335 8.93913 3.47192 10 3.47192C11.0609 3.47192 12.0783 3.89335 12.8284 4.6435C13.5786 5.39364 14 6.41106 14 7.47192C14 8.35192 13.64 9.14192 13.07 9.72192ZM11 17.4719H9V15.4719H11M10 0.471924C8.68678 0.471924 7.38642 0.730582 6.17317 1.23313C4.95991 1.73568 3.85752 2.47227 2.92893 3.40086C1.05357 5.27622 0 7.81976 0 10.4719C0 13.1241 1.05357 15.6676 2.92893 17.543C3.85752 18.4716 4.95991 19.2082 6.17317 19.7107C7.38642 20.2133 8.68678 20.4719 10 20.4719C12.6522 20.4719 15.1957 19.4184 17.0711 17.543C18.9464 15.6676 20 13.1241 20 10.4719C20 4.94192 15.5 0.471924 10 0.471924Z"
+                          fill="#E7E7E7" />
+                      </svg>
+                    </span>
+                    Watch Tutorial Video
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="CombineOuter">
+            <div class="shareBoxFixed">
+              <div class="paymentInformartion p-0">
+                <form>
+                  <div class="accountBillingFlex">
+                    <div class="reviewPayment boxshadow">
+                      <h5 class="stepPlan">Your current plan</h5>
+                      <h1 class="reviewPayh1" *ngIf="defaultPlan?.plan_type == 'PREMIUM_WITH_SRO'">Premium with Search
+                        Result Optimization</h1>
+                      <h1 class="reviewPayh1" *ngIf="defaultPlan?.plan_type == 'BASIC'">Basic</h1>
+                      <h1 class="reviewPayh1" *ngIf="defaultPlan?.plan_type == 'PREMIUM'">Premium</h1>
+                      <div class="steperSubscription">
+                        <div class="subscriptionLeft">
+                          <p class="subscpPara">Subscription</p>
+                          <p class="subscpPara" *ngIf="is_yearly_active">Yearly, billed annually</p>
+                          <p class="subscpPara" *ngIf="!is_yearly_active">Monthly, billed monthly</p>
+                        </div>
+                        <div class="subscriptionRight">
+                          <span *ngIf="defaultPlan?.plan_type == 'PREMIUM_WITH_SRO'">{{!is_yearly_active?'$125/month':'$1,250/year'}}</span>
+                          <span *ngIf="defaultPlan?.plan_type == 'PREMIUM'">{{!is_yearly_active?'$25/month':'$250/year'}}</span>
+                          <span *ngIf="defaultPlan?.plan_type == 'BASIC'">$0/year</span>
+                        </div>
+                      </div>
+                      <div class="stepSubsTotal">
+                        <p class="subTotalPara">Next payment: {{nextPaymentDate | date :'longDate'}}</p>
+                        <span class="subTotalPrice" *ngIf="defaultPlan?.plan_type == 'PREMIUM_WITH_SRO'">$1,250</span>
+                        <span class="subTotalPrice" *ngIf="defaultPlan?.plan_type == 'PREMIUM'">$250</span>
+                        <span class="subTotalPrice" *ngIf="defaultPlan?.plan_type == 'BASIC'">$0</span>
+                      </div>
+                    </div>
+                    <div class="accountBillBtn">
+                      <button class="matPrimary" mat-button color="primary" (click)="changeAccountType()" >Change account type</button>
+                      <button class="strokedPrimary" mat-stroked-button color="primary">Cancel subscription</button>
+                    </div>
+                  </div>
+                </form>
+                <div class="paymentInformartionCard marginTop4">
+                  <div class="paymentInformartionFlex">
+                    <div class="paymentMethodLeft">
+                      <h2 class="payinfoh2">Update payment information</h2>
+                      <p class="paypara">Select payment method to begin</p>
+                      <div class="usernameLink">
+                        <a href="javascript:void(0)" (click)="changeType(1)" [ngClass]="{active: type == 1}">Add Bank
+                          Account</a>
+                        <a href="javascript:void(0)" (click)="changeType(2)"
+                          [ngClass]="{active: type == 2}">Debit/Credit Card</a>
+                      </div>
+                      <div *ngIf="type == 1" class="formDesign">
+                        <form [formGroup]="bankDetailForm">
+                          <div class="mb-3">
+                            <label class="form-label">Name on Account</label>
+                            <input formControlName="name" class="form-control" type="text" placeholder=""
+                              aria-label="default input example" autocomplete="off">
+                            <span style="color: red" *ngIf="
+                                  (b['name'].errors &&
+                                    b['name'].touched) ||
+                                  (bankDetailSubmitted && b['name'].errors)
+                                ">
+                              <mat-error *ngIf="b['name'].errors['required']">Name on account is required</mat-error>
+                            </span>
+                          </div>
+                          <div class="mb-3">
+                            <label class="form-label">Account Number</label>
+                            <input formControlName="account_number" class="form-control" type="text" placeholder=""
+                              aria-label="default input example">
+                            <span style="color: red" *ngIf="
+                                  (b['account_number'].errors &&
+                                    b['account_number'].touched) ||
+                                  (bankDetailSubmitted && b['account_number'].errors)
+                                ">
+                              <mat-error *ngIf="b['account_number'].errors['required']">Account number is
+                                required</mat-error>
+                            </span>
+                          </div>
+                          <div class="mb-3">
+                            <label class="form-label">Verify Account Number</label>
+                            <input formControlName="verify_account_number" class="form-control" type="text"
+                              placeholder="" aria-label="default input example">
+                            <span style="color: red">
+                              <mat-error
+                                *ngIf="!b['verify_account_number'].errors && bankDetailForm.value?.account_number != bankDetailForm.value?.verify_account_number">
+                                Account number does not match
+                              </mat-error>
+                            </span>
+                            <span style="color: red" *ngIf="
+                            (b['verify_account_number'].errors &&
+                              b['verify_account_number'].touched) ||
+                            (bankDetailSubmitted && b['verify_account_number'].errors)
+                          ">
+                              <mat-error *ngIf="b['verify_account_number'].errors['required']">Account number is
+                                required</mat-error>
+                            </span>
+                          </div>
+                          <div class="row">
+                            <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-12">
+                              <div class="mb-3">
+                                <label class="form-label">Routing Number</label>
+                                <input formControlName="routing_number" class="form-control" type="text" placeholder=""
+                                  aria-label="default input example">
+                                <span style="color: red" *ngIf="
+                                  (b['routing_number'].errors &&
+                                    b['routing_number'].touched) ||
+                                  (bankDetailSubmitted && b['routing_number'].errors)
+                                ">
+                                  <mat-error *ngIf="b['routing_number'].errors['required']">Routing number is
+                                    required</mat-error>
+                                </span>
+                              </div>
+                            </div>
+                            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                              <div class="mb-3">
+                                <label class="form-label">Account Type</label>
+                                <div class="col-12">
+                                  <div class="form-check form-check-inline">
+                                    <input formControlName="account_type" [checked]="checkboxType.individual"
+                                      (click)="checkbox('individual')" class="form-check-input" type="checkbox"
+                                      id="inlineCheckbox1" value="individual">
+                                    <label class="prevent-default form-check-label"
+                                      for="inlineCheckbox1">Individual</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input formControlName="account_type" [checked]="checkboxType.company"
+                                      (click)="checkbox('company')" class="form-check-input" type="checkbox"
+                                      id="inlineCheckbox2" value="company">
+                                    <label class="prevent-default form-check-label"
+                                      for="inlineCheckbox2">Company</label>
+                                  </div>
+
+                                </div>
+                                <span style="color: red" *ngIf="
+                                  (b['account_type'].errors &&
+                                    b['account_type'].touched) ||
+                                  (bankDetailSubmitted && b['account_type'].errors)
+                                ">
+                                  <mat-error *ngIf="b['account_type'].errors['required']">Account type is
+                                    required</mat-error>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                      <div *ngIf="type == 2" class="formDesign">
+                        <form [formGroup]="cardDetailForm">
+                          <div class="mb-3">
+                            <label class="form-label">Name on Card</label>
+                            <input formControlName="name" class="form-control" type="text" placeholder=""
+                              aria-label="default input example" autocomplete="off">
+                            <span style="color: red" *ngIf="
+                                  (c['name'].errors &&
+                                    c['name'].touched) ||
+                                  (cardDetailSubmitted && c['name'].errors)
+                                ">
+                              <mat-error *ngIf="c['name'].errors['required']">Name on account is required</mat-error>
+                            </span>
+                          </div>
+                          <div class="mb-3">
+                            <label class="form-label">Card Number</label>
+                            <input formControlName="card_number" class="form-control" type="text" placeholder=""
+                              aria-label="default input example">
+                            <span style="color: red" *ngIf="
+                            (c['card_number'].errors &&
+                              c['card_number'].touched) ||
+                            (cardDetailSubmitted && c['card_number'].errors)
+                          ">
+                              <mat-error *ngIf="c['card_number'].errors['required']">Card number is required</mat-error>
+                            </span>
+                          </div>
+                          <div class="row">
+                            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-12">
+                              <div class="mb-3">
+                                <label class="form-label">Expiration Month</label>
+                                <input formControlName="expiry_month" class="form-control" type="text" placeholder=""
+                                  aria-label="default input example">
+                                <span style="color: red" *ngIf="
+                                  (c['expiry_month'].errors &&
+                                    c['expiry_month'].touched) ||
+                                  (cardDetailSubmitted && c['expiry_month'].errors)
+                                ">
+                                  <mat-error *ngIf="c['expiry_month'].errors['required']">Expiration month is
+                                    required</mat-error>
+                                </span>
+                              </div>
+                            </div>
+                            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-12">
+                              <div class="mb-3">
+                                <label class="form-label">Expiration Year</label>
+                                <input formControlName="expiry_year" class="form-control" autocomplete="cc-exp-year"
+                                  type="text" placeholder="" aria-label="default input example">
+                                <span style="color: red" *ngIf="
+                                  (c['expiry_year'].errors &&
+                                    c['expiry_year'].touched) ||
+                                  (cardDetailSubmitted && c['expiry_year'].errors)
+                                ">
+                                  <mat-error *ngIf="c['expiry_year'].errors['required']">Expiration year is
+                                    required</mat-error>
+                                </span>
+                              </div>
+                            </div>
+                            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-12">
+                              <div class="mb-3">
+                                <label class="form-label">CVC</label>
+                                <input formControlName="cvc" class="form-control" type="password"
+                                  autocomplete="cc-number" placeholder="" aria-label="default input example">
+                                <span style="color: red" *ngIf="
+                                  (c['cvc'].errors &&
+                                    c['cvc'].touched) ||
+                                  (cardDetailSubmitted && c['cvc'].errors)
+                                ">
+                                  <mat-error *ngIf="c['cvc'].errors['required']">CVC is required</mat-error>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+
+                    </div>
+                    <div class="paymentMethodRight">
+                      <p class="choosepay">or choose an alternative payment option:</p>
+                      <div class="paymentSelect">
+                        <div id="payment-request-button">
+                          <!-- A Stripe Element will be inserted here. -->
+                        </div>
+                        <!-- <a href="#"><img src="./assets/images/paypal.svg" alt=""></a> -->
+                        <!-- <a href="#"><img src="./assets/images/applepay.svg" alt=""></a>
+                      <a href="#"><img src="./assets/images/gpay.svg" alt=""></a> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="paymentContinue">
+                  <button (click)="submit()" type="submit" class="btn btn-primary">Save</button>
+                </div>
+                <div class="cancleAccoutBtn">
+                  <a href="#" class="btn btn-outline-primary">Delete my account and data from Kids Care Finder</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

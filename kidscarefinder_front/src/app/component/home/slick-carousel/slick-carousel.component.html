@@ -1,0 +1,27 @@
+<div class="container-45">
+  <div slickContainer #slickController="slick" [slickConfig]="config">
+    <ng-container *ngIf="slickController.initialize">
+      <div
+        slickItem
+        class="slider-img"
+        *ngFor="let item of slides; let index = index"
+        (click)="getUrl(item)"
+      >
+        <div
+          [class]="{
+            'slider-items': true,
+            nowPreschool: item.id == 6 ? true : false
+          }"
+        >
+          <img
+            src="../../../../assets/images/slider/{{ index + 1 }}.jpg"
+            [alt]="index"
+          />
+          <p>
+            <a href="javascript:void(0)">{{ item.title }}</a>
+          </p>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

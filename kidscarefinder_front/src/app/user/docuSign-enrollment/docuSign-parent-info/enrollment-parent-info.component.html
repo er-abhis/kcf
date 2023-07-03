@@ -1,0 +1,273 @@
+<div class="paymentInformartion p-0">
+  <div class="profleTable boxshadow">
+    <div class="table-responsive">
+      <table class="table table-hover text-center">
+        <thead>
+          <tr>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Relationship</th>
+            <!-- <th scope="col">Action</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="table-active" *ngFor="let details of parent; let i = index">
+            <td colspan="1">
+              {{details.first_name}}
+            </td>
+            <td colspan="1">
+              {{details.last_name}}
+            </td>
+            <td colspan="1">
+              {{details.relationship=='MOTHER'?'Mother':''}}
+              {{details.relationship=='FATHER'?'Father':''}}
+              {{details.relationship=='GUARDIAN'?'Guardian':''}}
+            </td>
+            <!-- <td colspan="1">
+              <button (click)="parentEdit(details)" class="deleteButton"><mat-icon>edit</mat-icon></button>
+              <button (click)="parentDelete(details)" class="deleteButton"><mat-icon>delete</mat-icon>
+              </button>
+
+            </td> -->
+          </tr>
+        </tbody>
+      </table>
+      <div class="addChild">
+        <a href="javascript:void(0)"><span class="addchildIcon">
+            <svg width="35" height="21" viewBox="0 0 35 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M27.5003 17.6429V20.5H10.3574V17.6429C10.3574 17.6429 10.3574 11.9286 18.9288 11.9286C27.5003 11.9286 27.5003 17.6429 27.5003 17.6429ZM23.2146 4.78572C23.2146 3.93808 22.9632 3.10948 22.4923 2.4047C22.0214 1.69992 21.352 1.15061 20.5689 0.826232C19.7858 0.501857 18.9241 0.416985 18.0927 0.582351C17.2614 0.747716 16.4978 1.15589 15.8984 1.75526C15.299 2.35463 14.8908 3.11827 14.7255 3.94961C14.5601 4.78096 14.645 5.64268 14.9694 6.42579C15.2937 7.2089 15.843 7.87824 16.5478 8.34916C17.2526 8.82008 18.0812 9.07143 18.9288 9.07143C20.0655 9.07143 21.1556 8.6199 21.9593 7.81617C22.763 7.01245 23.2146 5.92236 23.2146 4.78572ZM27.786 12.0143C28.5669 12.7347 29.1965 13.6035 29.638 14.5699C30.0795 15.5363 30.324 16.5809 30.3574 17.6429V20.5H34.6431V17.6429C34.6431 17.6429 34.6431 12.7143 27.786 12.0143ZM26.0717 0.500002C25.6401 0.50026 25.2111 0.567735 24.8003 0.700001C25.6361 1.89853 26.0842 3.32455 26.0842 4.78572C26.0842 6.24688 25.6361 7.6729 24.8003 8.87143C25.2111 9.0037 25.6401 9.07117 26.0717 9.07143C27.2083 9.07143 28.2984 8.6199 29.1022 7.81617C29.9059 7.01245 30.3574 5.92236 30.3574 4.78572C30.3574 3.64907 29.9059 2.55899 29.1022 1.75526C28.2984 0.951531 27.2083 0.500002 26.0717 0.500002ZM11.786 7.64286H7.50028V3.35714H4.64314V7.64286H0.357422V10.5H4.64314V14.7857H7.50028V10.5H11.786V7.64286Z"
+                fill="#164789" />
+            </svg>
+          </span>
+          <span class="addChildtext" (click)="navToParent()">Add/Edit parent/guardian</span>
+        </a>
+      </div>
+    </div>
+    <div class="addBriefBoxOuter" *ngIf="showParent">
+      <div class="addBriefBox boxshadow">
+        <div class="addBriefCross crossflex">
+          <a href="javascript:void(0)" (click)="autofillData()" class="btn btn-primary"><span>
+              <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M18.7 5.5C19.1 5.1 19.1 4.5 18.7 4.1L16.4 1.8C16 1.4 15.4 1.4 15 1.8L13.2 3.6L17 7.4M1 15.7V19.5H4.8L15.8 8.4L12.1 4.6L1 15.7ZM5 0.5V3.5H8V5.5H5V8.5H3V5.5H0V3.5H3V0.5H5Z"
+                  fill="white" />
+              </svg>
+            </span>
+            Autofill from my profile
+          </a>
+
+          <span class="briefCross">
+            <a href="javascript:void(0)" (click)="showHideParentForm(false)">
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M26 4.72875L21.2712 0L13 8.27125L4.72875 0L0 4.72875L8.27125 13L0 21.2712L4.72875 26L13 17.7288L21.2712 26L26 21.2712L17.7288 13L26 4.72875Z"
+                  fill="#D9D9D9" />
+              </svg>
+            </a>
+          </span>
+        </div>
+        <div class="addBriefDetail">
+          <form [formGroup]="parentInfo">
+            <div class="addBriefInner">
+              <div class="row manageRow">
+                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-12 col-sm-12">
+                  <div class="manageCol">
+                    <label class="form-label-md">First Name</label>
+                    <input class="form-control" formControlName="first_name" required type="text" placeholder=""
+                      aria-label="default" />
+                    <span style="color: red" *ngIf="(f['first_name'].errors && f['first_name'].touched) ||
+                        (parentSubmitted && f['first_name'].errors)
+                      ">
+                      <mat-error *ngIf="f['first_name'].errors['required']">First name can't be
+                        blank</mat-error>
+                      <mat-error *ngIf="f['first_name'].errors['pattern']">First name is invalid</mat-error>
+
+                    </span>
+                  </div>
+                </div>
+                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-12 col-sm-12">
+                  <div class="manageCol">
+                    <label class="form-label-md">Middle Name</label>
+                    <input class="form-control" type="text" formControlName="middle_name" placeholder=""
+                      aria-label="default" />
+                    <span style="color: red" *ngIf="(f['middle_name'].errors && f['middle_name'].touched) || (                                    (parentSubmitted && f['last_name'].errors)
+                    && f['middle_name'].errors)
+                                ">
+                      <!-- <mat-error *ngIf="u['middle_name'].errors['required']">Middle name can't be blank</mat-error> -->
+                      <mat-error *ngIf="f['middle_name'].errors['pattern']">Middle name is
+                        invalid</mat-error>
+                    </span>
+                  </div>
+                </div>
+                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-12 col-sm-12">
+                  <div class="manageCol">
+                    <label class="form-label-md">Last Name</label>
+                    <input class="form-control" formControlName="last_name" required type="text" placeholder=""
+                      aria-label="default" />
+                    <span style="color: red" *ngIf="
+                        (f['last_name'].errors && f['last_name'].touched) || (parentSubmitted && f['last_name'].errors)
+                      ">
+                      <mat-error *ngIf="f['last_name'].errors['required']">Last name can't be
+                        blank</mat-error>
+                      <mat-error *ngIf="f['last_name'].errors['pattern']">Last name is invalid</mat-error>
+
+                    </span>
+                  </div>
+                </div>
+                <div class="col-12 col-md-12">
+                  <div class="manageCol">
+                    <label class="form-label-md">Address</label>
+                    <input type="text" ngx-google-places-autocomplete (onAddressChange)="AddressChange($event)" required
+                      matInput class="form-control" autocomplete="off" formControlName="address" id="address" />
+                    <input hidden matInput #latitude formControlName="latitude" />
+                    <input hidden matInput #longitude formControlName="longitude" />
+
+                    <span style="color: red" *ngIf="
+                        (parentSubmitted && f['address'].errors)
+                      ">
+                      <mat-error *ngIf="f['address'].errors['required']">Address can't be blank</mat-error>
+                    </span>
+                  </div>
+                </div>
+                <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-12 col-sm-12">
+                  <div class="manageCol">
+                    <label class="form-label-md">Phone Number</label>
+                    <input class="form-control" formControlName="phone_number" mask="000-000-0000" type="text" />
+                    <span style="color: red" *ngIf="
+                        (f['phone_number'].errors && f['phone_number'].touched) || (parentSubmitted && f['phone_number'].errors)
+                      ">
+                      <mat-error *ngIf="f['phone_number'].errors['required']">Phone Number can't be
+                        blank</mat-error>
+                      <mat-error *ngIf="f['phone_number'].errors['minlength']">Phone Number is
+                        invalid</mat-error>
+                    </span>
+                    <span style="color: red" *ngIf="apiError && apiError.phone_number">
+                      <mat-error>{{apiError.phone_number[0]}}</mat-error>
+                    </span>
+                  </div>
+                </div>
+                <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-12 col-sm-12">
+                  <div class="manageCol">
+                    <label class="form-label-md">Work Number</label>
+                    <input class="form-control" formControlName="work_number" mask="000-000-0000" type="text" />
+                    <span style="color: red" *ngIf="
+                        (f['work_number'].errors && f['work_number'].touched) || (parentSubmitted && f['work_number'].errors)
+                      ">
+                      <mat-error *ngIf="f['work_number'].errors['required']">Work Number can't be
+                        blank</mat-error>
+                      <mat-error *ngIf="f['work_number'].errors['minlength']">Work Number is not a
+                        valid.</mat-error>
+                    </span>
+                    <span style="color: red" *ngIf="apiError && apiError.work_number">
+                      <mat-error>{{apiError.work_number[0]}}</mat-error>
+                    </span>
+                  </div>
+                </div>
+                <div class="col-xxl-6 col-xl-6 col-lg-4 col-md-12 col-sm-12">
+                  <div class="manageCol">
+                    <label class="form-label-md">Email</label>
+                    <input class="form-control" formControlName="email" required type="email" placeholder=""
+                      aria-label="default" />
+                    <span style="color: red" *ngIf="
+                        (f['email'].errors && f['email'].touched) || (parentSubmitted && f['email'].errors)
+                      ">
+                      <mat-error *ngIf="f['email'].errors['required']">Email can't be blank</mat-error>
+                      <mat-error *ngIf="f['email'].errors['email']">Email should be valid</mat-error>
+                    </span>
+                    <span style="color: red" *ngIf="apiError && apiError.email">
+                      <mat-error>{{apiError.email[0]}}</mat-error>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="addBriefSplit marginTop2">
+              <div class="addBriefInner splitleft">
+                <div class="addBriefFlex">
+                  <label class="form-label-md">Relationship:</label>
+                </div>
+                <div class="emergbrief">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" formControlName="relationship" type="radio" id="inlineRadiobox1"
+                      value="MOTHER" />
+                    <label class="form-check-label" for="inlineRadiobox1">Mother</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" formControlName="relationship" type="radio" id="inlineRadiobox2"
+                      value="FATHER" />
+                    <label class="form-check-label" for="inlineRadiobox2">Father</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" formControlName="relationship" type="radio" id="inlineRadiobox3"
+                      value="GUARDIAN" />
+                    <label class="form-check-label" for="inlineRadiobox3">Guardian</label>
+                  </div>
+                </div>
+                <span style="color: red" *ngIf="(parentSubmitted && f['relationship'].errors)
+          ">
+                  <mat-error *ngIf="f['relationship'].errors['required']">(Please select an
+                    option*)</mat-error>
+                </span>
+              </div>
+              <div class="addBriefInner splitright">
+                <div class="addBriefFlex">
+                  <label class="form-label-md">Related to:</label>
+                  <mat-checkbox class="textClass" [checked]="ischeck" [value]="ischeck" (change)="SelectAll($event)">
+                    Select/Deselect All
+                  </mat-checkbox>
+
+                </div>
+                <div class="emergbrief">
+                  <div *ngFor="let child of children;let i=index" [ngClass]="{'d-none':child.date_of_birth == null}">
+                    <div class="form-check form-check-inline" *ngIf="child.date_of_birth">
+                      <div>
+                        <input class="form-check-input" type="checkbox" [checked]="selected_child.includes(child.id)"
+                          id="inlineCheckbox{{i}}" (change)="onSelected(child, $event)" />
+                        <label class="form-check-label " for="inlineCheckbox{{i}}">{{
+                          subString(ucFirst(child.first_name),0,7) }}&nbsp;{{ usLast(child.last_name) }}.</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <span style="color: red" *ngIf="(parentSubmitted && selected_child.length == 0)">
+                    <mat-error *ngIf="(parentSubmitted && selected_child.length == 0)">Related to is
+                      required</mat-error>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="addBriefCombine">
+          <button href="javascript:void(0)" (click)="showHideParentForm(false)" class="btn btn-danger parentClass">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M10 0C15.5 0 20 4.5 20 10C20 15.5 15.5 20 10 20C4.5 20 0 15.5 0 10C0 4.5 4.5 0 10 0ZM10 2C8.1 2 6.4 2.6 5.1 3.7L16.3 14.9C17.3 13.5 18 11.8 18 10C18 5.6 14.4 2 10 2ZM14.9 16.3L3.7 5.1C2.6 6.4 2 8.1 2 10C2 14.4 5.6 18 10 18C11.9 18 13.6 17.4 14.9 16.3Z"
+                fill="white" />
+            </svg>
+            Cancel</button>
+
+          <button [disabled]="hasApiBeenCalled" (click)="parentAdd()" *ngIf="updateEditParent==false"
+            class="btn btn-primary parentClass">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M13.3333 6.66667H2.22222V2.22222H13.3333M10 17.7778C9.11595 17.7778 8.2681 17.4266 7.64298 16.8015C7.01786 16.1763 6.66667 15.3285 6.66667 14.4444C6.66667 13.5604 7.01786 12.7125 7.64298 12.0874C8.2681 11.4623 9.11595 11.1111 10 11.1111C10.8841 11.1111 11.7319 11.4623 12.357 12.0874C12.9821 12.7125 13.3333 13.5604 13.3333 14.4444C13.3333 15.3285 12.9821 16.1763 12.357 16.8015C11.7319 17.4266 10.8841 17.7778 10 17.7778ZM15.5556 0H2.22222C0.988889 0 0 1 0 2.22222V17.7778C0 18.3671 0.234126 18.9324 0.650874 19.3491C1.06762 19.7659 1.63285 20 2.22222 20H17.7778C18.3671 20 18.9324 19.7659 19.3491 19.3491C19.7659 18.9324 20 18.3671 20 17.7778V4.44444L15.5556 0Z"
+                fill="white" />
+            </svg>
+            Save</button>
+
+          <button [disabled]="hasApiBeenCalled" (click)="parentUpdate()" *ngIf="updateEditParent==true"
+            class="btn btn-primary parentClass">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M13.3333 6.66667H2.22222V2.22222H13.3333M10 17.7778C9.11595 17.7778 8.2681 17.4266 7.64298 16.8015C7.01786 16.1763 6.66667 15.3285 6.66667 14.4444C6.66667 13.5604 7.01786 12.7125 7.64298 12.0874C8.2681 11.4623 9.11595 11.1111 10 11.1111C10.8841 11.1111 11.7319 11.4623 12.357 12.0874C12.9821 12.7125 13.3333 13.5604 13.3333 14.4444C13.3333 15.3285 12.9821 16.1763 12.357 16.8015C11.7319 17.4266 10.8841 17.7778 10 17.7778ZM15.5556 0H2.22222C0.988889 0 0 1 0 2.22222V17.7778C0 18.3671 0.234126 18.9324 0.650874 19.3491C1.06762 19.7659 1.63285 20 2.22222 20H17.7778C18.3671 20 18.9324 19.7659 19.3491 19.3491C19.7659 18.9324 20 18.3671 20 17.7778V4.44444L15.5556 0Z"
+                fill="white" />
+            </svg>
+            Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

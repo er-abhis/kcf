@@ -1,0 +1,24 @@
+<div class="banner_slider">
+  <div class="main_block">
+    <owl-carousel-o
+      [options]="customOptions"
+      id="what_looking"
+      class="whatLookSection"
+    >
+      <ng-template class="owl-item" carouselSlide *ngFor="let slide of slides">
+        <div class="item">
+          <a routerLink="{{ slide.route }}">
+            <div class="slide_inner">
+              <div class="slide_img">
+                <img src="{{ slide.img }}" class="img-responsive" alt="image" />
+              </div>
+              <a href="javascript:void(0)"
+                ><h3 class="slide_title">{{ slide.title }}</h3></a
+              >
+            </div>
+          </a>
+        </div>
+      </ng-template>
+    </owl-carousel-o>
+  </div>
+</div>

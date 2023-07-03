@@ -1,0 +1,15 @@
+.contentrightBg.provMsg {
+  border: 1px solid #8AD5FF;
+}
+
+.contentright {
+  width: calc(100% - 305px) !important;
+  margin-bottom: 30px;
+}
+@media screen and (max-width:767px){
+  .contentright {
+    width: 100% !important;
+    padding: 0 15px;
+    margin-top: 20px;
+  }
+}

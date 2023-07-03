@@ -1,0 +1,95 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
+::ng-deep .mat-step-header {
+  pointer-events: none !important;
+}
+
+.propviderSignStepper .steps_count {
+  top: 60px;
+  right: 13%;
+  z-index: 1;
+}
+
+.mainStepscroll {
+  // max-height: 570px;
+  overflow-y: auto;
+}
+
+.contentright.mainStepscroll {
+  margin-bottom: 0px;
+}
+
+.preBold {
+  font-weight: 800;
+}
+.menu_steps {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+  color: #ffffff;
+}
+.outer_menu_steps {
+  // position: absolute;
+  // top: 5%;
+  // left: 8%;
+  display: none;
+  // cursor: pointer;
+  // display: none;
+}
+.menu_btn {
+  width: 25px;
+  height: 20px;
+  display: inline-block;
+  transform: translateY(-50%);
+  overflow: hidden;
+  transition: right 0.3s ease-in-out;
+}
+.menu_btn .spanMobile {
+  position: absolute;
+  top: 50%;
+  left: 0px;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 3px;
+  border-radius: 10px;
+  background: #fff;
+  transition: left 0.3s ease-in-out;
+}
+
+.menu_btn::after {
+  content: "";
+  position: absolute;
+  top: 17px;
+  right: 0px;
+  width: 100%;
+  height: 3px;
+  border-radius: 10px;
+  background: #fff;
+}
+.menu_btn::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 100%;
+  height: 3px;
+  border-radius: 10px;
+  background: #fff;
+}
+@media screen and (max-width: 767px) {
+  .outer_menu_steps {
+    display: block;
+    position: absolute;
+    top: 30px;
+    left: 15px;
+    z-index: 9999;
+  }
+  .mainStepscroll {
+    height: auto !important;
+  }
+  // .preBoldDesk{
+  //   display: none !important;
+  // }
+}

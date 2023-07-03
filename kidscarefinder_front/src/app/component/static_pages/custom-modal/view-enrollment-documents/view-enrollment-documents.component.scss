@@ -1,0 +1,42 @@
+::ng-deep .EnrollmentDocs .mat-dialog-container {
+    border-radius: 15px;
+}
+
+.enrollmentDocsPopup {
+    width: 635px;
+    padding: 20px 70px;
+    border-radius: 25px;
+}
+.onlinebgPop h1.headingh1 {
+    font-family: 'Nunito';
+    font-size: 32px;
+    font-weight: 600;
+    text-align: center;
+}
+.onlinePopButtonlist .mat-stroked-button {
+    font-family: 'Nunito';
+    font-weight: 600;
+    width: 100%;
+    border: 1px solid var(--primaryLight);
+    color: var(--primaryLight);
+    padding: 0 15px;
+    line-height: 34px;
+    background: transparent;
+    border-radius: 10px !important;
+    margin-bottom: 20px;
+}
+
+.onlinepopBtn {
+    text-align: center;
+}
+.onlinepopBtn .mat-stroked-button {
+    font-family: 'Nunito';
+    font-weight: 600;
+    font-size: 20px;
+    min-width: 82px;
+    height: 57px;
+    background: var(--primaryLight !important);
+    border: 1px solid #D9D9D9;
+    border-radius: 10px !important;
+}
+

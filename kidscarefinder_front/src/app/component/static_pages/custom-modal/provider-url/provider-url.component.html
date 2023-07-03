@@ -1,0 +1,21 @@
+<div class="resultMessagePopup">
+    <!-- <div style="display: flex; justify-content: end;">
+      <a href="javascript:void()" (click)="closeModal()" class="cancel"><mat-icon (click)="closeModal()">cancel</mat-icon></a>
+    </div> -->
+    <!-- <button type="button" class="btn-close" (click)="closeModal()"></button> -->
+    <div class="modal-body">
+      <div class="disableWaitlist">
+        <a href="javascript:void()" (click)="closeModal()" class="cancelbtn">
+          <!-- <mat-icon (click)="closeModal()" class="cancelbtn">cancel</mat-icon> -->
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8.0277 7.85355L9.91789 9.74375L9.74375 9.91789L7.85355 8.0277L7.5 7.67414L7.14645 8.0277L5.25625 9.91789L5.08211 9.74375L6.9723 7.85355L7.32586 7.5L6.9723 7.14645L5.08211 5.25625L5.25625 5.08211L7.14645 6.9723L7.5 7.32586L7.85355 6.9723L9.74375 5.08211L9.91789 5.25625L8.0277 7.14645L7.67414 7.5L8.0277 7.85355ZM14.25 7.5C14.25 3.76761 11.2324 0.75 7.5 0.75C3.76761 0.75 0.75 3.76761 0.75 7.5C0.75 11.2324 3.76761 14.25 7.5 14.25C11.2324 14.25 14.25 11.2324 14.25 7.5Z" fill="#1B4688" stroke="#B9B9B9"/>
+            </svg>
+        </a>
+        <h3 class="h3Url">{{this.providerUrl}}</h3>
+      <div class="copy-url">
+          <a href="javascript:void(0)" (click)="urlCopy()"  [cdkCopyToClipboard]="this.providerUrl">Copy URL</a>
+      </div>
+    </div>
+    </div>
+  </div>
+

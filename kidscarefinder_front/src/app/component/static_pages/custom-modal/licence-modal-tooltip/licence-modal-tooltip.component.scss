@@ -1,0 +1,61 @@
+::ng-deep .modalTooltip .mat-dialog-container {
+    box-shadow: none !important;
+    margin: auto;
+    border-radius: 10px;
+    overflow: inherit;
+    position: relative;
+    left: -4px;
+    top: -3px;
+  }
+  .resultMessagePopup .modal-body{
+    // padding: 10px 5px 10px;
+    padding: 0px;
+    background: transparent;
+}
+.btn-close{
+    float: right;
+}
+.copy-url{
+    a{
+   color: var(--primaryColor)
+}
+padding-top: 10px;
+}
+.disableWaitlist {
+  background: #fff;
+  padding: 5px;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  gap: 6px;
+  width: 173px;
+  border: 1px solid #B9B9B9;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.disableWaitlist .toolText {
+  font-size: 14px;
+  font-weight: 400;
+}
+.disableWaitlist .toolText .toolbold {
+  font-weight: 700;
+}
+
+.disableWaitlist .excla {
+  width: 25px;
+  height: 25px;
+}
+.cancelbtn {
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: -8px;
+  right: -3px;
+  color: var(--primaryColor);
+  cursor: pointer;
+}
+.cancelbtn .mat-icon {
+  width: 17px;
+  height: 17px;
+  font-size: 17px;
+}

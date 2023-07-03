@@ -1,0 +1,18 @@
+.mat-dialog-content {
+  height: 220px;
+}
+
+button {
+  padding: 0px 15px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  min-width: 82px;
+  height: 57px;
+}
+
+button.btn-primary {
+  background: var(--primaryLight);
+  border-color: var(--primaryLight);
+  color: #fff;
+}

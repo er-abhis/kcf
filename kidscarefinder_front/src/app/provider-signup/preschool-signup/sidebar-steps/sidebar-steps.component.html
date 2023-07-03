@@ -1,0 +1,380 @@
+<div class="sidebarleft">
+  <nav class="sidebar">
+    <ul class="nav flex-column" id="nav_accordion">
+      <li class="nav-item crossHide">
+        <div (click)="hideSidebar()">x</div>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link fstchd"
+          aria-current="page"
+          (click)="sideBarNav(0)"
+          routerLink="/provider/step/1"
+          routerLinkActive="active"
+        >
+          <ng-container *ngIf="providerData?.step1_completed">
+            <mat-checkbox
+              [checked]="providerData?.step1_completed"
+              (click)="$event.preventDefault()"
+              class="example-margin"
+              >Step 1: Basic information</mat-checkbox
+            >
+          </ng-container>
+          <ng-container *ngIf="!providerData?.step1_completed">
+            <svg
+              width="20"
+              height="21"
+              viewBox="0 0 20 21"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 13.4719H11V15.4719H9V13.4719ZM9 5.47192H11V11.4719H9V5.47192ZM10 0.471924C4.47 0.471924 0 4.97192 0 10.4719C0 13.1241 1.05357 15.6676 2.92893 17.543C3.85752 18.4716 4.95991 19.2082 6.17317 19.7107C7.38642 20.2133 8.68678 20.4719 10 20.4719C12.6522 20.4719 15.1957 19.4184 17.0711 17.543C18.9464 15.6676 20 13.1241 20 10.4719C20 9.15871 19.7413 7.85835 19.2388 6.64509C18.7362 5.43183 17.9997 4.32944 17.0711 3.40086C16.1425 2.47227 15.0401 1.73568 13.8268 1.23313C12.6136 0.730582 11.3132 0.471924 10 0.471924M10 18.4719C7.87827 18.4719 5.84344 17.6291 4.34315 16.1288C2.84285 14.6285 2 12.5937 2 10.4719C2 8.35019 2.84285 6.31536 4.34315 4.81507C5.84344 3.31478 7.87827 2.47192 10 2.47192C12.1217 2.47192 14.1566 3.31478 15.6569 4.81507C17.1571 6.31536 18 8.35019 18 10.4719C18 12.5937 17.1571 14.6285 15.6569 16.1288C14.1566 17.6291 12.1217 18.4719 10 18.4719V18.4719Z"
+                fill="#FFCB14"
+              />
+            </svg>
+            <span style="margin-left: 8px; cursor: pointer">
+              Step 1: Basic information
+            </span>
+          </ng-container>
+        </a>
+      </li>
+      <span *ngIf="showAllMenu">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            aria-current="page"
+            (click)="sideBarNav(1)"
+            routerLink="/provider/step/2"
+            routerLinkActive="active"
+          >
+            <ng-container *ngIf="providerData?.step2_completed">
+              <mat-checkbox
+                [checked]="providerData?.step2_completed"
+                (click)="$event.preventDefault()"
+                class="example-margin"
+              >
+                Step 2: Schedule/availability</mat-checkbox
+              >
+            </ng-container>
+            <ng-container *ngIf="!providerData?.step2_completed">
+              <svg
+                width="20"
+                height="21"
+                viewBox="0 0 20 21"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 13.4719H11V15.4719H9V13.4719ZM9 5.47192H11V11.4719H9V5.47192ZM10 0.471924C4.47 0.471924 0 4.97192 0 10.4719C0 13.1241 1.05357 15.6676 2.92893 17.543C3.85752 18.4716 4.95991 19.2082 6.17317 19.7107C7.38642 20.2133 8.68678 20.4719 10 20.4719C12.6522 20.4719 15.1957 19.4184 17.0711 17.543C18.9464 15.6676 20 13.1241 20 10.4719C20 9.15871 19.7413 7.85835 19.2388 6.64509C18.7362 5.43183 17.9997 4.32944 17.0711 3.40086C16.1425 2.47227 15.0401 1.73568 13.8268 1.23313C12.6136 0.730582 11.3132 0.471924 10 0.471924M10 18.4719C7.87827 18.4719 5.84344 17.6291 4.34315 16.1288C2.84285 14.6285 2 12.5937 2 10.4719C2 8.35019 2.84285 6.31536 4.34315 4.81507C5.84344 3.31478 7.87827 2.47192 10 2.47192C12.1217 2.47192 14.1566 3.31478 15.6569 4.81507C17.1571 6.31536 18 8.35019 18 10.4719C18 12.5937 17.1571 14.6285 15.6569 16.1288C14.1566 17.6291 12.1217 18.4719 10 18.4719V18.4719Z"
+                  fill="#FFCB14"
+                />
+              </svg>
+              <span style="margin-left: 8px; cursor: pointer">
+                Step 2: Schedule/availability
+              </span>
+            </ng-container>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            aria-current="page"
+            (click)="sideBarNav(2)"
+            routerLink="/provider/step/3"
+            routerLinkActive="active"
+          >
+            <ng-container *ngIf="providerData?.step3_completed">
+              <mat-checkbox
+                [checked]="providerData?.step3_completed"
+                (click)="$event.preventDefault()"
+                class="example-margin"
+                >Step 3: Photo/ video
+              </mat-checkbox>
+            </ng-container>
+            <ng-container *ngIf="!providerData?.step3_completed">
+              <svg
+                width="20"
+                height="21"
+                viewBox="0 0 20 21"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 13.4719H11V15.4719H9V13.4719ZM9 5.47192H11V11.4719H9V5.47192ZM10 0.471924C4.47 0.471924 0 4.97192 0 10.4719C0 13.1241 1.05357 15.6676 2.92893 17.543C3.85752 18.4716 4.95991 19.2082 6.17317 19.7107C7.38642 20.2133 8.68678 20.4719 10 20.4719C12.6522 20.4719 15.1957 19.4184 17.0711 17.543C18.9464 15.6676 20 13.1241 20 10.4719C20 9.15871 19.7413 7.85835 19.2388 6.64509C18.7362 5.43183 17.9997 4.32944 17.0711 3.40086C16.1425 2.47227 15.0401 1.73568 13.8268 1.23313C12.6136 0.730582 11.3132 0.471924 10 0.471924M10 18.4719C7.87827 18.4719 5.84344 17.6291 4.34315 16.1288C2.84285 14.6285 2 12.5937 2 10.4719C2 8.35019 2.84285 6.31536 4.34315 4.81507C5.84344 3.31478 7.87827 2.47192 10 2.47192C12.1217 2.47192 14.1566 3.31478 15.6569 4.81507C17.1571 6.31536 18 8.35019 18 10.4719C18 12.5937 17.1571 14.6285 15.6569 16.1288C14.1566 17.6291 12.1217 18.4719 10 18.4719V18.4719Z"
+                  fill="#FFCB14"
+                />
+              </svg>
+              <span style="margin-left: 8px; cursor: pointer">
+                Step 3: Photo/ video
+              </span>
+            </ng-container>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            aria-current="page"
+            (click)="sideBarNav(3)"
+            routerLink="/provider/step/4"
+            routerLinkActive="active"
+          >
+            <ng-container *ngIf="providerData?.step4_completed">
+              <mat-checkbox
+                [checked]="providerData?.step4_completed"
+                (click)="$event.preventDefault()"
+                class="example-margin"
+                >Step 4: Child requirements
+              </mat-checkbox>
+            </ng-container>
+            <ng-container *ngIf="!providerData?.step4_completed">
+              <svg
+                width="20"
+                height="21"
+                viewBox="0 0 20 21"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 13.4719H11V15.4719H9V13.4719ZM9 5.47192H11V11.4719H9V5.47192ZM10 0.471924C4.47 0.471924 0 4.97192 0 10.4719C0 13.1241 1.05357 15.6676 2.92893 17.543C3.85752 18.4716 4.95991 19.2082 6.17317 19.7107C7.38642 20.2133 8.68678 20.4719 10 20.4719C12.6522 20.4719 15.1957 19.4184 17.0711 17.543C18.9464 15.6676 20 13.1241 20 10.4719C20 9.15871 19.7413 7.85835 19.2388 6.64509C18.7362 5.43183 17.9997 4.32944 17.0711 3.40086C16.1425 2.47227 15.0401 1.73568 13.8268 1.23313C12.6136 0.730582 11.3132 0.471924 10 0.471924M10 18.4719C7.87827 18.4719 5.84344 17.6291 4.34315 16.1288C2.84285 14.6285 2 12.5937 2 10.4719C2 8.35019 2.84285 6.31536 4.34315 4.81507C5.84344 3.31478 7.87827 2.47192 10 2.47192C12.1217 2.47192 14.1566 3.31478 15.6569 4.81507C17.1571 6.31536 18 8.35019 18 10.4719C18 12.5937 17.1571 14.6285 15.6569 16.1288C14.1566 17.6291 12.1217 18.4719 10 18.4719V18.4719Z"
+                  fill="#FFCB14"
+                />
+              </svg>
+              <span style="margin-left: 8px; cursor: pointer">
+                Step 4: Child requirements
+              </span>
+            </ng-container>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            aria-current="page"
+            (click)="sideBarNav(4)"
+            routerLink="/provider/step/5"
+            routerLinkActive="active"
+          >
+            <ng-container *ngIf="providerData?.step5_completed">
+              <mat-checkbox
+                [checked]="providerData?.step5_completed"
+                (click)="$event.preventDefault()"
+                class="example-margin"
+                >Step 5: Meals & snacks
+              </mat-checkbox>
+            </ng-container>
+            <ng-container *ngIf="!providerData?.step5_completed">
+              <svg
+                width="20"
+                height="21"
+                viewBox="0 0 20 21"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 13.4719H11V15.4719H9V13.4719ZM9 5.47192H11V11.4719H9V5.47192ZM10 0.471924C4.47 0.471924 0 4.97192 0 10.4719C0 13.1241 1.05357 15.6676 2.92893 17.543C3.85752 18.4716 4.95991 19.2082 6.17317 19.7107C7.38642 20.2133 8.68678 20.4719 10 20.4719C12.6522 20.4719 15.1957 19.4184 17.0711 17.543C18.9464 15.6676 20 13.1241 20 10.4719C20 9.15871 19.7413 7.85835 19.2388 6.64509C18.7362 5.43183 17.9997 4.32944 17.0711 3.40086C16.1425 2.47227 15.0401 1.73568 13.8268 1.23313C12.6136 0.730582 11.3132 0.471924 10 0.471924M10 18.4719C7.87827 18.4719 5.84344 17.6291 4.34315 16.1288C2.84285 14.6285 2 12.5937 2 10.4719C2 8.35019 2.84285 6.31536 4.34315 4.81507C5.84344 3.31478 7.87827 2.47192 10 2.47192C12.1217 2.47192 14.1566 3.31478 15.6569 4.81507C17.1571 6.31536 18 8.35019 18 10.4719C18 12.5937 17.1571 14.6285 15.6569 16.1288C14.1566 17.6291 12.1217 18.4719 10 18.4719V18.4719Z"
+                  fill="#FFCB14"
+                />
+              </svg>
+              <span style="margin-left: 8px; cursor: pointer">
+                Step 5: Meals & snacks
+              </span>
+            </ng-container>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            aria-current="page"
+            (click)="sideBarNav(5)"
+            routerLink="/provider/step/6"
+            routerLinkActive="active"
+          >
+            <ng-container *ngIf="providerData?.step6_completed">
+              <mat-checkbox
+                [checked]="providerData?.step6_completed"
+                (click)="$event.preventDefault()"
+                class="example-margin"
+                >Step 6: Teacher-to-child ratio
+              </mat-checkbox>
+            </ng-container>
+            <ng-container *ngIf="!providerData?.step6_completed">
+              <svg
+                width="20"
+                height="21"
+                viewBox="0 0 20 21"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 13.4719H11V15.4719H9V13.4719ZM9 5.47192H11V11.4719H9V5.47192ZM10 0.471924C4.47 0.471924 0 4.97192 0 10.4719C0 13.1241 1.05357 15.6676 2.92893 17.543C3.85752 18.4716 4.95991 19.2082 6.17317 19.7107C7.38642 20.2133 8.68678 20.4719 10 20.4719C12.6522 20.4719 15.1957 19.4184 17.0711 17.543C18.9464 15.6676 20 13.1241 20 10.4719C20 9.15871 19.7413 7.85835 19.2388 6.64509C18.7362 5.43183 17.9997 4.32944 17.0711 3.40086C16.1425 2.47227 15.0401 1.73568 13.8268 1.23313C12.6136 0.730582 11.3132 0.471924 10 0.471924M10 18.4719C7.87827 18.4719 5.84344 17.6291 4.34315 16.1288C2.84285 14.6285 2 12.5937 2 10.4719C2 8.35019 2.84285 6.31536 4.34315 4.81507C5.84344 3.31478 7.87827 2.47192 10 2.47192C12.1217 2.47192 14.1566 3.31478 15.6569 4.81507C17.1571 6.31536 18 8.35019 18 10.4719C18 12.5937 17.1571 14.6285 15.6569 16.1288C14.1566 17.6291 12.1217 18.4719 10 18.4719V18.4719Z"
+                  fill="#FFCB14"
+                />
+              </svg>
+              <span style="margin-left: 8px; cursor: pointer">
+                Step 6: Teacher-to-child ratio
+              </span>
+            </ng-container>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            aria-current="page"
+            (click)="sideBarNav(6)"
+            routerLink="/provider/step/7"
+            routerLinkActive="active"
+          >
+            <ng-container *ngIf="providerData?.step7_completed">
+              <mat-checkbox
+                [checked]="providerData?.step7_completed"
+                (click)="$event.preventDefault()"
+                class="example-margin"
+                >Step 7: Tuition</mat-checkbox
+              >
+            </ng-container>
+            <ng-container *ngIf="!providerData?.step7_completed">
+              <svg
+                width="20"
+                height="21"
+                viewBox="0 0 20 21"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 13.4719H11V15.4719H9V13.4719ZM9 5.47192H11V11.4719H9V5.47192ZM10 0.471924C4.47 0.471924 0 4.97192 0 10.4719C0 13.1241 1.05357 15.6676 2.92893 17.543C3.85752 18.4716 4.95991 19.2082 6.17317 19.7107C7.38642 20.2133 8.68678 20.4719 10 20.4719C12.6522 20.4719 15.1957 19.4184 17.0711 17.543C18.9464 15.6676 20 13.1241 20 10.4719C20 9.15871 19.7413 7.85835 19.2388 6.64509C18.7362 5.43183 17.9997 4.32944 17.0711 3.40086C16.1425 2.47227 15.0401 1.73568 13.8268 1.23313C12.6136 0.730582 11.3132 0.471924 10 0.471924M10 18.4719C7.87827 18.4719 5.84344 17.6291 4.34315 16.1288C2.84285 14.6285 2 12.5937 2 10.4719C2 8.35019 2.84285 6.31536 4.34315 4.81507C5.84344 3.31478 7.87827 2.47192 10 2.47192C12.1217 2.47192 14.1566 3.31478 15.6569 4.81507C17.1571 6.31536 18 8.35019 18 10.4719C18 12.5937 17.1571 14.6285 15.6569 16.1288C14.1566 17.6291 12.1217 18.4719 10 18.4719V18.4719Z"
+                  fill="#FFCB14"
+                />
+              </svg>
+              <span style="margin-left: 8px; cursor: pointer">
+                Step 7: Tuition
+              </span>
+            </ng-container>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            aria-current="page"
+            (click)="sideBarNav(7)"
+            routerLink="/provider/step/8"
+            routerLinkActive="active"
+          >
+            <ng-container *ngIf="providerData?.step8_completed">
+              <mat-checkbox
+                [checked]="providerData?.step8_completed"
+                (click)="$event.preventDefault()"
+                class="example-margin"
+                >Step 8: Affiliations</mat-checkbox
+              >
+            </ng-container>
+            <ng-container *ngIf="!providerData?.step8_completed">
+              <svg
+                width="20"
+                height="21"
+                viewBox="0 0 20 21"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 13.4719H11V15.4719H9V13.4719ZM9 5.47192H11V11.4719H9V5.47192ZM10 0.471924C4.47 0.471924 0 4.97192 0 10.4719C0 13.1241 1.05357 15.6676 2.92893 17.543C3.85752 18.4716 4.95991 19.2082 6.17317 19.7107C7.38642 20.2133 8.68678 20.4719 10 20.4719C12.6522 20.4719 15.1957 19.4184 17.0711 17.543C18.9464 15.6676 20 13.1241 20 10.4719C20 9.15871 19.7413 7.85835 19.2388 6.64509C18.7362 5.43183 17.9997 4.32944 17.0711 3.40086C16.1425 2.47227 15.0401 1.73568 13.8268 1.23313C12.6136 0.730582 11.3132 0.471924 10 0.471924M10 18.4719C7.87827 18.4719 5.84344 17.6291 4.34315 16.1288C2.84285 14.6285 2 12.5937 2 10.4719C2 8.35019 2.84285 6.31536 4.34315 4.81507C5.84344 3.31478 7.87827 2.47192 10 2.47192C12.1217 2.47192 14.1566 3.31478 15.6569 4.81507C17.1571 6.31536 18 8.35019 18 10.4719C18 12.5937 17.1571 14.6285 15.6569 16.1288C14.1566 17.6291 12.1217 18.4719 10 18.4719V18.4719Z"
+                  fill="#FFCB14"
+                />
+              </svg>
+              <span style="margin-left: 8px; cursor: pointer">
+                Step 8: Affiliations
+              </span>
+            </ng-container>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            aria-current="page"
+            (click)="sideBarNav(8)"
+            routerLink="/provider/step/9"
+            routerLinkActive="active"
+          >
+            <ng-container *ngIf="providerData?.step9_completed">
+              <mat-checkbox
+                [checked]="providerData?.step9_completed"
+                (click)="$event.preventDefault()"
+                class="example-margin"
+                >Step 9: Admins & settings</mat-checkbox
+              >
+            </ng-container>
+            <ng-container *ngIf="!providerData?.step9_completed">
+              <svg
+                width="20"
+                height="21"
+                viewBox="0 0 20 21"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 13.4719H11V15.4719H9V13.4719ZM9 5.47192H11V11.4719H9V5.47192ZM10 0.471924C4.47 0.471924 0 4.97192 0 10.4719C0 13.1241 1.05357 15.6676 2.92893 17.543C3.85752 18.4716 4.95991 19.2082 6.17317 19.7107C7.38642 20.2133 8.68678 20.4719 10 20.4719C12.6522 20.4719 15.1957 19.4184 17.0711 17.543C18.9464 15.6676 20 13.1241 20 10.4719C20 9.15871 19.7413 7.85835 19.2388 6.64509C18.7362 5.43183 17.9997 4.32944 17.0711 3.40086C16.1425 2.47227 15.0401 1.73568 13.8268 1.23313C12.6136 0.730582 11.3132 0.471924 10 0.471924M10 18.4719C7.87827 18.4719 5.84344 17.6291 4.34315 16.1288C2.84285 14.6285 2 12.5937 2 10.4719C2 8.35019 2.84285 6.31536 4.34315 4.81507C5.84344 3.31478 7.87827 2.47192 10 2.47192C12.1217 2.47192 14.1566 3.31478 15.6569 4.81507C17.1571 6.31536 18 8.35019 18 10.4719C18 12.5937 17.1571 14.6285 15.6569 16.1288C14.1566 17.6291 12.1217 18.4719 10 18.4719V18.4719Z"
+                  fill="#FFCB14"
+                />
+              </svg>
+              <span style="margin-left: 8px; cursor: pointer">
+                Step 9: Admins & settings
+              </span>
+            </ng-container>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            aria-current="page"
+            (click)="sideBarNav(9)"
+            routerLink="/provider/step/10"
+            routerLinkActive="active"
+          >
+            <ng-container *ngIf="providerData?.step10_completed">
+              <mat-checkbox
+                [checked]="providerData?.step10_completed"
+                (click)="$event.preventDefault()"
+                class="example-margin"
+                >Step 10: Account type</mat-checkbox
+              >
+            </ng-container>
+            <ng-container *ngIf="!providerData?.step10_completed">
+              <svg
+                width="20"
+                height="21"
+                viewBox="0 0 20 21"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 13.4719H11V15.4719H9V13.4719ZM9 5.47192H11V11.4719H9V5.47192ZM10 0.471924C4.47 0.471924 0 4.97192 0 10.4719C0 13.1241 1.05357 15.6676 2.92893 17.543C3.85752 18.4716 4.95991 19.2082 6.17317 19.7107C7.38642 20.2133 8.68678 20.4719 10 20.4719C12.6522 20.4719 15.1957 19.4184 17.0711 17.543C18.9464 15.6676 20 13.1241 20 10.4719C20 9.15871 19.7413 7.85835 19.2388 6.64509C18.7362 5.43183 17.9997 4.32944 17.0711 3.40086C16.1425 2.47227 15.0401 1.73568 13.8268 1.23313C12.6136 0.730582 11.3132 0.471924 10 0.471924M10 18.4719C7.87827 18.4719 5.84344 17.6291 4.34315 16.1288C2.84285 14.6285 2 12.5937 2 10.4719C2 8.35019 2.84285 6.31536 4.34315 4.81507C5.84344 3.31478 7.87827 2.47192 10 2.47192C12.1217 2.47192 14.1566 3.31478 15.6569 4.81507C17.1571 6.31536 18 8.35019 18 10.4719C18 12.5937 17.1571 14.6285 15.6569 16.1288C14.1566 17.6291 12.1217 18.4719 10 18.4719V18.4719Z"
+                  fill="#FFCB14"
+                />
+              </svg>
+              <span style="margin-left: 8px; cursor: pointer">
+                Step 10: Account type
+              </span>
+            </ng-container>
+          </a>
+        </li>
+      </span>
+    </ul>
+  </nav>
+  <!-- back button -->
+  <div class="returnUpdate" *ngIf="showBackButton">
+    <a class="returnAchor" style="cursor: pointer" (click)="providerPortal()">
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M20 8.73737V11.2626H4.84848L11.7929 18.2071L10 20L0 10L10 0L11.7929 1.79293L4.84848 8.73737H20Z"
+          fill="white"
+        />
+      </svg>
+      <span class="returntext">Return to Provider Portal</span>
+    </a>
+  </div>
+</div>

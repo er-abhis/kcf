@@ -1,0 +1,196 @@
+.table-striped>tbody>tr:nth-of-type(odd) > * {
+    --bs-table-accent-bg: transparent;
+}
+.table-striped>tbody>tr:nth-of-type(even) > * {
+    --bs-table-accent-bg: var(--tableGray);
+}
+
+.profleTable .table td .mat-icon {
+    font-size: 20px;
+    color: #b9b9b9;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+
+.addBriefCombine {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 12px;
+}
+.addBriefCombine.comRemove {
+    justify-content: space-between;
+    color: #772162;
+}
+
+.addBriefCombine.comRemove .btn-outline-danger {
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: 800;
+    color: #772162;
+    border: 1px solid #772162;
+    min-width: 118px;
+    padding: 12px 15px;
+}
+.addBriefCombine.comRemove span.admRev svg {
+    margin-right: 0;
+}
+.addBriefCombine.comRemove .btn-outline-danger:hover {
+    background: #772162;
+    color: #fff;
+}
+.addBriefCombine.comRemove .btn-outline-danger:hover span.admRev path {
+    fill: #fff;
+}
+.addBriefCombine.comRemove .mat-icon {
+    color: #fff !important;
+}
+
+.addBriefBox.borderRadius5 {
+    border-radius: 5px;
+}
+
+.addBriefInner .steperInputgray input.form-control {
+    border-color: #ced4da;
+    border-left: 0;
+}
+
+.resetdegree {
+    transform: rotate(0deg);
+}
+.rotate90 {
+    transform: rotate(-90deg);
+}
+
+/* modal license css start */
+::ng-deep .modalLicense .mat-dialog-container {
+    padding: 20px !important;
+    overflow: hidden;
+    max-height: 530px;
+    min-height: 160px;
+    border-radius: 10px;
+}
+
+::ng-deep .modalLicense .mat-dialog-container .mat-dialog-actions {
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+::ng-deep .modalLicense .mat-dialog-container .mat-dialog-content {
+    max-height: 190px;
+    min-height: 60px;
+}
+.mat-raised-button.mat-primary {
+    min-width: 70px;
+    border-radius: 10px;
+    padding: 10px;
+}
+.mat-raised-button {
+    font-size: 14px;
+}
+/* modal license css exit */
+
+@media screen and (max-width: 767px) {
+    ::ng-deep .modalLicense .mat-dialog-container {
+        padding: 20px 30px 20px 20px !important;
+    }
+    ::ng-deep .modalLicense .mat-dialog-container .mat-dialog-actions {
+        flex-wrap: wrap;
+    }
+    .mat-dialog-actions .mat-button-base + .mat-button-base,
+    .mat-dialog-actions .mat-mdc-button-base + .mat-mdc-button-base {
+        margin-left: 0;
+    }
+}
+
+.adminCancel {
+    background-color: #772162;
+    color: #fff;
+}
+
+.adminConti {
+    background-color: #164789;
+    color: #fff;
+}
+
+.addBriefFlex a.stepLink {
+    font-family: "Nunito";
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--primaryLight);
+}
+
+.addBriefInner.inputCustadmin .input-group-text {
+    padding: 10px 15px;
+    height: 50px;
+    border-radius: 0;
+}
+.addBriefInner.inputCustadmin input.form-control {
+    height: 50px;
+    border: 1px solid #ccc;
+    border-left: none;
+    background: transparent;
+    padding: 10px 15px;
+    border-radius: 0;
+}
+
+/* ======== primary administrator popup start ======== */
+.addBriefBox {
+    position: relative;
+    padding: 15px;
+}
+.primaryAdminPopup {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.primaryAdminPopupBx {
+    width: 700px;
+    background: var(--whiteColor);
+    padding: 25px 20px;
+    border: 1px solid #d9d9d9;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+.primaryAdminPopModi .modalh2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--blackColor);
+    margin-bottom: 10px;
+}
+.primaryAdminPopModi .modalpara {
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--blackColor);
+    margin-top: 10px;
+    text-align: center;
+}
+.primaryAdminPopModi .modalpara .janbld {
+    font-weight: 700;
+}
+.primaryAdminPopBtn {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.primaryAdminPopBtn .btnCosmet {
+    font-family: "Nunito";
+    font-size: 16px;
+    font-weight: 800;
+    min-width: 122px;
+    height: 46px;
+    padding: 12px 22px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ======== primary administrator popup exit ======== */

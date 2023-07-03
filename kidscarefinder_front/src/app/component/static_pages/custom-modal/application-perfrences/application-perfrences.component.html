@@ -1,0 +1,134 @@
+<div class="preferencePopup">
+  <div class="preferenceBoxbg">
+    <div class="headingbg">
+      <h1 class="headingh1">Application preferences</h1>
+      <!-- <span (click)="hideSidebar()" style="color: #000;">X</span> -->
+      <p class="paratop">Customize your online application template by selecting which fields you would like to capture
+        when users apply for your program</p>
+    </div>
+
+    <div class="preferenceInn">
+      <div class="preferenceDesign">
+        <div class="preferenceBox">
+          <div class="headingParaGroup">
+            <h3 class="preh3">Required fields</h3>
+            <p class="para">These fields will automatically be captured on every application </p>
+          </div>
+          <hr class="preDivd">
+          <div class="preFields">
+            <div class="grayboxOuter">
+              <div class="graybox">
+                <mat-icon>lock</mat-icon>
+                <p>Parents’ basic information (first name, last name, email, phone number, address)</p>
+              </div>
+            </div>
+            <div class="grayboxOuter">
+              <div class="graybox">
+                <mat-icon>lock</mat-icon>
+                <p>Child’s basic information (first name, last name, date of birth, address)</p>
+              </div>
+            </div>
+            <div class="grayboxFour">
+              <div class="grayboxOuter">
+                <div class="graybox">
+                  <mat-icon>lock</mat-icon>
+                  <p>Provider name</p>
+                </div>
+              </div>
+              <div class="grayboxOuter">
+                <div class="graybox">
+                  <mat-icon>lock</mat-icon>
+                  <p>Desired start date</p>
+                </div>
+              </div>
+              <div class="grayboxOuter">
+                <div class="graybox">
+                  <mat-icon>lock</mat-icon>
+                  <p>Online enrollment preferences</p>
+                </div>
+              </div>
+              <div class="grayboxOuter">
+                <div class="graybox">
+                  <mat-icon>lock</mat-icon>
+                  <p>Program/ grade level applying for</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="preferenceBox">
+          <form [formGroup]="optionalForm">
+
+          <div class="headingParaGroup">
+            <h3 class="preh3">Optional fields</h3>
+            <p class="para">Pick and choose which of these fields you would like to capture. Select all that apply
+            </p>
+          </div>
+          <hr class="preDivd">
+          <div class="generalFields">
+            <div class="headingParaGroup">
+              <h4 class="preh4">General fields</h4>
+            </div>
+            <div class="graybox">
+              <div class="form-check form-check-inline checkBlock">
+                <input class="form-check-input" formControlName="tell_us_about_family" type="checkbox"
+                  id="inlineCheckbox1">
+                <label class="form-check-label" for="inlineCheckbox1">Tell us about your family</label>
+              </div>
+              <div class="form-check form-check-inline checkBlock">
+                <input class="form-check-input" formControlName="tell_us_about_child" type="checkbox"
+                  id="inlineCheckbox2">
+                <label class="form-check-label" for="inlineCheckbox2">Tell us about your child</label>
+              </div>
+              <div class="form-check form-check-inline checkBlock">
+                <input class="form-check-input" formControlName="any_special_needs" type="checkbox"
+                  id="inlineCheckbox3">
+                <label class="form-check-label" for="inlineCheckbox3">Any special needs or additional
+                  information?</label>
+              </div>
+            </div>
+          </div>
+          <div class="generalFields">
+            <div class="headingParaGroup">
+              <h4 class="preh4">Parent employment information</h4>
+            </div>
+            <div class="graybox">
+              <div class="form-check form-check-inline blockcheckBox">
+                <input formControlName="occupation" class="form-check-input" type="checkbox" id="inlineCheckbox4">
+                <label class="form-check-label" for="inlineCheckbox4">Occupation</label>
+              </div>
+              <div class="form-check form-check-inline blockcheckBox">
+                <input formControlName="employer_name" class="form-check-input" type="checkbox" id="inlineCheckbox5">
+                <label class="form-check-label" for="inlineCheckbox5">Employer name</label>
+              </div>
+              <div class="form-check form-check-inline blockcheckBox">
+                <input class="form-check-input" formControlName="employer_address" type="checkbox" id="inlineCheckbox6">
+                <label class="form-check-label" for="inlineCheckbox6">Employer address</label>
+              </div>
+              <div class="form-check form-check-inline blockcheckBox">
+                <input class="form-check-input" formControlName="employer_phone" type="checkbox" id="inlineCheckbox7">
+                <label class="form-check-label" for="inlineCheckbox7">Employer phone</label>
+              </div>
+              <div class="form-check form-check-inline blockcheckBox">
+                <input class="form-check-input" formControlName="annual_gross_income" type="checkbox"
+                  id="inlineCheckbox8">
+                <label class="form-check-label" for="inlineCheckbox8">Annual gross income</label>
+              </div>
+            </div>
+          </div>
+          </form>
+        </div>
+      </div>
+      <div class="preferenceBtn">
+        <button (click)="submitData()" class="btn btn-primary">
+          <svg width="19" height="17" viewBox="0 0 19 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M6.24906 16.2705L0.0390625 10.0605L2.86906 7.23047L6.24906 10.6205L16.1291 0.730469L18.9591 3.56047L6.24906 16.2705Z"
+              fill="white" />
+          </svg>
+          Save and Exit
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

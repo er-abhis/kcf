@@ -1,0 +1,50 @@
+.reviewPayment {
+    border: 5px solid #FFCB14;
+    background: var(--primaryColor);
+    color: var(--whiteColor);
+    padding: 8px 15px;
+    border-radius: 10px;
+}
+.reviewPayment h5.stepPlan {
+    font-family: 'Nunito';
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.reviewPayment h1.reviewPayh1 {
+    font-family: 'Nunito';
+    font-size: 32px;
+    font-weight: 800;
+}
+.steperSubscription {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #fff;
+    padding: 10px;
+}
+.subscriptionLeft p.subscpPara {
+    font-family: 'Nunito';
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+.subscriptionRight span {
+    font-family: 'Nunito';
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.stepSubsTotal p.subTotalPara {
+    font-family: 'Nunito';
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.stepSubsTotal span.subTotalPrice {
+    font-family: 'Nunito';
+    font-size: 32px;
+    font-weight: 800;
+}

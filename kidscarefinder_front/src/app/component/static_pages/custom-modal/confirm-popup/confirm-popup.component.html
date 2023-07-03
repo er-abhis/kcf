@@ -1,0 +1,10 @@
+<div class="resultMessagePopup">
+    <h1 class="resultMsgPopTitle" [ngClass]="{'providerActivity': data?.providerActivity}">{{this.data.text1}} <span class="addSuccsBold">{{this.data.name}}</span> {{this.data.text2}} <span *ngIf="this.data.text3" class="addSuccsBold">{{this.data.text3}}</span>
+      <span class="addSuccsBold" *ngIf="data?.organization_name">{{data?.organization_name}}?</span>
+    </h1>
+    <div class="resultMessageBtn">
+      <button class="btn modalOutline btn-outline-primary" (click)="closeModal()">Cancel and exit</button>
+      <button class="btn modalBtn" (click)="onAction()">{{this.data.action}}</button>
+    </div>
+  </div>
+  

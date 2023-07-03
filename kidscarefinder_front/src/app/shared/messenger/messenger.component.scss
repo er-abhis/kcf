@@ -1,0 +1,235 @@
+.msgConvers {
+  text-align: center;
+  padding: 15px 0px 10px;
+}
+
+.msgConversRight {
+  text-align: center;
+  padding: 10px 10px 0px;
+}
+
+.profile {
+  cursor: pointer;
+}
+
+.italic {
+  font-style: italic;
+  margin-bottom: 15px;
+
+}
+
+
+.menuText {
+  background: url(../../../assets/images//Galaxy-Hydra.png);
+  background-size: cover;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin: 0px;
+  font-size: 30px;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.msgText h4 {
+  cursor: pointer;
+}
+
+.rhodeText h4 {
+  cursor: pointer;
+}
+
+::placeholder {
+  color: rgba(217, 217, 217, 1);
+}
+
+
+.provMsg .shareBoxFixed {
+  height: 720px;
+}
+
+.shareBoxFixed {
+  padding: 15px 0px;
+  height: 670px;
+  overflow: auto;
+  border-radius: 25px;
+}
+
+.messageConversationBox {
+  height: 685px;
+  overflow-y: scroll;
+}
+
+
+
+// .msgText p.msgInterst {
+//   font-size: 18px;
+//   font-weight: 400;
+//   color: #767676;
+//   margin-bottom: 0;
+//   padding-right: 60px;
+//   position: relative;
+//   font-style: italic;
+// }
+.rhodeInterst {
+  // text-overflow: ellipsis;
+  // overflow: hidden;
+  // display: -webkit-box;
+  // -webkit-line-clamp: 1;
+  // -webkit-box-orient: vertical;
+  // word-break: break-all;
+  padding-right: 60px;
+}
+
+.msgText p.msgInterst {
+  font-size: 20px;
+  font-weight: 400;
+  color: #767676;
+  margin-bottom: 0;
+  padding-right: 60px;
+  position: relative;
+  font-style: normal;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}
+
+.massageArrow {
+  display: none;
+}
+
+.rhodeAreaBtnMobile {
+  display: none;
+}
+
+.rhodeAreatext textarea {
+  resize: none !important;
+  color: black !important;
+}
+
+.rhodeAreatext textarea::placeholder {
+  color: #767676;
+}
+
+.rhodeAreatext textarea:focus,
+input:focus {
+  outline: 0;
+}
+
+// show for mobile
+
+@media screen and (max-width:767px) {
+  .accountHeading.messageTop {
+    // display: none;
+  }
+
+  ::ng-deep {
+    .contentrightBg.provMsg {
+      border: none !important;
+    }
+    .contentright{
+      margin-top: 10px !important;
+    }
+    .accountSetting{
+      margin-bottom: 10px !important;
+    }
+    .accountHeading{
+      background-color: transparent;
+      padding: 0px;
+    }
+    .contentrightBg{
+      background-color: transparent;
+    }
+    .mCenterSearch .headingbgSearch{
+      display: none;
+    }
+    .accountHeading span.msgnotify{
+      display: none;
+    }
+  }
+
+  .messageCenterFlex {
+    position: relative;
+  }
+
+  .messageRhode {
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    background-color: #fff;
+  }
+
+  .massageArrow {
+    display: flex;
+  }
+
+  .massageArrow p {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    color: #000000;
+    margin: -2px 0 0 7px;
+  }
+
+  .quickinsetProv {
+    width: auto !important;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+  }
+
+  .AreaIcon {
+    display: none;
+  }
+
+  .rhodeAreaBtn {
+    display: none;
+  }
+
+  .rhodeAreaBtnMobile {
+    display: block;
+    border-top: none;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .rhodeAreatextBox {
+    position: relative;
+  }
+
+  .rhodeText h4.rhodhead {
+    font-size: 16px;
+  }
+
+  .msgText p.msgInterst {
+    font-size: 16px;
+  }
+
+  .menuText {
+    height: 45px;
+    width: 45px;
+    font-size: 20px;
+  }
+
+  .messageTitle h3.messageh3 {
+    font-size: 16px;
+  }
+
+  .rhodeAreatext textarea::placeholder {
+    font-size: 16px;
+  }
+}

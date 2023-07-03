@@ -1,0 +1,162 @@
+<div class="signUpChildMealSection">
+    <div class="ChildMealSteps0" *ngIf="stepCount === 0">
+        <form [formGroup]="childNeedCareGroup">
+            <div class="main_block sect_head">
+                <h2 class="sect_title ">Do you provide meals?</h2>
+            </div>
+            <div class="licenceBtns radioButtons">
+                <mat-radio-group matInput aria-labelledby="example-radio-group-label"
+                    class="example-radio-group mat-radio-group" formControlName="is_meal_provided" required>
+                    <span *ngFor="let season of ProvideMealYesNo" class="spanRadio">
+                        <mat-radio-button (change)="ProvideMealChange($event,season)"
+                            class="example-radio-button form-control1" [value]="season">
+                            {{season}}
+                        </mat-radio-button>
+                    </span>
+                </mat-radio-group>
+            </div>
+            <div class="container p-0" *ngIf="ChildFoodProvideSteps">
+                <div class="row">
+                    <div class="col-sm-12 mx-auto">
+                        <div class="main_block sect_head mealSubHead">
+                            <h2 class="sect_title">Which meals do you
+                                provide?
+                            </h2>
+                            <p class="mealSelectTxt">Select all that
+                                apply</p>
+                        </div>
+                    </div>
+                    <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-5 col-sm-6 mx-auto">
+                        <div
+                            class="daysCheckBoxs checkHalfBoxed daysCheckBoxsButton checkHalfBoxedMov blockSingle matCheckBlue matCheckBlueWidth">
+                            <mat-checkbox [(ngModel)]="isBreakFast" [checked]="isBreakFast" value="fulltime"
+                                [ngModelOptions]="{standalone: true}">Breakfast</mat-checkbox>
+                            <mat-checkbox [(ngModel)]="isLunch" [checked]="isLunch" value="parttime"
+                                [ngModelOptions]="{standalone: true}">Lunch</mat-checkbox>
+                            <mat-checkbox [(ngModel)]="isDinner" [checked]="isDinner" value="halfday"
+                                [ngModelOptions]="{standalone: true}">Dinner</mat-checkbox>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="ChildMealSteps1" *ngIf="stepCount === 1">
+        <form [formGroup]="ChildSnacksFormGroup">
+            <div class="main_block sect_head">
+                <h2 class="sect_title">Do you provide snacks?</h2>
+            </div>
+            <div class="licenceBtns radioButtons">
+                <mat-radio-group matInput aria-labelledby="example-radio-group-label" class="example-radio-group"
+                    formControlName="provideSnacks" required>
+                    <span *ngFor="let season of SnacksProYesNo" class="spanRadio">
+                        <mat-radio-button (change)="ProvideSnacksChange($event,season)"
+                            class="example-radio-button form-control1" [value]="season">
+                            {{season}}
+                        </mat-radio-button>
+                    </span>
+                </mat-radio-group>
+            </div>
+
+            <div class="container" *ngIf="ChildSnacksProvideSteps">
+                <div class="row">
+                    <div class="col-sm-12 mx-auto">
+                        <div class="main_block sect_head
+                mealSubHead">
+                            <h2 class="sect_title">Which snacks do you
+                                provide?</h2>
+                            <p class="mealSelectTxt">Select all that
+                                apply
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-5 col-sm-6 mx-auto">
+                        <div
+                            class="daysCheckBoxs daysCheckBoxsButton checkHalfBoxed checkHalfBoxedMov blockSingle matCheckBlue matCheckBlueWidth">
+                            <mat-checkbox [(ngModel)]="isMorning" [checked]="isMorning"
+                                [ngModelOptions]="{standalone: true}" value="morning">Morning</mat-checkbox>
+                            <mat-checkbox [(ngModel)]="isAfternoon" [checked]="isAfternoon"
+                                [ngModelOptions]="{standalone: true}" value="afternoon">Afternoon</mat-checkbox>
+                            <mat-checkbox [(ngModel)]="isEvening" [checked]="isEvening"
+                                [ngModelOptions]="{standalone: true}" value="halfday">Evening</mat-checkbox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="ChildMealSteps2" *ngIf="stepCount === 2">
+        <div class="container p-0">
+            <div class="StepDetailsLists stepDetail4
+            stepDetail5">
+
+                <div class="row">
+                    <div class="col-sm-12 mx-auto">
+                        <div class="main_block sect_head
+                  StepDetailHeading">
+                            <h2 class="titleDetails">Review | Step
+                                5:
+                                Meals and snacks</h2>
+                            <p class="smallTextDetails">Review and
+                                edit
+                                schedule/ availability details</p>
+                        </div>
+                    </div>
+                    <div class="detailsRow detailsRowMobile">
+                        <div class="DetailPhotoLeft bgWhiteDetails provLMargin equal50Max">
+                            <div class="detailsColBg">
+                                <h3 class="headingBlackText">Meals</h3>
+                                <h3>Do you provide meals?</h3>
+                                <mat-radio-group disabled="true" aria-label="Select an
+                      option">
+                                    <mat-radio-button [checked]="is_meal_provided == true"
+                                        value="1">Yes</mat-radio-button>
+                                    <mat-radio-button [checked]="is_meal_provided == false"
+                                        value="2">No</mat-radio-button>
+                                </mat-radio-group>
+                                <ng-container *ngIf="is_meal_provided == true">
+                                    <h3>Which meals do you provide?</h3>
+                                    <div class="daysCheckBoxs checkHalfBoxed blockSingle matCheckBlack">
+                                        <mat-checkbox disabled="true" [(ngModel)]="isBreakFast" [checked]="isBreakFast"
+                                            value="fulltime"
+                                            [ngModelOptions]="{standalone: true}">Breakfast</mat-checkbox>
+                                        <mat-checkbox disabled="true" [(ngModel)]="isLunch" [checked]="isLunch"
+                                            value="parttime" [ngModelOptions]="{standalone: true}">Lunch</mat-checkbox>
+                                        <mat-checkbox disabled="true" [(ngModel)]="isDinner" [checked]="isDinner"
+                                            value="halfday" [ngModelOptions]="{standalone: true}">Dinner</mat-checkbox>
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <div class="DetailPhotoRight margmanag bgWhiteDetails equal50Max equal50MaxMob">
+                            <div class="detailsColBg">
+
+                                <h3 class="headingBlackText">Snacks</h3>
+                                <h3>Do you provide snacks?</h3>
+                                <mat-radio-group aria-label="Select an option" disabled="true">
+                                    <mat-radio-button [checked]="is_snack_provided == true"
+                                        value="1">Yes</mat-radio-button>
+                                    <mat-radio-button [checked]="is_snack_provided == false"
+                                        value="2">No</mat-radio-button>
+                                </mat-radio-group>
+                                <ng-container *ngIf="is_snack_provided == true">
+                                    <h3>Which snacks do you provide?</h3>
+                                    <div class="daysCheckBoxs checkHalfBoxed blockSingle matCheckBlack">
+                                        <mat-checkbox disabled="true" [(ngModel)]="isMorning" [checked]="isMorning"
+                                            [ngModelOptions]="{standalone: true}" value="morning">Morning</mat-checkbox>
+                                        <mat-checkbox disabled="true" [(ngModel)]="isAfternoon" [checked]="isAfternoon"
+                                            [ngModelOptions]="{standalone: true}"
+                                            value="afternoon">Afternoon</mat-checkbox>
+                                        <mat-checkbox disabled="true" [(ngModel)]="isEvening" [checked]="isEvening"
+                                            [ngModelOptions]="{standalone: true}" value="halfday">Evening</mat-checkbox>
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

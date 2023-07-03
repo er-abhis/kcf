@@ -1,0 +1,442 @@
+.shareCombine form.notifyFrmequal {
+  height: 100%;
+}
+
+/* ===================== user signup profile css start =====================*/
+.profileUpload .btn:hover {
+  background: transparent !important;
+}
+
+.tooltipPortal {
+  position: relative;
+}
+
+.tooltipPortal svg {
+  position: absolute;
+  right: 63px;
+}
+
+.profileChoseFlex {
+  display: flex;
+  align-items: center;
+}
+
+.profilePicture {
+  width: 140px;
+  height: 140px;
+}
+
+.profilePicture img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.profileUpload {
+  padding-left: 10px;
+}
+
+
+.chsefile img {
+  height: 16px;
+}
+
+.profileUpload .spanArrow {
+  padding-left: 5px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.profileUploadBtn input[type="file"] {
+  width: 0;
+  padding: 0;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.profileUploadBtn input[type="file"]+label {
+  background: var(--primaryColor);
+  padding: 12px 12px;
+  border: 1px solid var(--primaryColor);
+  border-radius: 10px;
+  color: #fff;
+  min-width: 140px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.profileUpload .btn-outline-secondary {
+  border: 1px solid var(--primaryColor);
+  color: var(--primaryColor);
+  padding: 12px 12px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  min-width: 140px;
+}
+
+.profileUpload .btn-outline-secondary:hover {
+  background: transparent;
+}
+
+.profileUpload .btn-outline-secondary img {
+  height: 15px;
+}
+
+.profileUpload .spanRemove {
+  font-size: 14px;
+  font-weight: 600;
+  padding-left: 8px;
+}
+
+
+.profileChoseBox .profileDisclaim {
+  color: #767676;
+  font-size: 15px;
+  font-weight: 500;
+  margin: 10px 0 0;
+}
+
+// .prfileChild {
+// border: 1px solid #ccc;
+// border-radius: 10px;
+// }
+// .prfileChildBg {
+// background: #2C2C2C;
+// padding: 40px;
+// border-radius: 10px 10px 0px 0px;
+// }
+// .prfileChildGrid {
+// display: grid;
+// grid-template-columns: repeat(4, 1fr);
+// gap: 15px;
+// }
+// .prfileChildBox {
+// background: #fff;
+// padding: 10px;
+// border-radius: 15px;
+// text-align: center;
+// }
+// .prfileChildBox .austinh4 {
+// font-size: 20px;
+// font-weight: 700;
+// margin: 10px 0px 5px;
+// }
+// .prfileChildBox .austinh5 {
+// font-size: 20px;
+// font-weight: 400;
+// color: var(--primaryLight);
+// margin: 0;
+// }
+
+// .prfileChildTwoin {
+// display: flex;
+// flex-wrap: wrap;
+// }
+// .prfileChildTwoin .prfileChildItem {
+// width: 50%;
+// padding: 15px 0;
+// border-right: 1px solid #ccc;
+// }
+// .prfileChildTwoin .prfileChildItem:last-child {
+// border-right: 0px solid #ccc;
+// }
+
+.profleTable {
+  background: var(--whiteColor);
+  margin-top: 15px;
+  border: 1px solid #D9D9D9;
+  border-radius: 10px;
+}
+
+.profleTable .table th {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.profleTable .table td {
+  font-size: 16px;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+.profleTable .table td p {
+  margin-bottom: 0px;
+}
+
+.familyDescriptionCard {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #D9D9D9;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.descriptionBox {
+  margin-top: 25px;
+  border-radius: 10px;
+  height: 170px;
+}
+
+.descriptionBox textarea {
+  min-height: 170px;
+  border: 1px solid var(--primaryLight);
+}
+
+.profileInterstBox {
+  padding: 15px;
+  margin-top: 25px;
+  border: 1px solid #164789;
+  border-radius: 10px;
+  min-height: 170px;
+}
+
+.addChild {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.prfileChildItem .addChild {
+  margin-bottom: 0;
+}
+
+.addChild a {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--primaryColor);
+  text-decoration: none;
+}
+
+.addChild a img {
+  height: 20px;
+}
+
+.addChild a .addChildtext {
+  color: var(--primaryLight);
+  font-size: 18px;
+  font-weight: 600;
+  margin-left: 6px;
+  text-decoration: underline;
+}
+
+
+.addBriefBoxOuter {
+  background: #e7f6ff;
+  padding: 10px;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.addBriefBox {
+  background: var(--whiteColor);
+  padding: 10px;
+  border: 1px solid #D9D9D9;
+  border-radius: 10px;
+}
+
+.addBriefCross {
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.addBriefCross span.briefCross svg {
+  width: 20px;
+  height: 20px;
+}
+
+.addBriefCross.crossflex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.addBriefCross.crossflex a.makeLink .form-check-label {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--primaryLight);
+  margin-top: 2px;
+}
+
+.addBriefCross.crossflex a.btn-primary {
+  background: var(--primaryLight);
+  border-color: var(--primaryLight);
+}
+
+.addBriefCross.crossflex span path {
+  fill: var(--whiteColor);
+}
+
+.addBriefCross.crossflex span.briefCross path {
+  fill: #d9d9d9;
+}
+
+.addBriefDetail {
+  width: auto;
+}
+
+.addBriefInner {
+  padding: 15px;
+  border: 1px solid #D9D9D9;
+}
+
+.addBriefSplit {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.addBriefSplit .splitleft {
+  width: 45%;
+}
+
+.addBriefSplit .splitright {
+  width: 55%;
+}
+
+.manageRow .col-md-12 {
+  margin-bottom: 15px;
+}
+
+.manageRow .col-md-12:nth-last-of-type(1) {
+  margin-bottom: 0px;
+}
+
+.manageRow .col-md-12:nth-last-of-type(2) {
+  margin-bottom: 0px;
+}
+
+.manageRow .col-md-12:nth-last-of-type(3) {
+  margin-bottom: 0px;
+}
+
+.addBriefFlex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #D9D9D9;
+  padding: 0 0 10px;
+}
+
+.addBriefFlex a.dselect {
+  color: var(--primaryLight);
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.emergbrief {
+  margin-top: 10px;
+}
+
+.emergbrief .form-check-inline {
+  margin-bottom: 0;
+}
+
+.addBriefCombine {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+.addBriefCombine a.btn {
+  border-radius: 10px;
+  padding: 7px 5px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addBriefCombine svg {
+  width: 20px;
+  height: 18px;
+  margin-right: 5px;
+}
+
+.addBriefCombine a.btn:first-child {
+  margin-right: 10px;
+}
+
+.addBriefCombine a.btn-primary {
+  background: var(--primaryLight);
+  border-color: var(--primaryLight);
+}
+
+.addBriefCombine a.btn-danger {
+  background: #772162;
+  border-color: #772162;
+}
+
+
+
+.shareBoxFixed {
+  padding: 0px;
+  height: 725px;
+  overflow: auto;
+}
+
+.contentrightBg {
+  border: 1px solid #8AD5FF;
+}
+
+.usernameBtn .btn:disabled {
+  background: #dad5d5;
+  color: #000;
+  border-color: #7b7777;
+}
+
+/* ===================== user signup profile css exit =====================*/
+@media screen and (max-width:767px) {
+  .contentrightBg {
+    border: none;
+    background-color: transparent;
+  }
+
+  .headingbg {
+    background-color: transparent;
+  }
+
+  .headingbg h1.headingh1 {
+    font-weight: 800;
+    text-align: center;
+  }
+
+  .headingbg p.paratop {
+    line-height: 22px;
+    font-size: 14px;
+  }
+
+  .usernameCard h2.usercardh2 {
+    font-size: 16px;
+  }
+
+  ::ng-deep.mat-typography p {
+    font-size: 16px;
+  }
+
+  .steperCheckListing {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .paymentContinue {
+    text-align: center;
+  }
+
+  .paymentInformartion {
+    padding-top: 0px;
+  }
+
+  .familyDescriptionCard {
+    margin-top: 0px;
+  }
+
+  .form-check-label {
+    font-size: 16px;
+  }
+
+  .steperCheckListing .form-check {
+    margin-bottom: 0px;
+  }
+}

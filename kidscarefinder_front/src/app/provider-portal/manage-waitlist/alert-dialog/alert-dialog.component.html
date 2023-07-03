@@ -1,0 +1,15 @@
+<div>
+  <div mat-dialog-content class="d-flex flex-column fs-2 gap-3 lh-sm m-0 text-center w-100">
+    <div>
+      <svg width="111" height="110" viewBox="0 0 111 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M55.5 0C25.25 0 0.5 24.75 0.5 55C0.5 85.25 25.25 110 55.5 110C85.75 110 110.5 85.25 110.5 55C110.5 24.75 85.75 0 55.5 0ZM44.5 82.5L17 55L24.755 47.245L44.5 66.935L86.245 25.19L94 33L44.5 82.5Z"
+          fill="#164789"/>
+      </svg>
+    </div>
+    <div [innerHTML]="data.template"></div>
+  </div>
+  <div mat-dialog-actions class="d-flex justify-content-center mat-dialog-actions pb-4">
+    <button class="btn btn-primary" [mat-dialog-close]="true">Close</button>
+  </div>
+</div>

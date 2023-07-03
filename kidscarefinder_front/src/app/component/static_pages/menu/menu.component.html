@@ -1,0 +1,120 @@
+<div class="main_block">
+  <div class="header_user">
+    <a href="javascript:void(0)" class="user_menu_btn" (click)="menuOpen()">
+      <p class="menu_btn"><span></span></p>
+      <span class="user_btn" *ngIf="!logedIn"><img src="../../../../assets/images/notLogin.png"
+          alt="user_image" /></span>
+      <span class="user_btn" *ngIf="logedIn && loginRole == 'USER'"><img class="menuImg"
+          *ngIf="this.profilePicUser != null" src="{{ this.profilePicUser }}" alt="user_image" />
+        <p class="menuText" *ngIf="this.profilePicUser == null">
+          {{ this.welcome_icon }}
+        </p>
+      </span>
+
+      <span class="user_btn" *ngIf="logedIn && loginRole == 'PROVIDER'"><img class="menuImg"
+          *ngIf="this.profilePicProvider != null" src="{{ this.profilePicProvider }}" alt="user_image" />
+        <p class="menuText" *ngIf="this.profilePicProvider == null">
+          {{ this.welcome_icon_provider }}
+        </p>
+      </span>
+    </a>
+    <div id="user_menu">
+      <h4 class="user_menu_header" *ngIf="logedIn && loginRole == 'USER'">
+        Hello, <span class="user_menu_name">{{ this.welcome_name | titlecase }}</span>!
+      </h4>
+      <h4 class="user_menu_header" *ngIf="logedIn && loginRole == 'PROVIDER'">
+        Hello,
+        <span class="user_menu_name">{{ this.welcome_provider_name | titlecase}}</span>!
+      </h4>
+      <!-- <h4 class="user_menu_header" *ngIf="logedIn">Hello, <span class="user_menu_name">{{user}}</span>!</h4> -->
+      <h4 class="user_menu_header notSignedIn" *ngIf="!logedIn">
+        You are not signed in
+      </h4>
+      <ul *ngIf="!logedIn">
+        <li>
+          <a href="javascript:void(0);" (click)="openModal('signIn')">Sign up/ Sign in</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" [routerLink]="['/about-us/']">About us</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" [routerLink]="['/provider/signup']">Become a provider</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" [routerLink]="['/support/site-overview']">Support</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" [routerLink]="['/privacy-policy']">Privacy policy</a>
+        </li>
+        <li><a href="javascript:void(0)" [routerLink]="['/faqs']">FAQs</a></li>
+      </ul>
+      <ul *ngIf="logedIn && loginRole == 'USER'">
+        <li>
+          <a href="javascript:void(0)" (click)="userDetails()" [routerLink]="['/user/profile']">My profile</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" [routerLink]="['/user/account-setting']">My account</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" [routerLink]="['/enrollment-details']">My enrollment details</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" [routerLink]="['/user/message-center']">My message center<span
+              class="FootMeessage" *ngIf="this.userService.newMsgCount">{{
+              this.userService.newMsgCount
+              }}</span></a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" [routerLink]="['/user/my-providers']">My providers</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" [routerLink]="['/about-us/']">About us</a>
+        </li>
+        <!-- <li><a href="javascript:void(0)" [routerLink]="['/provider/signup']">Become a provider</a></li> -->
+        <li>
+          <a href="javascript:void(0)" (click)="openProviderModal('providerModal')">Become a provider</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" [routerLink]="['/support/site-overview']">Support</a>
+        </li>
+        <li><a href="javascript:void(0)" (click)="logout()">Sign out</a></li>
+      </ul>
+      <ul *ngIf="logedIn && loginRole == 'PROVIDER'">
+        <li>
+          <a href="javascript:void(0)" [routerLink]="['/providerSettings/user-activity']">View user activity</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" [routerLink]="['/providerSettings/provider-message-center']">My message
+            center<span class="FootMeessage" *ngIf="this.userService.newMsgCount">{{
+              this.userService.newMsgCount
+              }}</span></a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" [routerLink]="['/providerSettings/manage-waitlist']">Manage waitlist</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" [routerLink]="['/providerSettings/provider-applications']">Applications</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" [routerLink]="['/providerSettings/provider-enrollment']">Enrollments</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" [routerLink]="['/providerSettings/my-information']">My information</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" [routerLink]="['/providerSettings/account-billing']">Payment and billing</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" (click)="editProviderDetails()">Update provider details</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" [routerLink]="['/about-us/']">About us</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" [routerLink]="['/support/site-overview']">Support</a>
+        </li>
+        <li><a href="javascript:void(0)" (click)="logout()">Sign Out</a></li>
+      </ul>
+    </div>
+  </div>
+</div>

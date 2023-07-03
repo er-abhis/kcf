@@ -1,0 +1,532 @@
+<div class="steperheadpara">
+  <h2 class="steperh2">Would you like to add additional administrators?</h2>
+  <p class="steperPara steperParaStepNine">
+    The administrator(s) will be responsible for managing this Preschool’s
+    account with Kids Care Finder (Admin responsibilities include replying to
+    user messages, managing your waitlist, reviewing user applications, managing
+    user enrollment documents, keeping availability up-do-date, and more)
+  </p>
+</div>
+<div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 mx-auto">
+  <div class="profleTable steptable">
+    <div class="table-responsive">
+      <table class="table table-hover table-striped">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Position/Title</th>
+            <th scope="col">Email Id</th>
+            <th scope="col">Phone</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let item of administratorList">
+            <tr>
+              <td *ngIf="item.make_primary_admin">
+                <mat-icon>lock</mat-icon>
+              </td>
+              <td *ngIf="!item.make_primary_admin">
+                <a href="javacript:void(0)" (click)="removeAdmin(item.id)">
+                  <mat-icon>cancel</mat-icon>
+                </a>
+              </td>
+              <td>{{ item.first_name }}</td>
+              <td>{{ item.last_name }}</td>
+              <td>{{ item.position }}</td>
+              <td>{{ item.email }}</td>
+              <td>
+                <div class="steptblLastflex">
+                  {{ item.mobile }}
+                  <a #arrow id="arrow_{{item.id}}" href="javascript:void(0)" (click)="openCloseDiv(item.id)">
+                    <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M2.22222 20.5L17.7778 20.5C18.3671 20.5 18.9324 20.2659 19.3491 19.8491C19.7659 19.4324 20 18.8671 20 18.2778L20 2.72222C20 1.48889 19 0.5 17.7778 0.5L2.22222 0.5C0.988888 0.5 0 1.48889 0 2.72222L0 18.2778C0 18.8671 0.234125 19.4324 0.650873 19.8491C1.06762 20.2659 1.63285 20.5 2.22222 20.5ZM12.5444 3.83333L14.1222 5.4L9.02222 10.5L14.1222 15.6L12.5444 17.1667L5.87778 10.5L12.5444 3.83333Z"
+                        fill="#164789" />
+                    </svg>
+                  </a>
+                </div>
+
+              </td>
+            </tr>
+            <tr *ngIf="clickedId == item.id">
+              <td colspan="6" class="p-0">
+                <div class="addBriefBoxOuter">
+                  <div class="addBriefBox boxshadow borderRadius5">
+                    <form [formGroup]="editAdminForm">
+                      <div class="addBriefBoxInn">
+                        <div class="addBriefDetail">
+                          <div class="addBriefInner inputCustadmin border-0 px-0 pt-0">
+                            <div class="row">
+                              <div class="col-12">
+                                <div class="mb-3">
+                                  <div class="inputgroupOuter mb-3">
+                                    <div class="input-group">
+                                      <span class="input-group-text" id="inputGroup-sizing-sm">First Name</span>
+                                      <input type="text" class="form-control" aria-label="Sizing example input"
+                                        formControlName="full_name" aria-describedby="inputGroup-sizing-default" />
+                                    </div>
+                                    <span style="color: red" *ngIf="
+                                        (editSubmitted &&
+                                          editForm['full_name'].errors) ||
+                                        (editForm['full_name']?.touched &&
+                                          editForm['full_name'].errors)
+                                      ">
+                                      <mat-error *ngIf="
+                                          editForm['full_name'].errors[
+                                            'required'
+                                          ]
+                                        ">Name is required</mat-error>
+                                      <mat-error *ngIf="
+                                          editForm['full_name'].errors[
+                                            'pattern'
+                                          ]
+                                        ">Name is invalid</mat-error>
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-12">
+                                <div class="mb-3">
+                                  <div class="input-group mb-3">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">Last Name</span>
+                                    <input type="text" class="form-control" aria-label="Sizing example input"
+                                      formControlName="last_name" aria-describedby="inputGroup-sizing-default" />
+                                    <span style="color: red" *ngIf="
+                                            (editSubmitted &&
+                                              editForm['last_name'].errors) ||
+                                            (editForm['last_name']?.touched &&
+                                              editForm['last_name'].errors)
+                                          ">
+                                      <mat-error *ngIf="
+                                              editForm['last_name'].errors[
+                                                'required'
+                                              ]
+                                            ">Name is required</mat-error>
+                                      <mat-error *ngIf="
+                                              editForm['last_name'].errors[
+                                                'pattern'
+                                              ]
+                                            ">Name is invalid</mat-error>
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-12">
+                                <div class="mb-3">
+                                  <div class="input-group mb-3">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">Position/ title</span>
+                                    <input type="text" class="form-control" aria-label="Sizing example input"
+                                      aria-describedby="inputGroup-sizing-sm" placeholder="Princepal"
+                                      formControlName="position" />
+                                    <span style="color: red" *ngIf="
+                                          (editSubmitted &&
+                                            editForm['position'].errors) ||
+                                          (editForm['position']?.touched &&
+                                            editForm['position'].errors)
+                                        ">
+                                      <mat-error *ngIf="
+                                            editForm['position'].errors[
+                                              'required'
+                                            ]
+                                          ">Position is required</mat-error>
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-12">
+                                <div class="row">
+                                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                    <div class="mb-3">
+                                      <div class="input-group mb-3">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">Phone number</span>
+                                        <input type="text" class="form-control" aria-label="Sizing example input"
+                                          aria-describedby="inputGroup-sizing-sm" formControlName="mobile"
+                                          mask="000-000-0000" />
+                                        <span style="color: red" *ngIf="
+                                              (editSubmitted &&
+                                                editForm['mobile'].errors) ||
+                                              (editForm['mobile']?.touched &&
+                                                editForm['mobile'].errors)
+                                            ">
+                                          <mat-error *ngIf="
+                                                editForm['mobile'].errors[
+                                                  'required'
+                                                ]
+                                              ">Phone number is required</mat-error>
+                                          <mat-error *ngIf="
+                                                editForm['mobile'].errors[
+                                                  'minlength'
+                                                ]
+                                              ">Please enter valid
+                                            number</mat-error>
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                    <div class="mb-3">
+                                      <div class="input-group mb-3">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">Email</span>
+                                        <input type="text" class="form-control" aria-label="Sizing example input"
+                                          aria-describedby="inputGroup-sizing-sm" formControlName="email" />
+                                        <span style="color: red" *ngIf="
+                                              (editSubmitted &&
+                                                editForm['email'].errors) ||
+                                              (editForm['email']?.touched &&
+                                                editForm['email'].errors)
+                                            ">
+                                          <mat-error *ngIf="
+                                                editForm['email'].errors[
+                                                  'required'
+                                                ]
+                                              ">Email is required</mat-error>
+                                          <mat-error *ngIf="
+                                                editForm['email'].errors[
+                                                  'pattern'
+                                                ]
+                                              ">Email is invalid</mat-error>
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-12">
+                                <div class="addBriefInner marginTop2">
+                                  <div class="steperBoxInn" formGroupName="notifications">
+                                    <div class="addBriefFlex">
+                                      <label class="form-label-md">Allow notification/ alert for</label>
+                                      <a class="dselect" href="javascript:void(0)" class="stepLink"
+                                        (click)="selectDeselectAllEdit()">Select/ deselect all</a>
+                                    </div>
+                                    <div class="steperCheckListing">
+                                      <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                          formControlName="user_messages" />
+                                        <label class="form-check-label" for="inlineCheckbox1">User messages</label>
+                                      </div>
+                                      <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                          formControlName="waitlist_notifications" />
+                                        <label class="form-check-label" for="inlineCheckbox2">Waitlist
+                                          notifications</label>
+                                      </div>
+                                      <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                          formControlName="new_online_applications" />
+                                        <label class="form-check-label" for="inlineCheckbox3">New online
+                                          applications</label>
+                                      </div>
+                                      <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox4"
+                                          formControlName="enrollment_requests" />
+                                        <label class="form-check-label" for="inlineCheckbox4">Enrollment
+                                          requests</label>
+                                      </div>
+                                      <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox5"
+                                          formControlName="new_enrollment_packages" />
+                                        <label class="form-check-label" for="inlineCheckbox5">New enrollment
+                                          packages</label>
+                                      </div>
+                                      <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox6"
+                                          formControlName="monthly_usage_summary" />
+                                        <label class="form-check-label" for="inlineCheckbox6">Monthly usage
+                                          summary</label>
+                                      </div>
+                                      <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox7"
+                                          formControlName="affiliated_provider_requests" />
+                                        <label class="form-check-label" for="inlineCheckbox7">Affiliated provider
+                                          requests</label>
+                                      </div>
+                                      <div class="form-check form-check-inline steplistSpan2">
+                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox8"
+                                          formControlName="marketing_from_KCF_affiliates" />
+                                        <label class="form-check-label" for="inlineCheckbox8">Marketing from Kids Care
+                                          Finder
+                                          Affiliates</label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="addBriefCombine comRemove">
+                        <a href="javascript:void(0)" class="btn btn-outline-danger" (click)="removeAdmin(item.id)">
+                          <span class="admRev">
+                            <svg width="18" height="20" viewBox="0 0 18 20" fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                d="M5.55556 0V1.11111H0V3.33333H1.11111V17.7778C1.11111 18.3671 1.34524 18.9324 1.76198 19.3491C2.17873 19.7659 2.74396 20 3.33333 20H14.4444C15.0338 20 15.599 19.7659 16.0158 19.3491C16.4325 18.9324 16.6667 18.3671 16.6667 17.7778V3.33333H17.7778V1.11111H12.2222V0H5.55556ZM3.33333 3.33333H14.4444V17.7778H3.33333V3.33333ZM5.55556 5.55556V15.5556H7.77778V5.55556H5.55556ZM10 5.55556V15.5556H12.2222V5.55556H10Z"
+                                fill="#772162" />
+                            </svg>
+                          </span>
+                          Remove
+                        </a>
+
+                        <a href="javascript:void(0)" class="btn btn-primary" (click)="editAdmin(item.id)">
+                          <span class="saveIcon" *ngIf="!isSaveText"><mat-icon>create</mat-icon></span>
+                          <span *ngIf="!isSaveText">Edit</span>
+                          <mat-icon *ngIf="isSaveText">save</mat-icon>
+                          <span *ngIf="isSaveText">Save</span></a>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+
+      <div class="addChild">
+        <a href="javascript:void(0)" (click)="isAdminClicked(true)">
+          <span class="addchildIcon">
+            <svg width="35" height="21" viewBox="0 0 35 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M27.5003 17.6429V20.5H10.3574V17.6429C10.3574 17.6429 10.3574 11.9286 18.9288 11.9286C27.5003 11.9286 27.5003 17.6429 27.5003 17.6429ZM23.2146 4.78572C23.2146 3.93808 22.9632 3.10948 22.4923 2.4047C22.0214 1.69992 21.352 1.15061 20.5689 0.826232C19.7858 0.501857 18.9241 0.416985 18.0927 0.582351C17.2614 0.747716 16.4978 1.15589 15.8984 1.75526C15.299 2.35463 14.8908 3.11827 14.7255 3.94961C14.5601 4.78096 14.645 5.64268 14.9694 6.42579C15.2937 7.2089 15.843 7.87824 16.5478 8.34916C17.2526 8.82008 18.0812 9.07143 18.9288 9.07143C20.0655 9.07143 21.1556 8.6199 21.9593 7.81617C22.763 7.01245 23.2146 5.92236 23.2146 4.78572ZM27.786 12.0143C28.5669 12.7347 29.1965 13.6035 29.638 14.5699C30.0795 15.5363 30.324 16.5809 30.3574 17.6429V20.5H34.6431V17.6429C34.6431 17.6429 34.6431 12.7143 27.786 12.0143ZM26.0717 0.500002C25.6401 0.50026 25.2111 0.567735 24.8003 0.700001C25.6361 1.89853 26.0842 3.32455 26.0842 4.78572C26.0842 6.24688 25.6361 7.6729 24.8003 8.87143C25.2111 9.0037 25.6401 9.07117 26.0717 9.07143C27.2083 9.07143 28.2984 8.6199 29.1022 7.81617C29.9059 7.01245 30.3574 5.92236 30.3574 4.78572C30.3574 3.64907 29.9059 2.55899 29.1022 1.75526C28.2984 0.951531 27.2083 0.500002 26.0717 0.500002ZM11.786 7.64286H7.50028V3.35714H4.64314V7.64286H0.357422V10.5H4.64314V14.7857H7.50028V10.5H11.786V7.64286Z"
+                fill="#164789" />
+            </svg>
+          </span>
+          <span class="addChildtext">Add additional administrator(s)</span>
+        </a>
+      </div>
+    </div>
+    <div class="addBriefBoxOuter" *ngIf="addAdminister">
+      <div class="addBriefBox boxshadow">
+        <div class="primaryAdminPopup" *ngIf="isPrimaryPopup">
+          <div class="primaryAdminPopupBx">
+            <div class="primaryAdminPopModi">
+              <h2 class="modalh2">
+                Are you sure you want to make this person the primary
+                administrator?
+              </h2>
+              <p class="modalpara" *ngIf="primaryAdmin">
+                This removes <span class="janbld">{{ primaryAdmin }}</span> as
+                the primary administrator
+              </p>
+              <div class="primaryAdminPopBtn">
+                <button mat-raised-button mat-dialog-close class="btn adminCancel btnCosmet"
+                  (click)="changePrimaryOption(false)">
+                  No, cancel
+                </button>
+                <button mat-raised-button mat-dialog-close class="btn adminConti btnCosmet"
+                  (click)="changePrimaryOption(true)">
+                  Yes, continue
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <form [formGroup]="adminAddForm">
+          <div class="addBriefBoxInn">
+            <div class="addBriefCross crossflex">
+              <div class="form-check form-check-inline mb-0">
+                <input class="form-check-input" type="checkbox" id="imakeCheckbox1" formControlName="make_primary_admin"
+                  (change)="makeAdminPrimary()" />
+                <a #primaryAdminRef class="makeLink" href="javascript:void(0)"><label class="form-check-label"
+                    for="imakeCheckbox1">Make primary administrator</label></a>
+              </div>
+
+              <span class="briefCross">
+                <a href="javascript:void(0)" (click)="isAdminClicked(false)">
+                  <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M26 4.72875L21.2712 0L13 8.27125L4.72875 0L0 4.72875L8.27125 13L0 21.2712L4.72875 26L13 17.7288L21.2712 26L26 21.2712L17.7288 13L26 4.72875Z"
+                      fill="#D9D9D9" />
+                  </svg>
+                </a>
+              </span>
+            </div>
+            <div class="addBriefDetail">
+              <div class="addBriefInner">
+                <div class="row">
+                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                    <div class="mb-3">
+                      <label class="form-label-md">First Name</label>
+                      <input class="form-control" type="text" placeholder="" aria-label="default"
+                        formControlName="first_name" />
+                      <span style="color: red" *ngIf="
+                            (submitted && accControls['first_name'].errors) ||
+                            (accControls['first_name']?.touched &&
+                              accControls['first_name'].errors)
+                          ">
+                        <mat-error *ngIf="accControls['first_name'].errors['required']">First name is
+                          required</mat-error>
+                        <mat-error *ngIf="accControls['first_name'].errors['pattern']">First Name is invalid</mat-error>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                    <div class="mb-3">
+                      <label class="form-label-md">Last Name</label>
+                      <input class="form-control" type="text" placeholder="" aria-label="default"
+                        formControlName="last_name" />
+                      <span style="color: red" *ngIf="
+                            (submitted && accControls['last_name'].errors) ||
+                            (accControls['last_name']?.touched &&
+                              accControls['last_name'].errors)
+                          ">
+                        <mat-error *ngIf="accControls['last_name'].errors['required']">Last name is required</mat-error>
+                        <mat-error *ngIf="accControls['last_name'].errors['pattern']">Last name is invalid</mat-error>
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="mb-3">
+                      <label class="form-label-md">Position/Title</label>
+                      <input class="form-control" type="text" placeholder="" aria-label="default"
+                        formControlName="position" />
+                      <span style="color: red" *ngIf="
+                            (submitted && accControls['position'].errors) ||
+                            (accControls['position']?.touched &&
+                              accControls['position'].errors)
+                          ">
+                        <mat-error *ngIf="accControls['position'].errors['required']">Position is required</mat-error>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                    <div class="mb-3">
+                      <label class="form-label-md">Email</label>
+                      <input class="form-control" type="email" placeholder="" aria-label="default"
+                        formControlName="email" />
+                      <span style="color: red" *ngIf="
+                            (submitted && accControls['email'].errors) ||
+                            (accControls['email']?.touched &&
+                              accControls['email'].errors)
+                          ">
+                        <mat-error *ngIf="accControls['email'].errors['required']">Email is required</mat-error>
+                        <mat-error *ngIf="accControls['email'].errors['pattern']">Email is invalid</mat-error>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                    <div class="mb-3">
+                      <label class="form-label-md">Phone Number</label>
+                      <input class="form-control" mask="000-000-0000" type="text" aria-label="default"
+                        formControlName="mobile" />
+                      <span style="color: red" *ngIf="
+                            (submitted && accControls['mobile'].errors) ||
+                            (accControls['mobile']?.touched &&
+                              accControls['mobile'].errors)
+                          ">
+                        <mat-error *ngIf="accControls['mobile'].errors['required']">Phone number is required</mat-error>
+                        <mat-error *ngIf="accControls['mobile'].errors['minlength']">Please enter valid
+                          number</mat-error>
+                        <mat-error *ngIf="accControls['mobile'].errors['maxlength']">Please enter valid
+                          number</mat-error>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="addBriefInner marginTop2">
+                <div class="steperBoxInn">
+                  <div class="addBriefFlex">
+                    <label class="form-label-md">Recieve notifications/ alert for</label>
+                    <a class="dselect" href="javascript:void(0)" class="stepLink" (click)="selectDeselectAll()">Select/
+                      deselect all</a>
+                  </div>
+                  <div class="steperCheckListing adminst">
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                        formControlName="user_messages" />
+                      <label class="form-check-label" for="inlineCheckbox1">User messages</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                        formControlName="waitlist_notifications" />
+                      <label class="form-check-label" for="inlineCheckbox2">Waitlist notifications</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                        formControlName="new_online_applications" />
+                      <label class="form-check-label" for="inlineCheckbox3">New online applications</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox4"
+                        formControlName="enrollment_requests" />
+                      <label class="form-check-label" for="inlineCheckbox4">Enrollment requests</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox5"
+                        formControlName="new_enrollment_packages" />
+                      <label class="form-check-label" for="inlineCheckbox5">New enrollment packages</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox6"
+                        formControlName="monthly_usage_summary" />
+                      <label class="form-check-label" for="inlineCheckbox6">Monthly usage summary</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox7"
+                        formControlName="affiliated_provider_requests" />
+                      <label class="form-check-label" for="inlineCheckbox7">Affiliated provider requests</label>
+                    </div>
+                    <div class="form-check form-check-inline steplistSpan2">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox8"
+                        formControlName="marketing_from_KCF_affiliates" />
+                      <label class="form-check-label" for="inlineCheckbox8">Marketing from Kids Care Finder
+                        Affiliates</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="addBriefCombine">
+            <a href="javascript:void(0)" class="btn btn-danger" (click)="isAdminClicked(false)">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M10 0C15.5 0 20 4.5 20 10C20 15.5 15.5 20 10 20C4.5 20 0 15.5 0 10C0 4.5 4.5 0 10 0ZM10 2C8.1 2 6.4 2.6 5.1 3.7L16.3 14.9C17.3 13.5 18 11.8 18 10C18 5.6 14.4 2 10 2ZM14.9 16.3L3.7 5.1C2.6 6.4 2 8.1 2 10C2 14.4 5.6 18 10 18C11.9 18 13.6 17.4 14.9 16.3Z"
+                  fill="white" />
+              </svg>
+              Cancel</a>
+            <a href="javascript:void(0)" (click)="saveData()" class="btn btn-primary">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M13.3333 6.66667H2.22222V2.22222H13.3333M10 17.7778C9.11595 17.7778 8.2681 17.4266 7.64298 16.8015C7.01786 16.1763 6.66667 15.3285 6.66667 14.4444C6.66667 13.5604 7.01786 12.7125 7.64298 12.0874C8.2681 11.4623 9.11595 11.1111 10 11.1111C10.8841 11.1111 11.7319 11.4623 12.357 12.0874C12.9821 12.7125 13.3333 13.5604 13.3333 14.4444C13.3333 15.3285 12.9821 16.1763 12.357 16.8015C11.7319 17.4266 10.8841 17.7778 10 17.7778ZM15.5556 0H2.22222C0.988889 0 0 1 0 2.22222V17.7778C0 18.3671 0.234126 18.9324 0.650874 19.3491C1.06762 19.7659 1.63285 20 2.22222 20H17.7778C18.3671 20 18.9324 19.7659 19.3491 19.3491C19.7659 18.9324 20 18.3671 20 17.7778V4.44444L15.5556 0Z"
+                  fill="white" />
+              </svg>
+              Save</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-------------------------------mat-dialog ------------------------------------->
+<ng-template #modalTemp>
+  <mat-dialog-content>
+    <div class="row">
+      <div class="col-12">
+        <div class="modalMody">
+          <h2 class="modalh2">
+            <b>Are you sure you want to make this person the primary
+              administrator.</b>
+          </h2>
+          <p class="modalpara" *ngIf="primaryAdmin">
+            This removes <b>{{ primaryAdmin }}</b> as a primary administrator.
+          </p>
+        </div>
+      </div>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close class="btn adminCancel" (click)="changePrimaryOption(false)">
+      No, cancel
+    </button>
+    <button mat-raised-button mat-dialog-close class="btn adminConti" (click)="changePrimaryOption(true)">
+      Yes, continue
+    </button>
+  </mat-dialog-actions>
+</ng-template>

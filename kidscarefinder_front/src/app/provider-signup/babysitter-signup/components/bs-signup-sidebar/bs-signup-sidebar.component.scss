@@ -1,0 +1,80 @@
+.left-sidebar {
+  background: var(--primaryColor);
+  border: 1px solid #8AD5FF;
+  position: absolute;
+  left: 0;
+  border-radius: 0px 20px 20px 0px;
+  transition: all .3s ease;
+  display: flex;
+  flex-direction: column;
+
+  .sidebar .nav-item a.nav-link {
+    font-family: 'Nunito', sans-serif;
+    color: var(--whiteColor);
+    font-size: 15px;
+    padding: .75rem .75rem;
+    border-bottom: 1px solid #95F2FF;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      background: #95F2FF;
+      color: var(--blackColor);
+      border-bottom: 1px solid #95F2FF;
+    }
+
+    span.navIcon {
+      padding-right: 8px;
+    }
+
+    ::ng-deep.mat-checkbox-frame {
+      border-color: #8AD5FF;
+      border-radius: 15px;
+    }
+  }
+
+  .nav-item:hover {
+    a.nav-link.fstchd {
+      border-bottom: 0px solid #8AD5FF;
+      border-radius: 0px 15px 0px 0px;
+    }
+  }
+
+  .nav-item:last-child {
+    a.nav-link {
+      border-bottom: 0px solid #8AD5FF;
+      border-radius: 0px 0px 15px 0px;
+    }
+  }
+}
+
+.left-sidebarsss .sidebar .nav-item a.nav-link:hover {
+
+}
+
+.left-sidebarsss .sidebar .nav-item a.nav-link:hover span.mat-checkbox-background svg.mat-checkbox-checkmark {
+  display: none;
+}
+
+.left-sidebarsss .sidebar .nav-item a.nav-link span.mat-checkbox-background .mat-checkbox-checkmark-path {
+  stroke: #95f2ff !important;
+}
+
+.left-sidebarsss .sidebar .nav-item a.nav-link:hover svg path {
+  fill: var(--blackColor);
+}
+
+.left-sidebarsss .sidebar .nav-item a.nav-link:hover span.mat-checkbox-background svg path.mat-checkbox-checkmark-path {
+  fill: var(--blackColor);
+}
+
+.left-sidebarsss .sidebar .nav-item a.nav-link:hover .mat-checkbox-frame {
+  border-color: var(--blackColor);
+}
+
+.left-sidebarsss .sidebar
+.left-sidebarsss .sidebar
+.left-sidebarsss .sidebar li.nav-item a.nav-link.active {
+  color: var(--whiteColor);
+  background: var(--primaryLight);
+}

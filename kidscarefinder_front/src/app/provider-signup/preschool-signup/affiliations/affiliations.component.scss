@@ -1,0 +1,412 @@
+::ng-deep .mat-select-panel::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 5px;
+}
+
+::ng-deep .mat-select-panel::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+::ng-deep .mat-select-panel::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+.SelectTimeDrop mat-select {
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+  padding: 5px 10px;
+  color: #000000;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 33px;
+  // width: calc(33.333% - 5px);
+  margin: 0 2.5px;
+  // max-width: 90px;
+}
+
+.SelectTimeDrop {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.SelectTimeDrop mat-label {
+  font-size: 30px;
+  font-weight: 600;
+  font-family: "Nunito";
+  width: 100%;
+  display: block;
+  margin: 0 0 10px;
+}
+.SelectTimeDrop
+  .mat-horizontal-stepper
+  .mat-form-field-appearance-fill
+  .mat-form-field-flex {
+  padding: 0;
+}
+::ng-deep .SelectTimeDrop .mat-select-trigger .mat-select-arrow-wrapper {
+  transform: translateY(-0%);
+}
+::ng-deep .SelectTimeDrop span.mat-select-placeholder {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.napTimeLists .SelectTime mat-label {
+  color: #000000 !important;
+  text-align: left;
+}
+
+.SelectTime {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+::ng-deep .SelectTime mat-select {
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+  padding: 5px 10px;
+  color: #000000;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: inherit;
+  margin: 0 2.5px;
+  // width: 100%;
+  // max-width: 100%;
+}
+::ng-deep .SelectTime.StartTime mat-select {
+  max-width: 90px;
+}
+
+.SelectTimeDrop .mat-form-field-flex {
+  padding: 0;
+}
+
+.ReligiousSteps3 .licenceBtns.radioButtons {
+  margin: 0;
+}
+.SelectTime .mat-form-field-infix {
+  margin: 0;
+  padding: 0;
+}
+// ::ng-deep .SelectTime .mat-select-trigger span.mat-select-placeholder {
+//   font-size: 16px;
+//   font-weight: 400;
+// }
+::ng-deep .SelectTime .mat-form-field-appearance-fill .mat-form-field-infix {
+  padding: 0;
+}
+
+.SelectTime.selectfulwd .mat-select {
+  width: 100%;
+  max-width: 100%;
+}
+
+::ng-deep .childYearDropdowns .SelectTimeDrop .mat-form-field-infix {
+  border-top: 0px;
+}
+::ng-deep .childYearDropdowns .SelectTimeDrop .mat-select-trigger {
+  height: auto;
+  position: relative;
+}
+::ng-deep .childYearDropdowns .selectBlock {
+  text-align: center;
+}
+::ng-deep .childYearDropdowns h3.step8drophed {
+  font-family: "Nunito";
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--whiteColor);
+}
+
+/* arrow css */
+
+::ng-deep .SelectTime.StartTime .mat-select-arrow {
+  border-left: 5px solid rgba(0, 0, 0, 0) !important;
+  border-right: 5px solid rgba(0, 0, 0, 0) !important;
+  border-top: 5px solid !important;
+  border: none !important;
+}
+::ng-deep .SelectTime.StartTime .mat-select-trigger::after {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  content: "\f078";
+  color: var(--blackColor);
+  font-size: 14px;
+  position: absolute;
+  height: 15px;
+  top: 0px;
+  right: 2px;
+  z-index: 1;
+}
+
+::ng-deep .mat-select-arrow::after {
+  background-image: none;
+}
+
+::ng-deep .addArrow {
+  position: relative;
+}
+
+::ng-deep .addArrow .mat-select-arrow::after {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  content: "";
+  width: 20px;
+  height: 12px;
+  background-image: url('../../../../assets/images/chevron-down.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+
+::ng-deep .mat-select-value{
+  color: var(--blackColor) !important;
+}
+
+// ::ng-deep .mat-select-arrow {
+//   border-left: 12px solid rgba(0,0,0,0) !important;
+//   border-right: 12px solid rgba(0,0,0,0) !important;
+//   border-top: 12px solid !important;
+// }
+
+// ::ng-deep .mat-select-arrow {
+//   color: var(--blackColor) !important;
+// }
+
+// exclamatry space
+.alertCustom.spaceFix {
+  padding-left: 10px;
+}
+
+// multiple dropdwon
+::ng-deep .childYearDropdowns .selectBlock .mat-form-field-infix {
+  width: 100%;
+}
+::ng-deep .childYearDropdowns
+  .selectBlock
+  .mat-form-field-type-mat-select
+  .mat-select {
+  border: 1px solid #d9d9d9;
+  padding: 14px 10px;
+  background: var(--whiteColor);
+}
+
+::ng-deep .selectBlock .selectPlaceHolder .ProDrop .mat-select-placeholder {
+  font-family: "Nunito";
+  color: #b9b9b9 !important;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+::ng-deep .provider_start {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 33px !important;
+  min-width: 96px !important;
+  padding: 15px 25px !important;
+  margin-bottom: 5px !important;
+  height: 63px;
+}
+
+.SelectBusinessArea .provider_start .mat-icon {
+  width: 28px;
+  height: 28px;
+}
+
+::ng-deep .selectBlock .mat-select-arrow {
+  border-left: 12px solid rgba(0, 0, 0, 0) !important;
+  border-right: 12px solid rgba(0, 0, 0, 0) !important;
+  border-top: 12px solid !important;
+  border: none !important;
+}
+
+::ng-deep .selectBlock .mat-select-arrow {
+  color: var(--blackColor);
+}
+::ng-deep .mat-select-arrow {
+  border: none !important;
+}
+
+::ng-deep .selectBlock
+  .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float
+  .mat-form-field-label {
+  transform: translateY(-2.45em) scale(1.2) perspective(100px)
+    translateZ(1.001px);
+  padding: 0;
+  color: var(--blackColor);
+  display: none;
+}
+
+::ng-deep .selectBlock .mat-form-field-label-wrapper label {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+::ng-deep .selectBlock
+  .selectPlaceHolder.mat-form-field-appearance-legacy
+  .mat-form-field-label {
+  top: 2.35em;
+}
+
+.multiDropserach {
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: #e7e7e7;
+  padding: 5px 10px;
+  border-radius: 0px;
+  border: none;
+  outline: none;
+  height: 40px;
+}
+.multiDropserach span.sIcon {
+  background: var(--primaryLight);
+  color: var(--whiteColor);
+  width: 35px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+}
+.multiDropserach input {
+  height: 32px;
+  border-radius: 0px;
+  padding: 0px 10px;
+  color: var(--blackColor);
+  font-size: 16px;
+  font-weight: 600;
+}
+.SelectBusinessArea .provider_start .mat-icon {
+  width: 28px;
+  height: 28px;
+}
+
+::ng-deep .loginCust .mat-select-arrow {
+  border-left: 12px solid rgba(0, 0, 0, 0) !important;
+  border-right: 12px solid rgba(0, 0, 0, 0) !important;
+  border-top: 12px solid !important;
+}
+
+::ng-deep .loginCust .mat-select-arrow {
+  color: var(--blackColor);
+}
+
+::ng-deep .loginCust .mat-form-field-appearance-fill .mat-select-arrow-wrapper {
+  transform: translateY(0%);
+}
+
+::ng-deep .sanVibhu mat-option {
+  border-bottom: 1px solid #000;
+}
+
+::ng-deep div#signup_provider-panel {
+  transform: inherit !important;
+  margin-top: 50px;
+  border-radius: 12px 12px 0px 0px;
+}
+
+// ::ng-deep .cdk-overlay-container .cdk-overlay-pane {
+//   margin-top: 45px;
+// }
+// ::ng-deep .cdk-overlay-container .cdk-overlay-pane {
+//   margin-top: 40px;
+// }
+
+::ng-deep .cdk-overlay-container .cdk-overlay-pane.affilationSelect mat-option {
+  font-size: 18px;
+  font-weight: 400;
+  border-bottom: 1px solid #333;
+  padding: 0 10px;
+  height: 30px;
+  line-height: 30px;
+}
+
+::ng-deep .selectBlock
+  .selectPlaceHolder.mat-form-field-appearance-legacy
+  .mat-form-field-label
+  mat-label.invisible {
+  visibility: visible !important;
+  color: var(--blackColor) !important;
+}
+
+::ng-deep .cdk-overlay-container .cdk-overlay-pane.affilationSelect {
+  margin-top: 45px !important;
+  min-width: 415px !important;
+  margin-left: 25px!important;
+}
+
+
+::ng-deep .cdk-overlay-container .cdk-overlay-pane.affilationSelect mat-option {
+  font-size: 16px;
+  padding: 0 10px;
+  height: 32px;
+  line-height: 32px;
+}
+
+::ng-deep .cdk-overlay-container .cdk-overlay-pane.affilationSelect .mat-select-panel {
+  border-radius: 0px;
+  // min-width: 50px !important;
+  margin-left: 5px;
+}
+
+::ng-deep .SelectBusinessArea h4.titleMain4 {
+  margin-bottom: 10px;
+}
+
+::ng-deep .selectBlock .mat-form-field-infix {
+  margin-top: 0;
+  padding: 0;
+  border-top: 0px;
+}
+::ng-deep .selectBlock .mat-form-field-wrapper {
+  padding-bottom: 10px;
+}
+
+// ::ng-deep .mat-select-panel-wrap {
+//   flex-basis: 89% !important;
+//   margin-left: 30px;
+// }
+
+::ng-deep .mat-select-panel-wrap {
+  flex-basis: 89% !important;
+}
+
+::ng-deep .mat-form-field-type-mat-select .mat-select {
+  height: inherit !important;
+  line-height: inherit !important;
+}
+
+::ng-deep .customCombine {
+  padding-right: 25px;
+}
+
+@media screen and (max-width:767px){
+  ::ng-deep .childYearDropdowns h3.step8drophed {
+    font-size: 16px;
+  }
+  ::ng-deep .childYearDropdowns .selectBlock .mat-form-field-infix {
+    width: 60%;
+    display: block;
+    margin: auto;
+  }
+  ::ng-deep .cdk-overlay-container .cdk-overlay-pane.affilationSelect .mat-select-panel {
+    min-width: calc(100% + -49px) !important;
+    transform: scaleY(1) !important;
+    margin-left: 117px !important;
+  }
+}

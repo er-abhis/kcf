@@ -1,0 +1,6 @@
+.table-striped>tbody>tr:nth-of-type(odd) > * {
+    --bs-table-accent-bg: transparent;
+}
+.table-striped>tbody>tr:nth-of-type(even) > * {
+    --bs-table-accent-bg: var(--tableGray);
+}

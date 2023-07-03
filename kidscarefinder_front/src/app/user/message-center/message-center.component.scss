@@ -1,0 +1,15 @@
+.shareBoxFixed {
+  padding: 15px;
+  height: 625px;
+  overflow: auto;
+}
+.contentrightBg {
+  border: 1px solid #8AD5FF;
+}
+@media screen and (max-width:767px){
+  .contentrightBg{
+    border: none;
+    padding: 0px 15px;
+    background-color: transparent;
+  }
+}

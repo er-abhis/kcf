@@ -1,0 +1,170 @@
+
+.descriptionBox {
+    margin-top: 15px;
+    border-radius: 10px;
+    height: 296px;
+  }
+  .descriptionBox textarea {
+    height: 100%;
+    resize: none;
+  }
+
+  .settingSave {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .settingSave .mat-button.saveShareBtn {
+    color: #164789;
+    border: 2px solid #164789;
+    background-color: transparent;
+    min-width: 130px;
+    padding: 2px 12px;
+    height: 50px;
+    line-height: 32px;
+  }
+  .settingSave .mat-button.saveShareBtn:hover {
+    box-shadow: none;
+  }
+  .napTimeDataTable{
+    background: none !important;
+  }
+  ::ng-deep.toast-container {
+    position: fixed !important;
+}
+
+::ng-deep .napCheckCust .mat-checkbox-frame {
+  border: 2px solid var(--blackColor);
+  border-radius: 1px;
+}
+
+::ng-deep .napCheckCust .mat-checkbox-checked.mat-accent .mat-checkbox-frame {
+  border-color: #000;
+  border-radius: 0px;
+}
+
+// ::ng-deep .napCheckCust .mat-checkbox-checkmark-path {
+//   stroke: #000 !important;
+// }
+
+.scheduleCross {
+    position:absolute;
+    right: 0;
+ }
+.scheduleBtnicon {
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+}
+
+.scheduleBtnicon  .mat-icon {
+  width: auto;
+  height: auto;
+  font-size: 28px;
+  color: var(--whiteColor);
+}
+
+
+/* profile css here start */
+::ng-deep .profilePicture {
+  width: 140px;
+  height: 140px;
+  background: #ddd;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profilePicture img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+::ng-deep .profileUpload {
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.profileUpload .spanRemove {
+  font-size: 14px;
+  font-weight: 600;
+  padding-left: 8px;
+  color: var(--primaryColor);
+}
+/* profile css here start */
+
+
+
+
+
+
+// time and date drop
+.SelectTime.StartTime.step2time mat-label.timevisibel {
+  color: var(--blackColor) !important;
+  font-size: 20px;
+}
+.SelectTime.StartTime.step2time mat-select {
+  min-width: 64px;
+  max-width: inherit;
+}
+
+
+
+
+// .SelectTime.StartTime.step2time mat-select {
+//   width: auto;
+//   font-size: 16px;
+//   font-weight: 400;
+// }
+
+
+/* material checkbox matCheckBlack blackmodification start */
+// ::ng-deep .mat-checkbox-inner-container {
+//   width: 18px !important;
+//   height: 18px !important;
+// }
+// ::ng-deep .matCheckBlack .mat-checkbox-background .mat-checkbox-mixedmark {
+//   width: 10px;
+//   height: 10px;
+//   background: var(--blackColor);
+//   opacity: 0;
+//   transform: inherit;
+//   border-radius: 0px;
+// }
+// ::ng-deep .matCheckBlack .mat-checkbox-checked .mat-checkbox-checkmark {
+//   opacity: 1;
+//   width: 10px;
+//   height: 10px;
+//   background: #333;
+//   top: 4px;
+//   left: 4px;
+// }
+// ::ng-deep .matCheckBlack .mat-checkbox-checked .mat-checkbox-checkmark-path {
+//   stroke-dashoffset: -23 !important;
+// }
+/* material checkbox matCheckBlack blackmodification exit */
+
+/* material checkbox matCheckBlue modification start */
+// ::ng-deep .matCheckBlue .mat-checkbox-background .mat-checkbox-mixedmark {
+//   width: 10px;
+//   height: 10px;
+//   background: var(--whiteColor);
+//   opacity: 0;
+//   transform: inherit;
+//   border-radius: 2px;
+// }
+// ::ng-deep .matCheckBlue .mat-checkbox-checked .mat-checkbox-checkmark {
+//   opacity: 1;
+//   width: 10px;
+//   height: 10px;
+//   background:var(--whiteColor);
+//   top: 4px;
+//   left: 4px;
+// }
+// ::ng-deep .matCheckBlue .mat-checkbox-checked .mat-checkbox-checkmark-path {
+//   stroke-dashoffset: -23 !important;
+// }
+/* material checkbox matCheckBlue modification exit */
+
+

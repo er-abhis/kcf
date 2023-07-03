@@ -1,0 +1,25 @@
+@import "../../../../../../../assets/form-elements";
+
+.review-container {
+  background: #f3f3f3;
+  border-radius: 2rem;
+  .heading {
+    font-size: 27px;
+    font-weight: 700;
+    line-height: 1.5;
+    font-family: Nunito, sans-serif;
+  }
+  .content {
+    background: #E7F6FF;
+  }
+  .control-label {
+    color: $primary-color;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.7;
+    font-family: Nunito, sans-serif;
+  }
+  .description-container {
+    border: 1px solid $primary-color;
+  }
+}

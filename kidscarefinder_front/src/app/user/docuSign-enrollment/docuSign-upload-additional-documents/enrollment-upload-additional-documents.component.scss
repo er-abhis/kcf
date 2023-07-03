@@ -1,0 +1,292 @@
+.mainBg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  height: 662px;
+  overflow-y: scroll;
+  background: #E7F6FF;
+  border: 1px solid #F3F3F3;
+}
+
+.mainBg.uploadAdditionManage {
+  min-height: 430px;
+  height: inherit;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  gap: 10px;
+  width: 840px;
+  height: 162px;
+
+  background: #0E2E58;
+  box-shadow: 3px 6px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.main label {
+  padding-left: 10px;
+}
+
+.dashedBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  width: 840px;
+  height: 287px;
+  background: #F3F3F3;
+  border: 5px dashed var(--primaryLight);
+  border-radius: 10px;
+
+}
+
+.fileDocuIconmd {
+  width: 55px;
+}
+.fileDocuIconmd img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.uploadFileDocus {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+.uploadFileDocus h3.uploadh3 {
+  font-family: 'Nunito';
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.uploadFileDocus button.docuUploadBtn {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  gap: 10px;
+  width: 164px;
+  height: 57px;
+  background: #2C2C2C;
+  color: var(--whiteColor);
+  border: 1px solid #FFFFFF;
+  border-radius: 10px !important;
+}
+
+.dashedBox p.dragpara {
+  color: #767676;
+  font-size: 20px;
+  font-weight: 400;
+  margin: 10px 0 0;
+}
+
+.text {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 27px;
+  display: flex;
+  align-items: center;
+
+  color: #FFFFFF;
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.checkLabel {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+
+.button-setting {
+  display: flex;
+  justify-content: center;
+}
+
+
+.uploadEnrollmentBarOuter {
+  width: 100%;
+}
+.uploadEnrollmentBar {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  padding: 10px;
+  border-radius: 30px;
+  border: 1px solid var(--blackColor);
+}
+.uploadEnrollmentBarOuter .uploadEnrollmentBar {
+  margin-bottom: 10px;
+}
+.uploadEnrollmentBarOuter .uploadEnrollmentBar:last-child {
+  margin-bottom: 0px;
+}
+
+.enrollmentBarLeft {
+  width: 65%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.enrollmentBarIcon {
+  width: auto;
+}
+.enrollmentBarIcon img {
+  width: 30px;
+}
+.enrollmentBar {
+  width: 100%;
+}
+
+.enrollmentBar {
+  width: 100%;
+}
+.enrollmentBar p {
+  margin: 0;
+}
+
+
+.enrollmentbBluebar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.enrollmntBlue {
+  width: 100%;
+  height: 12px;
+  border-radius: 15px;
+}
+.enrollmntBlue .progress {
+  background: var(--grayColor);
+  height: 12px;
+  border-radius: 60px;
+}
+.enrollmntBlue .progress .progress-bar {
+  background: var(--primaryLight);
+  height: 12px;
+  border-radius: 60px;
+}
+
+.enrollmentBarRight {
+  width: 35%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.enrollmentBarSelect {
+  width: 100%;
+  padding: 5px;
+  margin-top: 10px;
+}
+::ng-deep .enrollmentBarSelect .mat-form-field-label-wrapper {
+  top: -25px;
+  padding-top:0px
+}
+::ng-deep .enrollmentBarSelect .mat-form-field-label-wrapper label {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+}
+::ng-deep .enrollmentBarSelect .mat-form-field-label-wrapper label mat-label {
+  color: var(--blackColor) !important;
+}
+::ng-deep .enrollmentBarSelect .mat-form-field-type-mat-select .mat-select {
+  border: 1px solid #164789;
+  padding: 5px 10px;
+  color: #000;
+}
+::ng-deep .enrollmentBarSelect .mat-form-field-appearance-fill .mat-form-field-flex {
+  padding: 0px !important;
+}
+::ng-deep .enrollmentBarSelect .mat-form-field-appearance-fill .mat-form-field-infix {
+  padding: 0;
+}
+::ng-deep .enrollmentBarSelect .mat-form-field-infix {
+  border-top: 0em solid transparent;
+}
+::ng-deep .enrollmentBarSelect .mat-select-arrow {
+  top: 5px !important;
+}
+::ng-deep .enrollmentBarSelect .mat-select-arrow::after {
+  width: 16px;
+  height: 14px;
+}
+
+.enrollmentBarCancel {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  color: #772162;
+  padding:0px 15px;
+  gap: 10px;
+  height: 57px;
+  border: 1px solid #772162;
+  border-radius: 10px;
+}
+
+
+
+.cancelSlip {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 27px;
+  color: #164789;
+  border: 1px solid #164789;
+  border-radius: 10px;
+  background-color: transparent;
+  padding: 10px;
+}
+
+.continueBtn {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 27px;
+  display: flex;
+  align-items: center;
+  color: #FFFFFF;
+  background: #164789;
+  border: 1px solid #164789;
+  border: 1px solid #D9D9D9;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 0px 10px;
+
+}
+
+.svg-icon {
+  width: 48px;
+  height: 60px;
+
+  background: #000000;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}

@@ -1,0 +1,173 @@
+
+
+// ::ng-deep .selectBlock .selectPlaceHolder .ProDrop .mat-select-placeholder {
+//   font-family: 'Nunito';
+//   color: #b9b9b9 !important;
+//   font-size: 16px;
+//   font-weight: 400;
+// }
+
+
+// ::ng-deep .provider_start {
+//   font-size: 24px;
+//   font-weight: 700;
+//   line-height: 33px !important;
+//   min-width: 96px !important;
+//   padding: 15px 25px !important;
+//   margin-bottom: 5px !important;
+//   height: 63px;
+// }
+
+// .SelectBusinessArea .provider_start .mat-icon{
+//   width: 28px;
+//   height: 28px;
+// }
+
+// ::ng-deep .selectBlock .mat-select-arrow {
+//   border-left: 12px solid rgba(0, 0, 0, 0) !important;
+//   border-right: 12px solid rgba(0, 0, 0, 0) !important;
+//   border-top: 12px solid !important;
+// }
+
+// ::ng-deep .selectBlock .mat-select-arrow {
+//   color: var(--blackColor);
+// }
+
+// ::ng-deep .selectBlock .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+//   transform: translateY(-2.45em) scale(1.2) perspective(100px) translateZ(1.001px);
+//   padding: 0;
+//   color: var(--blackColor);
+//   display: none;
+// }
+
+// ::ng-deep .selectBlock .mat-form-field-label-wrapper label {
+//   font-size: 16px;
+//   font-weight: 400;
+// }
+
+// ::ng-deep .selectBlock .selectPlaceHolder.mat-form-field-appearance-legacy .mat-form-field-label {
+//   top: 2.5em;
+// }
+
+
+// .multiDropserach {
+//   display: flex;
+//   align-items: center;
+//   position: relative;
+//   background: #E7E7E7;
+//   padding: 5px 10px;
+//   border-radius: 0px;
+//   border: none;
+//   outline: none;
+//   height: 40px;
+// }
+// .multiDropserach span.sIcon {
+//   background: var(--primaryLight);
+//   color: var(--whiteColor);
+//   width: 35px;
+//   height: 32px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   border: none;
+//   outline: none;
+// }
+// .multiDropserach input {
+//   height: 32px;
+//   border-radius: 0px;
+//   padding: 0px 10px;
+//   color: var(--blackColor);
+//   font-size: 16px;
+//   font-weight: 600;
+// }
+// .SelectBusinessArea .provider_start .mat-icon{
+//   width: 28px;
+//   height: 28px;
+// }
+
+// ::ng-deep .loginCust .mat-select-arrow {
+//   border-left: 12px solid rgba(0, 0, 0, 0) !important;
+//   border-right: 12px solid rgba(0, 0, 0, 0) !important;
+//   border-top: 12px solid !important;
+// }
+
+// ::ng-deep .loginCust .mat-select-arrow {
+//   color: var(--blackColor);
+// }
+
+// ::ng-deep .loginCust .mat-form-field-appearance-fill .mat-select-arrow-wrapper {
+//   transform: translateY(0%);
+// }
+
+// ::ng-deep .sanVibhu mat-option {
+//   border-bottom: 1px solid #000;
+// }
+
+// ::ng-deep div#signup_provider-panel {
+//   transform: inherit !important;
+//   margin-top: 50px;
+//   border-radius: 12px 12px 0px 0px;
+// }
+
+// ::ng-deep .cdk-overlay-container .cdk-overlay-pane {
+//   margin-top: 54px;
+// }
+// ::ng-deep .cdk-overlay-container .cdk-overlay-pane mat-option {
+//   font-size: 16px;
+//   font-weight: 400;
+//   border-bottom: 1px solid #333;
+//   padding: 0 12px;
+// }
+
+
+// ::ng-deep .selectBlock .selectPlaceHolder.mat-form-field-appearance-legacy .mat-form-field-label mat-label.invisible {
+//   visibility: visible !important;
+//   color: var(--blackColor) !important;
+// }
+
+// ::ng-deep .cdk-overlay-container .cdk-overlay-pane .mat-select-panel {
+//   border-radius: 0px;
+// }
+
+// ::ng-deep .SelectBusinessArea h4.titleMain4 {
+//   margin-bottom: 10px;
+// }
+
+// ::ng-deep .selectBlock .mat-form-field-infix {
+//   margin-top: 0;
+//   padding: 0;
+//   border-top: 0px;
+// }
+// ::ng-deep .selectBlock .mat-form-field-wrapper {
+//   padding-bottom: 10px;
+// }
+
+
+
+
+::ng-deep .SelectTime.arrowmodi .mat-select-trigger {
+  position: relative;
+}
+
+::ng-deep .SelectTime.arrowmodi .mat-select-trigger::after {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  content: "\f078";
+  color: var(--blackColor);
+  font-size: 14px;
+  position: absolute;
+  height: 15px;
+  top: 0px;
+  right: 2px;
+  z-index: 1;
+}
+::ng-deep .SelectTime.arrowmodi .mat-select-arrow {
+  border-left: 5px solid rgba(0, 0, 0, 0) !important;
+  border-right: 5px solid rgba(0, 0, 0, 0) !important;
+  border-top: 5px solid !important;
+  border: none !important;
+}
+
+::ng-deep .cdk-overlay-container .cdk-overlay-pane {
+  margin-top: 45px;
+}

@@ -1,0 +1,25 @@
+<div class="resultMessagePopup">
+  <h1 class="resultMsgPopTitle">Which child(ren) are you inquiring for?</h1>
+  <div class="resultMessageDrop">
+    <mat-form-field appearance="fill">
+      <mat-select (selectionChange)="callChild($event.value)" placeholder="Select Child" multiple>
+        <div *ngFor="let child of children; let i = index">
+          <mat-option *ngIf="child.date_of_birth" #ref value="{{child.id}}">{{ subString(ucFirst(child.first_name),0,10) }}&nbsp;{{ usLast(child.last_name) }}.</mat-option>
+          <mat-option *ngIf="child.expected_due_date" #ref value="{{child.id}}">Pregnancy
+            ({{child.expected_due_date | date: 'MM/dd/YY'}})</mat-option>
+        </div>
+      </mat-select>
+      <span style="color: red" *ngIf="submitted && !selectedChild
+      ">
+      <mat-error>Please select child</mat-error>
+    </span>
+    </mat-form-field>
+
+  </div>
+  <div class="resultMessageBtn">
+
+    <button class="btn modalOutline btn-outline-primary" (click)="closeModal()">Cancel and exit</button>
+    <button class="btn modalBtn" (click)="messageProvider(providerSelectedData?.provider)">Send message</button>
+
+  </div>
+</div>

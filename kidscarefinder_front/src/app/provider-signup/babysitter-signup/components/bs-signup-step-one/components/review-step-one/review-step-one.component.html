@@ -1,0 +1,59 @@
+<div class="container mt-3">
+  <div class="row review-container">
+    <div class="col-12 py-4 px-4 border-bottom">
+      <div class="heading">
+        Review | Step 1: Basic information
+      </div>
+      <div class="fs-6">
+        Review and edit basic information details
+      </div>
+    </div>
+    <div class="col-12 content px-4 py-4">
+      <div class="card shadow-lg p-3 mb-3">
+        <div class="row">
+          <div class="col-md-9">
+            <div class="row">
+              <app-input-review class="col-md-6"
+                                [data]="{key: 'First name', value: basicInfoRegisterFormData.firstName }"></app-input-review>
+              <app-input-review class="col-md-6"
+                                [data]="{key: 'Last name', value: basicInfoRegisterFormData.lastName }"></app-input-review>
+              <app-input-review class="col-md-6"
+                                [data]="{key: 'E-mail address', value: basicInfoRegisterFormData.email }"></app-input-review>
+              <app-input-review class="col-md-6"
+                                [data]="{key: 'Phone number', value: basicInfoRegisterFormData.contact }"></app-input-review>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="control-label">Password</div>
+            <button (click)="changePassword()" class="btn btn-primary submit-button submit-button-default">
+              <div>
+                <span class="label">Change Password</span>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="card shadow-lg p-3 mb-3">
+        <div class="row">
+          <app-input-review class="col-md-6"
+                            [data]="{key: 'Provider type', value: basicInfoRegisterFormData.firstName }"></app-input-review>
+          <app-input-review class="col-md-6"
+                            [data]="{key: 'Date of birth', value: basicInfoRegisterFormData.dob }"></app-input-review>
+          <app-input-review class="col-md-12"
+                            [data]="{key: 'Babysitter address', value: basicInfoRegisterFormData.address }"></app-input-review>
+        </div>
+      </div>
+      <div class="card shadow-lg p-3 mb-3">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="control-label">Babysitter Description</div>
+            <div [innerText]="basicInfoDescriptionFormData.description"
+                 class="border fs-5 my-2 p-2 rounded-3"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,336 @@
+.p-10 {
+  margin: 10px;
+}
+
+// .container-45 {
+//   width: 90vw;
+//   margin: 0 auto;
+//   height: 330px;
+// }
+
+.container-45 {
+  width: 90vw;
+  margin: 0 auto;
+  padding-bottom: 10px;
+}
+::ng-deep.slick-prev::before {
+  content: "" !important;
+  position: absolute;
+  left: 0px;
+  height: 23px;
+  width: 23px;
+  border-top: 4px solid;
+  border-right: 4px solid;
+  transform: rotate(223deg);
+}
+::ng-deep.slick-slider {
+  position: relative;
+  background: none;
+
+  .slider-img {
+    display: block;
+    margin: 0 auto;
+    transform: translate(0, 0) scale(0.8);
+    transition: all 0.4s ease;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .slick-center {
+    z-index: 1;
+    transform: scale(1);
+    opacity: 1;
+    color: #e67e22;
+
+    img {
+      width: 100%;
+    }
+
+    .slick p {
+      text-align: center;
+    }
+  }
+}
+
+::ng-deep.slick-next:before {
+  content: "\f162";
+  font-family: "Font Awesome 5 Free";
+}
+
+::ng-deep.slick-initialized {
+  .slick-slide {
+    img {
+      width: 100%;
+    }
+  }
+}
+
+::ng-deep.slider-items {
+  background: #fff;
+  border: 1px solid #767676;
+  box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.07);
+  padding: 5px;
+  padding-bottom: 0px !important;
+  border-radius: 10px;
+  position: relative;
+
+  p {
+    font-size: 20px;
+    line-height: 27px;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+  }
+
+  a {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 27px;
+    color: #000000;
+    text-decoration: none;
+  }
+}
+
+// .slider-img.slick-slide.slick-cloned.slick-active{
+//   box-shadow: 0px 0px 0px 0px rgb(9 59 132);
+// }
+::ng-deep.slick-list.draggable {
+  padding: 17px 0 !important;
+}
+
+::ng-deep .slick-dots li.slick-active {
+  transform: scale(1.2);
+}
+
+::ng-deep.slider-items:hover {
+  box-shadow: 4px 4px 0px 3px rgba(9, 59, 132, 0.7);
+  transition: all 0.4s ease-in;
+}
+
+::ng-deep.slick-next {
+  position: absolute;
+  appearance: none;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  color: transparent;
+  outline: none;
+  z-index: 100;
+}
+
+::ng-deep.slick-prev {
+  left: -10px;
+  z-index: 100;
+}
+
+// ::ng-deep.slick-next:before {
+//   font-size: 30px !important;
+// }
+// ::ng-deep.slick-prev:before {
+//   font-size: 30px !important;
+// }
+// ::ng-deep.slick-dots li button:before {
+//   width: 20px;
+//   margin-top: 20px;
+//   opacity: 1 !important;
+//   height: 20px;
+//   border: 3px solid #0e2e58 !important;
+//   color: transparent !important;
+//   border-radius: 50px;
+//   -webkit-font-smoothing: antialiased;
+//   transition: all 0.3s ease-in-out;
+//   -moz-osx-font-smoothing: grayscale;
+// }
+::ng-deep.slick-dots li button:before {
+  width: 20px;
+  margin-top: 0px;
+  opacity: 1 !important;
+  height: 20px;
+  border: 2px solid var(--primaryColor) !important;
+  color: transparent !important;
+  border-radius: 50px;
+  -webkit-font-smoothing: antialiased;
+  transition: all 0.3s ease-in-out;
+  -moz-osx-font-smoothing: grayscale;
+  margin-bottom: 30px;
+}
+
+::ng-deep.slick-dots li button:focus:before,
+::ng-deep.slick-dots li button:hover:before {
+  transition: all 0.3s ease-in-out;
+  background-color: white !important;
+  opacity: 1 !important;
+}
+
+::ng-deep.slick-dots li.slick-active button:before {
+  background-color: white;
+  opacity: 1;
+}
+
+@media screen and (max-width: 600px) {
+  ::ng-deep.slick-slider {
+    .slider-img {
+      display: block;
+      margin: 0 auto;
+      transform: translate(0, 0) scale(0.9);
+      transition: all 0.4s ease;
+    }
+  }
+}
+
+::ng-deep .slick-next {
+  position: relative;
+  right: -10px !important;
+
+  &::before {
+    content: "" !important;
+    position: absolute;
+    height: 23px;
+    width: 23px;
+    border-top: 4px solid;
+    border-right: 4px solid;
+    transform: rotate(45deg);
+  }
+}
+
+::ng-deep .slick-prev {
+  position: relative;
+
+  &::before {
+    content: "" !important;
+    position: absolute;
+    height: 23px;
+    width: 23px;
+    border-top: 4px solid;
+    border-right: 4px solid;
+    transform: rotate(-135deg);
+  }
+}
+
+// comming soon banner start
+
+::ng-deep .slider-items::before {
+  content: "Coming Soon!";
+  background: #772162;
+  color: var(--whiteColor);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 27px;
+  font-style: italic;
+  text-align: center;
+  padding: 10px;
+  position: absolute;
+  left: 0;
+  bottom: 62px;
+  width: 100%;
+  height: 47px;
+}
+
+::ng-deep .slider-items.nowPreschool {
+  position: relative;
+  overflow: hidden;
+  border: 3px solid #95f2ff;
+}
+
+::ng-deep .slider-items.nowPreschool::before {
+  content: inherit;
+}
+
+::ng-deep .slider-items.nowPreschool::after {
+  content: "Now Available!";
+  background: #6ca3c6;
+  color: var(--whiteColor);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 19px;
+  padding: 4px 20px;
+  position: absolute;
+  right: -56px;
+  top: -55px;
+  width: 120px;
+  height: 115px;
+  border: 1px solid #b9b9b9;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: center;
+  transform: rotate(45deg);
+}
+@media screen and (max-width: 575px) {
+  ::ng-deep.slick-dots li button:before {
+    width: 15px !important;
+    margin-top: 0px;
+    opacity: 1 !important;
+    height: 15px !important;
+    border: 2px solid #0e2e58 !important;
+    color: transparent !important;
+    border-radius: 50px;
+    -webkit-font-smoothing: antialiased;
+    transition: all 0.3s ease-in-out;
+    -moz-osx-font-smoothing: grayscale;
+    margin-bottom: 30px;
+  }
+  ::ng-deep.slick-dots li {
+    width: 10px !important;
+  }
+  ::ng-deep.slick-next {
+    width: 31.11px !important;
+    height: 38px !important;
+    position: absolute !important;
+    right: -29px !important;
+    appearance: none !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: none !important;
+    cursor: pointer !important;
+    color: transparent !important;
+    outline: none !important;
+    z-index: 100 !important;
+    background-color: #fff !important;
+    border-radius: 6px !important;
+  }
+  ::ng-deep.slick-prev {
+    left: -29px !important;
+    z-index: 100 !important;
+    width: 31.11px !important;
+    height: 38px !important;
+    background: #ffffff !important;
+    border-radius: 6px !important;
+  }
+  ::ng-deep.slick-prev::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 11px;
+    left: 10px !important;
+    height: 15px !important;
+    width: 15px !important;
+    color: #000000 !important;
+    border-top: 4px solid !important;
+    border-right: 4px solid !important;
+    transform: rotate(223deg) !important;
+  }
+  ::ng-deep.slick-next:before {
+    content: "\f162";
+    font-family: "Font Awesome 5 Free";
+    height: 15px !important;
+    width: 15px !important;
+    color: #000000 !important;
+    top: 11px !important;
+    left: 5px !important;
+  }
+}
+@media screen and (max-width: 425px) {
+  ::ng-deep.slick-prev {
+    left: -26px !important;
+  }
+  ::ng-deep.slick-next {
+    right: -26px !important;
+  }
+}
+// comming soon banner exit

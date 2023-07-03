@@ -1,0 +1,37 @@
+
+.descriptionBox {
+    margin-top: 15px;
+    border-radius: 10px;
+    height: 296px;
+  }
+  .descriptionBox textarea {
+    height: 100%;
+    resize: none;
+  }
+
+  .settingSave {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .settingSave .mat-button.saveShareBtn {
+    color: #164789;
+    border: 2px solid #164789;
+    background-color: transparent;
+    min-width: 130px;
+    padding: 2px 12px;
+    height: 50px;
+    line-height: 32px;
+  }
+  .settingSave .mat-button.saveShareBtn:hover {
+    box-shadow: none;
+  }
+
+  .StepDetailsLists{
+    background: none !important;
+    border: none !important;
+  }
+  .childYearDropdowns .SelectTime mat-label {
+    width: 100%;
+  }
+

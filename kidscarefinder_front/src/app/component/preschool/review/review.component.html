@@ -1,0 +1,42 @@
+<section class="reviewSection" >
+    <div class="container-fluid paddingXnew" *ngIf="!addReview">
+        <div class="row">
+            <div class="col-12">
+                <div class="ReviwHeader">
+                    <div class="sect_head ReviewActioBtns">
+                        <div class="reviewActions">
+                        <span class="ratingWhiteList">
+                        <!-- <a href="javascript:void(0)"><img src="../../../../assets/images/starBtn.svg" (error) ="onImgError($event)" /></a> -->
+                        <ng-container *ngIf="avgRating">
+                            <ng-container *ngFor="let i of Array(Math.floor(avgRating))">
+                            <mat-icon>{{'star'}}</mat-icon>
+                        </ng-container>
+                            <mat-icon *ngIf="Number(avgRating)%1 != 0">{{'star_half'}}</mat-icon>
+                        </ng-container>
+                        <ng-container *ngIf="avgRating">
+                            <mat-icon *ngFor="let i of Array(5-Math.ceil(avgRating))">{{'star_border'}}</mat-icon>
+                        </ng-container>
+                        <ng-container *ngIf="!avgRating">
+                            <mat-icon>{{'star_border'}}</mat-icon>
+                            <mat-icon>{{'star_border'}}</mat-icon>
+                            <mat-icon>{{'star_border'}}</mat-icon>
+                            <mat-icon>{{'star_border'}}</mat-icon>
+                            <mat-icon>{{'star_border'}}</mat-icon>
+                        </ng-container>
+                        </span>
+                        <span class="headerPipe"></span>
+                        <h2 class="sect_titl sect_titlMov">Reviews</h2>
+                    </div>
+                    <button mat-button color="primary" (click)="isLoggedIn()" class="buttonPre" >Add a review <span class="ReviewIconBtns"></span></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+            <kcf-review-list [reviewList]="reviewList"></kcf-review-list>
+            </div>
+
+        </div>
+    </div>
+    <app-review-form *ngIf="addReview" [data]="this.data" (ratingUpdated)="reviewChange($event)"></app-review-form>
+</section>
+

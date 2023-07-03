@@ -1,0 +1,361 @@
+::ng-deep .SgeperMain mat-horizontal-stepper .mat-step-header:hover {
+  background: transparent;
+}
+::ng-deep .SgeperMain .mat-horizontal-stepper-header {
+  height: 40px;
+  pointer-events: none;
+}
+
+.SearchBlock ::placeholder {
+  color: #164789 !important;
+}
+
+.skip_Provider {
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+.skip_Provider .skipText {
+  font-family: 'Nunito';
+  color: #164789;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.bottomBorder {
+  border-bottom: 3px solid #fff;
+  border-width: 70% !important;
+}
+
+.optionBtn span.spanRadio:first-child {
+  position: relative;
+  margin-right: 15px;
+}
+
+.optionBtn span.spanRadio:last-child {
+  position: relative;
+  margin-left: 30px;
+}
+
+.optionBtn span.spanRadio:first-child:after {
+  content: "or";
+  position: absolute;
+  height: 100%;
+  width: auto;
+  right: -44px;
+  top: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.4;
+  margin: 10px 0 30px;
+  text-align: center;
+}
+
+.inlineButtonsSpan.form-block .inlineHalf span {
+  width: calc(50% - 40px) !important;
+}
+
+// Multi select option
+
+::ng-deep .specificsChecks span.mat-checkbox-inner-container {
+  display: none !important;
+}
+
+.specificsChecks {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+.specificsChecks .mat-radio-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 20px;
+}
+.specificsChecks .mat-radio-group span.spanRadio {
+  width: 100%;
+}
+.specificsChecks.availFlex {
+  justify-content: center;
+}
+
+.specificsChecks mat-checkbox {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+  border-radius: 25px;
+  padding: 24px;
+  color: var(--primaryLight);
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  text-align: center;
+  margin: 0 5px;
+}
+
+.specificsChecks.paddingcheck mat-checkbox {
+  padding: 12px 0;
+}
+
+.specificsChecks mat-checkbox.mat-checkbox-checked {
+  background: #164789;
+  border: 1px solid #d9d9d9;
+  color: #fff;
+}
+
+#preschoolForm .location_form_block .location_block p {
+  font-family: "Nunito";
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0px;
+}
+.location_fields label.textradius {
+  font-family: "Nunito";
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.saveShareBtn,
+.mat-button.saveShareBtn {
+  color: #164789;
+  border: 2px solid #164789;
+  background-color: transparent;
+}
+.saveShareBtn,
+.mat-button.saveShareBtn:hover {
+  background: transparent;
+  color: #164789;
+}
+.mat-button.saveShareBtn{
+  position: relative;
+}
+.mat-button.saveShareBtn:hover{
+  box-shadow: inherit;
+  background: transparent;
+}
+::ng-deep .mat-button .mat-button-focus-overlay, .mat-icon-button .mat-button-focus-overlay {
+  opacity: 0 !important;
+}
+
+
+
+.mat-button.saveShareBtn::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 5px;
+  width: 100%;
+  height: 50px;
+  opacity: 0;
+  border-radius: 100px;
+  background: transparent;
+  box-shadow: 2px 3px 0px 0px #95f2ff;
+}
+.mat-button.saveShareBtn:hover::after{
+  opacity: 1;
+}
+
+
+.matButtonControls {
+  margin: 15px 0 0;
+}
+.matButtonControls .mat-button {
+  min-width: 175px;
+  height: 60px;
+  padding: 0px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.matButtonControls.prescholFlex {
+  width: auto;
+  justify-content: center;
+  margin: 20px auto 0;
+  gap: 15px;
+}
+#preschoolForm {
+  padding: 30px 0px 20px;
+}
+
+::ng-deep .season-checkgroup .mat-checkbox-inner-container {
+  display: none;
+}
+::ng-deep .season-checkgroup .mat-checkbox {
+  width: 100%;
+}
+::ng-deep .season-checkgroup .mat-checkbox-checked label {
+  background: #093b84 !important;
+  color: #fff !important;
+  border: 1px solid #d9d9d9;
+}
+
+// Stepper cursor disable
+.mat-horizontal-stepper-header-container {
+  cursor: not-allowed !important;
+}
+::ng-deep .refixed {
+  display: flex;
+  justify-content: space-between;
+}
+::ng-deep .refixed .season-checkgroup label {
+  width: 400px;
+  display: inline-flex;
+  font-size: 20px;
+  line-height: 1.4;
+  color: rgb(22, 71, 137);
+  background: #fff;
+  border-radius: 25px;
+  align-items: center;
+  padding: 24px;
+  justify-content: center;
+  transition: all 0.4s;
+}
+
+.preschoolBtn {
+  width: 100% !important;
+}
+::ng-deep .matButtonControls.preschoolBtn .mat-button .mat-button-wrapper {
+  font-size: 24px;
+  font-weight: 400;
+}
+.underLine {
+  text-decoration-line: underline !important;
+  text-decoration-thickness: 1px !important;
+}
+
+.sect_title .underLine {
+  text-decoration-line: underline !important;
+  text-decoration-thickness: 1px !important;
+}
+
+::ng-deep .mat-horizontal-stepper-header-container {
+  .mat-step-header:first-child {
+    .mat-step-label-selected {
+      border-radius: 30px !important;
+    }
+  }
+}
+
+
+// new css
+::ng-deep .whereStep .mat-form-field-appearance-fill .mat-form-field-flex {
+  padding-top: 0px;
+}
+::ng-deep .whereStep .mat-form-field-appearance-fill .mat-form-field-infix {
+  padding:0px;
+  border-top: 0;
+}
+
+::ng-deep .what_fields {
+  width: 600px;
+  margin: auto;
+}
+::ng-deep .what_fields.fieldLarge{
+  width: 100%;
+}
+::ng-deep .refixed .scheduleRadio {
+  width: 280px;
+}
+::ng-deep .refixed .season-checkgroup.scheduleRadio label {
+  width: 100%;
+}
+::ng-deep #banner .headWrapOuter .sect_title {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 44px;
+  text-align: center;
+}
+#banner .headWrapOuter .sect_title.margtop {
+  margin-top: 25px;
+  margin-bottom: 20px;
+}
+.what_looking .middleTittle {
+  margin:0 0 30px;
+}
+
+::ng-deep .what_fields.fieldLarge .specificsChecks .mat-radio-group {
+  width: 100%;
+}
+::ng-deep .what_fields.fieldLarge .specificsChecks mat-checkbox {
+  margin: 0;
+}
+@media screen and (max-width:767px){
+  .specificsChecks mat-checkbox {
+    border-radius: 15px;
+    padding: 16px;
+  }
+  .specificsChecks .mat-radio-group {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px 20px;
+  }
+  ::ng-deep .refixed .season-checkgroup label {
+    padding: 12px 13px;
+    border-radius: 15px !important;
+  }
+  .refixed .scheduleRadio{
+    width: 160px;
+  }
+  ::ng-deep #banner .headWrapOuter .sect_title {
+    font-size: 16px;
+    line-height: 16px;
+  }
+  ::ng-deep .what_fields {
+    width: 100%;
+    margin: auto;
+  }
+  .matButtonControls .mat-button {
+    min-width: 115px;
+    height: 50px;
+  }
+  ::ng-deep .matButtonControls.preschoolBtn .mat-button .mat-button-wrapper {
+    font-size: 16px;
+  }
+  #banner .headWrapOuter .sect_title.margtop{
+    margin:10px 0px;
+  }
+  #preschoolForm .location_form_block .location_block p{
+    font-size: 12px;
+    line-height: 16px;
+  }
+  #preschoolForm .location_form_block .location_input input{
+    font-size: 12px;
+    height: 50px;
+  }
+  #preschoolForm .location_radius span label{
+    font-size: 16px;
+    width: 115px;
+    border-radius: 15px !important;
+  }
+  #preschoolForm .location_radius > .form-block{
+    justify-content: center;
+  }
+  .location_fields label.textradius{
+    font-size: 14px !important;
+    margin-bottom: 15px !important;
+  }
+  .matButtonControls.preschoolBtn .mat-button .mat-button-wrapper{
+    font-size: 16px !important;
+  }
+  #preschoolForm input{
+    font-size: 14px;
+  }
+  #preschoolForm .when_fields .form-block > span{
+    height: 50px;
+    margin-bottom: 5px;
+  }
+  .skipText{
+    font-size: 14px;
+  }
+  .what_looking .middleTittle{
+    font-size: 16px;
+    margin: 0 0 13px;
+  }
+  // #preschoolForm .location_radius{
+  //   padding:10px 0px !important;
+  // }
+}

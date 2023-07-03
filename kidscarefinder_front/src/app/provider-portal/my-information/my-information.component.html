@@ -1,0 +1,365 @@
+<div class="mainBgColor">
+  <app-header></app-header>
+  <section class="userSignupOuter">
+    <div class="customCombine customCombineProviderPort">
+      <app-provider-setting-sidebar></app-provider-setting-sidebar>
+      <div class="contentright">
+        <div class="contentrightBg">
+          <div class="accountSetting">
+            <div class="headingbg">
+              <h1 class="headingh1">My information</h1>
+              <p class="paratop">Your first name, photo. family description and childrens’ name(s) and age(s) are
+                visible to providers.</p>
+            </div>
+          </div>
+
+          <div class="CombineOuter">
+            <div class="shareBoxFixed">
+              <form>
+                <div class="shareCombine">
+                  <div class="row">
+                    <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                      <form [formGroup]="profile_photoForm" class="notifyFrmequal">
+                        <div class="sharingCard cardBox">
+                          <h2 class="headingh2">Profile photo</h2>
+
+                          <div class="profileChoseBox">
+                            <div class="profileChoseFlex">
+                              <div class="profilePicture">
+                                <img [src]="
+                            url ? url : '../../../../assets/images/dummy.png'
+                          " alt="" />
+                              </div>
+                              <div class="profileUpload">
+                                <div class="profileUploadBtn">
+                                  <input (change)="onSelectFile($event)" class="form-control" type="file"
+                                    formControlName="profile_photo" accept=".png, .jpg, .jpeg" id="choose-file" />
+                                  <label class="chsefile" for="choose-file"><img
+                                      src="../../../../assets/images/upload.svg" alt="" />
+                                    <span class="spanArrow">Upload image</span></label>
+                                </div>
+                                <button type="button" [disabled]="url? false:true" (click)="delete()"
+                                  class="btn btn-outline-secondary">
+                                  <img src="../../../../assets/images/delete.svg" alt="" />
+                                  <span class="spanRemove">Remove image</span>
+                                </button>
+                              </div>
+                            </div>
+                            <p class="profileDisclaim">
+                              <span style="color: red">*</span>
+                              Upload images with supported file type (.png, .jpg)
+                            </p>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                      <form [formGroup]="basicInfoForm" class="notifyFrmequal">
+                        <div class="usernameCard cardBox">
+                          <h2 class="headingh2">My information</h2>
+                          <div class="basicInfo">
+                            <div class="row">
+                              <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                <div class="mb-2">
+                                  <label class="form-label">First Name</label>
+                                  <input class="form-control" formControlName="first_name" type="text" required
+                                    placeholder="" aria-label="default input example" autocomplete="off" />
+                                  <span style="color: red" *ngIf="
+                                  (f['first_name'].errors &&
+                                    f['first_name'].touched) ||
+                                  (userSubmitted && f['first_name'].errors)
+                                ">
+                                    <mat-error *ngIf="f['first_name'].errors['required']">First name can't be
+                                      blank</mat-error>
+                                    <mat-error *ngIf="f['first_name'].errors['pattern']">First name is
+                                      invalid</mat-error>
+                                  </span>
+                                </div>
+                              </div>
+                              <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                <div class="mb-2">
+                                  <label class="form-label">Last Name</label>
+                                  <input class="form-control" type="text" placeholder=""
+                                    aria-label="default input example" autocomplete="off" formControlName="last_name" />
+                                  <span style="color: red" *ngIf="
+                                  (f['last_name'].errors &&
+                                    f['last_name'].touched) ||
+                                  (userSubmitted && f['last_name'].errors)
+                                ">
+                                    <mat-error *ngIf="f['last_name'].errors['required']">Last name can't be
+                                      blank</mat-error>
+                                    <mat-error *ngIf="f['last_name'].errors['pattern']">Last name is invalid</mat-error>
+                                  </span>
+                                </div>
+                              </div>
+
+                              <div class="col-12">
+                                <div class="mb-2">
+                                  <label class="form-label">Position/ title</label>
+                                  <input type="text" class="form-control" autocomplete="off"
+                                    formControlName="position" />
+                                  <span style="color: red" *ngIf="
+                                  (f['position'].errors && f['position'].touched) ||
+                                  (userSubmitted && f['position'].errors)
+                                ">
+                                    <mat-error *ngIf="f['position'].errors['required']">Position/ title can't be
+                                      blank</mat-error>
+                                  </span>
+                                </div>
+                              </div>
+
+                              <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                <div class="mb-1">
+                                  <label class="form-label">Phone Number</label>
+                                  <input class="form-control" type="text" mask="000-000-0000" autocomplete="off"
+                                    formControlName="contact" />
+                                  <span style="color: red" *ngIf="
+                                (f['contact'].errors && f['contact'].touched) ||
+                                (userSubmitted && f['contact'].errors)
+                              ">
+                                    <mat-error *ngIf="f['contact'].errors['required']">
+                                      Contact can't be blank
+                                    </mat-error>
+                                    <mat-error *ngIf="f['contact'].errors['minlength']">Contact is invalid</mat-error>
+                                  </span>
+                                </div>
+                              </div>
+                              <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                <div class="mb-1">
+                                  <label class="form-label">E-mail address</label>
+                                  <input class="form-control" type="email" placeholder=""
+                                    aria-label="default input example" autocomplete="off" formControlName="email"
+                                    readonly />
+                                  <span style="color: red" *ngIf="
+                                  (f['email'].errors && f['email'].touched) ||
+                                  (userSubmitted && f['email'].errors)
+                                ">
+                                    <mat-error *ngIf="f['email'].errors['required']">Email can't be blank</mat-error>
+                                    <mat-error *ngIf="f['email'].errors['pattern']">Email is invalid</mat-error>
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </form>
+
+              <div class="paymentInformartion">
+                <div class="usernameCard cardBox">
+                  <h2 class="usercardh2">Username & Password</h2>
+                  <p class="usercardPara">
+                    Update your account login information
+                  </p>
+                  <div class="usernameshw">
+                    <p>
+                      Username: <span>{{ this.username }}</span>
+                    </p>
+                  </div>
+                  <div class="usernameBtn">
+                    <button type="button" class="btn btn-primary" [disabled]="true" (click)="showHideUserForm(true)">
+                      Change Username
+                    </button>
+                    <button type="button" class="btn btn-primary" (click)="showHidePasswordForm(true)">
+                      Change Password
+                    </button>
+                  </div>
+                  <!--Change username starts-->
+                  <form [formGroup]="changeUser" (ngSubmit)="usernameChanged()">
+                    <div class="usernameCardChanged" *ngIf="showUsername">
+                      <h2 class="usercardh2sm">Change Username</h2>
+                      <p class="usercardPara">Enter desired username</p>
+                      <div class="usernameshw">
+                        <p>
+                          Current Username: <span>{{ this.username }}</span>
+                        </p>
+                      </div>
+                      <div class="formDesign usernameInput">
+                        <div class="form-group row">
+                          <label class="col-sm-4 col-form-label">
+                            <p class="inplbl">New Username:</p>
+                          </label>
+                          <div class="col-sm-8">
+                            <input type="text" class="form-control" autocomplete="off" formControlName="username" />
+                          </div>
+                          <span style="color: red" *ngIf="
+                            (u['username'].errors && u['username'].touched) ||
+                            (changePass && u['username'].errors)
+                          ">
+                            <mat-error *ngIf="u['username'].errors['required']">UserName is required</mat-error>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="usernameBtn usernameBtnSml">
+                        <button type="button" class="btn btn-danger" (click)="showHideUserForm(false)">
+                          Cancel
+                        </button>
+                        <button type="button" class="btn btn-primary ms-2" (click)="usernameChanged()">
+                          Save
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                  <!--Change username ends-->
+                  <!--Change password starts-->
+                  <form [formGroup]="changePassword" (ngSubmit)="passwordChanged()">
+                    <div class="usernameCardChanged" *ngIf="showPassword">
+                      <h2 class="usercardh2sm">Change Password</h2>
+                      <p class="usercardPara">
+                        Enter current password and desired password
+                      </p>
+                      <div class="formDesign usernameInput">
+                        <div class="form-group row">
+                          <label class="col-sm-5 col-form-label">
+                            <p class="chplbl">Current password:</p>
+                          </label>
+                          <div class="col-sm-7">
+                            <div class="input-with-help-icon">
+                              <input type="password" class="form-control" formControlName="current_password" />
+                            </div>
+                            <span style="color: red" *ngIf="changePass && p['current_password'].errors">
+                              <mat-error *ngIf="p['current_password'].errors['required']">
+                                Current password Can't be blank
+                              </mat-error>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="formDesign usernameInput">
+                        <div class="form-group row">
+                          <label class="col-sm-5 col-form-label">
+                            <p class="chplbl">New password:</p>
+                          </label>
+                          <div class="col-sm-7">
+                            <div class="input-with-help-icon tooltipPortal">
+                              <input type="password" class="form-control" formControlName="new_password" />
+                              <svg width="21" height="21" viewBox="0 0 21 21" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" matTooltip="Password must be at least eight characters in length, contain at
+                                       least one uppercase and one lowercase letter, one number, and at least one
+                                       special character" matTooltipPosition="left">
+                                <path
+                                  d="M11.5 7.5H9.5V5.5H11.5M11.5 15.5H9.5V9.5H11.5M10.5 0.5C9.18678 0.5 7.88642 0.758658 6.67317 1.2612C5.45991 1.76375 4.35752 2.50035 3.42893 3.42893C1.55357 5.3043 0.5 7.84784 0.5 10.5C0.5 13.1522 1.55357 15.6957 3.42893 17.5711C4.35752 18.4997 5.45991 19.2362 6.67317 19.7388C7.88642 20.2413 9.18678 20.5 10.5 20.5C13.1522 20.5 15.6957 19.4464 17.5711 17.5711C19.4464 15.6957 20.5 13.1522 20.5 10.5C20.5 9.18678 20.2413 7.88642 19.7388 6.67317C19.2362 5.45991 18.4997 4.35752 17.5711 3.42893C16.6425 2.50035 15.5401 1.76375 14.3268 1.2612C13.1136 0.758658 11.8132 0.5 10.5 0.5Z"
+                                  fill="#164789" />
+                              </svg>
+                            </div>
+                            <span style="color: red" *ngIf="changePass && p['new_password'].errors">
+                              <mat-error *ngIf="p['new_password'].errors['required']">
+                                New Password Can't be blank.
+                              </mat-error>
+                              <mat-error *ngIf="p['new_password'].errors['pattern']">
+                                Please enter a valid password.
+                              </mat-error>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="formDesign usernameInput">
+                        <div class="form-group row">
+                          <label class="col-sm-5 col-form-label">
+                            <p class="chplbl">Re-enter new password:</p>
+                          </label>
+                          <div class="col-sm-7">
+                            <div class="input-with-help-icon tooltipPortal">
+                              <input type="password" class="form-control" formControlName="confirm_password" />
+                              <svg width="21" height="21" viewBox="0 0 21 21" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" matTooltip="Password must be at least eight characters in length, contain at
+                                       least one uppercase and one lowercase letter, one number, and at least one
+                                       special character" matTooltipPosition="left">
+                                <path
+                                  d="M11.5 7.5H9.5V5.5H11.5M11.5 15.5H9.5V9.5H11.5M10.5 0.5C9.18678 0.5 7.88642 0.758658 6.67317 1.2612C5.45991 1.76375 4.35752 2.50035 3.42893 3.42893C1.55357 5.3043 0.5 7.84784 0.5 10.5C0.5 13.1522 1.55357 15.6957 3.42893 17.5711C4.35752 18.4997 5.45991 19.2362 6.67317 19.7388C7.88642 20.2413 9.18678 20.5 10.5 20.5C13.1522 20.5 15.6957 19.4464 17.5711 17.5711C19.4464 15.6957 20.5 13.1522 20.5 10.5C20.5 9.18678 20.2413 7.88642 19.7388 6.67317C19.2362 5.45991 18.4997 4.35752 17.5711 3.42893C16.6425 2.50035 15.5401 1.76375 14.3268 1.2612C13.1136 0.758658 11.8132 0.5 10.5 0.5Z"
+                                  fill="#164789" />
+                              </svg>
+                            </div>
+                            <span style="color: red" *ngIf="changePass && p['confirm_password'].errors">
+                              <mat-error *ngIf="p['confirm_password'].errors['required']">
+                                Confirm Password Can't be blank
+                              </mat-error>
+                              <mat-error *ngIf="p['confirm_password'].errors['passwordNotMatch']">
+                                {{customAlertMessage.passwordMismatch[2].message}}
+                              </mat-error>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="usernameBtn usernameBtnSml">
+                        <button type="button" class="btn btn-danger" (click)="showHidePasswordForm(false)">
+                          Cancel
+                        </button>
+                        <button type="button" class="btn btn-primary ms-2" (click)="passwordChanged()">
+                          Save
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                  <!--Change password ends-->
+                </div>
+              </div>
+
+              <div class="paymentInformartion">
+                <form [formGroup]="NotificationForm">
+                  <div class="familyDescriptionCard">
+                    <div class="steperBoxInn">
+                      <div class="addBriefFlex">
+                        <label class="form-label-md">Recieve notifications/ alert for</label>
+                        <a href="javascript:void(0)" class="dselect" (click)="selectDeselect()">Select/ deselect all</a>
+                      </div>
+                      <div class="steperCheckListing">
+                        <div class="form-check form-check-inline">
+                          <input formControlName="user_messages" class="form-check-input" type="checkbox"
+                            id="inlineCheckbox1">
+                          <label class="form-check-label" for="inlineCheckbox1">User messages</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input formControlName="waitlist_notifications" class="form-check-input" type="checkbox"
+                            id="inlineCheckbox2">
+                          <label class="form-check-label" for="inlineCheckbox2">Waitlist notifications</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input formControlName="new_online_applications" class="form-check-input" type="checkbox"
+                            id="inlineCheckbox3">
+                          <label class="form-check-label" for="inlineCheckbox3">New online applications</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input formControlName="enrollment_requests" class="form-check-input" type="checkbox"
+                            id="inlineCheckbox4">
+                          <label class="form-check-label" for="inlineCheckbox4">Enrollment requests</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input formControlName="new_enrollment_packages" class="form-check-input" type="checkbox"
+                            id="inlineCheckbox5">
+                          <label class="form-check-label" for="inlineCheckbox5">New enrollment packages</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input formControlName="monthly_usage_summary" class="form-check-input" type="checkbox"
+                            id="inlineCheckbox6">
+                          <label class="form-check-label" for="inlineCheckbox6">Monthly usage summary</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input formControlName="affiliated_provider_requests" class="form-check-input" type="checkbox"
+                            id="inlineCheckbox7">
+                          <label class="form-check-label" for="inlineCheckbox7">Affiliated provider requests</label>
+                        </div>
+                        <div class="form-check form-check-inline steplistSpan2">
+                          <input formControlName="marketing_from_KCF_affiliates" class="form-check-input"
+                            type="checkbox" id="inlineCheckbox8">
+                          <label class="form-check-label" for="inlineCheckbox8">Marketing from Kids Care Finder
+                            Affiliates</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <div class="paymentContinue" (click)="submitData()">
+                  <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,54 @@
+<section class="reviewPostSection ReviewModal">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="sect_titl">Leave a review for <a href="javascript:void(0);">{{this.data?.provider?.organization_name}}</a></h2>
+            </div>
+            <div class="col-12">
+                <div class="reviewPostForm">
+                    <form [formGroup]="reviewForm">
+                    <button mat-icon-button class="matRatingBtn" [color]="color" *ngFor="let ratingId of ratingArr;index as i" [id]="'star_'+i" (click)="onClick(i, i+1)">
+                        <mat-icon>
+                          {{showIcon(i)}}
+                        </mat-icon>
+                      </button>
+                      <mat-error *ngIf="starCount == null || starCount == 0">
+                        Star count is <strong>required</strong> and cannot be zero
+                      </mat-error>
+                      <!-- <p class="RatingText">
+                          You rated <span class="body-2">{{reviewForm.value.rating}}</span> / <span class="body-2">{{starCount}}</span>
+                      </p> -->
+                      <p style="color: red"
+                      *ngIf="!reviewForm.value.rating && submitted">
+                      <mat-error>
+                        Please select rating
+                      </mat-error>
+                      </p>
+
+                    <textarea formControlName = "review" placeholder="Enter review comments here"> </textarea>
+                    <span
+                    style="color: red"
+                    *ngIf="
+                      (r['review'].errors &&
+                        r['review'].touched) ||
+                      (submitted && r['review'].errors)
+                    "
+                  >
+                    <mat-error
+                      *ngIf="r['review'].errors['required']"
+                      >Review is required</mat-error
+                    >
+                  </span>
+                </form>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="reviewActionsBtn">
+                <button mat-button color="primary" class="buttonPre whiteBtn" (click)="cancleModal()">Cancel</button>
+                <button mat-button color="primary" class="buttonPre blueBtn" (click)="postReeview()">Post review <span
+                        class="ReviewIconBtns"></span></button>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>

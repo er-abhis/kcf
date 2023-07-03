@@ -1,0 +1,116 @@
+<div class="mainBg uploadAdditionManage">
+  <div class="main">
+    <div class="text checkLabel">
+      <div>
+        <input type="checkbox" name="option1" id="option1" style="color: white;">
+        <label>Upload completed and signed Physicians'
+          report
+        </label>
+      </div>
+      <div>
+        <input type="checkbox" name="option2" id="option2" style="color: white;">
+        <label>Upload child's vaccination records</label>
+      </div>
+      <div>
+        <input type="checkbox" name="option3" id="option3" style="color: white;">
+        <label>Upload provider's signed contract
+          ?(Provider should've sent this to you separately)</label>
+      </div>
+    </div>
+
+  </div>
+  <div class="dashedBox">
+    <div class="fileDocuIconmd">
+      <img src="../../../assets/images/file-upload.png" alt="">
+    </div>
+    <div class="uploadFileDocus">
+      <h3 class="uploadh3">Select a document to upload</h3>
+      <input class="ng-hide" #holidayPhoto type="file" (change)="handle($event)" accept=".pdf" />
+      <button mat-button class="docuUploadBtn" (click)="handleUpload(holidayPhoto)" type="button">
+        <!-- <span class="btnIcon upload"></span> -->
+        Browse for file
+      </button>
+    </div>
+    <p class="dragpara">Or drag and drop it here</p>
+  </div>
+
+  <div class="uploadEnrollmentBarOuter">
+    <div class="uploadEnrollmentBar" *ngFor="let item of fileArray; let i = index;">
+      <div class="enrollmentBarLeft">
+        <div class="enrollmentBarIcon">
+          <img src="../../../assets/images/file-upload.png" alt="">
+        </div>
+        <div class="enrollmentBar">
+          <p>{{item.name}}</p>
+          <div class="enrollmentbBluebar">
+            <!-- <div class="percent">50%</div> -->
+            <!-- <div class="enrollmntBlue">
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0"
+                  aria-valuemax="100"></div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="enrollmentBarRight">
+        <div class="enrollmentBarSelect">
+          <mat-form-field appearance="fill" floatLabel='never'>
+            <mat-label floatLabel='never'>Select file type:</mat-label>
+            <mat-select  (selectionChange)="fileTypeSelect(i,$event.value)">
+              <mat-option value="physician report">Physician's Report</mat-option>
+              <mat-option value="vaccination records">Vaccination records </mat-option>
+              <mat-option value="provider contract">Provider's contract</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!-- <mat-select placeholder="Select file type:" class="ProDrop">
+          <div class="multiDropserach">
+            <span class="sIcon">
+              <svg width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M9.67379 8.83064C10.4302 7.79825 10.7691 6.51828 10.6224 5.24679C10.4758 3.9753 9.85458 2.80606 8.88301 1.973C7.91145 1.13994 6.66121 0.704488 5.38242 0.753769C4.10363 0.80305 2.8906 1.33343 1.98601 2.23879C1.08142 3.14415 0.551989 4.35773 0.50363 5.63674C0.455271 6.91574 0.891553 8.16585 1.72519 9.13695C2.55883 10.1081 3.72835 10.7285 4.99977 10.8743C6.27118 11.02 7.55073 10.6802 8.58243 9.92294H8.58165C8.60508 9.95419 8.63008 9.98388 8.65821 10.0128L11.6659 13.0209C11.8124 13.1675 12.0111 13.2499 12.2183 13.25C12.4256 13.2501 12.6244 13.1678 12.7709 13.0213C12.9175 12.8748 12.9999 12.6761 13 12.4688C13.0001 12.2615 12.9178 12.0627 12.7713 11.9161L9.76363 8.90799C9.7357 8.87971 9.70567 8.85359 9.67379 8.82985V8.83064ZM9.87535 5.8272C9.87535 6.39153 9.76421 6.95034 9.54828 7.47171C9.33235 7.99309 9.01586 8.46682 8.61687 8.86586C8.21788 9.26491 7.74422 9.58145 7.22292 9.79741C6.70162 10.0134 6.14289 10.1245 5.57864 10.1245C5.01438 10.1245 4.45566 10.0134 3.93435 9.79741C3.41305 9.58145 2.93939 9.26491 2.5404 8.86586C2.14141 8.46682 1.82492 7.99309 1.60899 7.47171C1.39306 6.95034 1.28192 6.39153 1.28192 5.8272C1.28192 4.68748 1.73461 3.59444 2.5404 2.78854C3.34619 1.98264 4.43908 1.52988 5.57864 1.52988C6.71819 1.52988 7.81108 1.98264 8.61687 2.78854C9.42266 3.59444 9.87535 4.68748 9.87535 5.8272Z"
+                  fill="white" />
+              </svg>
+            </span>
+          </div>
+          <mat-option *ngFor="let provider of filteredProvidersList">
+            {{ provider.value }}
+          </mat-option>
+        </mat-select> -->
+        </div>
+        <button class="enrollmentBarCancel" (click)="removeFile(i)">Remove</button>
+      </div>
+    </div>
+    <!-- <div class="uploadEnrollmentBar" *ngFor="let item of fileArray">
+      <div class="enrollmentBarLeft">
+        <div class="enrollmentBarIcon">
+          <img src="../../../assets/images/file-upload.png" alt="">
+        </div>
+        <div class="enrollmentBar">
+          <p>{{item.name}}</p>
+          <div class="enrollmentbBluebar">
+            <div class="percent">50%</div>
+            <div class="enrollmntBlue">
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="enrollmentBarRight">
+        <div class="enrollmentBarSelect">
+          <mat-form-field appearance="fill" floatLabel='never'>
+            <mat-label floatLabel='never'>Select file type:</mat-label>
+            <mat-select>
+              <mat-option value="option1">Option 1</mat-option>
+              <mat-option value="option2">Option 2 </mat-option>
+              <mat-option value="option3">Option 3</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <button class="enrollmentBarCancel">Remove</button>
+      </div>
+    </div> -->
+  </div>
+</div>

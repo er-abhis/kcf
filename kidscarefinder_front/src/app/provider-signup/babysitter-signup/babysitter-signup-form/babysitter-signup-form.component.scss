@@ -1,0 +1,16 @@
+::ng-deep.mat-horizontal-stepper-wrapper {
+  padding: 0 20px;
+
+  .mat-horizontal-stepper-header-container {
+    margin: auto;
+    width: 75%;
+
+    .mat-step-text-label {
+      font-family: 'Nunito', sans-serif;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 20px;
+      line-height: 27px;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+<div class="resultMessagePopup">
+  <!-- <div style="display: flex; justify-content: end;">
+    <a href="javascript:void()" (click)="closeModal()" class="cancel"><mat-icon
+        (click)="closeModal()">cancel</mat-icon></a>
+  </div> -->
+  <!-- <button type="button" class="btn-close" (click)="closeModal()"></button> -->
+  <div class="modal-body">
+    <div class="disableWaitlist">
+      <a href="javascript:void()" (click)="closeModal()" class="cancelbtn">
+        <!-- <mat-icon (click)="closeModal()">cancel</mat-icon> -->
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8.0277 7.85355L9.91789 9.74375L9.74375 9.91789L7.85355 8.0277L7.5 7.67414L7.14645 8.0277L5.25625 9.91789L5.08211 9.74375L6.9723 7.85355L7.32586 7.5L6.9723 7.14645L5.08211 5.25625L5.25625 5.08211L7.14645 6.9723L7.5 7.32586L7.85355 6.9723L9.74375 5.08211L9.91789 5.25625L8.0277 7.14645L7.67414 7.5L8.0277 7.85355ZM14.25 7.5C14.25 3.76761 11.2324 0.75 7.5 0.75C3.76761 0.75 0.75 3.76761 0.75 7.5C0.75 11.2324 3.76761 14.25 7.5 14.25C11.2324 14.25 14.25 11.2324 14.25 7.5Z" fill="#1B4688" stroke="#B9B9B9"/>
+        </svg>
+        </a>
+        <span class="excla">
+          <svg width="25" height="26" viewBox="0 0 25 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M2.77778 0.5H22.2222C22.9589 0.5 23.6655 0.792658 24.1864 1.31359C24.7073 1.83453 25 2.54107 25 3.27778V22.7222C25 23.4589 24.7073 24.1655 24.1864 24.6864C23.6655 25.2073 22.9589 25.5 22.2222 25.5H2.77778C2.04107 25.5 1.33453 25.2073 0.813592 24.6864C0.292658 24.1655 0 23.4589 0 22.7222V3.27778C0 2.54107 0.292658 1.83453 0.813592 1.31359C1.33453 0.792658 2.04107 0.5 2.77778 0.5ZM13.8889 14.3889V6.05556H11.1111V14.3889H13.8889ZM13.8889 19.9444V17.1667H11.1111V19.9444H13.8889Z"
+              fill="#A50D0D" />
+          </svg>
+        </span>
+
+      <div class="toolText"> {{this.text}}</div>
+      <!-- <div class="toolText"> This provider's license <span class="toolbold">has not</span> been verified by Kids Care Finder</div> -->
+    </div>
+  </div>
+</div>

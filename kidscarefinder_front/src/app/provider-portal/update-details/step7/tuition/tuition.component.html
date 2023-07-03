@@ -1,0 +1,145 @@
+<div class="mainBgColor">
+  <app-header></app-header>
+  <section class="userSignupOuter">
+    <div class="customCombine">
+      <app-update-details-sidebar></app-update-details-sidebar>
+      <div class="contentright">
+        <div class="contentrightBg">
+          <div class="accountSetting">
+            <div class="headingbg">
+              <h1 class="headingh1">Tuition</h1>
+            </div>
+          </div>
+          <div class="paymentInformartion">
+            <div class="addBriefBoxOuter">
+              <div class="addBriefBox cardBox boxshadow">
+                <div
+                  class="addBriefDetail StepDetailsLists stepDetail4 stepDetail7"
+                >
+                  <form [formGroup]="childTutionGroup">
+                    <div class="detailsRow tutionDetailsRow">
+                      <div class="DetailPhotoLeft bgWhiteDetails">
+                        <div class="detailsColBg">
+                          <h3 class="headingBlackText spaceBottom">Tuition</h3>
+                          <!-- <h3>Would you like to add a photo or logo? </h3> -->
+                          <div class="tutionDetailRow">
+                            <div
+                              class="tutionColGrp oneThird oneOne matCheckBlack"
+                            >
+                              <mat-checkbox
+                                [checked]="
+                                  tutionData?.tuitionfees?.length ? true : false
+                                "
+                                >Weekly Tuition</mat-checkbox
+                              >
+                              <!-- <mat-checkbox color="primary" indeterminate="true">
+                                    Weekly Tuition
+                                  </mat-checkbox> -->
+
+                              <mat-form-field appearance="fill">
+                                <input
+                                  matInput
+                                  type="text"
+                                  formControlName="tutionFee"
+                                  name="tutionFee"
+                                  autocomplete="off"
+                                />
+                              </mat-form-field>
+                            </div>
+                            <div class="tutionColGrp oneCol">or</div>
+                            <div class="tutionColGrp oneThird matCheckBlack">
+                              <mat-checkbox
+                                [checked]="
+                                  tutionData?.pdf_link?.length ? true : false
+                                "
+                                >Upload pricing document
+                              </mat-checkbox>
+                              <p class="uploadTopTitle">
+                                Upload documents with supported file type (.pdf)
+                              </p>
+                              <div class="uploadFilesComponent uploadstepCust7">
+                                <h3
+                                  class="tutuplod"
+                                  *ngIf="!pdfData && !fileLink?.length"
+                                >
+                                  No file uploaded
+                                </h3>
+                                <h3
+                                  class="tutuplod"
+                                  *ngIf="pdfData && pdfData.name"
+                                >
+                                  {{ pdfData.name }}
+                                </h3>
+                                <h3
+                                  class="tutuplod"
+                                  *ngIf="
+                                    !pdfData && fileLink && fileLink?.length
+                                  "
+                                >
+                                  {{
+                                    fileLink.split(
+                                      "https://kidscarefinder.s3.amazonaws.com/"
+                                    )[1]
+                                  }}
+                                </h3>
+                                <input
+                                  class="ng-hide"
+                                  #holidayPhoto
+                                  multiple
+                                  type="file"
+                                  (change)="handle($event)"
+                                />
+                                <button
+                                  mat-button
+                                  class="btnSquare"
+                                  (click)="handleUpload(holidayPhoto)"
+                                  type="button"
+                                >
+                                  <span class="btnIcon upload"></span> Upload
+                                  file
+                                </button>
+                              </div>
+                            </div>
+                            <div class="tutionColGrp oneCol">or</div>
+                            <div class="tutionColGrp oneThird matCheckBlack">
+                              <mat-checkbox
+                                [checked]="
+                                  tutionData?.web_link?.length ? true : false
+                                "
+                                >Link to external pricing page</mat-checkbox
+                              >
+                              <mat-form-field appearance="fill">
+                                <input
+                                  matInput
+                                  type="text"
+                                  formControlName="ChildTutionURL"
+                                  name="ChildTutionURL"
+                                  autocomplete="off"
+                                />
+                              </mat-form-field>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="settingSave">
+              <button
+                class="saveShareBtn"
+                mat-focus-indicator
+                mat-button
+                mat-button-base
+                color="primary"
+              >
+                <span class="saveIcon"></span> Save
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

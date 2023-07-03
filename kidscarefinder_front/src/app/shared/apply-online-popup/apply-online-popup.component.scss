@@ -1,0 +1,170 @@
+
+* {
+  scrollbar-width: auto;
+  scrollbar-color: var(--primaryLight);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--whiteColor);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--primaryLight);
+  border-radius: 10px;
+  border: 1px solid #ffffff;
+}
+
+
+.onlinebgPop {
+  padding: 25px 15px;
+  background: var(--primaryColor);
+  color: var(--whiteColor);
+  border-radius: 10px 10px 0 0;
+  border: 1px solid #8AD5FF;
+  border-bottom: 1px solid #D9D9D9;
+}
+.onlinebgPop h1.headingh1 {
+  font-family: 'Nunito';
+  font-size: 32px;
+  font-weight: 600;
+  margin: 0;
+}
+.onlinePopCustom {
+  background: #e7f6ff;
+  padding: 30px 30px 20px;
+}
+
+.onlinePopCust {
+  background: #e7f6ff;
+  padding: 30px;
+}
+.onlinePopup {
+    width: 100%;
+    max-height: 500px;
+    overflow-y: scroll;
+    border-radius: 5px;
+}
+
+.onlinePopup .onlinePopupItem {
+  background: var(--whiteColor);
+  padding:10px 20px;
+  box-shadow: 3px 6px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.onlinePopflex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+.onlineflexhead h2.onlinetitle {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--primaryLight);
+  margin-bottom: 0;
+}
+
+.healthSelectOut{
+  width: 250px;
+}
+.healthSelect {
+  width: 100%;
+}
+.inputColorsize {
+  color: var(--primaryLight);
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+  .healthSelectOut{
+    width: 250px;
+  }
+  .healthSelect {
+    width: 100%;
+  }
+  .inputColorsize {
+    color: var(--primaryLight);
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 5px;
+  }
+
+  mat-label {
+    color: var(--blackColor) !important;
+    font-weight: bold;
+  }
+  ::ng-deep .mat-select .mat-select-value {
+    color: #292929;
+  }
+  ::ng-deep .healthSelect .mat-form-field-wrapper {
+    padding-bottom: 1.34375em;
+  }
+  ::ng-deep .healthSelect .mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: var(--whiteColor);
+    border: 1px solid var(--primaryColor);
+    border-radius: 0px;
+    padding: 0em .75em 0 .75em;
+  }
+  ::ng-deep .healthSelect .mat-form-field-label-wrapper {
+    top: -0.84375em;
+  }
+  ::ng-deep .healthSelect .mat-form-field-appearance-fill .mat-form-field-label {
+    top: 1.09375em;
+  }
+  ::ng-deep .healthSelect .mat-form-field-label-wrapper label {
+    font-weight: 500;
+    font-size: 16px;
+    color: #000;
+    line-height: initial;
+  }
+  ::ng-deep .healthSelect .mat-form-field-type-mat-select .mat-select {
+    border: 0px solid #d9d9d9;
+    padding: 0px;
+  }
+  ::ng-deep .healthSelect .mat-select-arrow-wrapper {
+    margin-top: 10px;
+  }
+
+
+.onlinepopBtn {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 10px;
+}
+.mat-stroked-button {
+  background: transparent;
+  border: 1px solid var(--primaryColor);
+  color: var(--primaryColor);
+}
+.mat-raised-button {
+  color: var(--whiteColor);
+  background: var(--primaryLight) !important;
+}
+::ng-deep .mat-button-base {
+  font-family: 'Nunito', sans-serif;
+  display: flex !important;
+  justify-content:center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 600;
+  border: 1px solid var(--primaryLight);
+  border-radius: 10px !important;
+  padding: 15px !important;
+  min-width: 70px;
+  height: 57px;
+}
+.onlinepopBtn .raisedBtn {
+  background: var(--primaryColor);
+  border: 1px solid var(--primaryColor);
+  color: var(--whiteColor);
+}

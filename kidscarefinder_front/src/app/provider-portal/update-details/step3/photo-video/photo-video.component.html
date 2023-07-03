@@ -1,0 +1,106 @@
+<div class="mainBgColor">
+    <app-header></app-header>
+    <section class="userSignupOuter">
+      <div class="customCombine">
+        <app-update-details-sidebar></app-update-details-sidebar>
+        <div class="contentright">
+          <div class="contentrightBg">
+            <div class="accountSetting">
+              <div class="headingbg">
+                <h1 class="headingh1">Photo/ video</h1>
+              </div>
+            </div>
+            <div class="paymentInformartion">
+              <div class="addBriefBoxOuter">
+                <div class="addBriefBox cardBox boxshadow">
+                    <div class="addBriefDetail ">
+                        <form [formGroup]="reviewStepThreeForm">
+                        <div class="detailsRow">
+                            <div class="DetailPhotoLeft bgWhiteDetails">
+                              <div class="detailsColBg">
+                                <h3 class="headingBlackText">Photo</h3>
+                                <h3>Would you like to add a photo or logo?</h3>
+                                <mat-radio-group matInput aria-labelledby="example-radio-group-label" class="radioBasic"
+                                  formControlName="stepDetailPhotoUpload">
+                                  <span *ngFor="let season of
+                                    StepDetailVideo" class="spanRadio">
+                                    <mat-radio-button disabled class="example-radio-button
+                                      form-control1" [value]="season">
+                                      {{season}}
+                                    </mat-radio-button>
+                                  </span>
+                                </mat-radio-group>
+                                <div class="uploadRemovPhotoBtns">
+                                  <!-- <div class="photoUpload" [ngStyle]="{'background-image':
+                                    'url(../../assets/images/uploadImgPlaceholder.jpg)'}">
+                                  </div> -->
+                                  <div class="photoImgGray">
+                                  <img [src]="url" alt="" class="responsive-img photoUploads" width="800" />
+                                  </div>
+                                  <div class="buttonsGroupsUploadPhoto">
+                                    <input class="ng-hide" #holidayPhoto multiple type="file" (change)="handle($event)" />
+                                    <button mat-button class="btnSquare btnwidth140" disabled (click)="handleUpload(holidayPhoto)"
+                                      type="button"><span class="btnIcon upload"></span>
+                                      Upload image
+                                    </button>
+                                    <button mat-stroked-button color="primary" class="whiteBtn btnwidth140" disabled type="button"><span
+                                        class="btnIcon remove"></span>Remove image</button>
+                                  </div>
+                                  <h6 class="greyText">Upload documents
+                                    with
+                                    supported file type (.png, .jpg)
+                                  </h6>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="DetailPhotoRight
+                              bgWhiteDetails">
+                              <div class="detailsColBg">
+              
+                                <h3 class="headingBlackText">Introduction
+                                  video
+                                </h3>
+                                <h3>Would you like to add link to a
+                                  short
+                                  introduction video?</h3>
+                                <mat-radio-group matInput aria-labelledby="example-radio-group-label" class="radioBasic"
+                                  formControlName="stepDetailVideoUpload" required>
+                                  <span *ngFor="let season of
+                                    StepDetailVideo" class="spanRadio">
+                                    <mat-radio-button disabled class="example-radio-button
+                                      form-control1" [value]="season">
+                                      {{season}}
+                                    </mat-radio-button>
+                                  </span>
+                                </mat-radio-group>
+                                <h3>URL to Youtube Video</h3>
+                                <input matInput placeholder="URL" class="urlInput fullInput" [value]="is_intro_video_uploaded?videoUrl:''" readonly>
+                                <div class="detailPreviwSec">
+              
+                                  <h3>Preview</h3>
+                                  <div class="videoPlay">
+                                    <div class="videoIntro">
+                                      <ng-container *ngIf="videoSrc">
+                                        <iframe width="100%" height="100%" [src]="videoSrc"></iframe>
+                                      </ng-container>
+                                      <a *ngIf="!is_intro_video_uploaded" href="javascript:void(0);" class="playBtn"></a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          </form>
+                    </div>
+                </div>
+              </div>
+                      <div class="settingSave">
+                        <button class="saveShareBtn" mat-focus-indicator mat-button mat-button-base color="primary"><span
+                            class="saveIcon"></span> Save</button>
+                      </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>

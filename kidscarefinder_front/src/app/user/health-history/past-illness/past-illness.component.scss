@@ -1,0 +1,26 @@
+.historyIlluness {
+  display: grid;
+  grid-row-gap: 5px;
+  grid-column-gap: 15px;
+  grid-template-columns: repeat(2, 1fr);
+
+  .historyIllunessItem {
+    width: auto;
+  }
+}
+
+.historyIllunessItem .expandInput {
+  margin-bottom: 2px !important;
+  padding-left: 7px;
+  margin-right: 7px;
+}
+
+.historyIllunessItem .expandInput .form-select {
+  background-position: right 0.35rem center;
+  background-size: 12px 10px;
+  padding: 3px 20px 3px 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  transition: all .4s ease;
+}

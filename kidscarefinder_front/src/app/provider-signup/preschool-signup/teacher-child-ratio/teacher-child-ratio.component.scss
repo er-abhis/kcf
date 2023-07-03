@@ -1,0 +1,79 @@
+::ng-deep {
+
+  .RatChildRt .mat-form-field-flex {
+    background: transparent !important;
+  }
+  .RatChildRt .mat-select-trigger {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+  }
+  // .RatChildRt .mat-select-trigger::after {
+  //   font-family: "Font Awesome 6 Free";
+  //   font-weight: 900;
+  //   content: "\f078";
+  //   color: var(--blackColor);
+  //   font-size: 14px;
+  //   position: absolute;
+  //   height: 15px;
+  //   top: -3px;
+  //   right: 2px;
+  //   z-index: 1;
+  // }
+
+  .RatChildRt .mat-select-trigger::after {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    content: "\f078";
+    color: var(--blackColor);
+    font-size: 14px;
+    position: absolute;
+    height: 15px;
+    top: -1px;
+    right: 2px;
+    z-index: 1;
+  }
+
+  .RatChildRt .mat-select-arrow {
+    border-left: 5px solid rgba(0, 0, 0, 0) !important;
+    border-right: 5px solid rgba(0, 0, 0, 0) !important;
+    border-top: 5px solid !important;
+    border: none !important;
+  }
+
+  .RatChildRt .mat-select .mat-select-value {
+    font-family: "Nunito";
+    font-size: 16px;
+    font-weight: 700;
+    color: #333;
+  }
+
+
+
+  .ratioBoxGrid {
+    margin-bottom: 18px;
+  }
+
+
+  .cdk-overlay-container .cdk-overlay-pane {
+    margin-top: 40px !important;
+  }
+
+  .just_test {
+    margin-top: 10px;
+  }
+
+}
+
+
+
+
+.RatTeachLt .blackGreyLabel input.mat-input-element {
+  padding: 5px 10px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: inherit;
+}

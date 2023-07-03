@@ -1,0 +1,526 @@
+/* ===================== provider settings user activity css start =====================*/
+.contentrightBg {
+  border: 1px solid #8AD5FF;
+}
+.paymentInformartion {
+  padding: 20px;
+}
+.shareBoxFixed {
+  padding: 0;
+  height: 685px;
+  overflow: auto;
+}
+.healthSelectOut{
+  width: 250px;
+}
+.healthSelect {
+  width: 100%;
+}
+.inputColorsize {
+  color: var(--primaryLight);
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+  .healthSelectOut{
+    width: 435px;
+  }
+  .healthSelect {
+    width: 100%;
+  }
+  .inputColorsize {
+    color: var(--primaryLight);
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 5px;
+  }
+
+  mat-label {
+    color: var(--blackColor) !important;
+    font-weight: bold;
+  }
+  // ::ng-deep .mat-select-panel-wrap {
+  //   flex-basis: 89.8% !important;
+  //   margin-left: 29px;
+  // }
+  ::ng-deep .mat-select-panel-wrap {
+    flex-basis: 97.5% !important;
+    margin-left: 5px;
+  }
+  ::ng-deep .healthSelect .mat-select .mat-select-value {
+    color: #b9b9b9 !important;
+    font-size: 16px;
+    font-weight: 400;
+}
+::ng-deep .mat-option.mat-active {
+  background: transparent;
+}
+  ::ng-deep .healthSelect .mat-select-arrow {
+    border-left: 10px solid rgba(0,0,0,0);
+    border-right: 10px solid rgba(0,0,0,0);
+    border-top: 10px solid;
+    margin: 0 4px;
+    color: var(--blackColor);
+}
+::ng-deep .healthSelect .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  color: var(--blackColor);
+}
+  ::ng-deep .healthSelect .mat-form-field-appearance-fill .mat-form-field-underline::before {
+  height: 0px;
+}
+::ng-deep .healthSelect .mat-form-field-appearance-fill .mat-form-field-ripple {
+  height: 0px;
+}
+  ::ng-deep .healthSelect .mat-form-field-wrapper {
+    padding-bottom: 1.34375em;
+  }
+  ::ng-deep .healthSelect .mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: var(--whiteColor);
+    border: 1px solid var(--grayColor);
+    border-radius: 0px;
+    padding: 0em .75em 0 .75em;
+  }
+  ::ng-deep .healthSelect .mat-form-field-label-wrapper {
+    top: -0.84375em;
+  }
+  ::ng-deep .healthSelect .mat-form-field-appearance-fill .mat-form-field-label {
+    top: 1.09375em;
+  }
+  ::ng-deep .healthSelect .mat-form-field-label-wrapper label {
+    font-weight: 500;
+    font-size: 16px;
+    color: #000;
+    line-height: initial;
+  }
+  ::ng-deep .healthSelect .mat-form-field-type-mat-select .mat-select {
+    border: 0px solid #d9d9d9;
+    padding: 0px;
+  }
+  ::ng-deep .healthSelect .mat-select-arrow-wrapper {
+    margin-top: 14px;
+  }
+
+
+.userActivityTop {
+  display: flex;
+  justify-content: space-between;
+}
+.userActivityTopLeft h2.userActivityh2 {
+  font-family: 'Nunito';
+    font-size: 32px;
+    font-weight: 800;
+    margin: 0;
+    color: var(--blackColor);
+}
+.userActivityTopLeft h6.userActivityh6 {
+  font-family: 'Nunito';
+    font-size: 20px;
+    font-weight: 500;
+    font-style: italic;
+    color: #767676;
+    margin: 5px 0 0;
+}
+
+.userActivityGridBox h4.userActivityh4 {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--blackColor);
+  margin: 15px 0;
+}
+.userActivityGrid4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+.userActivityGrid4Item {
+  background: var(--primaryColor);
+  color: var(--whiteColor);
+  padding: 15px;
+  border-radius: 5px;
+}
+.activityDivider1 {
+  height: 1px;
+  background: #95F2FF;
+  margin: 12px 0 20px;
+}
+
+
+.userActivityGrid4Item h5.userActivityh5{
+  width: 100%;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 27px;
+  text-align: center;
+  min-height: 54px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+}
+.userActivityGrid4Item h3.userActivityh3 {
+  font-size: 32px;
+  font-weight: 800;
+  text-align: center;
+}
+
+
+.userActivityGrid2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+.userActivityGrid2Item {
+  background: #2C2C2C;
+  color: var(--whiteColor);
+  padding: 15px;
+}
+.activityDivider2 {
+  height: 1px;
+  background: #fff;
+  margin:0 0 20px;
+}
+.activityDivider {
+  width: 100%;
+  height: 2px;
+  margin: 20px 0;
+  background: #000;
+}
+.activityDivider2 {
+  width: 100%;
+  height: 1px;
+  margin: 20px 0;
+  background: #fff;
+}
+.userActivityGrid2 h3.userActivityh3 {
+  font-size: 32px;
+  font-weight: 800;
+  text-align: center;
+}
+// .userActivityGrid2Item h5.userActivityh5 {
+//   font-size: 16px;
+//   font-weight: 600;
+//   text-align: center;
+// }
+.userActivityGrid2 h5.userActivityh5{
+  width: 100%;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 27px;
+  text-align: center;
+  min-height: 54px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0px;
+}
+
+.headingbgSearch {
+  position: relative;
+  width: 570px;
+}
+.headingbgSearch .mat-form-field-label-wrapper {
+  top: -0.84375em;
+}
+.headingbgSearch .mat-form-field-appearance-fill .mat-form-field-label {
+  top: 1.09375em;
+  margin-top: -0.5em;
+}
+.headingbgSearch .mat-form-field-label-wrapper label {
+  color: #000;
+  font-size: inherit;
+  line-height: inherit;
+}
+.headingbgSearch .mat-form-field-appearance-fill .mat-form-field-flex {
+  background: #fff;
+  border-radius: 30px;
+  width: 100%;
+  padding: 0em 2.85em 0 1.2em;
+}
+.headingbgSearch .mat-form-field-appearance-fill .mat-form-field-infix {
+  padding: 0em 0 0.85em 0;
+}
+.headingbgSearch input.mat-input-element {
+  background: none;
+  color: #7d7b7b;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: inherit;
+}
+.headingbgSearch .mat-form-field-underline {
+  bottom: 0em;
+}
+.headingbgSearch .mat-form-field-appearance-fill .mat-form-field-underline::before {
+  height: 0px;
+}
+.headingbgSearch .mat-form-field-appearance-fill .mat-form-field-ripple {
+  height: 0px;
+}
+.headingbgSearch .hedflxBtn {
+  min-width: 20px !important;
+  background: transparent;
+  color: #a09e9e;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 2px;
+  padding: 0 10px;
+  height: auto;
+  line-height: inherit;
+}
+.headingbgSearch .hedflxBtn svg {
+  width: 22px;
+  height: 22px;
+}
+
+
+/* ===================== provider settings user activity css exit =====================*/
+
+
+// select dropdwon css
+
+::ng-deep .selectBlock .selectPlaceHolder .ProDrop .mat-select-placeholder {
+  font-family: 'Nunito';
+  color: #b9b9b9 !important;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.SelectBusinessArea .provider_start .mat-icon{
+  width: 28px;
+  height: 28px;
+}
+
+::ng-deep .selectBlock .mat-select-arrow {
+  border-left: 12px solid rgba(0, 0, 0, 0) !important;
+  border-right: 12px solid rgba(0, 0, 0, 0) !important;
+  border-top: 12px solid !important;
+}
+
+::ng-deep .selectBlock .mat-select-arrow {
+  color: var(--blackColor);
+}
+
+
+// ::ng-deep .selectBlock .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+//   transform: translateY(-1.55em) scale(0.75) perspective(100px) translateZ(0.001px);
+//   padding: 0;
+//   color: var(--blackColor);
+// }
+
+::ng-deep .selectBlock .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+  transform: translateY(-2.45em) scale(1.2) perspective(100px) translateZ(1.001px);
+  padding: 0;
+  color: var(--blackColor);
+  display: none;
+}
+
+::ng-deep .selectBlock .mat-form-field-label-wrapper label {
+  font-size: 16px;
+  font-weight: 400;
+}
+// ::ng-deep .selectBlock .selectPlaceHolder.mat-form-field-appearance-legacy .mat-form-field-label {
+//   top: 2.8em;
+// }
+::ng-deep .selectBlock .selectPlaceHolder.mat-form-field-appearance-legacy .mat-form-field-label {
+  top: 2.5em;
+}
+
+
+.multiDropserach {
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: #E7E7E7;
+  padding: 5px 10px;
+  border-radius: 0px;
+  border: none;
+  outline: none;
+  height: 40px;
+}
+.multiDropserach span.sIcon {
+  background: var(--primaryLight);
+  color: var(--whiteColor);
+  width: 35px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+}
+.multiDropserach input {
+  height: 32px;
+  border-radius: 0px;
+  padding: 0px 10px;
+  color: var(--blackColor);
+  font-size: 16px;
+  font-weight: 600;
+}
+.SelectBusinessArea .provider_start .mat-icon{
+  width: 28px;
+  height: 28px;
+}
+
+::ng-deep .loginCust .mat-select-arrow {
+  border-left: 12px solid rgba(0, 0, 0, 0) !important;
+  border-right: 12px solid rgba(0, 0, 0, 0) !important;
+  border-top: 12px solid !important;
+}
+
+::ng-deep .loginCust .mat-select-arrow {
+  color: var(--blackColor);
+}
+
+::ng-deep .loginCust .mat-form-field-appearance-fill .mat-select-arrow-wrapper {
+  transform: translateY(0%);
+}
+
+::ng-deep .sanVibhu mat-option {
+  border-bottom: 1px solid #000;
+}
+
+::ng-deep div#signup_provider-panel {
+  transform: inherit !important;
+  margin-top: 42px;
+  border-radius: 0px;
+}
+
+::ng-deep .cdk-overlay-container .cdk-overlay-pane {
+  margin-top: 0px;
+}
+::ng-deep .cdk-overlay-container .cdk-overlay-pane mat-option {
+  font-size: 16px;
+  font-weight: 400;
+  border-bottom: 1px solid #333;
+  padding: 0 12px;
+}
+
+
+
+::ng-deep .selectBlock .selectPlaceHolder.mat-form-field-appearance-legacy .mat-form-field-label mat-label.invisible {
+  visibility: visible !important;
+  color: var(--blackColor) !important;
+}
+
+::ng-deep .cdk-overlay-container .cdk-overlay-pane .mat-select-panel {
+  border-radius: 0px;
+}
+
+::ng-deep .SelectBusinessArea h4.titleMain4 {
+  margin-bottom: 10px;
+}
+
+::ng-deep .selectBlock .mat-form-field-infix {
+  margin-top: 0;
+  padding: 0;
+  border-top: 0px;
+}
+::ng-deep .selectBlock .mat-form-field-wrapper {
+  padding-bottom: 10px;
+}
+
+
+@media screen and (max-width:1199px) {
+  .userActivityGrid4 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .userActivityGrid2Item h5.userActivityh5 {
+    min-height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width:991px) {
+  .userActivityGrid4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .userActivityGrid2Item h5.userActivityh5 {
+    min-height: 60px;
+  }
+}
+@media screen and (max-width:767px){
+  .headingbgMobPortal{
+    background-color: transparent;
+  }
+  .contentrightBgMobPortal{
+    border: none;
+    background-color: transparent;
+  }
+  .headingbg h1.headingh1{
+    text-align: center;
+    font-weight: bold;
+  }
+  .headingbg p.paratop{
+    text-align: center;
+    line-height: 22px;
+  }
+  .headingbg{
+    border-bottom: none;
+  }
+  .cardBox{
+    background-color: transparent;
+    border: none;
+  }
+  .userActivityTopMobPortal{
+    background-color: #fff;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  .paymentInformartion{
+    padding: 0px;
+  }
+  .userActivityh2{
+    font-size: 14px !important;
+  }
+  .mat-form-field{
+    width: calc(100vw - 16%);
+  }
+  .shareBoxFixed {
+    overflow-x: hidden;
+  }
+  ::ng-deep.mat-select-placeholder{
+    color: #164789 !important;
+  }
+  .userActivityh6Mov{
+    display: none;
+  }
+  h6.userActivityh6Date {
+    font-family: 'Nunito';
+    font-size: 16px;
+    font-weight: 500;
+    font-style: italic;
+    color: #767676;
+    margin: 0px;
+  }
+  .userActivityGridBox{
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+  .userActivityGridBox h4.userActivityh4 {
+    font-size: 16px;
+    margin:0 0 15px 0;
+  }
+  .userActivityGrid4Item h5.userActivityh5,.userActivityGrid2Item h5.userActivityh5{
+    font-size: 14px;
+    line-height: 19px;
+    text-align: center;
+  }
+  .userActivityGrid4Item h3.userActivityh3,.userActivityGrid2 h3.userActivityh3 {
+    font-size: 16px;
+  }
+  .userActivityGrid2 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .activityDivider {
+    display: none;
+  }
+}

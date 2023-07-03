@@ -1,0 +1,505 @@
+<div class="git">
+  <form [formGroup]="applyForm">
+    <div class="onlinePopupOut">
+      <div class="onlinebgPop">
+        <h1 class="headingh1">Online Application | The Rhoades School</h1>
+      </div>
+      <div class="onlinePopCustom">
+        <div class="onlinePopup">
+          <div class="onlinePopupItem">
+            <form formGroupName="ParentForm">
+              <div class="onlinePopflex">
+                <div class="onlineflexhead">
+                  <h2 class="onlinetitle">Parent 1 basic information</h2>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                  <div class="mb-3">
+                    <label class="form-label-md">First Name</label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      placeholder=""
+                      autocomplete="off"
+                      formControlName="first_name"
+                    />
+                  </div>
+                </div>
+                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                  <div class="mb-3">
+                    <label class="form-label-md">Last Name</label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      placeholder=""
+                      autocomplete="off"
+                      formControlName="last_name"
+                    />
+                  </div>
+                </div>
+                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                  <div class="mb-3">
+                    <label class="form-label-md">E-mail address</label>
+                    <input
+                      class="form-control"
+                      type="email"
+                      placeholder=""
+                      autocomplete="off"
+                      formControlName="email"
+                      required
+                    />
+                    <!-- <span style="color: red"
+                  *ngIf="([formGroup]['email'].errors && [formGroup]['email'].touched) || submitted && [formGroup]['email'].errors">
+                  <mat-error *ngIf="[formGroup]['email'].errors['required']">Email can't be blank</mat-error>
+                  <mat-error *ngIf="[formGroup]['email'].errors['pattern']">Email is invalid</mat-error>
+                </span> -->
+                  </div>
+                </div>
+                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                  <div class="mb-3">
+                    <label class="form-label-md">Phone Number</label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      placeholder=""
+                      autocomplete="off"
+                      formControlName="contact"
+                    />
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="mb-3">
+                    <label class="form-label-md">Address</label>
+                    <input
+                      type="text"
+                      ngx-google-places-autocomplete
+                      class="form-control"
+                      autocomplete="off"
+                      placeholder=""
+                      formControlName="address"
+                    />
+                  </div>
+                </div>
+                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                  <div class="mb-3">
+                    <label class="form-label-md">Occupation</label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      placeholder=""
+                      autocomplete="off"
+                      formControlName="occupation"
+                    />
+                  </div>
+                </div>
+                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                  <div class="mb-3">
+                    <label class="form-label-md">Employer name</label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      placeholder=""
+                      autocomplete="off"
+                      formControlName="employer_name"
+                    />
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="mb-3">
+                    <label class="form-label-md">Employer address</label>
+                    <input
+                      type="text"
+                      ngx-google-places-autocomplete
+                      class="form-control"
+                      placeholder=""
+                      autocomplete="off"
+                      formControlName="employer_address"
+                    />
+                  </div>
+                </div>
+                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                  <div class="mb-3">
+                    <label class="form-label-md">Employee phone number</label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      placeholder=""
+                      autocomplete="off"
+                      formControlName="employee_phone"
+                    />
+                  </div>
+                </div>
+                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                  <div class="mb-3">
+                    <label class="form-label-md">Annual gross income</label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      placeholder=""
+                      autocomplete="off"
+                      formControlName="gross_income"
+                    />
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="onlinePopupItem">
+            <form formGroupName="GuardianForm">
+              <div class="onlinePopflex noneflex">
+                <div class="onlineflexhead">
+                  <h2 class="onlinetitle">Parent 2 basic information</h2>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                  <div class="mb-3">
+                    <label class="form-label-md">First Name</label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      placeholder=""
+                      autocomplete="off"
+                      formControlName="first_name"
+                    />
+                  </div>
+                </div>
+                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                  <div class="mb-3">
+                    <label class="form-label-md">Last Name</label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      placeholder=""
+                      autocomplete="off"
+                      formControlName="last_name"
+                    />
+                  </div>
+                </div>
+                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                  <div class="mb-3">
+                    <label class="form-label-md">E-mail address</label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      placeholder=""
+                      autocomplete="off"
+                      formControlName="email"
+                    />
+                  </div>
+                </div>
+                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                  <div class="mb-3">
+                    <label class="form-label-md">Phone Number</label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      placeholder=""
+                      autocomplete="off"
+                      formControlName="phone_number"
+                    />
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="mb-3">
+                    <label class="form-label-md">Address</label>
+                    <input
+                      type="text"
+                      ngx-google-places-autocomplete
+                      class="form-control"
+                      autocomplete="off"
+                      placeholder=""
+                      formControlName="address"
+                    />
+                  </div>
+                </div>
+                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                  <div class="mb-3">
+                    <label class="form-label-md">Occupation</label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      placeholder=""
+                      autocomplete="off"
+                      formControlName="occupation"
+                    />
+                  </div>
+                </div>
+                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                  <div class="mb-3">
+                    <label class="form-label-md">Employer name</label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      placeholder=""
+                      autocomplete="off"
+                      formControlName="employer_name"
+                    />
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="mb-3">
+                    <label class="form-label-md">Employer address</label>
+                    <input
+                      type="text"
+                      ngx-google-places-autocomplete
+                      class="form-control"
+                      placeholder=""
+                      autocomplete="off"
+                      formControlName="employer_address"
+                    />
+                  </div>
+                </div>
+                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                  <div class="mb-3">
+                    <label class="form-label-md">Employee phone number</label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      placeholder=""
+                      autocomplete="off"
+                      formControlName="employee_phone"
+                    />
+                  </div>
+                </div>
+                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                  <div class="mb-3">
+                    <label class="form-label-md">Annual gross income</label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      placeholder=""
+                      autocomplete="off"
+                      formControlName="gross_income"
+                    />
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="onlinePopupItem">
+            <form formGroupName="ChildForm">
+              <div class="onlinePopflex noneflex">
+                <div class="onlineflexhead">
+                  <h2 class="onlinetitle">Child's basic information</h2>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                  <div class="mb-3">
+                    <label class="form-label-md">First Name</label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      placeholder=""
+                      autocomplete="off"
+                      formControlName="first_name"
+                    />
+                  </div>
+                </div>
+                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                  <div class="mb-3">
+                    <label class="form-label-md">Last Name</label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      placeholder=""
+                      autocomplete="off"
+                      formControlName="last_name"
+                    />
+                  </div>
+                </div>
+                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                  <div class="mb-3">
+                    <label class="form-label-md">Date Of birth</label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      placeholder=""
+                      autocomplete="off"
+                      formControlName="date_of_birth"
+                    />
+                  </div>
+                </div>
+                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                  <div class="mb-3">
+                    <label class="form-label-md">Phone Number</label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      placeholder=""
+                      autocomplete="off"
+                      formControlName="contact"
+                    />
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="mb-3">
+                    <label class="form-label-md">Address</label>
+                    <input
+                      type="text"
+                      ngx-google-places-autocomplete
+                      class="form-control"
+                      autocomplete="off"
+                      placeholder=""
+                      formControlName="address"
+                    />
+                  </div>
+                </div>
+                <div class="onlinePopupItem">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="mb-3">
+                        <label class="form-label-md"
+                          >Tell us about your child</label
+                        >
+                        <textarea
+                          class="form-control"
+                          id="exampleFormControlTextarea1"
+                          rows="5"
+                          autocomplete="off"
+                          formControlName="tell_us_about_child"
+                        ></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="mb-3">
+                      <label class="form-label-md"
+                        >Any special needs or additional information?</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        autocomplete="off"
+                        placeholder=""
+                        formControlName="additional_info"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="onlinePopupItem">
+            <form formGroupName="Familydescription">
+              <div class="onlinePopflex noneflex">
+                <div class="onlineflexhead">
+                  <h2 class="onlinetitle">Family description</h2>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <div class="mb-3">
+                    <label class="form-label-md"
+                      >Tell us about your family</label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="exampleFormControlTextarea1"
+                      rows="5"
+                      autocomplete="off"
+                      formControlName="family_description"
+                    ></textarea>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="onlinePopupItem">
+            <form formGroupName="providerInfo">
+              <div class="onlinePopflex">
+                <div class="onlineflexhead">
+                  <h2 class="onlinetitle">Provider information</h2>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                  <div class="mb-3">
+                    <label class="form-label-md">Provider Name</label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      placeholder=""
+                      autocomplete="off"
+                      formControlName="first_name"
+                    />
+                  </div>
+                </div>
+                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                  <div class="mb-3">
+                    <label class="form-label-md">Desired start date</label>
+                    <input
+                      class="form-control"
+                      type="date"
+                      placeholder=""
+                      autocomplete="off"
+                      formControlName="desired_start_date"
+                    />
+                  </div>
+                </div>
+                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                  <div class="mb-3">
+                    <label class="form-label-md"
+                      >Program/ grade level applying for</label
+                    >
+                    <input
+                      class="form-control"
+                      type="text"
+                      placeholder=""
+                      autocomplete="off"
+                      formControlName="program_applying"
+                    />
+                  </div>
+                </div>
+                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                  <div class="mb-3">
+                    <label class="form-label-md [formGroup]-0 [formGroup]-0">
+                      Would you like to enroll electronically through Kids Care
+                      Finder if this provider invites you to enroll?
+                    </label>
+                    <div class="onlineRadio">
+                      <div class="form-check form-check-inline">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          formControlName="enrollment_documentation"
+                          name="enrollment_documentation"
+                          id="inlineRadio1"
+                          value="true"
+                        />
+                        <label class="form-check-label" for="inlineRadio1"
+                          >Yes</label
+                        >
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          formControlName="enrollment_documentation"
+                          name="enrollment_documentation"
+                          id="inlineRadio2"
+                          value="false"
+                        />
+                        <label class="form-check-label" for="inlineRadio2"
+                          >No</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="onlinepopBtn">
+          <button mat-stroked-button (click)="closeModal()" class="strokeBtn">
+            Exit
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

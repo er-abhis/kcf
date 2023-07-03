@@ -1,0 +1,510 @@
+<div class="mainBgColor">
+  <app-header></app-header>
+
+  <section id="resultsingle_sect" class="main_block PremiumSection resultsingle_sect">
+    <div class="container-fluid paddingXnew">
+      <div class="singleTopFlex">
+        <a href="javascript:void(0)" (click)="return()" class="backToResult"><i class="fa-solid fa-arrow-left"></i>
+          <ng-container *ngIf="return_text">
+            Return to {{return_text }}
+          </ng-container>
+          <ng-container *ngIf="!return_text">
+            Return
+          </ng-container>
+        </a>
+        <div class="singleToptext">
+          <h5><span>Preschools </span> <b><img src="../../../../assets/images/arwdbl.svg" alt=""></b>{{
+            providerSelectedData?.provider?.organization_name | titlecase }}
+          </h5>
+        </div>
+      </div>
+    </div>
+    <!-- Preminum Provider Section Start -->
+    <div id="school_profile" class="main_block school_profile">
+      <div class="container-fluid paddingXnew">
+        <div class="row">
+          <div class="col-12">
+            <div class="main_block inner_main_block singleRhodeCust">
+              <p class="premium_provider"
+                *ngIf="providerSelectedData?.provider?.provider_subscription?.plan_type == 'PREMIUM_WITH_SRO'"><span><i
+                    class="fa-solid fa-star"></i> Premium provider</span></p>
+              <!-- <a href="javascript:void(0)" (click)="openModal('signIn')" class="add_favrt_provider">Add to favorites
+                <i class="fa-regular fa-heart"></i></a> -->
+              <a href="javascript:void(0)" (click)="isLoggedIn('favourite',providerSelectedData)"
+                class="add_favrt_provider add_favrt_providerbtn">Add to
+                favorites
+                <svg *ngIf="isFavourite(providerSelectedData.favourite)" width="30" height="29" viewBox="0 0 30 29"
+                  fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M14.9996 2.46385C23.3208 -6.0899 44.1258 8.87822 14.9996 28.1251C-14.1267 8.8801 6.67834 -6.0899 14.9996 2.46385Z"
+                    fill="#772162" />
+                </svg>
+                <svg *ngIf="!isFavourite(providerSelectedData.favourite)" width="20" height="20" viewBox="0 0 20 20"
+                  fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M10.0002 4.07162L9.1039 3.11858C7.00008 0.881441 3.14246 1.65345 1.74992 4.46603C1.09615 5.78892 0.948648 7.69889 2.14243 10.1365C3.29247 12.4835 5.68504 15.2948 10.0002 18.357C14.3153 15.2948 16.7066 12.4835 17.8579 10.1365C19.0517 7.6976 18.9054 5.78892 18.2504 4.46603C16.8579 1.65345 13.0003 0.880148 10.8965 3.11729L10.0002 4.07162ZM10.0002 19.9152C-9.16666 6.81309 4.09874 -3.41309 9.78017 1.99613C9.85517 2.06725 9.92892 2.14096 10.0002 2.21726C10.0707 2.14103 10.1441 2.0677 10.2202 1.99742C15.9004 -3.41567 29.167 6.81179 10.0002 19.9152Z"
+                    fill="white" />
+                </svg>
+                <!-- <i class="fa-regular fa-heart"></i> -->
+              </a>
+
+              <div class="profile_main_info main_block">
+                <div class="profile_logo_block">
+                  <div class="profile_logo">
+                    <div class="inner_logo inner_logoMob">
+                      <img src="../../../assets/images/Galaxy-Hydra.png" alt="image-back" />
+                      <img class="providerPublicImage" src="{{providerSelectedData?.provider?.profile_photo}}"
+                        *ngIf="picture" alt="image-back" />
+                      <span class="name_first_chrct name_first_chrctName"
+                        *ngIf="!picture">{{providerSelectedData?.provider?.organization_name[0]}}</span>
+                    </div>
+                  </div>
+                  <div (click)="openLicenseTooltip()" #licenseBtn class="license_info"
+                    *ngIf="providerSelectedData?.provider?.is_license_verified">
+                    <div class="verify_block badgeVeri">
+                      <div class="badgesingle">
+                        <span class="badgeModi">
+                          <svg width="28" height="32" viewBox="0 0 28 32" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <mask id="path-1-outside-1_189_42731" maskUnits="userSpaceOnUse" x="-1" y="0.5" width="29"
+                              height="31" fill="black">
+                              <rect fill="white" x="-1" y="0.5" width="29" height="31" />
+                              <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M13.9375 3.5C12.8594 3.5 11.0578 3.91406 9.36251 4.375C7.62813 4.84375 5.8797 5.39844 4.85157 5.73438C4.42171 5.87633 4.04062 6.13666 3.75207 6.48547C3.46351 6.83428 3.27921 7.25741 3.22032 7.70625C2.28907 14.7016 4.45001 19.8859 7.07188 23.3156C8.18373 24.7828 9.50943 26.0747 11.0047 27.1484C11.6078 27.575 12.1672 27.9016 12.6422 28.125C13.0797 28.3313 13.55 28.5 13.9375 28.5C14.325 28.5 14.7938 28.3313 15.2328 28.125C15.8055 27.8467 16.3533 27.52 16.8703 27.1484C18.3656 26.0748 19.6913 24.7828 20.8031 23.3156C23.425 19.8859 25.5859 14.7016 24.6547 7.70625C24.5959 7.25719 24.4117 6.83381 24.1231 6.48474C23.8346 6.13566 23.4534 5.87505 23.0234 5.73281C21.531 5.24346 20.0269 4.7902 18.5125 4.37344C16.8172 3.91563 15.0156 3.5 13.9375 3.5ZM17.2906 11.5406C17.4373 11.3939 17.6363 11.3115 17.8438 11.3115C18.0512 11.3115 18.2502 11.3939 18.3969 11.5406C18.5436 11.6873 18.626 11.8863 18.626 12.0938C18.626 12.3012 18.5436 12.5002 18.3969 12.6469L13.7094 17.3344C13.6368 17.4071 13.5506 17.4649 13.4557 17.5042C13.3608 17.5436 13.259 17.5639 13.1563 17.5639C13.0535 17.5639 12.9517 17.5436 12.8568 17.5042C12.7619 17.4649 12.6757 17.4071 12.6031 17.3344L10.2594 14.9906C10.1867 14.918 10.1291 14.8318 10.0898 14.7368C10.0505 14.6419 10.0303 14.5402 10.0303 14.4375C10.0303 14.3348 10.0505 14.2331 10.0898 14.1382C10.1291 14.0432 10.1867 13.957 10.2594 13.8844C10.332 13.8117 10.4183 13.7541 10.5132 13.7148C10.6081 13.6755 10.7098 13.6553 10.8125 13.6553C10.9152 13.6553 11.017 13.6755 11.1119 13.7148C11.2068 13.7541 11.293 13.8117 11.3656 13.8844L13.1563 15.6766L17.2906 11.5406Z" />
+                            </mask>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M13.9375 3.5C12.8594 3.5 11.0578 3.91406 9.36251 4.375C7.62813 4.84375 5.8797 5.39844 4.85157 5.73438C4.42171 5.87633 4.04062 6.13666 3.75207 6.48547C3.46351 6.83428 3.27921 7.25741 3.22032 7.70625C2.28907 14.7016 4.45001 19.8859 7.07188 23.3156C8.18373 24.7828 9.50943 26.0747 11.0047 27.1484C11.6078 27.575 12.1672 27.9016 12.6422 28.125C13.0797 28.3313 13.55 28.5 13.9375 28.5C14.325 28.5 14.7938 28.3313 15.2328 28.125C15.8055 27.8467 16.3533 27.52 16.8703 27.1484C18.3656 26.0748 19.6913 24.7828 20.8031 23.3156C23.425 19.8859 25.5859 14.7016 24.6547 7.70625C24.5959 7.25719 24.4117 6.83381 24.1231 6.48474C23.8346 6.13566 23.4534 5.87505 23.0234 5.73281C21.531 5.24346 20.0269 4.7902 18.5125 4.37344C16.8172 3.91563 15.0156 3.5 13.9375 3.5ZM17.2906 11.5406C17.4373 11.3939 17.6363 11.3115 17.8438 11.3115C18.0512 11.3115 18.2502 11.3939 18.3969 11.5406C18.5436 11.6873 18.626 11.8863 18.626 12.0938C18.626 12.3012 18.5436 12.5002 18.3969 12.6469L13.7094 17.3344C13.6368 17.4071 13.5506 17.4649 13.4557 17.5042C13.3608 17.5436 13.259 17.5639 13.1563 17.5639C13.0535 17.5639 12.9517 17.5436 12.8568 17.5042C12.7619 17.4649 12.6757 17.4071 12.6031 17.3344L10.2594 14.9906C10.1867 14.918 10.1291 14.8318 10.0898 14.7368C10.0505 14.6419 10.0303 14.5402 10.0303 14.4375C10.0303 14.3348 10.0505 14.2331 10.0898 14.1382C10.1291 14.0432 10.1867 13.957 10.2594 13.8844C10.332 13.8117 10.4183 13.7541 10.5132 13.7148C10.6081 13.6755 10.7098 13.6553 10.8125 13.6553C10.9152 13.6553 11.017 13.6755 11.1119 13.7148C11.2068 13.7541 11.293 13.8117 11.3656 13.8844L13.1563 15.6766L17.2906 11.5406Z"
+                              fill="#369108" />
+                            <path
+                              d="M9.36251 4.375L10.1452 7.27109L10.1496 7.26991L9.36251 4.375ZM4.85157 5.73438L3.9198 2.88273L3.91083 2.88569L4.85157 5.73438ZM3.22032 7.70625L6.19409 8.10213L6.19483 8.09649L3.22032 7.70625ZM7.07188 23.3156L9.46288 21.5036L9.45523 21.4936L7.07188 23.3156ZM11.0047 27.1484L9.25489 29.5853L9.26362 29.5915L9.2724 29.5978L11.0047 27.1484ZM12.6422 28.125L13.9215 25.4114L13.9192 25.4103L12.6422 28.125ZM15.2328 28.125L16.5084 30.8403L16.5264 30.8319L16.5443 30.8232L15.2328 28.125ZM16.8703 27.1484L15.1206 24.7116L15.1197 24.7122L16.8703 27.1484ZM20.8031 23.3156L18.4198 21.4936L18.4121 21.5037L20.8031 23.3156ZM24.6547 7.70625L21.6801 8.09567L21.6809 8.10213L24.6547 7.70625ZM23.0234 5.73281L23.9656 2.88459L23.9581 2.88213L23.0234 5.73281ZM18.5125 4.37344L19.3085 1.48097L19.3016 1.47906L19.2946 1.47718L18.5125 4.37344ZM17.8438 11.3115V14.3115V11.3115ZM18.3969 12.6469L20.5182 14.7682L18.3969 12.6469ZM13.7094 17.3344L11.5881 15.2131L11.5854 15.2157L13.7094 17.3344ZM12.6031 17.3344L14.7271 15.2157L14.7245 15.2131L12.6031 17.3344ZM10.0303 14.4375H7.03027H10.0303ZM11.3656 13.8844L13.4879 11.764L13.487 11.7631L11.3656 13.8844ZM13.1563 15.6766L11.034 17.797L13.1557 19.9205L15.278 17.7975L13.1563 15.6766ZM13.9375 0.5C12.3917 0.5 10.2027 1.03765 8.57541 1.48009L10.1496 7.26991C11.913 6.79047 13.3271 6.5 13.9375 6.5V0.5ZM8.57978 1.47891C6.77232 1.96741 4.96761 2.54037 3.91981 2.88274L5.78334 8.58601C6.79178 8.2565 8.48395 7.72009 10.1452 7.27109L8.57978 1.47891ZM3.91083 2.88569C2.94504 3.20463 2.08882 3.78954 1.44051 4.57322L6.06362 8.39772C5.99242 8.48379 5.89838 8.54803 5.79231 8.58306L3.91083 2.88569ZM1.44051 4.57322C0.792204 5.3569 0.378114 6.30757 0.245811 7.31601L6.19483 8.09649C6.1803 8.20725 6.13482 8.31166 6.06362 8.39772L1.44051 4.57322ZM0.246556 7.31037C-0.801493 15.183 1.6411 21.1512 4.68853 25.1376L9.45523 21.4936C7.25892 18.6206 5.37964 14.2201 6.19409 8.10213L0.246556 7.31037ZM4.68091 25.1276C5.97402 26.8339 7.51585 28.3365 9.25489 29.5853L12.7545 24.7116C11.503 23.8129 10.3934 22.7316 9.46285 21.5037L4.68091 25.1276ZM9.2724 29.5978C9.99269 30.1072 10.704 30.5286 11.3652 30.8397L13.9192 25.4103C13.6304 25.2745 13.2229 25.0428 12.737 24.6991L9.2724 29.5978ZM11.3629 30.8386C11.8589 31.0724 12.8427 31.5 13.9375 31.5V25.5C13.9974 25.5 14.0465 25.5032 14.0834 25.5069C14.1204 25.5105 14.1484 25.5149 14.1664 25.5182C14.2008 25.5244 14.2102 25.5285 14.1916 25.5227C14.1739 25.5173 14.1411 25.5061 14.0922 25.4865C14.0439 25.4671 13.9869 25.4423 13.9215 25.4114L11.3629 30.8386ZM13.9375 31.5C15.0332 31.5 16.0169 31.0712 16.5084 30.8403L13.9573 25.4097C13.8901 25.4412 13.8319 25.4666 13.7828 25.4863C13.7331 25.5062 13.6999 25.5175 13.6821 25.5229C13.6634 25.5287 13.6731 25.5246 13.7077 25.5183C13.726 25.515 13.7542 25.5106 13.7913 25.5069C13.8284 25.5032 13.8776 25.5 13.9375 25.5V31.5ZM16.5443 30.8232C17.2705 30.4702 17.9652 30.0559 18.6209 29.5847L15.1197 24.7122C14.7413 24.9841 14.3404 25.2231 13.9214 25.4268L16.5443 30.8232ZM18.6201 29.5853C20.3592 28.3366 21.9011 26.8339 23.1942 25.1275L18.4121 21.5037C17.4816 22.7316 16.3721 23.813 15.1206 24.7116L18.6201 29.5853ZM23.1865 25.1376C26.2339 21.1512 28.6765 15.183 27.6285 7.31037L21.6809 8.10213C22.4954 14.2201 20.6161 18.6206 18.4198 21.4936L23.1865 25.1376ZM27.6293 7.31683C27.4973 6.30826 27.0835 5.35738 26.4354 4.57339L21.8108 8.39609C21.7399 8.31024 21.6945 8.20612 21.6801 8.09567L27.6293 7.31683ZM26.4354 4.57339C25.7874 3.78938 24.9313 3.20405 23.9656 2.8846L22.0813 8.58102C21.9755 8.54604 21.8818 8.48195 21.8108 8.39609L26.4354 4.57339ZM23.9581 2.88213C22.4198 2.37774 20.8694 1.91055 19.3085 1.48097L17.7165 7.2659C19.1843 7.66985 20.6422 8.10918 22.0888 8.58349L23.9581 2.88213ZM19.2946 1.47718C17.6745 1.03967 15.4828 0.5 13.9375 0.5V6.5C14.5484 6.5 15.9599 6.79158 17.7304 7.26969L19.2946 1.47718ZM19.412 13.6619C18.996 14.0779 18.4319 14.3115 17.8438 14.3115V8.31151C16.8406 8.31151 15.8786 8.71 15.1693 9.4193L19.412 13.6619ZM17.8438 14.3115C17.2556 14.3115 16.6915 14.0779 16.2756 13.6619L20.5182 9.4193C19.8089 8.71 18.8469 8.31151 17.8438 8.31151V14.3115ZM16.2756 13.6619C15.8596 13.246 15.626 12.6819 15.626 12.0938H21.626C21.626 11.0906 21.2275 10.1286 20.5182 9.4193L16.2756 13.6619ZM15.626 12.0938C15.626 11.5056 15.8596 10.9415 16.2756 10.5256L20.5182 14.7682C21.2275 14.0589 21.626 13.0969 21.626 12.0938H15.626ZM16.2756 10.5256L11.5881 15.2131L15.8307 19.4557L20.5182 14.7682L16.2756 10.5256ZM11.5854 15.2157C11.7915 15.0091 12.0363 14.8452 12.3059 14.7333L14.6055 20.2752C15.0649 20.0845 15.4821 19.8052 15.8334 19.453L11.5854 15.2157ZM12.3059 14.7333C12.5754 14.6215 12.8644 14.5639 13.1563 14.5639V20.5639C13.6536 20.5639 14.1461 20.4658 14.6055 20.2752L12.3059 14.7333ZM13.1563 14.5639C13.4481 14.5639 13.7371 14.6215 14.0066 14.7333L11.707 20.2752C12.1664 20.4658 12.6589 20.5639 13.1563 20.5639V14.5639ZM14.0066 14.7333C14.2762 14.8452 14.521 15.0091 14.7271 15.2157L10.4791 19.453C10.8304 19.8052 11.2477 20.0845 11.707 20.2752L14.0066 14.7333ZM14.7245 15.2131L12.3807 12.8693L8.13806 17.1119L10.4818 19.4557L14.7245 15.2131ZM12.3807 12.8693C12.5866 13.0752 12.75 13.3197 12.8615 13.5888L7.31818 15.8849C7.50825 16.3438 7.78685 16.7607 8.13806 17.1119L12.3807 12.8693ZM12.8615 13.5888C12.9729 13.8579 13.0303 14.1463 13.0303 14.4375H7.03027C7.03027 14.9342 7.1281 15.426 7.31818 15.8849L12.8615 13.5888ZM13.0303 14.4375C13.0303 14.7287 12.9729 15.0171 12.8615 15.2862L7.31818 12.9901C7.1281 13.449 7.03027 13.9408 7.03027 14.4375H13.0303ZM12.8615 15.2862C12.75 15.5553 12.5866 15.7998 12.3807 16.0057L8.13806 11.7631C7.78685 12.1143 7.50825 12.5312 7.31818 12.9901L12.8615 15.2862ZM12.3807 16.0057C12.1748 16.2116 11.9303 16.375 11.6612 16.4864L9.36511 10.9432C8.90622 11.1332 8.48927 11.4118 8.13806 11.7631L12.3807 16.0057ZM11.6612 16.4864C11.3921 16.5979 11.1037 16.6553 10.8125 16.6553V10.6553C10.3158 10.6553 9.82399 10.7531 9.36511 10.9432L11.6612 16.4864ZM10.8125 16.6553C10.5213 16.6553 10.2329 16.5979 9.96381 16.4864L12.2599 10.9432C11.801 10.7531 11.3092 10.6553 10.8125 10.6553V16.6553ZM9.96381 16.4864C9.69473 16.375 9.45025 16.2116 9.24431 16.0057L13.487 11.7631C13.1357 11.4118 12.7188 11.1332 12.2599 10.9432L9.96381 16.4864ZM9.24339 16.0048L11.034 17.797L15.2785 13.5562L13.4879 11.764L9.24339 16.0048ZM15.278 17.7975L19.4124 13.6615L15.1689 9.41971L11.0345 13.5556L15.278 17.7975Z"
+                              fill="white" mask="url(#path-1-outside-1_189_42731)" />
+                          </svg>
+                          <span class="bagveri">Verified license</span>
+                        </span>
+                        <span class="bagdate">as of 4/1/2023</span>
+                      </div>
+                      <!-- <p>
+                        <span class="badgeModi">
+                          <svg width="28" height="32" viewBox="0 0 28 32" fill="none"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <mask id="path-1-outside-1_189_42731" maskUnits="userSpaceOnUse" x="-1" y="0.5" width="29"
+                            height="31" fill="black">
+                            <rect fill="white" x="-1" y="0.5" width="29" height="31" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M13.9375 3.5C12.8594 3.5 11.0578 3.91406 9.36251 4.375C7.62813 4.84375 5.8797 5.39844 4.85157 5.73438C4.42171 5.87633 4.04062 6.13666 3.75207 6.48547C3.46351 6.83428 3.27921 7.25741 3.22032 7.70625C2.28907 14.7016 4.45001 19.8859 7.07188 23.3156C8.18373 24.7828 9.50943 26.0747 11.0047 27.1484C11.6078 27.575 12.1672 27.9016 12.6422 28.125C13.0797 28.3313 13.55 28.5 13.9375 28.5C14.325 28.5 14.7938 28.3313 15.2328 28.125C15.8055 27.8467 16.3533 27.52 16.8703 27.1484C18.3656 26.0748 19.6913 24.7828 20.8031 23.3156C23.425 19.8859 25.5859 14.7016 24.6547 7.70625C24.5959 7.25719 24.4117 6.83381 24.1231 6.48474C23.8346 6.13566 23.4534 5.87505 23.0234 5.73281C21.531 5.24346 20.0269 4.7902 18.5125 4.37344C16.8172 3.91563 15.0156 3.5 13.9375 3.5ZM17.2906 11.5406C17.4373 11.3939 17.6363 11.3115 17.8438 11.3115C18.0512 11.3115 18.2502 11.3939 18.3969 11.5406C18.5436 11.6873 18.626 11.8863 18.626 12.0938C18.626 12.3012 18.5436 12.5002 18.3969 12.6469L13.7094 17.3344C13.6368 17.4071 13.5506 17.4649 13.4557 17.5042C13.3608 17.5436 13.259 17.5639 13.1563 17.5639C13.0535 17.5639 12.9517 17.5436 12.8568 17.5042C12.7619 17.4649 12.6757 17.4071 12.6031 17.3344L10.2594 14.9906C10.1867 14.918 10.1291 14.8318 10.0898 14.7368C10.0505 14.6419 10.0303 14.5402 10.0303 14.4375C10.0303 14.3348 10.0505 14.2331 10.0898 14.1382C10.1291 14.0432 10.1867 13.957 10.2594 13.8844C10.332 13.8117 10.4183 13.7541 10.5132 13.7148C10.6081 13.6755 10.7098 13.6553 10.8125 13.6553C10.9152 13.6553 11.017 13.6755 11.1119 13.7148C11.2068 13.7541 11.293 13.8117 11.3656 13.8844L13.1563 15.6766L17.2906 11.5406Z" />
+                          </mask>
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M13.9375 3.5C12.8594 3.5 11.0578 3.91406 9.36251 4.375C7.62813 4.84375 5.8797 5.39844 4.85157 5.73438C4.42171 5.87633 4.04062 6.13666 3.75207 6.48547C3.46351 6.83428 3.27921 7.25741 3.22032 7.70625C2.28907 14.7016 4.45001 19.8859 7.07188 23.3156C8.18373 24.7828 9.50943 26.0747 11.0047 27.1484C11.6078 27.575 12.1672 27.9016 12.6422 28.125C13.0797 28.3313 13.55 28.5 13.9375 28.5C14.325 28.5 14.7938 28.3313 15.2328 28.125C15.8055 27.8467 16.3533 27.52 16.8703 27.1484C18.3656 26.0748 19.6913 24.7828 20.8031 23.3156C23.425 19.8859 25.5859 14.7016 24.6547 7.70625C24.5959 7.25719 24.4117 6.83381 24.1231 6.48474C23.8346 6.13566 23.4534 5.87505 23.0234 5.73281C21.531 5.24346 20.0269 4.7902 18.5125 4.37344C16.8172 3.91563 15.0156 3.5 13.9375 3.5ZM17.2906 11.5406C17.4373 11.3939 17.6363 11.3115 17.8438 11.3115C18.0512 11.3115 18.2502 11.3939 18.3969 11.5406C18.5436 11.6873 18.626 11.8863 18.626 12.0938C18.626 12.3012 18.5436 12.5002 18.3969 12.6469L13.7094 17.3344C13.6368 17.4071 13.5506 17.4649 13.4557 17.5042C13.3608 17.5436 13.259 17.5639 13.1563 17.5639C13.0535 17.5639 12.9517 17.5436 12.8568 17.5042C12.7619 17.4649 12.6757 17.4071 12.6031 17.3344L10.2594 14.9906C10.1867 14.918 10.1291 14.8318 10.0898 14.7368C10.0505 14.6419 10.0303 14.5402 10.0303 14.4375C10.0303 14.3348 10.0505 14.2331 10.0898 14.1382C10.1291 14.0432 10.1867 13.957 10.2594 13.8844C10.332 13.8117 10.4183 13.7541 10.5132 13.7148C10.6081 13.6755 10.7098 13.6553 10.8125 13.6553C10.9152 13.6553 11.017 13.6755 11.1119 13.7148C11.2068 13.7541 11.293 13.8117 11.3656 13.8844L13.1563 15.6766L17.2906 11.5406Z"
+                            fill="#369108" />
+                          <path
+                            d="M9.36251 4.375L10.1452 7.27109L10.1496 7.26991L9.36251 4.375ZM4.85157 5.73438L3.9198 2.88273L3.91083 2.88569L4.85157 5.73438ZM3.22032 7.70625L6.19409 8.10213L6.19483 8.09649L3.22032 7.70625ZM7.07188 23.3156L9.46288 21.5036L9.45523 21.4936L7.07188 23.3156ZM11.0047 27.1484L9.25489 29.5853L9.26362 29.5915L9.2724 29.5978L11.0047 27.1484ZM12.6422 28.125L13.9215 25.4114L13.9192 25.4103L12.6422 28.125ZM15.2328 28.125L16.5084 30.8403L16.5264 30.8319L16.5443 30.8232L15.2328 28.125ZM16.8703 27.1484L15.1206 24.7116L15.1197 24.7122L16.8703 27.1484ZM20.8031 23.3156L18.4198 21.4936L18.4121 21.5037L20.8031 23.3156ZM24.6547 7.70625L21.6801 8.09567L21.6809 8.10213L24.6547 7.70625ZM23.0234 5.73281L23.9656 2.88459L23.9581 2.88213L23.0234 5.73281ZM18.5125 4.37344L19.3085 1.48097L19.3016 1.47906L19.2946 1.47718L18.5125 4.37344ZM17.8438 11.3115V14.3115V11.3115ZM18.3969 12.6469L20.5182 14.7682L18.3969 12.6469ZM13.7094 17.3344L11.5881 15.2131L11.5854 15.2157L13.7094 17.3344ZM12.6031 17.3344L14.7271 15.2157L14.7245 15.2131L12.6031 17.3344ZM10.0303 14.4375H7.03027H10.0303ZM11.3656 13.8844L13.4879 11.764L13.487 11.7631L11.3656 13.8844ZM13.1563 15.6766L11.034 17.797L13.1557 19.9205L15.278 17.7975L13.1563 15.6766ZM13.9375 0.5C12.3917 0.5 10.2027 1.03765 8.57541 1.48009L10.1496 7.26991C11.913 6.79047 13.3271 6.5 13.9375 6.5V0.5ZM8.57978 1.47891C6.77232 1.96741 4.96761 2.54037 3.91981 2.88274L5.78334 8.58601C6.79178 8.2565 8.48395 7.72009 10.1452 7.27109L8.57978 1.47891ZM3.91083 2.88569C2.94504 3.20463 2.08882 3.78954 1.44051 4.57322L6.06362 8.39772C5.99242 8.48379 5.89838 8.54803 5.79231 8.58306L3.91083 2.88569ZM1.44051 4.57322C0.792204 5.3569 0.378114 6.30757 0.245811 7.31601L6.19483 8.09649C6.1803 8.20725 6.13482 8.31166 6.06362 8.39772L1.44051 4.57322ZM0.246556 7.31037C-0.801493 15.183 1.6411 21.1512 4.68853 25.1376L9.45523 21.4936C7.25892 18.6206 5.37964 14.2201 6.19409 8.10213L0.246556 7.31037ZM4.68091 25.1276C5.97402 26.8339 7.51585 28.3365 9.25489 29.5853L12.7545 24.7116C11.503 23.8129 10.3934 22.7316 9.46285 21.5037L4.68091 25.1276ZM9.2724 29.5978C9.99269 30.1072 10.704 30.5286 11.3652 30.8397L13.9192 25.4103C13.6304 25.2745 13.2229 25.0428 12.737 24.6991L9.2724 29.5978ZM11.3629 30.8386C11.8589 31.0724 12.8427 31.5 13.9375 31.5V25.5C13.9974 25.5 14.0465 25.5032 14.0834 25.5069C14.1204 25.5105 14.1484 25.5149 14.1664 25.5182C14.2008 25.5244 14.2102 25.5285 14.1916 25.5227C14.1739 25.5173 14.1411 25.5061 14.0922 25.4865C14.0439 25.4671 13.9869 25.4423 13.9215 25.4114L11.3629 30.8386ZM13.9375 31.5C15.0332 31.5 16.0169 31.0712 16.5084 30.8403L13.9573 25.4097C13.8901 25.4412 13.8319 25.4666 13.7828 25.4863C13.7331 25.5062 13.6999 25.5175 13.6821 25.5229C13.6634 25.5287 13.6731 25.5246 13.7077 25.5183C13.726 25.515 13.7542 25.5106 13.7913 25.5069C13.8284 25.5032 13.8776 25.5 13.9375 25.5V31.5ZM16.5443 30.8232C17.2705 30.4702 17.9652 30.0559 18.6209 29.5847L15.1197 24.7122C14.7413 24.9841 14.3404 25.2231 13.9214 25.4268L16.5443 30.8232ZM18.6201 29.5853C20.3592 28.3366 21.9011 26.8339 23.1942 25.1275L18.4121 21.5037C17.4816 22.7316 16.3721 23.813 15.1206 24.7116L18.6201 29.5853ZM23.1865 25.1376C26.2339 21.1512 28.6765 15.183 27.6285 7.31037L21.6809 8.10213C22.4954 14.2201 20.6161 18.6206 18.4198 21.4936L23.1865 25.1376ZM27.6293 7.31683C27.4973 6.30826 27.0835 5.35738 26.4354 4.57339L21.8108 8.39609C21.7399 8.31024 21.6945 8.20612 21.6801 8.09567L27.6293 7.31683ZM26.4354 4.57339C25.7874 3.78938 24.9313 3.20405 23.9656 2.8846L22.0813 8.58102C21.9755 8.54604 21.8818 8.48195 21.8108 8.39609L26.4354 4.57339ZM23.9581 2.88213C22.4198 2.37774 20.8694 1.91055 19.3085 1.48097L17.7165 7.2659C19.1843 7.66985 20.6422 8.10918 22.0888 8.58349L23.9581 2.88213ZM19.2946 1.47718C17.6745 1.03967 15.4828 0.5 13.9375 0.5V6.5C14.5484 6.5 15.9599 6.79158 17.7304 7.26969L19.2946 1.47718ZM19.412 13.6619C18.996 14.0779 18.4319 14.3115 17.8438 14.3115V8.31151C16.8406 8.31151 15.8786 8.71 15.1693 9.4193L19.412 13.6619ZM17.8438 14.3115C17.2556 14.3115 16.6915 14.0779 16.2756 13.6619L20.5182 9.4193C19.8089 8.71 18.8469 8.31151 17.8438 8.31151V14.3115ZM16.2756 13.6619C15.8596 13.246 15.626 12.6819 15.626 12.0938H21.626C21.626 11.0906 21.2275 10.1286 20.5182 9.4193L16.2756 13.6619ZM15.626 12.0938C15.626 11.5056 15.8596 10.9415 16.2756 10.5256L20.5182 14.7682C21.2275 14.0589 21.626 13.0969 21.626 12.0938H15.626ZM16.2756 10.5256L11.5881 15.2131L15.8307 19.4557L20.5182 14.7682L16.2756 10.5256ZM11.5854 15.2157C11.7915 15.0091 12.0363 14.8452 12.3059 14.7333L14.6055 20.2752C15.0649 20.0845 15.4821 19.8052 15.8334 19.453L11.5854 15.2157ZM12.3059 14.7333C12.5754 14.6215 12.8644 14.5639 13.1563 14.5639V20.5639C13.6536 20.5639 14.1461 20.4658 14.6055 20.2752L12.3059 14.7333ZM13.1563 14.5639C13.4481 14.5639 13.7371 14.6215 14.0066 14.7333L11.707 20.2752C12.1664 20.4658 12.6589 20.5639 13.1563 20.5639V14.5639ZM14.0066 14.7333C14.2762 14.8452 14.521 15.0091 14.7271 15.2157L10.4791 19.453C10.8304 19.8052 11.2477 20.0845 11.707 20.2752L14.0066 14.7333ZM14.7245 15.2131L12.3807 12.8693L8.13806 17.1119L10.4818 19.4557L14.7245 15.2131ZM12.3807 12.8693C12.5866 13.0752 12.75 13.3197 12.8615 13.5888L7.31818 15.8849C7.50825 16.3438 7.78685 16.7607 8.13806 17.1119L12.3807 12.8693ZM12.8615 13.5888C12.9729 13.8579 13.0303 14.1463 13.0303 14.4375H7.03027C7.03027 14.9342 7.1281 15.426 7.31818 15.8849L12.8615 13.5888ZM13.0303 14.4375C13.0303 14.7287 12.9729 15.0171 12.8615 15.2862L7.31818 12.9901C7.1281 13.449 7.03027 13.9408 7.03027 14.4375H13.0303ZM12.8615 15.2862C12.75 15.5553 12.5866 15.7998 12.3807 16.0057L8.13806 11.7631C7.78685 12.1143 7.50825 12.5312 7.31818 12.9901L12.8615 15.2862ZM12.3807 16.0057C12.1748 16.2116 11.9303 16.375 11.6612 16.4864L9.36511 10.9432C8.90622 11.1332 8.48927 11.4118 8.13806 11.7631L12.3807 16.0057ZM11.6612 16.4864C11.3921 16.5979 11.1037 16.6553 10.8125 16.6553V10.6553C10.3158 10.6553 9.82399 10.7531 9.36511 10.9432L11.6612 16.4864ZM10.8125 16.6553C10.5213 16.6553 10.2329 16.5979 9.96381 16.4864L12.2599 10.9432C11.801 10.7531 11.3092 10.6553 10.8125 10.6553V16.6553ZM9.96381 16.4864C9.69473 16.375 9.45025 16.2116 9.24431 16.0057L13.487 11.7631C13.1357 11.4118 12.7188 11.1332 12.2599 10.9432L9.96381 16.4864ZM9.24339 16.0048L11.034 17.797L15.2785 13.5562L13.4879 11.764L9.24339 16.0048ZM15.278 17.7975L19.4124 13.6615L15.1689 9.41971L11.0345 13.5556L15.278 17.7975Z"
+                            fill="white" mask="url(#path-1-outside-1_189_42731)" />
+                          </svg>
+                          <span class="bagveri">Verified license</span>
+                        </span>
+                        <span class="bagdate">as of 4/1/2022</span>
+                      </p> -->
+                    </div>
+                  </div>
+                </div>
+                <div class="school_profile_info">
+                  <h1 class="school_title school_titleTitle capitalize">{{this.providerSelectedData?.provider?.organization_name}}</h1>
+                  <h2 class="school_titleSub">
+                    {{this.providerSelectedData?.address[0]?.address?.street_address ||
+                    'Address Not Available'}}</h2>
+                  <a href="javascript:void(0);" class="school_titleWeb"
+                    *ngIf="this.providerSelectedData?.provider?.is_website"
+                    (click)="goToLink(this.providerSelectedData?.provider?.website_link)">{{this.providerSelectedData?.provider?.website_link}}</a>
+                  <!-- <div class="headingBlack">Programs offered: Infant, Toddler, Preschool, Pre-K</div> -->
+                  <ng-container *ngIf="isPresent(providerSelectedData.agegroup)">
+                    <div class="headingBlack headingBlackPro">Programs
+                      offered: {{getPrograms(providerSelectedData.agegroup)}}</div>
+                  </ng-container>
+                  <ng-container *ngIf="!isPresent(providerSelectedData.agegroup)">
+                    <div class="headingBlack headingBlackPro">Programs
+                      offered: Not Available</div>
+                  </ng-container>
+                  <div class="buttonsCardsBlock">
+                    <div class="premiumButtons premiumButtonsMov">
+                      <button mat-button color="primary" class="buttonPre"
+                        (click)="isLoggedIn('openMessageProvider', this.providerSelectedData)"><span
+                          class="buttonIcons ProIcon1"></span>Message Provider</button>
+                      <button *ngIf="providerSelectedData?.provider?.waitlist_functionality" mat-button color="primary"
+                        class="buttonPre" (click)="isLoggedIn('addtoWaitlist',$event)"><span
+                          class="buttonIcons ProIcon2"></span>Add to
+                        Waitlist</button>
+                      <button (click)="openModalTooltip(2,btn2)"
+                        *ngIf="!providerSelectedData?.provider?.waitlist_functionality" mat-button color="primary"
+                        class="buttonPre opacitypt5"><span #btn2 class="buttonIcons ProIcon2"></span>Add to
+                        Waitlist</button>
+                      <button *ngIf="providerSelectedData?.provider?.apply_online" mat-button color="primary"
+                        (click)="isLoggedIn('openApplyOnlineModal',$event)" class="buttonPre"><span
+                          class="buttonIcons ProIcon3"></span>Apply Online</button>
+                      <button *ngIf="!providerSelectedData?.provider?.apply_online" (click)="openModalTooltip(1,btn1)"
+                        mat-button color="primary" class="opacitypt5 buttonPre"><span #btn1
+                          class="buttonIcons ProIcon3"></span>Apply Online</button>
+                      <button *ngIf="providerSelectedData?.provider?.enrollment_documentation" mat-button
+                        color="primary" class="buttonPre" (click)="isLoggedIn('requestEnroll',$event)"><span
+                          class="buttonIcons ProIcon4"></span>Request
+                        Enrollment</button>
+                      <button *ngIf="!providerSelectedData?.provider?.enrollment_documentation"
+                        (click)="openModalTooltip(3,btn3)" mat-button color="primary" class="buttonPre opacitypt5"><span
+                          #btn3 class="buttonIcons ProIcon4"></span>Request
+                        Enrollment</button>
+                    </div>
+
+                    <div class="premCards">
+                      <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+                          <div class="CardsPre">
+                            <span class="iconCard"></span>
+                            <div class="cardDataOuter">
+                              <div class="cardData" id="cardData">
+                                <ng-container *ngFor="let item of providerSelectedData.schedule">
+                                  <div *ngIf="item?.schedule_type == 'Regular'">
+                                    <label>School hours: </label>
+                                    <p>{{tConvert(item.start_time)}}-{{tConvert(item.end_time)}} ({{getDayRange(item)}})
+                                    </p>
+                                  </div>
+                                </ng-container>
+                                <ng-container *ngIf="!isScheduleRegular(providerSelectedData.schedule)">
+                                  <label>School hours: </label>
+                                  <p> Not Available
+                                  </p>
+                                </ng-container>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+                          <div class="CardsPre">
+                            <span class="iconCard PreeIcon2"></span>
+                            <div class="cardDataOuter">
+                              <div class="cardData" id="cardData">
+                                <label>Before/aftercare hours: </label>
+                                <ng-container *ngFor="let item of providerSelectedData.schedule">
+                                  <div *ngIf="(item?.schedule_type == 'Before') || (item?.schedule_type == 'After')">
+                                    <p>{{tConvert(item.start_time)}}-{{tConvert(item.end_time)}} ({{getDayRange(item)}})
+                                    </p>
+                                  </div>
+                                </ng-container>
+                                <ng-container
+                                  *ngIf="!providerSelectedData.schedule.length || (isScheduleRegular(providerSelectedData.schedule) && providerSelectedData.schedule && providerSelectedData.schedule.length == 1)">
+                                  <p>
+                                    Not Available
+                                  </p>
+                                </ng-container>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+                          <div class="CardsPre">
+                            <span class="iconCard PreeIcon4"></span>
+                            <div class="cardDataOuter">
+                              <div class="cardData" id="cardData">
+                                <label (click)="TuitionDetails('TuitionDetails')">Tuition </label>
+                                <p style="cursor: pointer;" (click)="TuitionDetails('TuitionDetails')">View Tuition
+                                  Details</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+                          <div class="CardsPre">
+                            <span class="iconCard PreeIcon4"></span>
+                            <div class="cardDataOuter">
+                              <div class="cardData" id="cardData">
+                                <label>Availablity</label>
+                                <p style="cursor: pointer;" *ngIf="isPresent(providerSelectedData.agegroup)"
+                                  (click)="Availablity('availablity')">Yes: View Availablity</p>
+                                <p *ngIf="!isPresent(providerSelectedData.agegroup)">Not Available</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Preminum Provider Section Start -->
+
+    <!-- About Section Start -->
+    <div id="school_about" class="main_block school_about">
+      <div class="container-fluid paddingXnew">
+        <div class="row">
+          <div class="col-12">
+            <div class="sect_inner_block main_block">
+              <div class="sect_head">
+                <h2 class="sect_title sect_titleAbout">About {{this.providerSelectedData?.provider?.organization_name}}</h2>
+              </div>
+              <div class="row sect_inner_row p-0">
+                <div class="col-lg-5 video_side" *ngIf="videoSrc">
+                  <div class="">
+                    <iframe width="100%" height="250px" [src]="videoSrc"></iframe>
+                  </div>
+                </div>
+                <div class="content_side" [ngClass]="{'col-lg-7': videoSrc, 'col': !videoSrc}">
+                  <div class="main_block">
+                    <p>
+                      {{this.providerSelectedData?.provider?.description?this.providerSelectedData?.provider?.description:
+                      'Description Not Available'}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- About Section End -->
+
+    <!-- Addtional Details Start -->
+    <div class="container-fluid paddingXnew">
+      <section class="AdditionalDetails">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="sect_title sect_titleAbout">Additional Details</h2>
+          </div>
+          <div class="col-12">
+            <div class="addTable">
+              <ul class="addDataLists">
+                <li>
+                  <div class="addLeftCol"><span class="iconsAdd">
+                      <img src="../../../../assets/images/addDataIcons1.svg" (error)="onImgError ($event)" /></span>
+                    Nap time
+                  </div>
+                  <div class="addRtCol">
+                    <ng-container *ngFor="let item of providerSelectedData.agegroup; let i = index">
+                      <div class="preAdiTodl"
+                        *ngIf="(item?.is_nap_time && ((item.agegroupcategory?.agegroupcategory =='Infant')))">
+                        Infant:
+                        <span>{{tConvert(item.morning_nap_start_time)}}-{{tConvert(item.morning_nap_end_time)}}</span>
+                        <span style="margin-right: 5px"
+                          *ngIf="item.afternoon_nap_start_time">,&nbsp;{{tConvert(item.afternoon_nap_start_time)}}-{{tConvert(item.afternoon_nap_end_time)}}</span>
+                      </div>
+                      <div class="preAdiTodl"
+                        *ngIf="(item?.is_nap_time && ((item.agegroupcategory?.agegroupcategory =='Toddler')))">
+                        Toddler/Preschool/Pre-K:
+                        <span>{{tConvert(item.morning_nap_start_time)}}-{{tConvert(item.morning_nap_end_time)}}</span>
+                        <span style="margin-right: 5px"
+                          *ngIf="item.afternoon_nap_start_time">,&nbsp;{{tConvert(item.afternoon_nap_start_time)}}-{{tConvert(item.afternoon_nap_end_time)}}</span>
+                      </div>
+                    </ng-container>
+                    <ng-container *ngIf="!isNapTime(providerSelectedData?.agegroup)">
+                      Not Available
+                    </ng-container>
+                  </div>
+                </li>
+                <li>
+                  <div class="addLeftCol"><span class="iconsAdd"><img src="../../../../assets/images/addDataIcons2.svg"
+                        (error)="onImgError ($event)" /></span>Provides Meals</div>
+                  <div class="addRtCol">
+                    <ng-container *ngIf="providerSelectedData.provider?.meals?.is_meal_provided">
+                      <div *ngIf="providerSelectedData.provider?.meals.breakfast">Breakfast<span
+                          *ngIf="providerSelectedData.provider?.meals.lunch || providerSelectedData.provider?.meals.dinner">&nbsp;&&nbsp;</span>
+                      </div>
+                      <div *ngIf="providerSelectedData.provider?.meals.lunch">Lunch<span
+                          *ngIf="providerSelectedData.provider?.meals.dinner">&nbsp;&&nbsp;</span></div>
+                      <div *ngIf="providerSelectedData.provider?.meals.dinner">Dinner</div>
+                    </ng-container>
+                    <!-- <ng-container
+                      *ngIf="providerSelectedData.provider?.meals?.is_meal_provided && (providerSelectedData.provider?.meals?.breakfast && providerSelectedData.provider?.meals?.lunch && providerSelectedData.provider?.meals?.dinner)">
+                      Yes
+                    </ng-container> -->
+                    <ng-container *ngIf="!providerSelectedData.provider?.meals?.is_meal_provided">
+                      No
+                    </ng-container>
+                  </div>
+                </li>
+                <li>
+                  <div class="addLeftCol"><span class="iconsAdd"><img src="../../../../assets/images/addDataIcons3.svg"
+                        (error)="onImgError ($event)" /></span>Provides Snacks</div>
+                  <div class="addRtCol">
+                    <ng-container *ngIf="providerSelectedData.provider?.snacks?.is_snack_provided">
+                      <div *ngIf="providerSelectedData.provider?.snacks?.morning">Morning<span
+                          *ngIf="providerSelectedData.provider?.snacks?.afternoon || providerSelectedData.provider?.snacks?.evening">&nbsp;&&nbsp;</span>
+                      </div>
+                      <div *ngIf="providerSelectedData.provider?.snacks?.afternoon">Afternoon<span
+                          *ngIf="providerSelectedData.provider?.snacks?.evening">&nbsp;&&nbsp;</span></div>
+                      <div *ngIf="providerSelectedData.provider?.snacks?.evening">Evening</div>
+                    </ng-container>
+
+                    <ng-container
+                      *ngIf="!providerSelectedData.provider?.snacks?.is_snack_provided">
+                      No
+                    </ng-container>
+                  </div>
+                </li>
+                <li>
+                  <div class="addLeftCol"><span class="iconsAdd"><img src="../../../../assets/images/addDataIcons4.svg"
+                        (error)="onImgError ($event)" /></span>Teacher-to-child ratio</div>
+                  <div class="addRtCol">
+                    <ng-container *ngFor="let item of childRatioFilter(providerSelectedData.agegroup); let i = index;">
+                      <div>{{ item?.agegroupcategory?.agegroupcategory}}:
+                        1 to {{((childRatioFilter(providerSelectedData.agegroup).length -1) == i)?
+                        (item?.teacher_to_child_ratio): (item?.teacher_to_child_ratio + ';')}}&nbsp;</div>
+                    </ng-container>
+                    <ng-container *ngIf="!isRatio(providerSelectedData.agegroup)">Not Available</ng-container>
+                  </div>
+                </li>
+                <li>
+                  <div class="addLeftCol"><span class="iconsAdd"><img src="../../../../assets/images/addDataIcons5.svg"
+                        (error)="onImgError ($event)" /></span>Observed holidays</div>
+                  <div class="addRtCol">
+                    <ng-container *ngIf="providerSelectedData?.provider?.observed_holiday_link">
+                      <p style="cursor: pointer;"
+                        (click)="goToLink(providerSelectedData?.provider?.observed_holiday_link)"> View dates</p>
+                    </ng-container>
+                    <ng-container *ngIf="!providerSelectedData?.provider?.observed_holiday_link">Not
+                      Available</ng-container>
+                  </div>
+                </li>
+                <li>
+                  <div class="addLeftCol"><span class="iconsAdd"><img src="../../../../assets/images/addDataIcons6.svg"
+                        (error)="onImgError ($event)" /></span>Minimum age</div>
+                  <div class="addRtCol">
+                    <ng-container
+                      *ngIf="providerSelectedData?.provider?.is_minimum_age && ((providerSelectedData.provider.minimum_age_years !=null) || (providerSelectedData.provider.minimum_age_months != null))">
+                      {{providerSelectedData.provider.minimum_age_years}} years <span style="margin-left: 5px;"
+                        *ngIf="providerSelectedData.provider.minimum_age_months != null">{{providerSelectedData.provider.minimum_age_months}}
+                        months</span>
+                    </ng-container>
+                    <ng-container *ngIf="!providerSelectedData?.provider?.is_minimum_age">
+                      Not Available
+                    </ng-container>
+                  </div>
+                </li>
+                <li>
+                  <div class="addLeftCol"><span class="iconsAdd"><img src="../../../../assets/images/addDataIcons7.svg"
+                        (error)="onImgError ($event)" /></span>Potty training required</div>
+                  <div class="addRtCol">
+                    <ng-container *ngIf="providerSelectedData.provider.is_potty_trained">
+                      Yes
+                    </ng-container>
+                    <ng-container *ngIf="!providerSelectedData.provider.is_potty_trained">
+                      No
+                    </ng-container>
+                  </div>
+                </li>
+                <li>
+                  <div class="addLeftCol"><span class="iconsAdd"><img src="../../../../assets/images/addDataIcons8.svg"
+                        (error)="onImgError ($event)" /></span>Additional languages</div>
+                  <div class="addRtCol">
+                    <ng-container *ngIf="providerSelectedData.provider?.language?.length">
+                      {{getLanguages(providerSelectedData.provider.language)}}
+                    </ng-container>
+                    <ng-container *ngIf="!providerSelectedData.provider?.language?.length">
+                      Not Available
+                    </ng-container>
+                  </div>
+                </li>
+                <li>
+                  <div class="addLeftCol"><span class="iconsAdd"><img src="../../../../assets/images/addDataIcons9.svg"
+                        (error)="onImgError ($event)" /></span>Religious affiliation</div>
+                  <div class="addRtCol">
+                    <ng-container *ngIf="providerSelectedData.provider?.religion?.length">
+                      {{getReligion(providerSelectedData.provider.religion)}}
+                    </ng-container>
+                    <ng-container *ngIf="!providerSelectedData.provider?.religion?.length">
+                      Not Available
+                    </ng-container>
+                  </div>
+                </li>
+                <li>
+                  <div class="addLeftCol"><span class="iconsAdd"><img src="../../../../assets/images/addDataIcons10.svg"
+                        (error)="onImgError ($event)" /></span>Schedule options</div>
+                  <div class="addRtCol">
+                    <ng-container
+                      *ngIf="providerSelectedData.provider.is_full_time && !providerSelectedData.provider.is_part_time">
+                      Full Time
+                    </ng-container>
+                    <ng-container
+                      *ngIf="providerSelectedData.provider.is_part_time && !providerSelectedData.provider.is_full_time ">
+                      Part Time
+                    </ng-container>
+                    <ng-container
+                      *ngIf="providerSelectedData.provider.is_part_time && providerSelectedData.provider.is_full_time ">
+                      Full Time & Part Time
+                    </ng-container>
+                    <span class="d-block w-100">
+                      <ng-container
+                        *ngIf="providerSelectedData.provider.is_full_days && !providerSelectedData.provider.is_half_days">
+                        Full days
+                      </ng-container>
+                      <ng-container
+                        *ngIf="providerSelectedData.provider.is_half_days && !providerSelectedData.provider.is_full_days ">
+                        Half/ partial days
+                      </ng-container>
+                      <ng-container
+                        *ngIf="providerSelectedData.provider.is_half_days && providerSelectedData.provider.is_full_days ">
+                        Half/ partial days & full days
+                      </ng-container>
+                      <ng-container
+                        *ngIf="!providerSelectedData.provider.is_part_time && !providerSelectedData.provider.is_full_time && !providerSelectedData.provider.is_half_days && !providerSelectedData.provider.is_full_days">
+                        Not Available
+                      </ng-container>
+                    </span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- Addtional Details End -->
+
+    <!-- Card Section Start -->
+    <section class="AdditionalCards">
+      <div class="container AditionCardCont">
+        <div class="checkAddition">
+          <div class="row">
+            <div class="col-12">
+              <h2 class="sect_title sect_titleAbout">Check out our additional pages for</h2>
+            </div>
+            <div class="col-lg-4 col-md-4  col-sm-4 col-4">
+              <div class="addCardBg comingsoon">
+                <div class="CardImg CardImgMov">
+                  <img src="../../../../assets/images/slider/7.jpg" (error)="onImgError($event)" />
+                </div>
+                <h3 class="AddCardTitle">Private school</h3>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+              <div class="addCardBg comingsoon">
+                <div class="CardImg CardImgMov">
+                  <img src="../../../../assets/images/slider/10.jpg" (error)="onImgError($event)" />
+                </div>
+                <h3 class="AddCardTitle">Summer camps</h3>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4  col-sm-4 col-4">
+              <div class="addCardBg comingsoon">
+                <div class="CardImg CardImgMov">
+                  <img src="../../../../assets/images/slider/8.jpg" (error)="onImgError($event)" />
+                </div>
+                <h3 class="AddCardTitle">Before/ aftercare</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Card Section End -->
+
+    <!-- Review Section Start -->
+    <kcf-review [reviewList]="reviewList" (ratingUpdated)="getReviews()" [data]="providerSelectedData"></kcf-review>
+    <!-- Review Section End -->
+
+  </section>
+  <app-footer></app-footer>
+</div>

@@ -1,0 +1,119 @@
+
+.descriptionBox {
+    margin-top: 15px;
+    border-radius: 10px;
+    height: 296px;
+  }
+  .descriptionBox textarea {
+    height: 100%;
+    resize: none;
+  }
+
+  .settingSave {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .settingSave .mat-button.saveShareBtn {
+    color: #164789;
+    border: 2px solid #164789;
+    background-color: transparent;
+    min-width: 130px;
+    padding: 2px 12px;
+    height: 50px;
+    line-height: 32px;
+  }
+  .settingSave .mat-button.saveShareBtn:hover {
+    box-shadow: none;
+  }
+
+  .StepDetailsLists,.addBriefBoxOuter{
+    background: none !important;
+    border: none !important;
+  }
+.steperGrayList3 .form-check-inline {
+  margin-bottom: 0px !important;
+}
+.steperPara.blclr {
+  color: var(--primaryLight) !important;
+  text-align: left !important;
+}
+
+.steperGrayList ul.staticUl {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.steperGrayList li.staticLi {
+  background: var(--tableGray);
+  font-family: 'Nunito';
+  font-size: 20px;
+  font-weight: 400;
+  display: inline-block;
+  padding: 10px 10px 10px 40px;
+  margin: 0px 10px 10px 0px;
+  gap: 5px;
+  border: 1px solid var(--grayColor);
+  position: relative;
+}
+.steperGrayList span.matlock {
+  display: inline-block;
+  line-height: 10px;
+  position: absolute;
+  left: 10px;
+  top:50%;
+  transform: translateY(-50%);
+}
+.steperGrayList span.matlock  .mat-icon {
+  font-size: 22px;
+  color: var(--blackColor);
+}
+
+
+.steperGrayOptional {
+  background: #f3f3f3;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid var(--grayColor);
+}
+.steperGrayOptional h6.fieldh6 {
+  font-size: 16px;
+  font-weight: 500;
+}
+.steperGrayList3 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr) 400px;
+  gap: 10px;
+}
+
+.steperGrayList4 {
+  display: grid;
+  grid-template-columns: 150px repeat(4, 1fr);
+  gap: 10px;
+}
+
+
+.yesNo {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.yesNo .btn-light {
+  background: var(--whiteColor);
+  padding: 8px 12px;
+  min-width: 55px;
+  border: 1px solid #D9D9D9;
+}
+
+.yesNo .btn-light .btn-check:checked+.btn, .yesNo .btn-light .btn.active, .yesNo .btn-light .btn.show, .yesNo .btn-light.btn:first-child:active, .yesNo .btn-light:not(.btn-check)+.btn:active {
+  color: var(--whiteColor);
+  background-color: var(--primaryColor);
+  border-color: var(--whiteColor);
+}
+.yesNo .btn-light:hover {
+  color: var(--whiteColor);
+  background-color: var(--primaryColor);
+  border-color: var(--whiteColor);
+}
+

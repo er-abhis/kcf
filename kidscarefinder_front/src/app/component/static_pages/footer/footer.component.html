@@ -1,0 +1,334 @@
+<!-- Footer Section Start -->
+<footer id="footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div
+        class="col-xxl-3 col-xl-3 col-lg-3 col-md-12 widget_block widget_logo logoHide_mobile"
+      >
+        <div class="main_block">
+          <div class="footer_logo">
+            <a [routerLink]="['']"
+              ><img
+                src="../../../../assets/images/footer_logo.png"
+                alt="footer-logo"
+            /></a>
+          </div>
+          <ul id="footer_social">
+            <li>
+              <a target="_blank"
+                href="https://www.facebook.com/profile.php?id=100086494694185&mibextid=LQQJ4d"
+                ><i class="fa-brands fa-facebook"></i
+              ></a>
+            </li>
+            <li>
+              <a target="_blank" href="https://instagram.com/kidscarefinder?igshid=YmMyMTA2M2Y="
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+            </li>
+            <li>
+              <a target="_blank" href="https://www.linkedin.com/company/kids-care-finder/"
+                ><i class="fa-brands fa-linkedin"></i
+              ></a>
+            </li>
+            <li>
+              <a target="_blank" href="https://twitter.com/kidscarefinder"
+                ><i class="fa-brands fa-twitter"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 footer_alignMobile">
+        <div class="row">
+          <!-- login or User case Footer -->
+          <div
+            class="col-md-12 footborder"
+            *ngIf="logedIn && loginRole == 'USER'"
+          >
+            <div class="row ">
+              <div class="col-6 widget_block widget_menu_center">
+                <div class="footer_logo footer_logo_MobileAlign">
+                  <a [routerLink]="['']"
+                    ><img
+                      src="../../../../assets/images/footer_logo.png"
+                      alt="footer-logo"
+                      class="mobile_footer_logo"
+                  /></a>
+                </div>
+                <div class="foottext text-lg-center">
+                  <ul class="footer_menu menu_footer_one">
+                    <li>
+                      <a
+                        href="javascript:void(0)"
+                        [routerLink]="['/user/profile']"
+                        >My profile</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="javascript:void(0)"
+                        [routerLink]="['/user/account-setting']"
+                        >My account</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="javascript:void(0)"
+                        [routerLink]="['/user/my-providers']"
+                        >My providers</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="javascript:void(0)"
+                        [routerLink]="['/user/message-center']"
+                        >My message center
+                        <span class="FootMeessage" *ngIf="msg">{{
+                          msg
+                        }}</span></a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="javascript:void(0)"
+                        [routerLink]="['/enrollment-details']"
+                        >My enrollment details</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-6 widget_block widget_menu_center">
+                <div class="foottext">
+                  <div class="footerCirce footer_logo_MobileAlign">
+                    <a [routerLink]="['']"
+                      ><img
+                        src="../../../../assets/images/foot_icon.svg"
+                        alt="footer-logo"
+                        class="mobile_footer_circle_logo"
+                    /></a>
+                  </div>
+                  <ul class="footer_menu menu_footer_two foottext">
+                    <li>
+                      <a href="javascript:void(0)" [routerLink]="['/about-us/']"
+                        >About us</a
+                      >
+                    </li>
+                    <li>
+                      <a href="javascript:void(0)" [routerLink]="['/faqs']"
+                        >FAQs</a
+                      >
+                    </li>
+                    <!-- <li><a href="javascript:void(0)" [routerLink]="['/provider/signup']">Become a provider</a></li> -->
+                    <li>
+                      <a
+                        href="javascript:void(0)"
+                        (click)="openProviderModal('providerModal')"
+                        >Become a provider</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="javascript:void(0)"
+                        [routerLink]="['/support/site-overview']"
+                        >Support</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="javascript:void(0)"
+                        [routerLink]="['/privacy-policy']"
+                        >Privacy policy</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Not login case Footer -->
+          <div class="col-md-12 footborder NotLoginDesign" *ngIf="!logedIn">
+            <div class="row align-items-center justify-content-center h-100">
+              <div class="col-6 widget_block widget_menu_center">
+                <div class="footer_logo">
+                  <a [routerLink]="['']"
+                    ><img
+                      src="../../../../assets/images/footer_logo.png"
+                      alt="footer-logo"
+                      class="mobile_footer_logo"
+                  /></a>
+                </div>
+                <div class="foottext">
+                  <ul class="footer_menu menu_footer_one">
+                    <li>
+                      <a
+                        href="javascript:void(0);"
+                        (click)="openModal('signIn')"
+                        >Sign in/Sign up</a
+                      >
+                    </li>
+                    <li>
+                      <a href="javascript:void(0)" [routerLink]="['/about-us/']"
+                        >About us</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="javascript:void(0)"
+                        [routerLink]="['/provider/signup']"
+                        >Become a provider</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-6 widget_block widget_menu_center">
+                <div class="footerCirce footer_logo_MobileAlign">
+                  <a [routerLink]="['']"
+                    ><img
+                      src="../../../../assets/images/foot_icon.svg"
+                      alt="footer-logo"
+                      class="mobile_footer_circle_logo"
+                  /></a>
+                </div>
+                <div class="foottext">
+                  <ul class="footer_menu menu_footer_two foottext">
+                    <li>
+                      <a href="javascript:void(0)" [routerLink]="['/faqs']"
+                        >FAQs</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="javascript:void(0)"
+                        [routerLink]="['/support/site-overview']"
+                        >Support</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="javascript:void(0)"
+                        [routerLink]="['/privacy-policy']"
+                        >Privacy policy</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Provider case Footer -->
+          <div
+            class="col-md-12 footborder providerFoot"
+            *ngIf="logedIn && loginRole == 'PROVIDER'"
+          >
+            <div class="row align-items-center justify-content-start h-100">
+              <div class="col-6 widget_block widget_menu_center">
+                <div class="footer_logo">
+                  <a [routerLink]="['']"
+                    ><img
+                      src="../../../../assets/images/footer_logo.png"
+                      alt="footer-logo"
+                      class="mobile_footer_logo"
+                  /></a>
+                </div>
+                <div class="foottext">
+                  <ul class="footer_menu menu_footer_one">
+                    <li>
+                      <a href="javascript:void(0);" (click)="logout()"
+                        >Sign out</a
+                      >
+                    </li>
+                    <li>
+                      <a href="javascript:void(0)" [routerLink]="['/about-us/']"
+                        >About us</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="javascript:void(0)"
+                        [routerLink]="['/provider/signup']"
+                        >Become a provider</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-6 widget_block widget_menu_center">
+                <div class="footerCirce footer_logo_MobileAlign">
+                  <a [routerLink]="['']"
+                    ><img
+                      src="../../../../assets/images/foot_icon.svg"
+                      alt="footer-logo"
+                      class="mobile_footer_circle_logo"
+                  /></a>
+                </div>
+                <div class="foottext">
+                  <ul class="footer_menu menu_footer_two foottext">
+                    <li>
+                      <a href="javascript:void(0)" [routerLink]="['/faqs']"
+                        >FAQs</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="javascript:void(0)"
+                        [routerLink]="['/support/site-overview']"
+                        >Support</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="javascript:void(0)"
+                        [routerLink]="['/privacy-policy']"
+                        >Privacy policy</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-12 logoHide_mobile">
+        <div class="footerCirce">
+          <a [routerLink]="['']"
+            ><img
+              src="../../../../assets/images/foot_icon.svg"
+              alt="footer-logo"
+          /></a>
+        </div>
+      </div>
+      <div class="col-12 footer_mobile_socialMedia">
+        <ul id="footer_social">
+          <li>
+            <a target="_blank"
+              href="https://www.facebook.com/profile.php?id=100086494694185&mibextid=LQQJ4d"
+              ><i class="fa-brands fa-facebook"></i
+            ></a>
+          </li>
+          <li>
+            <a target="_blank" href="https://instagram.com/kidscarefinder?igshid=YmMyMTA2M2Y="
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+          </li>
+          <li>
+            <a target="_blank" href="https://www.linkedin.com/company/kids-care-finder/"
+              ><i class="fa-brands fa-linkedin"></i
+            ></a>
+          </li>
+          <li>
+            <a target="_blank" href="https://twitter.com/kidscarefinder"
+              ><i class="fa-brands fa-twitter"></i
+            ></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- Footer Section End -->

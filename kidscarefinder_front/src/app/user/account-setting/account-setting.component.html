@@ -1,0 +1,498 @@
+<div class="mainBgColor">
+  <app-header></app-header>
+  <section class="userSignupOuter">
+    <div class="customCombine customCombineProviderPort">
+      <app-user-sidebar></app-user-sidebar>
+      <div class="contentright">
+        <app-mobo-top-menu></app-mobo-top-menu>
+        <div class="contentrightBg">
+          <div class="accountSetting">
+            <div class="headingbg">
+              <h1 class="headingh1">Account Settings</h1>
+              <p class="paratop">
+                Update your notification preferences, username and password, and
+                payment details on this screen. Note that there is no fee to have
+                a user account with Kids Care Finder. You will only be charged if
+                you select a service that has a fee accociated with it, such as
+                running a background check on a caregiver, applying for a
+                provider, or enrolling for a provider electronically.
+              </p>
+            </div>
+          </div>
+
+          <div class="shareBoxFixed">
+            <div class="shareCombine">
+              <div class="row gx-3">
+                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                  <div class="sharingCard cardBox">
+                    <h2 class="sharingh2">Notification preferences</h2>
+                    <form [formGroup]="NotificationForm">
+                      <div class="sharingInner">
+                        <div class="form-check formCheckMob">
+                          <input class="form-check-input" type="checkbox" formControlName="profile_visible_Provider"
+                            id="notification01" />
+                          <label class="form-check-label" for="notification01">
+                            Profile visible to providers
+                          </label>
+                        </div>
+                        <div class="form-check formCheckMob">
+                          <input class="form-check-input" type="checkbox" formControlName="email_alerts"
+                            id="notification02" />
+                          <label class="form-check-label" for="notification02">
+                            Receive email alerts for new messages
+                          </label>
+                        </div>
+                        <div class="form-check formCheckMob">
+                          <input class="form-check-input" type="checkbox" formControlName="email_notifications"
+                            id="notification03" />
+                          <label class="form-check-label" for="notification03">
+                            Receive email notification for provider updates
+                          </label>
+                        </div>
+                        <div class="form-check formCheckMob">
+                          <input class="form-check-input" type="checkbox" formControlName="marketing_updates_kcf"
+                            id="notification04" />
+                          <label class="form-check-label" for="notification04">
+                            Receive marketing updates from Kids Care Finder
+                          </label>
+                        </div>
+                        <div class="form-check formCheckMob">
+                          <input class="form-check-input" type="checkbox" formControlName="marketing_kcf_affiliates"
+                            id="notification05" />
+                          <label class="form-check-label" for="notification05">
+                            Receive marketing from Kids Care Finder Affiliates
+                          </label>
+                        </div>
+                      </div>
+                      <div class="extadd">
+                        <button type="button" class="btn btn-primary" (click)="sendMessage()">
+                          Submit
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                  <div class="usernameCard cardBox">
+                    <div *ngIf="showHidebox">
+                      <h2 class="usercardh2">Username & Password</h2>
+                      <p class="usercardPara">Update your account login information</p>
+                      <div class="usernameshw">
+                        <p> Username: <span>{{ this.username }}</span></p>
+                      </div>
+                      <div class="usernameBtn">
+                        <button type="button" class="btn btn-primary" [disabled]="true"
+                          (click)="showHideUserForm(true)">Change
+                          Username</button>
+                        <button type="button" class="btn btn-primary" (click)="showHidePasswordForm(true)">Change
+                          Password</button>
+                      </div>
+                      <!-- <div class="switchAuthentication">
+                        <h3 class="authoh3">Two-step authentication</h3>
+                        <label class="swithAuthenFlex">
+                          <span class="slideAuth">Off</span>
+                          <mat-slide-toggle></mat-slide-toggle>
+                        </label>
+                      </div> -->
+                    </div>
+                    <!--Change username starts-->
+                    <form [formGroup]="changeUser" (ngSubmit)="usernameChanged()">
+                      <div class="usernameCardChanged" *ngIf="showUsername">
+                        <h2 class="usercardh2sm">Change Username</h2>
+                        <p class="usercardPara">Enter desired username</p>
+                        <div class="usernameshw">
+                          <p>
+                            Current Username: <span>{{ this.username }}</span>
+                          </p>
+                        </div>
+                        <div class="formDesign usernameInput">
+                          <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">
+                              <p class="inplbl">New Username:</p>
+                            </label>
+                            <div class="col-sm-8">
+                              <input type="text" class="form-control" autocomplete="off" formControlName="username" />
+
+                              <span style="color: red" *ngIf="
+                                (u['username'].errors && u['username'].touched) ||
+                                (changePass && u['username'].errors)
+                              ">
+                                <mat-error *ngIf="u['username'].errors['required']">UserName is required</mat-error>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="usernameBtn usernameBtnSml">
+                          <button type="button" class="btn btn-danger" (click)="showHideUserForm(false)">
+                            Cancel
+                          </button>
+                          <button type="button" class="btn btn-primary ms-2" (click)="usernameChanged()">
+                            Save
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                    <!--Change username ends-->
+                    <!--Change password starts-->
+                    <form [formGroup]="changePassword" (ngSubmit)="passwordChanged()">
+                      <div class="usernameCardChanged" *ngIf="showPassword">
+                        <h2 class="usercardh2sm">Change Password</h2>
+                        <p class="usercardPara">
+                          Enter current password and desired password
+                        </p>
+                        <div class="formDesign usernameInput">
+                          <div class="form-group row">
+                            <label class="col-sm-5 col-form-label">
+                              <p class="chplbl">Current password:</p>
+                            </label>
+                            <div class="col-sm-7">
+                              <div class="input-with-help-icon">
+                                <input type="password" class="form-control" formControlName="current_password" />
+                              </div>
+                              <span style="color: red" *ngIf="changePass && f['current_password'].errors">
+                                <mat-error *ngIf="f['current_password'].errors['required']">Password Can't be
+                                  blank</mat-error>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="formDesign usernameInput">
+                          <div class="form-group row">
+                            <label class="col-sm-5 col-form-label">
+                              <p class="chplbl">New password:</p>
+                            </label>
+                            <div class="col-sm-7">
+                              <div class="input-with-help-icon tooltipPortal">
+                                <input type="password" class="form-control" formControlName="new_password" />
+                                <svg width="21" height="21" viewBox="0 0 21 21" fill="none"
+                                  xmlns="http://www.w3.org/2000/svg" matTooltip="Password must be at least eight characters in length, contain at
+                                       least one uppercase and one lowercase letter, one number, and at least one
+                                       special character" matTooltipPosition="left">
+                                  <path
+                                    d="M11.5 7.5H9.5V5.5H11.5M11.5 15.5H9.5V9.5H11.5M10.5 0.5C9.18678 0.5 7.88642 0.758658 6.67317 1.2612C5.45991 1.76375 4.35752 2.50035 3.42893 3.42893C1.55357 5.3043 0.5 7.84784 0.5 10.5C0.5 13.1522 1.55357 15.6957 3.42893 17.5711C4.35752 18.4997 5.45991 19.2362 6.67317 19.7388C7.88642 20.2413 9.18678 20.5 10.5 20.5C13.1522 20.5 15.6957 19.4464 17.5711 17.5711C19.4464 15.6957 20.5 13.1522 20.5 10.5C20.5 9.18678 20.2413 7.88642 19.7388 6.67317C19.2362 5.45991 18.4997 4.35752 17.5711 3.42893C16.6425 2.50035 15.5401 1.76375 14.3268 1.2612C13.1136 0.758658 11.8132 0.5 10.5 0.5Z"
+                                    fill="#164789" />
+                                </svg>
+                              </div>
+                              <span style="color: red" *ngIf="changePass && f['new_password'].errors">
+                                <mat-error *ngIf="f['new_password'].errors['required']">
+                                  New password can't be blank.
+                                </mat-error>
+                                <mat-error *ngIf="f['new_password'].errors['pattern']">
+                                  Please enter a valid password
+                                </mat-error>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="formDesign usernameInput">
+                          <div class="form-group row">
+                            <label class="col-sm-5 col-form-label">
+                              <p class="chplbl">Re-enter new password:</p>
+                            </label>
+                            <div class="col-sm-7">
+                              <div class="input-with-help-icon tooltipPortal">
+                                <input type="password" class="form-control" formControlName="confirm_password" />
+                                <svg width="21" height="21" viewBox="0 0 21 21" fill="none"
+                                  xmlns="http://www.w3.org/2000/svg" matTooltip="Password must be at least eight characters in length, contain at
+                                       least one uppercase and one lowercase letter, one number, and at least one
+                                       special character" matTooltipPosition="left">
+                                  <path
+                                    d="M11.5 7.5H9.5V5.5H11.5M11.5 15.5H9.5V9.5H11.5M10.5 0.5C9.18678 0.5 7.88642 0.758658 6.67317 1.2612C5.45991 1.76375 4.35752 2.50035 3.42893 3.42893C1.55357 5.3043 0.5 7.84784 0.5 10.5C0.5 13.1522 1.55357 15.6957 3.42893 17.5711C4.35752 18.4997 5.45991 19.2362 6.67317 19.7388C7.88642 20.2413 9.18678 20.5 10.5 20.5C13.1522 20.5 15.6957 19.4464 17.5711 17.5711C19.4464 15.6957 20.5 13.1522 20.5 10.5C20.5 9.18678 20.2413 7.88642 19.7388 6.67317C19.2362 5.45991 18.4997 4.35752 17.5711 3.42893C16.6425 2.50035 15.5401 1.76375 14.3268 1.2612C13.1136 0.758658 11.8132 0.5 10.5 0.5Z"
+                                    fill="#164789" />
+                                </svg>
+
+                              </div>
+                              <span style="color: red" *ngIf="changePass && f['confirm_password'].errors">
+                                <mat-error *ngIf="f['confirm_password'].errors['required']">
+                                  Confirm password can't be blank
+                                </mat-error>
+                                <mat-error *ngIf="f['confirm_password'].errors['passwordNotMatch']">
+                                  {{customAlertMessage.passwordMismatch[2].message}}
+                                </mat-error>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="usernameBtn usernameBtnSml changePassBtn">
+                          <button type="button" class="btn btn-danger" (click)="showHidePasswordForm(false)">
+                            Cancel
+                          </button>
+                          <button type="button" class="btn btn-primary ms-2" (click)="passwordChanged()">
+                            Save
+                          </button>
+                        </div>
+
+                      </div>
+                    </form>
+                    <!--Change password ends-->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="paymentInformartion">
+              <div class="paymentInformartionCard">
+                <div class="paymentInformartionFlex">
+                  <div class="paymentMethodLeft">
+                    <h2 class="payinfoh2">Payment Information</h2>
+                    <p class="paypara">Select payment method to begin</p>
+                    <div class="usernameLink">
+                      <a href="javascript:void(0)" (click)="changeType(1)" [ngClass]="{active: type == 1}">Add Bank
+                        Account</a>
+                      <a href="javascript:void(0)" (click)="changeType(2)" [ngClass]="{active: type == 2}">Debit/Credit
+                        Card</a>
+                    </div>
+                    <div *ngIf="type == 1" class="formDesign">
+                      <form [formGroup]="bankDetailForm">
+                        <div class="mb-3">
+                          <label class="form-label">Name on Account</label>
+                          <input formControlName="name" class="form-control" type="text" placeholder=""
+                            aria-label="default input example" autocomplete="off">
+                          <span style="color: red" *ngIf="
+                                (b['name'].errors &&
+                                  b['name'].touched) ||
+                                (bankDetailSubmitted && b['name'].errors)
+                              ">
+                            <mat-error *ngIf="b['name'].errors['required']">Name on account is required</mat-error>
+                          </span>
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">Account Number</label>
+                          <input formControlName="account_number" class="form-control" type="text" placeholder=""
+                            aria-label="default input example">
+                          <span style="color: red" *ngIf="
+                                (b['account_number'].errors &&
+                                  b['account_number'].touched) ||
+                                (bankDetailSubmitted && b['account_number'].errors)
+                              ">
+                            <mat-error *ngIf="b['account_number'].errors['required']">Account number is
+                              required</mat-error>
+                          </span>
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">Verify Account Number</label>
+                          <input formControlName="verify_account_number" class="form-control" type="text" placeholder=""
+                            aria-label="default input example">
+                          <span style="color: red">
+                            <mat-error
+                              *ngIf="!b['verify_account_number'].errors && bankDetailForm.value?.account_number != bankDetailForm.value?.verify_account_number">
+                              Account number does not match
+                            </mat-error>
+                          </span>
+                          <span style="color: red" *ngIf="
+                          (b['verify_account_number'].errors &&
+                            b['verify_account_number'].touched) ||
+                          (bankDetailSubmitted && b['verify_account_number'].errors)
+                        ">
+                            <mat-error *ngIf="b['verify_account_number'].errors['required']">Account number is
+                              required</mat-error>
+                          </span>
+                        </div>
+                        <div class="row">
+                          <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-12">
+                            <div class="mb-3">
+                              <label class="form-label">Routing Number</label>
+                              <input formControlName="routing_number" class="form-control" type="text" placeholder=""
+                                aria-label="default input example">
+                              <span style="color: red" *ngIf="
+                                (b['routing_number'].errors &&
+                                  b['routing_number'].touched) ||
+                                (bankDetailSubmitted && b['routing_number'].errors)
+                              ">
+                                <mat-error *ngIf="b['routing_number'].errors['required']">Routing number is
+                                  required</mat-error>
+                              </span>
+                            </div>
+                          </div>
+                          <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                            <div class="mb-3">
+                              <div class="accoutText">
+                                <label class="form-label">Account Type</label>
+                              </div>
+
+                              <div class="col-12 indivisualText">
+                                <div class="form-check form-check-inline">
+                                  <input formControlName="account_type" [checked]="checkboxType.individual"
+                                    (click)="checkbox('individual')" class="form-check-input" type="checkbox"
+                                    id="inlineCheckbox1" value="individual">
+                                  <label class="prevent-default form-check-label"
+                                    for="inlineCheckbox1">Individual</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                  <input formControlName="account_type" [checked]="checkboxType.company"
+                                    (click)="checkbox('company')" class="form-check-input" type="checkbox"
+                                    id="inlineCheckbox2" value="company">
+                                  <label class="prevent-default form-check-label" for="inlineCheckbox2">Company</label>
+                                </div>
+
+                              </div>
+                              <span style="color: red" *ngIf="
+                                (b['account_type'].errors &&
+                                  b['account_type'].touched) ||
+                                (bankDetailSubmitted && b['account_type'].errors)
+                              ">
+                                <mat-error *ngIf="b['account_type'].errors['required']">Account type is
+                                  required</mat-error>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                    <div *ngIf="type == 2" class="formDesign">
+                      <form [formGroup]="cardDetailForm">
+                        <div class="mb-3">
+                          <label class="form-label">Name on Card</label>
+                          <input formControlName="name" class="form-control" type="text" placeholder=""
+                            aria-label="default input example" autocomplete="off">
+                          <span style="color: red" *ngIf="
+                                (c['name'].errors &&
+                                  c['name'].touched) ||
+                                (cardDetailSubmitted && c['name'].errors)
+                              ">
+                            <mat-error *ngIf="c['name'].errors['required']">Name on account is required</mat-error>
+                          </span>
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">Card Number</label>
+                          <input formControlName="card_number" class="form-control" type="text" placeholder=""
+                            aria-label="default input example">
+                          <span style="color: red" *ngIf="
+                          (c['card_number'].errors &&
+                            c['card_number'].touched) ||
+                          (cardDetailSubmitted && c['card_number'].errors)
+                        ">
+                            <mat-error *ngIf="c['card_number'].errors['required']">Card number is required</mat-error>
+                          </span>
+                        </div>
+                        <div class="row">
+                          <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-12">
+                            <div class="mb-3">
+                              <label class="form-label">Expiration Month</label>
+                              <input formControlName="expiry_month" class="form-control" type="text" placeholder=""
+                                aria-label="default input example">
+                              <span style="color: red" *ngIf="
+                                (c['expiry_month'].errors &&
+                                  c['expiry_month'].touched) ||
+                                (cardDetailSubmitted && c['expiry_month'].errors)
+                              ">
+                                <mat-error *ngIf="c['expiry_month'].errors['required']">Expiration month is
+                                  required</mat-error>
+                              </span>
+                            </div>
+                          </div>
+                          <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-12">
+                            <div class="mb-3">
+                              <label class="form-label">Expiration Year</label>
+                              <input formControlName="expiry_year" class="form-control" autocomplete="cc-exp-year"
+                                type="text" placeholder="" aria-label="default input example">
+                              <span style="color: red" *ngIf="
+                                (c['expiry_year'].errors &&
+                                  c['expiry_year'].touched) ||
+                                (cardDetailSubmitted && c['expiry_year'].errors)
+                              ">
+                                <mat-error *ngIf="c['expiry_year'].errors['required']">Expiration year is
+                                  required</mat-error>
+                              </span>
+                            </div>
+                          </div>
+                          <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-12">
+                            <div class="mb-3">
+                              <label class="form-label">CVC</label>
+                              <input formControlName="cvc" class="form-control" type="password" autocomplete="cc-number"
+                                placeholder="" aria-label="default input example">
+                              <span style="color: red" *ngIf="
+                                (c['cvc'].errors &&
+                                  c['cvc'].touched) ||
+                                (cardDetailSubmitted && c['cvc'].errors)
+                              ">
+                                <mat-error *ngIf="c['cvc'].errors['required']">CVC is required</mat-error>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                    <!-- <div *ngIf="type == 1" class="formDesign">
+                      <form [formGroup]="userAccounts" (ngSubmit)="userAccSetting()">
+                        <div class="mb-3">
+                          <label class="form-label">Name on Account</label>
+                          <input class="form-control" type="text" placeholder="" aria-label="default input example"
+                            autocomplete="off" formControlName="accountName" />
+                          <span style="color: red" *ngIf="changeUserSubmitted && u['accountName'].errors">
+                            <mat-error *ngIf="u['accountName'].errors['required']">Account name is required</mat-error>
+                          </span>
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">Account Number</label>
+                          <input class="form-control" type="text" placeholder="" aria-label="default input example"
+                            autocomplete="off" formControlName="accountNumber" />
+                          <span style="color: red" *ngIf="changeUserSubmitted && u['accountNumber'].errors">
+                            <mat-error *ngIf="u['accountNumber'].errors['required']">Account number is
+                              required</mat-error>
+                          </span>
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">Verify Account Number</label>
+                          <input class="form-control" type="text" placeholder="" aria-label="default input example"
+                            autocomplete="off" formControlName="accountVNumber" />
+                          <span style="color: red" *ngIf="changeUserSubmitted && u['accountVNumber'].errors">
+                            <mat-error *ngIf="u['accountVNumber'].errors['required']">Account number is
+                              required</mat-error>
+                          </span>
+                        </div>
+                        <div class="row">
+                          <div class="col-xxl-8 col-xl-8 col-lg-7 col-md-12 col-sm-12">
+                            <div class="mb-3">
+                              <label class="form-label">Routing Number</label>
+                              <input class="form-control" type="text" placeholder="" aria-label="default input example"
+                                autocomplete="off" formControlName="accountrouting" />
+                              <span style="color: red" *ngIf="changeUserSubmitted && u['accountrouting'].errors">
+                                <mat-error *ngIf="u['accountrouting'].errors['required']">Routing number is
+                                  required</mat-error>
+                              </span>
+                            </div>
+                          </div>
+                          <div class="col-xxl-4 col-xl-4 col-lg-5 col-md-12 col-sm-12">
+                            <label class="form-label">Account Type</label>
+                            <div class="acctType">
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" />
+                                <label class="form-check-label" for="inlineCheckbox1">Checking</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" />
+                                <label class="form-check-label" for="inlineCheckbox2">Savings</label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div> -->
+                  </div>
+                  <div class="paymentMethodRight">
+                    <p class="choosepay">
+                      or choose an alternative payment option:
+                    </p>
+                    <div class="paymentSelect">
+                      <a href="javascript:void(0)"><img src="./assets/images/paypal.svg" alt="" /></a>
+                      <a href="javascript:void(0)"><img src="./assets/images/applepay.svg" alt="" /></a>
+                      <a href="javascript:void(0)"><img src="./assets/images/gpay.svg" alt="" /></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="profileContinue">
+                <button type="submit" (click)="submit()" class="btn btn-primary">Continue</button>
+              </div>
+              <div class="cancleAccoutBtn">
+                <a href="javascript:void(0)" class="btn btn-outline-primary">Delete my account and data from Kids Care
+                  Finder</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

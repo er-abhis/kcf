@@ -1,0 +1,395 @@
+<div class="container p-0">
+  <div class="StepDetailsLists stepDetailBasicFirst">
+    <div class="row">
+      <div class="col-sm-12 mx-auto">
+        <div class="main_block sect_head
+              StepDetailHeading stepheadblue">
+          <h2 class="titleDetails">
+            Review | Step 2: Schedule/ availability
+          </h2>
+          <p class="smallTextDetails">
+            Review and edit schedule/ availability
+            details
+          </p>
+        </div>
+      </div>
+      <div class="detailsRow detailsRowMobile">
+        <div class="DetailPhotoLeft bgWhiteDetails
+              fullWidthColmn">
+          <h3 class="headingBlackText">Regular hours</h3>
+          <div class="detailsColBg">
+            <div class="row">
+              <div class="col-md-12 disable-section">
+                <div class="table-responsive">
+                  <table class="table table-hover
+                        tableBigFont regularTable">
+                    <thead>
+                      <tr>
+                        <th scope="col">Days</th>
+                        <th scope="col">Start time</th>
+                        <th scope="col">End time</th>
+                        <th scope="col">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let data of regularReviewData">
+                        <td>{{data.daysString}}</td>
+                        <td>{{data.start_time_slot}}</td>
+                        <td>{{data.end_time_slot}}</td>
+                        <td>
+                          <a href="javascript:void(0);" class="actionBtnLinks"
+                            (click)="removeSchedule(data.schedule_type, data.id)">
+                            Remove
+                          </a>
+                          <a href="javascript:void(0);" class="actionBtnLinks" (click)="editSchedule(1)">
+                            Edit
+                          </a>
+                        </td>
+                      </tr>
+                      <tr *ngIf="!regularReviewData || !regularReviewData.length">
+                        <td colspan="4">No Schedule Found</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="actionBtnMid">
+                  <a class="addTimeBtnWhite" (click)="editSchedule(1)" href="javascript:void(0);">
+                    <span class="iconBlue addIcon"></span>
+                    Add start/ end time
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <form [formGroup]="scheduleReviewFormGroup">
+        <div class="detailsRow px-0">
+          <div class="DetailPhotoLeft bgWhiteDetails
+                fullWidthColmn">
+            <h3 class="headingBlackText">Before/aftercare
+              hours</h3>
+            <div class="basicFormGroup inputLock disable-section">
+              <h3>Do you provide before/ after care?</h3>
+              <mat-radio-group matInput aria-labelledby="example-radio-group-label" class="radioBasic"
+                formControlName="is_before_after_care" readonly>
+                <span *ngFor="let item of beforeAfterYesDet" class="spanRadio">
+                  <mat-radio-button class="example-radio-button form-control1" [value]="item.key">
+                    {{ item.value }}
+                  </mat-radio-button>
+                </span>
+              </mat-radio-group>
+            </div>
+            <div class="disable-section detailsColBg" *ngIf="scheduleData?.is_before_after_care">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="table-responsive">
+                    <table class="table table-hover
+                          tableBigFont regularTable">
+                      <thead>
+                        <tr>
+                          <th scope="col">Days</th>
+                          <th scope="col">Start time</th>
+                          <th scope="col">End time</th>
+                          <th scope="col">Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let item of afterCareReviewData">
+                          <td>{{item.daysString}}</td>
+                          <td>{{item.start_time_slot}}</td>
+                          <td>{{item.end_time_slot}}</td>
+                          <td>
+                            <a href="javascript:void(0);" class="actionBtnLinks"
+                              (click)="removeSchedule(item.schedule_type, item.id)">
+                              Remove
+                            </a>
+                            <a href="javascript:void(0);" class="actionBtnLinks" (click)="editSchedule(2)">
+                              Edit
+                            </a>
+                          </td>
+                        </tr>
+                        <tr *ngIf="!afterCareReviewData || !afterCareReviewData.length">
+                          <td colspan="4">No Schedule Found</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="actionBtnMid">
+                    <a class="addTimeBtnWhite" (click)="editSchedule(2)" href="javascript:void(0);">
+                      <span class="iconBlue addIcon"></span>
+                      Add start/ end time
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="detailsRow disable-section sectionSec px-0">
+          <div class="DetailPhotoLeft bgWhiteDetails
+                fullWidthColmn inlineFormGroup">
+            <h3 class="headingBlackText">Availability</h3>
+            <div class="basicFormGroup inputLock">
+              <h3>Do you have availability now?</h3>
+              <mat-radio-group matInput aria-labelledby="example-radio-group-label" class="radioBasic"
+                formControlName="availability_now">
+                <span *ngFor="let item of beforeAfterYesDet" class="spanRadio">
+                  <mat-radio-button class="example-radio-button
+                        form-control1" [value]="item.key">
+                    {{ item.value }}
+                  </mat-radio-button>
+                </span>
+              </mat-radio-group>
+              <div class="row" *ngIf="scheduleData?.availability_now">
+                <div class="col-sm mx-auto">
+                  <h3>Available spaces</h3>
+
+                  <div class="colFlex">
+                    <div class="spaceIputLists" *ngFor="let item of ageGroupCategories; let i = index;"
+                      [ngClass]="{'d-none': item.is_present == null}">
+                      <ng-container *ngIf="item.is_present">
+                        <mat-form-field appearance="fill">
+                          <span>{{item.agegroupcategory.agegroupcategory}}:</span>
+                          <input matInput [value]="item.available_seats" />
+                        </mat-form-field>
+                      </ng-container>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="basicFormGroup" *ngIf="!scheduleData?.availability_now">
+              <h3>Next expected availability</h3>
+              <mat-radio-group matInput aria-labelledby="example-radio-group-label" class="radioBasic"
+                formControlName="next_availability">
+                <span *ngFor="let season of
+                      beforeAfterYesNextDet" class="spanRadio">
+                  <mat-radio-button class="example-radio-button
+                        form-control1" [value]="season">
+                    {{ season }}
+                  </mat-radio-button>
+                </span>
+              </mat-radio-group>
+            </div>
+          </div>
+        </div>
+
+        <div class="detailsRow detailsRowChecked sectionSec disable-section fullMobile px-0">
+          <div class="DetailPhotoLeft bgWhiteDetails
+                fullWidthColmn inlineFormGroup
+                detShedCheckBoxes">
+            <h3 class="headingBlackText">Schedule options</h3>
+            <div class="basicFormGroup inputLock">
+              <div class="col-sm-12 mx-auto">
+                <div class="daysCheckBoxs fullTimeCheck checkHalfBoxed matCheckBlack matCheckBlackMob">
+                  <mat-checkbox formControlName="is_full_time">
+                    Full time
+                  </mat-checkbox>
+                  <mat-checkbox formControlName="is_part_time">
+                    Part time
+                  </mat-checkbox>
+                  <mat-checkbox formControlName="is_half_days">
+                    Half/ partial days
+                  </mat-checkbox>
+                  <mat-checkbox formControlName="is_full_days">
+                    Full days
+                  </mat-checkbox>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="detailsRow disable-section sectionSec px-0">
+          <div class="DetailPhotoLeft bgWhiteDetails
+                fullWidthColmn inlineFormGroup
+                detShedCheckBoxes">
+            <h3 class="headingBlackText">Nap time</h3>
+            <div class="col-sm-12 mx-auto">
+              <div class="napTimeDataTable">
+                <div class="napTimeList">
+                  <div class="napLeftContent">
+                    <label>
+                      <div class="col-sm-12">
+                        <div class="daysCheckBoxs paddingcheck matCheckBlack">
+                          <mat-checkbox formControlName="not_applicable">N/A</mat-checkbox>
+                        </div>
+                      </div>
+                    </label>
+                  </div>
+                  <div class="napRTTimeForms">&nbsp;</div>
+                </div>
+
+                <div class="napTimeList" *ngIf="programsOffers.includes(INFANT)">
+                  <div class="napLeftContent">
+                    <label>
+                      <div class="daysCheckBoxs paddingcheck matCheckBlack matCheckBlackInfant">
+                        <mat-checkbox formControlName="is_infant">Infant</mat-checkbox>
+                      </div>
+                    </label>
+                  </div>
+                  <div class="napRTTimeForms">
+                    <div class="napTimeLists">
+                      <h3 class="napHeading">Morning nap</h3>
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-4 col-sm-6 ps-0">
+                            <div class="SelectTime StartTime">
+                              <label></label>
+                              <mat-label class="timevisibel">Start time</mat-label>
+                              <mat-select placeholder="Hour" formControlName="morning_start_hour">
+                                <mat-option [value]="key" *ngFor="let key of hourArray">{{key}}</mat-option>
+                              </mat-select>
+                              <mat-select placeholder="Minute" formControlName="morning_start_minute">
+                                <mat-option [value]="key" *ngFor="let key of minuteArray">{{key}}</mat-option>
+                              </mat-select>
+                              <mat-select placeholder="Format" formControlName="morning_start_format">
+                                <mat-option [value]="key" *ngFor="let key of formatArray">{{key}}</mat-option>
+                              </mat-select>
+                            </div>
+                          </div>
+                          <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-4 col-sm-6 ps-0">
+                            <div class="SelectTime StartTime">
+                              <label></label>
+                              <mat-label class="timevisibel">End time</mat-label>
+                              <mat-select placeholder="Hour" formControlName="morning_end_hour">
+                                <mat-option [value]="key" *ngFor="let key of hourArray">{{key}}</mat-option>
+                              </mat-select>
+                              <mat-select placeholder="Minute" formControlName="morning_end_minute">
+                                <mat-option [value]="key" *ngFor="let key of minuteArray">{{key}}</mat-option>
+                              </mat-select>
+                              <mat-select placeholder="Format" formControlName="morning_end_format">
+                                <mat-option [value]="key" *ngFor="let key of formatArray">{{key}}</mat-option>
+                              </mat-select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="napTimeLists">
+                      <h3 class="napHeading">Afternoon nap</h3>
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-4 col-sm-6 ps-0">
+                            <div class="SelectTime StartTime">
+                              <label></label>
+                              <mat-label class="timevisibel">Start time</mat-label>
+                              <mat-select placeholder="Hour" formControlName="afternoon_start_hour">
+                                <mat-option [value]="key" *ngFor="let key of hourArray">{{key}}</mat-option>
+                              </mat-select>
+                              <mat-select placeholder="Minute" formControlName="afternoon_start_minute">
+                                <mat-option [value]="key" *ngFor="let key of minuteArray">{{key}}</mat-option>
+                              </mat-select>
+                              <mat-select placeholder="Format" formControlName="afternoon_start_format">
+                                <mat-option [value]="key" *ngFor="let key of formatArray">{{key}}</mat-option>
+                              </mat-select>
+                            </div>
+                          </div>
+                          <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-4 col-sm-6 ps-0">
+                            <div class="SelectTime StartTime">
+                              <label></label>
+                              <mat-label class="timevisibel">End time</mat-label>
+                              <mat-select placeholder="Hour" formControlName="afternoon_end_hour">
+                                <mat-option [value]="key" *ngFor="let key of hourArray">{{key}}</mat-option>
+                              </mat-select>
+                              <mat-select placeholder="Minute" formControlName="afternoon_end_minute">
+                                <mat-option [value]="key" *ngFor="let key of minuteArray">{{key}}</mat-option>
+                              </mat-select>
+                              <mat-select placeholder="Format" formControlName="afternoon_end_format">
+                                <mat-option [value]="key" *ngFor="let key of formatArray">{{key}}</mat-option>
+                              </mat-select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="napTimeList"
+                  *ngIf="programsOffers.includes(TODDLER) || programsOffers.includes(PREK) || programsOffers.includes(PRESCHOOL)">
+                  <div class="napLeftContent">
+                    <label>
+                      <div class="col-sm-12">
+                        <div class="daysCheckBoxs paddingcheck matCheckBlack">
+                          <mat-checkbox formControlName="is_toddler">{{getProgramsOffered()}}</mat-checkbox>
+                        </div>
+                      </div>
+                    </label>
+                  </div>
+                  <div class="napRTTimeForms" style="margin-top: 45px;">
+                    <div class="napTimeLists">
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-4 col-sm-6 ps-0">
+                            <div class="SelectTime StartTime">
+                              <label></label>
+                              <mat-label class="timevisibel">Start time</mat-label>
+                              <mat-select placeholder="Hour" formControlName="start_time_hour">
+                                <mat-option [value]="key" *ngFor="let key of hourArray">{{key}}</mat-option>
+                              </mat-select>
+                              <mat-select placeholder="Minute" formControlName="start_time_minute">
+                                <mat-option [value]="key" *ngFor="let key of minuteArray">{{key}}</mat-option>
+                              </mat-select>
+                              <mat-select placeholder="Format" formControlName="start_time_format">
+                                <mat-option [value]="key" *ngFor="let key of formatArray">{{key}}</mat-option>
+                              </mat-select>
+                            </div>
+                          </div>
+                          <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-4 col-sm-6 ps-0">
+                            <div class="SelectTime StartTime">
+                              <label></label>
+                              <mat-label class="timevisibel">End time</mat-label>
+                              <mat-select placeholder="Hour" formControlName="end_time_hour">
+                                <mat-option [value]="key" *ngFor="let key of hourArray">{{key}}</mat-option>
+                              </mat-select>
+                              <mat-select placeholder="Minute" formControlName="end_time_minute">
+                                <mat-option [value]="key" *ngFor="let key of minuteArray">{{key}}</mat-option>
+                              </mat-select>
+                              <mat-select placeholder="Format" formControlName="end_time_format">
+                                <mat-option [value]="key" *ngFor="let key of formatArray">{{key}}</mat-option>
+                              </mat-select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="detailsRow disable-section sectionSec px-0">
+          <div class="DetailPhotoLeft bgWhiteDetails
+                fullWidthColmn inlineFormGroup">
+            <h3 class="headingBlackText">Observed holidays</h3>
+            <div class="uploadInputGrp uploadInputGrpMobile">
+              <div class="uploadLtDetails uploadLtDetailsMobile">
+                <div class="uploadFilesComponent uploadstep2">
+                  <h3 *ngIf="!this.scheduleData?.observed_holiday_pdf_link">No file uploaded</h3>
+                  <h3 *ngIf="this.scheduleData?.observed_holiday_pdf_link">
+                    {{this.scheduleData?.observed_holiday_pdf_link.split('//')[1].split('/')[1]}}</h3>
+                  <input class="ng-hide" #holidayPhoto multiple type="file" (change)="handle($event)" />
+                  <button mat-button class="btnSquare" (click)="handleUpload(holidayPhoto)" type="button">
+                    <span class="btnIcon upload"></span>
+                    Upload file
+                  </button>
+                </div>
+                <p class="upltext">Upload documents with supported file type (.pdf)</p>
+              </div>
+              <div class="orMidCon">or</div>
+              <div class="fileUrlsGroup FullInputGrp">
+                <p class="upltextMobile">add a link to your holiday schedule</p>
+                <div class="innflex">
+                  <input type="text" matInput placeholder="URL" formControlName="observed_holiday_web_link" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

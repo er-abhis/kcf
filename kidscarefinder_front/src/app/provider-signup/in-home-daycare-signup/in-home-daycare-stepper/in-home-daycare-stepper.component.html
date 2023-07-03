@@ -1,0 +1,184 @@
+<div class="mainBgColor">
+  <app-header></app-header>
+  <!-- ------------Provider Setting -> Get start -> Lets Get start Page Start---------------- -->
+  <section class="userSignupOuter providerSignup">
+    <div class="customCombine">
+      <app-in-home-daycare-sidebar [providerData]="providerData"
+        [SubStepsCount]="subStepsCount"></app-in-home-daycare-sidebar>
+      <div class="contentright mainStepscroll">
+        <div class="nobg">
+          <section class="main_block form_banner">
+            <div class="container-fluid p-0">
+              <div class="row">
+                <div class="col-12" style="position: relative">
+                  <div class="outer_menu_steps">
+                    <!-- <p class="menu_steps">Steps</p> -->
+                    <div class="menu_btn" (click)="showSideBar()">
+                      <p class="spanMobile"></p>
+                    </div>
+                  </div>
+                  <div class="SgeperMain propviderSignStepper">
+                    <p class="steps_count" *ngIf="stepCurrentCount != totalStep">
+                      Step <b>{{ stepCurrentCount }}</b> of
+                      <b>{{ totalStep }}</b>
+                    </p>
+                    <mat-horizontal-stepper #stepper [selectedIndex]="selectedIndex"
+                      (selectionChange)="stepChange($event)">
+                      <mat-step [stepControl]="stepOne">
+                        <form [formGroup]="stepOne">
+                          <ng-template matStepLabel>
+                            <span *ngIf="subStepsCount < 2">In Home Daycare provider sign-up</span>
+                            <span class="preBold" *ngIf="subStepsCount > 1"><span class="hideForphone">In Home Daycare
+                                provider sign-up:</span> Basic
+                              information</span>
+                          </ng-template>
+                          <app-in-home-daycare-basic-info (sideBarEnable)="enableSideBarFull($event)"
+                            [selectedCurrentIndex]="stepCurrentCount" [stepCountNumber]="subStepsCount"
+                            (moveToStep)="moveToStep($event)"></app-in-home-daycare-basic-info>
+                        </form>
+                      </mat-step>
+                      <mat-step [stepControl]="stepTwo">
+                        <!-- <h1>STEP 2 </h1> -->
+                        <form [formGroup]="stepTwo">
+                          <ng-template matStepLabel>
+                            <span class="preBold"><span class="hideForphone">Daycare provider sign-up:</span> Schedule/
+                              availability</span>
+                          </ng-template>
+                          <app-in-home-daycare-schedule-availability [selectedIndex]="stepCurrentCount"
+                            [stepCountNumber]="subStepsCount" (moveToNextStep)="moveToNextStep($event)">
+                          </app-in-home-daycare-schedule-availability>
+                        </form>
+                      </mat-step>
+                      <mat-step [stepControl]="stepThree">
+                        <!-- <h1>STEP 3 </h1> -->
+                        <form [formGroup]="stepThree">
+                          <ng-template matStepLabel>
+                            <span class="preBold"><span class="hideForphone">Daycare provider sign-up:</span> Photo/
+                              video</span>
+                          </ng-template>
+                          <!-- <app-in-home-daycare-photo-video [selectedIndex]="stepCurrentCount"
+                              [stepCountNumber]="subStepsCount"></app-in-home-daycare-photo-video> -->
+                        </form>
+                      </mat-step>
+                      <mat-step [stepControl]="stepFour">
+                        <!-- <h1>STEP 4 </h1> -->
+                        <form [formGroup]="stepFour">
+                          <ng-template matStepLabel>
+                            <span class="preBold"><span class="hideForphone">Daycare provider sign-up:</span> Child
+                              requirements</span>
+                          </ng-template>
+                          <!-- <app-in-home-daycare-child-requirements [selectedIndex]="stepCurrentCount"
+                              [stepCountNumber]="subStepsCount"></app-in-home-daycare-child-requirements> -->
+                        </form>
+                      </mat-step>
+                      <mat-step [stepControl]="stepFive">
+                        <!-- <h1>STEP 5 </h1> -->
+                        <form [formGroup]="stepFive">
+                          <ng-template matStepLabel>
+                            <span class="preBold"><span class="hideForphone">Daycare provider sign-up:</span> Meals and
+                              Snacks</span>
+                          </ng-template>
+                          <!-- <app-in-home-daycare-meals [selectedIndex]="stepCurrentCount"
+                              [stepCountNumber]="subStepsCount"></app-in-home-daycare-meals> -->
+                        </form>
+                      </mat-step>
+                      <mat-step [stepControl]="stepSix">
+                        <!-- <h1>STEP 6 </h1> -->
+                        <form [formGroup]="stepSix">
+                          <ng-template matStepLabel>
+                            <span class="preBold"><span class="hideForphone">Daycare provider sign-up:</span>
+                              Teacher-to-child
+                              ratio</span>
+                          </ng-template>
+                          <!-- <app-in-home-daycare-adult-to-child [selectedIndex]="stepCurrentCount" [stepCountNumber]="subStepsCount">
+                            </app-in-home-daycare-adult-to-child>-->
+                        </form>
+                      </mat-step>
+                      <mat-step [stepControl]="stepSeven" completed="false">
+                        <!-- <h1>STEP 7 </h1> -->
+                        <form [formGroup]="stepSeven">
+                          <ng-template matStepLabel>
+                            <span class="preBold"><span class="hideForphone">Daycare provider sign-up:</span>
+                              Tution</span>
+                          </ng-template>
+                          <!-- <app-in-home-daycare-tuitions [selectedIndex]="stepCurrentCount" [stepCountNumber]="subStepsCount">
+                            </app-in-home-daycare-tuitions> -->
+                        </form>
+                      </mat-step>
+                      <mat-step [stepControl]="stepEight">
+                        <!-- <h1>STEP 8 </h1> -->
+                        <form [formGroup]="stepEight">
+                          <ng-template matStepLabel>
+                            <span class="preBold"><span class="hideForphone">Daycare provider sign-up:</span>
+                              Affiliations</span>
+                          </ng-template>
+                          <!-- <app-in-home-daycare-affiliation [selectedIndex]="stepCurrentCount" [stepCountNumber]="subStepsCount">
+                            </app-in-home-daycare-affiliation> -->
+                        </form>
+                      </mat-step>
+                      <mat-step [stepControl]="stepNine">
+                        <!-- <h1>STEP 9</h1> -->
+                        <form [formGroup]="stepNine">
+                          <ng-template matStepLabel>
+                            <span class="preBold"><span class="hideForphone">Daycare provider sign-up:</span> Admins and
+                              settings</span>
+                          </ng-template>
+                          <!-- <app-daycare-admin-setting [selectedIndex]="stepCurrentCount" [stepCountNumber]="subStepsCount"
+                              (moveToStep)="moveToBarStep($event)"></app-daycare-admin-setting> -->
+                        </form>
+                      </mat-step>
+                      <mat-step [stepControl]="stepTen">
+                        <!-- <h1>STEP 10</h1> -->
+                        <form [formGroup]="stepTen">
+                          <ng-template matStepLabel>
+                            <span class="preBold"><span class="hideForphone">Daycare provider sign-up:</span> Account
+                              types</span>
+                          </ng-template>
+                          <!-- <app-in-home-daycare-account-type [selectedIndex]="stepCurrentCount" [stepCountNumber]="subStepsCount"
+                              (step10Complete)="updateProvider($event)" (moveToStep)="moveToBarStep($event)">
+                            </app-in-home-daycare-account-type> -->
+                        </form>
+                      </mat-step>
+                      <!-- --------------------------Button Start ----------------------------------- -->
+                    </mat-horizontal-stepper>
+                    <div *ngIf="!(subStepsCount >= 2 && stepContinue == 11)">
+                      <div class="matButtonControls matButtonControlsMobile CCCSteppp">
+                        <button mat-button *ngIf="subStepsCount < 1 && selectedIndex != 0" (click)="goBack()">
+                          <mat-icon>keyboard_arrow_left</mat-icon>Back
+                        </button>
+                        <button mat-button *ngIf="subStepsCount > 0 && hideBackBtn" (click)="subStepsPrev()">
+                          <mat-icon>keyboard_arrow_left</mat-icon>Back
+                        </button>
+                        <button mat-button *ngIf="saveShareBtn" (click)="saveAndClose()"
+                          class="saveShareBtn saveDesktop">
+                          <span class="saveIcon"></span>
+                          Save and close
+                        </button>
+                        <button mat-button (click)="subStepsNext()" *ngIf="hideStepperContinue">
+                          {{
+                          selectedIndex == 9 && subStepsCount == 1
+                          ? "Submit payment information and continue"
+                          : btnText
+                          }}<mat-icon>keyboard_arrow_right</mat-icon>
+                        </button>
+                        <button mat-button *ngIf="stepperNextBtn" (click)="goForward()">
+                          Save and continue to step {{ stepContinue }}
+                          <mat-icon>keyboard_arrow_right</mat-icon>
+                        </button>
+                      </div>
+                      <button mat-button *ngIf="saveShareBtn" (click)="saveAndClose()" class="saveShareBtn saveClose">
+                        <span class="saveIcon"></span>
+                        Save and close
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<app-footer></app-footer>

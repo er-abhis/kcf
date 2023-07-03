@@ -1,0 +1,41 @@
+@import "./variables";
+
+.submit-button {
+  font-weight: 400;
+  padding: 10px 30px;
+  border-radius: var(--bs-border-radius-pill);
+
+  div {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+
+    span.label {
+      font-size: 18px;
+    }
+
+    span.icon {
+      width: 10px;
+      display: inline-block;
+      height: 10px;
+      transform: rotate(-45deg);
+      border-bottom: 2px solid #fff;
+      border-right: 2px solid #fff;
+    }
+  }
+}
+
+.submit-button-default {
+  background: $primary-color;
+  border-color: $primary-color;
+}
+
+.submit-button-outline {
+  background: none;
+  border: 2px solid $primary-color;
+
+  span.label {
+    color: $primary-color;
+  }
+}

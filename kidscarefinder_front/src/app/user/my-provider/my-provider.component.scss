@@ -1,0 +1,74 @@
+.customCombine {
+  padding-right: 25px;
+}
+.shareBoxFixed {
+  padding: 15px;
+  height: 625px;
+  overflow: auto;
+}
+.contentrightBg {
+  border: 1px solid #8AD5FF;
+}
+
+.mproFilter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+@media screen and (max-width:767px) {
+  .customCombine {
+    padding: 0;
+  }
+  .contentrightBg {
+    background: transparent;
+    border: 0px;
+    padding: 0 15px;
+  }
+  .shareBoxFixed {
+    padding: 15px;
+    height: auto;
+    background: #e7f6ff;
+    border: 1px solid #D9D9D9;
+    border-radius: 25px;
+    margin-top: 10px;
+  }
+  .paymentInformartion .tabelCombine {
+    margin: 0 0 30px;
+  }
+  .paymentInformartion .tabelCombine:last-child {
+    margin: 0 0 15px;
+  }
+  .scrollTable {
+    max-height: inherit;
+    overflow: auto;
+  }
+  .headingbg {
+    background: transparent;
+    padding: 0px 15px;
+    border-radius: 0px;
+    border: none;
+  }
+  .headingbg h1.headingh1 {
+    // display: none;
+    text-align: center;
+  }
+  .headingbg p.paratop {
+    display: none;
+  }
+}
+
+
+.provActivityTable{
+  th{
+    vertical-align: middle !important;
+    .sortIcon{
+      cursor: pointer;
+      svg{
+        width: 38px;
+        margin-left: 5px;
+      }
+    }
+  }
+}

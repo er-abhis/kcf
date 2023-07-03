@@ -1,0 +1,213 @@
+.sidebarleft {
+  background: var(--primaryColor);
+  border: 1px solid #8ad5ff;
+  width: 280px;
+  min-height: 750px;
+  margin-top: 25px;
+  border-radius: 0 20px 20px 0;
+  transition: all 0.3s ease;
+  position: sticky;
+  top: 25px;
+}
+.userPortal {
+  background: #2c2c2c;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 10px 0;
+  text-align: center;
+  border-bottom: 1px solid #8ad5ff;
+  border-radius: 0 20px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.userPortal h5.userportMain {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--whiteColor);
+  margin: 0;
+}
+.userProfle {
+  text-align: center;
+  padding: 20px 15px 15px;
+}
+
+.userIcon {
+  width: 45px;
+  display: inline-block;
+}
+
+.userProfle h4.userTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--whiteColor);
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+.userProfle h6.providerId {
+  color: var(--whiteColor);
+  font-size: 13px;
+  font-weight: 400;
+  margin: 0 0 5px;
+}
+.userProfle a.viewpublic {
+  color: var(--whiteColor);
+  font-size: 14px;
+  font-weight: 400;
+}
+.collapseCustom ul.dropdownInner {
+  padding: 0;
+}
+.nav .dropdownInner li.nav-item a.nav-link {
+  padding: 0.75rem 1.2rem;
+  border-bottom: 0;
+}
+.nav .dropdownInner li.nav-item:last-child a.nav-link {
+  border-bottom: 1px solid #8ad5ff;
+  border-radius: 0;
+}
+.dropdownInner span.navIconsm {
+  padding-right: 8px;
+}
+.dropdownInner span.navIconsm svg {
+  width: 16px;
+}
+.dropdownInner span.navTxthid {
+  font-weight: 500;
+}
+.collapseCustom ul.settingDropdown {
+  padding: 0;
+  border-bottom: 1px solid #95f2ff;
+}
+.collapseCustom li.dropdownLink {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  padding: 10px;
+}
+.collapseCustom li.dropdownLink p.toglpara {
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  margin: 0;
+}
+.navTogbtn label.mat-slide-toggle-label {
+  gap: 10px;
+}
+.navTogbtn label.mat-slide-toggle-label .mat-slide-toggle-bar {
+  order: 1;
+  margin-right: 0;
+  background: #9acfd6;
+}
+.navTogbtn .mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+  background-color: var(--whiteColor);
+}
+.navTogbtn .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+  background-color: #95f2ff;
+  position: relative;
+}
+.navTogbtn .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--primaryLight);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.sidebarleft .sidebar .nav-item a.nav-link {
+  font-family: "Nunito";
+  color: var(--whiteColor);
+  font-size: 16px;
+  font-weight: 700;
+  padding: 0.75rem;
+  border-bottom: 1px solid #95f2ff;
+  display: flex;
+  align-items: center;
+}
+.sidebarleft .sidebar .nav-item a.nav-link.active {
+  background: var(--primaryLight);
+  color: var(--whiteColor);
+}
+.sidebarleft .sidebar .nav-item a.nav-link span.navIcon {
+  padding-right: 8px;
+}
+.sidebarleft .sidebar .nav-item a.nav-link:hover {
+  background: #95f2ff;
+  color: var(--blackColor);
+  border-bottom: 1px solid #95f2ff;
+}
+.sidebarleft .sidebar .nav-item a.nav-link:hover svg path {
+  fill: var(--blackColor);
+}
+.sidebarleft
+  .sidebar
+  .nav-item
+  a.nav-link:hover
+  span.mat-checkbox-background
+  svg
+  path.mat-checkbox-checkmark-path {
+  fill: var(--blackColor);
+}
+.sidebarleft .sidebar .nav-item a.nav-link:hover .mat-checkbox-frame {
+  border-color: var(--blackColor);
+}
+
+.sidebarleft .sidebar .nav-item:last-child a.nav-link {
+  border-radius: 0;
+}
+
+.sidebarleft .sidebar li.nav-item a.nav-link.active {
+  color: var(--whiteColor);
+  background: var(--primaryLight);
+}
+.sidebarleft .sidebar li.nav-item a.nav-link.active:hover {
+  color: var(--whiteColor);
+}
+.sidebarleft .sidebar a.nav-link .msgnotifysm {
+  background: #6ca3c6;
+  color: var(--whiteColor);
+  border: 1px solid #fff;
+  width: 24px;
+  height: 20px;
+  line-height: 15px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 1px 3px;
+  border-radius: 5px;
+  margin-left: 8px;
+  text-align: center;
+}
+.sidebarleft .sidebar li.nav-item a.nav-link.active svg path {
+  fill: var(--whiteColor);
+}
+
+.sidebarleft .sidebar .submenu {
+  list-style: circle;
+}
+
+.sidebarleft .sidebar li .submenu {
+  list-style: none;
+  margin: 0;
+  padding: 0 1rem;
+}
+
+.sidebarleft .sidebar .nav-item a.nav-link span.navsvg {
+  margin-right: 8px;
+  line-height: 15px;
+}
+
+.sidebarleft .sidebar li .submenu a.nav-link {
+  border-bottom: 0;
+}
+@media screen and (max-width: 991px) {
+  .sidebarleftMobile {
+    display: none;
+  }
+}

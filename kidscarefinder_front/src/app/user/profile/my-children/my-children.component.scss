@@ -1,0 +1,560 @@
+.shareCombine form.notifyFrmequal {
+  height: 100%;
+}
+
+/* ===================== user signup profile css start =====================*/
+
+.shareBoxFixed {
+  padding: 15px;
+  height: 635px;
+  overflow: auto;
+}
+
+.profileChoseFlex {
+  display: flex;
+  align-items: center;
+}
+
+.profilePicture {
+  width: 140px;
+  height: 140px;
+}
+
+.profilePicture img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.profileUpload {
+  padding-left: 10px;
+}
+
+.chsefile img {
+  height: 16px;
+}
+
+.profileUpload .spanArrow {
+  padding-left: 5px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.profileUploadBtn input[type="file"] {
+  width: 0;
+  padding: 0;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.profileUploadBtn input[type="file"] + label {
+  background: var(--primaryColor);
+  padding: 12px 12px;
+  border: 1px solid var(--primaryColor);
+  border-radius: 10px;
+  color: #fff;
+  min-width: 140px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.profileUpload .btn-outline-secondary {
+  border: 1px solid var(--primaryColor);
+  color: var(--primaryColor);
+  padding: 12px 12px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  min-width: 140px;
+}
+
+.profileUpload .btn-outline-secondary:hover {
+  background: transparent;
+}
+
+.profileUpload .btn-outline-secondary img {
+  height: 15px;
+}
+
+.profileUpload .spanRemove {
+  font-size: 14px;
+  font-weight: 600;
+  padding-left: 8px;
+}
+
+.profileChoseBox .profileDisclaim {
+  color: #767676;
+  font-size: 15px;
+  font-weight: 500;
+  margin: 10px 0 0;
+}
+
+.prfileChild {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+.prfileChildBg {
+  background: #2c2c2c;
+  padding: 40px 50px;
+  border-radius: 10px 10px 0px 0px;
+}
+.prfileChildGrid {
+  display: grid;
+  // grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(150px, 1fr));
+  // grid-template-rows: repeat(2, minmax(135px, min-content));
+  gap: 30px;
+}
+.prfileChildBox {
+  background: #fff;
+  min-height: 132px;
+  padding: 10px;
+  border-radius: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+.prfileChildBoxIcon {
+  text-align: center;
+}
+::ng-deep .prfileChildBoxIcon img {
+  width: 50px;
+  height: 50px;
+}
+.prfileChildBoxIcon svg {
+  width: 45px;
+  height: 45px;
+}
+
+.cancelChild {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  color: var(--primaryColor);
+  cursor: pointer;
+}
+.cancelChild .mat-icon {
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+}
+.editChild {
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  top: 6px;
+  right: 32px;
+  background: var(--primaryColor);
+  color: var(--whiteColor);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.editChild .mat-icon {
+  width: 11px;
+  height: 11px;
+  font-size: 11px;
+}
+.prfileChildBox .austinh4 {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: inherit;
+  margin: 10px 0px 5px;
+  word-break: break-all;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+::ng-deep .emergbrief.childGender label.form-check-label {
+  overflow: inherit !important;
+}
+
+.addBriefInner .childGender{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.prfileChildBox .austinh5 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--primaryLight);
+  margin: 0;
+}
+.prfileChildBox .austinh5.dateItelic {
+  font-weight: 400;
+  font-style: italic;
+}
+.prfileChildTwoin {
+  display: flex;
+  flex-wrap: wrap;
+}
+.prfileChildTwoin .prfileChildItem {
+  width: 50%;
+  padding: 15px 0;
+  border-right: 1px solid #ccc;
+}
+.prfileChildTwoin .prfileChildItem:last-child {
+  border-right: 0px solid #ccc;
+}
+
+.profleTable {
+  background: var(--whiteColor);
+  margin-top: 15px;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+}
+
+.profleTable .table th {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.profleTable .table td {
+  font-size: 16px;
+  font-weight: 600;
+  vertical-align: middle;
+}
+.profleTable .table td p {
+  margin-bottom: 0px;
+}
+
+.familyDescriptionCard {
+  background: #fff;
+  padding: 20px;
+  margin-top: 15px;
+  border-radius: 10px;
+  border: 1px solid #d9d9d9;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.descriptionBox {
+  margin-top: 25px;
+  border-radius: 10px;
+  height: 170px;
+}
+
+.descriptionBox textarea {
+  min-height: 170px;
+  border: 1px solid var(--primaryLight);
+}
+
+.profileInterstBox {
+  padding: 15px;
+  margin-top: 25px;
+  border: 1px solid #164789;
+  border-radius: 10px;
+  min-height: 170px;
+}
+
+.addChild {
+  text-align: center;
+  margin-bottom: 15px;
+}
+.prfileChildItem .addChild {
+  margin-bottom: 0;
+}
+.addChild a {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--primaryColor);
+  text-decoration: none;
+}
+
+.addChild a img {
+  height: 20px;
+}
+
+.addChild a .addChildtext {
+  color: var(--primaryLight);
+  font-size: 18px;
+  font-weight: 600;
+  margin-left: 6px;
+  text-decoration: underline;
+}
+
+.addBriefBoxOuter {
+  background: #e7f6ff;
+  padding: 10px;
+  border-radius: 0px 0px 10px 10px;
+}
+.addBriefBox {
+  background: var(--whiteColor);
+  padding: 10px;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+}
+.addBriefCross {
+  text-align: right;
+  margin-bottom: 10px;
+}
+.addBriefCross span.briefCross svg {
+  width: 20px;
+  height: 20px;
+}
+.addBriefCross.crossflex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.addBriefCross.crossflex a.makeLink .form-check-label {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--primaryLight);
+  margin-top: 2px;
+}
+.addBriefCross.crossflex a.btn-primary {
+  background: var(--primaryLight);
+  border-color: var(--primaryLight);
+}
+.addBriefCross.crossflex span path {
+  fill: var(--whiteColor);
+}
+.addBriefCross.crossflex span.briefCross path {
+  fill: #d9d9d9;
+}
+.addBriefDetail {
+  width: auto;
+}
+.addBriefInner {
+  padding: 15px;
+  border: 1px solid #d9d9d9;
+}
+.addBriefSplit {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.addBriefSplit .splitleft {
+  width: 45%;
+}
+.addBriefSplit .splitright {
+  width: 55%;
+}
+.manageRow .col-md-12 {
+  margin-bottom: 15px;
+}
+.manageRow .col-md-12:nth-last-of-type(1) {
+  margin-bottom: 0px;
+}
+.manageRow .col-md-12:nth-last-of-type(2) {
+  margin-bottom: 0px;
+}
+.manageRow .col-md-12:nth-last-of-type(3) {
+  margin-bottom: 0px;
+}
+
+.addBriefFlex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #d9d9d9;
+  padding: 0 0 10px;
+}
+.addBriefFlex a.dselect {
+  color: var(--primaryLight);
+  font-size: 16px;
+  font-weight: 800;
+}
+.emergbrief {
+  margin-top: 10px;
+}
+.emergbrief.historybirth input {
+  width: 100%;
+  height: 35px;
+  padding: 0 8px;
+  font-size: 16px;
+  font-weight: 500;
+  border: 1px solid var(--primaryLight);
+}
+.emergbrief .form-check-inline {
+  margin-bottom: 0;
+}
+.addBriefCombine {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+.addBriefCombine a.btn {
+  border-radius: 10px;
+  padding: 7px 5px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.addBriefCombine svg {
+  width: 20px;
+  height: 18px;
+  margin-right: 5px;
+}
+.addBriefCombine a.btn:first-child {
+  margin-right: 10px;
+}
+.addBriefCombine a.btn-primary {
+  background: var(--primaryLight);
+  border-color: var(--primaryLight);
+}
+.addBriefCombine a.btn-danger {
+  background: #772162;
+  border-color: #772162;
+}
+
+.addBriefCombine .btn-danger.parentClass {
+  margin-right: 20px;
+  min-width: 111px;
+  background: #772162;
+  border-color: #772162;
+}
+.childBtn {
+  height: 46px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.childSaveBtn{
+  height: 46px;
+  min-width: 111px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: #164789;
+  color: #ffff;
+  font-weight: 700 !important;
+}
+
+.addBriefCombine .btn-danger.parentClass svg {
+  margin-right: 0;
+}
+.addBriefCombine svg {
+  margin-right: 0;
+}
+
+/* ===================== user signup profile css exit =====================*/
+
+//  Button Design
+.profileContinue {
+  text-align: right;
+  margin-top: 15px;
+}
+
+.profileContinue .btn-primary {
+  background: var(--primaryLight);
+  border-color: var(--primaryLight);
+  padding: 10px 30px;
+  border-radius: 25px;
+  font-size: 20px;
+}
+
+.childBtn {
+  background-color: #772162;
+  color: #ffff;
+  font-weight: 700 !important;
+}
+
+// new date calender start
+.dateNewAdd {
+  position: relative;
+}
+.dateNewAdd .mat-datepicker-toggle {
+  position: absolute;
+  right: 0;
+}
+
+::ng-deep .dateNewAdd .mat-icon-button {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 1px;
+  right: 6px;
+}
+
+::ng-deep .mat-calendar-arrow {
+  fill: var(--whiteColor);
+}
+
+::ng-deep .mat-datepicker-toggle,
+::ng-deep .mat-datepicker-content .mat-calendar-next-button,
+::ng-deep .mat-datepicker-content .mat-calendar-previous-button {
+  color: var(--whiteColor);
+}
+::ng-deep .mat-button,
+::ng-deep .mat-icon-button,
+::ng-deep .mat-stroked-button,
+::ng-deep .mat-flat-button {
+  height: 40px;
+  font-size: 16px;
+}
+// new date calender exit
+
+
+
+@media screen and (max-width:1199px) {
+  .prfileChildGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+}
+
+@media screen and (max-width:991px) {
+  .prfileChildGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width:767px) {
+  .addBriefCross {
+    margin-top: -30px;
+  }
+  .addBriefInner .childGender{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .prfileChildGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .prfileChildBg {
+    padding: 20px;
+  }
+  .prfileChildBox .austinh4,.prfileChildBox .austinh5 {
+    font-size: 16px;
+  }
+  .prfileChildTwoin{
+    flex-direction: row;
+    padding: 0px;
+  }
+  .prfileChildTwoin .prfileChildItem {
+    padding: 0px 0;
+  }
+  .prfileChildTwoin .prfileChildItem{
+    margin: 0px;
+  }
+  .addChild {
+    padding: 15px 0;
+  }
+  .addBriefSplit .splitleft {
+    width: 100%;
+  }
+  .addBriefSplit .splitright {
+    width: 100%;
+  }
+  .emergbrief {
+    display: flex;
+    flex-direction: column;
+  }
+}

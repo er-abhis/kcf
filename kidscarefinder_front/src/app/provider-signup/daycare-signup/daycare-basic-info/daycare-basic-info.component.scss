@@ -1,0 +1,405 @@
+.basicInfo {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.radioButtons.basicInfo .mat-radio-group {
+  display: flex;
+  gap: 15px;
+}
+
+.radioButtons.basicInfo span.spanRadio {
+  margin: 0;
+}
+
+::ng-deep .starHide .mat-form-field-required-marker {
+  display: none;
+}
+
+::ng-deep .tooltipManage.toolforCDS .mat-form-field-infix {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.manageInput {
+  width: 470px !important;
+}
+
+.alertCustomNew {
+  display: none;
+}
+
+.modalh2 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: inherit;
+  margin: 0;
+}
+
+.modalh2 .mstbold {
+  font-weight: 800;
+}
+
+.modalpara {
+  color: #767676;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+::ng-deep .modalLicense .mat-dialog-container {
+  padding: 20px !important;
+  overflow: hidden;
+  max-height: 530px;
+  min-height: 160px;
+  border-radius: 10px;
+}
+
+::ng-deep .modalLicense .mat-dialog-container .mat-dialog-actions {
+  flex-wrap: nowrap;
+  justify-content: center;
+  padding: 0;
+}
+
+::ng-deep .modalLicense .mat-dialog-container .mat-dialog-content {
+  max-height: 190px;
+  min-height: 60px;
+}
+
+.mat-raised-button.mat-primary {
+  min-width: 70px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.mat-raised-button {
+  font-size: 14px;
+}
+
+@media screen and (max-width: 767px) {
+  ::ng-deep .modalLicense .mat-dialog-container {
+    padding: 20px 30px 20px 20px !important;
+  }
+
+  ::ng-deep .alertCustomNew {
+    display: block !important;
+  }
+
+  ::ng-deep .titleSmall {
+    display: none !important;
+  }
+
+  ::ng-deep .modalLicense .mat-dialog-container .mat-dialog-actions {
+    flex-wrap: wrap;
+  }
+
+  .mat-dialog-actions .mat-button-base+.mat-button-base,
+  .mat-dialog-actions .mat-mdc-button-base+.mat-mdc-button-base {
+    margin-left: 0;
+  }
+
+  .calMobile {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .calMobileTwo {
+    flex-direction: column;
+  }
+
+  .newbasicFormGroup {
+    width: 100% !important;
+  }
+
+  .itemOrderOne {
+    order: 1;
+  }
+
+  .itemOrderThree {
+    order: 2;
+  }
+
+  .itemOrderTwo {
+    order: 3;
+  }
+
+  .itemOrderFour {
+    order: 4;
+  }
+
+  .StepDetailsLists h3 {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    color: #000000;
+  }
+
+  .basicFormGroup .MobilePassword {
+    display: none;
+  }
+
+  .mob_basicFormGroup {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+// Preschool Text Area Fix
+.PreDescribetext {
+  background: #ffffff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+}
+
+.PreDescribetext textarea {
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+  border-radius: 5px;
+  padding: 10px;
+  height: 300px;
+  width: 100%;
+  color: #000000;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 27px;
+  resize: none;
+  outline: none;
+}
+
+.PreDescribetext {
+  margin-bottom: 40 -px;
+}
+
+.termBton {
+  text-align: center;
+}
+
+::ng-deep .termBton .termsAndCondition.btn {
+  border-radius: 10px;
+  font-size: 24px;
+  font-weight: 400;
+  min-width: 250px;
+  background: var(--primaryColor) !important;
+  border-color: var(--primaryLight);
+  border: 1px solid #d9d9d9;
+  padding: 15px;
+}
+
+::ng-deep .providerSignup .mat-checkbox-checked.mat-accent .mat-checkbox-frame {
+  border-radius: 1px;
+}
+
+::ng-deep .termBton .termsAndCondition .form-check-input[type="checkbox"] {
+  background: transparent;
+  border: 1.5px solid var(--whiteColor);
+  margin-top: 8px;
+  margin-right: 5px;
+}
+
+::ng-deep .basicFormGroup input.mat-input-element {
+  height: 35px;
+  padding: 0 10px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  border-color: var(--primaryLight);
+}
+
+::ng-deep .basicFormGroup .mat-form-field-infix {
+  border-top: 0 solid transparent;
+}
+
+::ng-deep .basicFormGroup .mat-button {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 30px;
+  height: 42px;
+  padding: 4px 20px;
+}
+
+::ng-deep .col.PasChan {
+  width: 192px;
+  flex: inherit;
+}
+
+.StepDetailsLists h3.headingBlackText {
+  margin-bottom: 15px;
+}
+
+.textAreaMat textarea {
+  border: 1px solid var(--primaryLight);
+}
+
+.basicFormGroup {
+  margin: 0;
+}
+
+.calMobile {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.calMobileTwo {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.newbasicFormGroup {
+  width: 48%;
+}
+
+// ---------------------Loader Css Start -----------------------
+.loaderCustom {
+  position: relative;
+  height: 350px;
+  margin-top: 18px;
+  border-radius: 12px;
+}
+
+.loaderCustom::after {
+  position: absolute;
+  content: "";
+  background: var(--whiteColor);
+  z-index: 3;
+}
+
+.loaderPreschool {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  display: inline-block;
+}
+
+.loaderPreschool img {
+  height: 200px;
+}
+
+.loaderPreschoolFixed {
+  width: 60%;
+  height: 100%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+// ---------------------Loader Css End -----------------------
+
+// ---------------------tooltip Css start -----------------------
+::ng-deep .tooltipManageOut .mat-form-field-appearance-fill .mat-form-field-flex {
+  padding-top: 0 !important;
+}
+
+::ng-deep .tooltipManageOut .mat-form-field-infix {
+  border-top: 0;
+}
+
+.tooltipManage {
+  width: 100%;
+}
+
+.tooltipManage mat-label {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.tooltipManage button {
+  background: transparent;
+}
+
+::ng-deep .tooltipManage .mat-raised-button {
+  box-shadow: none;
+  min-width: 0;
+  padding: 0;
+  position: relative;
+  top: -4px;
+  left: 6px;
+}
+
+.tooltipManage .mat-raised-button path {
+  fill: #ffff;
+}
+
+::ng-deep .mat-tooltip {
+  font-family: "Nunito";
+  font-size: 15px;
+  color: #fff;
+  border-radius: 4px;
+  margin: 14px;
+  max-width: 250px;
+  padding-left: 8px;
+  padding-right: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transform: scale(0);
+}
+
+::ng-deep .tooltipManage.toolforCDS .mat-form-field-appearance-fill .mat-form-field-flex {
+  padding: 0;
+}
+
+// ---------------------tooltip Css exit -----------------------
+
+// scrollbar
+.mainStepscroll {
+  max-height: 270px;
+  overflow-y: auto;
+}
+
+@media screen and (max-width: 767px) {
+  .modalparaMob {
+    line-height: 23px;
+  }
+
+  ::ng-deep.modalLicense .mat-dialog-container {
+    height: 250px !important;
+  }
+
+  .mat-raised-button.mat-primary {
+    margin: 5px 0;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .tooltipManage mat-label {
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  ::ng-deep .termBton .termsAndCondition.btn {
+    font-size: 16px;
+  }
+
+  ::ng-deep .termBton .termsAndCondition .form-check-input[type="checkbox"] {
+    margin-top: 3px;
+  }
+
+  ::ng-deep .customCombine {
+    gap: 0;
+  }
+
+  .exclamationMobile {
+    display: none;
+  }
+
+  .alertLicenced .alertCustom {
+    padding: 19px 150px 20px 5px;
+  }
+
+  .PreDescribetext textarea {
+    border: none;
+  }
+}

@@ -1,0 +1,77 @@
+<div class="mainBgColor">
+    <app-header></app-header>
+    <section class="userSignupOuter">
+      <div class="customCombine">
+        <app-update-details-sidebar></app-update-details-sidebar>
+        <div class="contentright">
+          <div class="contentrightBg">
+            <div class="accountSetting">
+              <div class="headingbg">
+                <h1 class="headingh1">Meals and snacks</h1>
+              </div>
+            </div>
+            <div class="paymentInformartion">
+              <div class="addBriefBoxOuter">
+                <div class="addBriefBox cardBox boxshadow">
+                    <div class="addBriefDetail StepDetailsLists stepDetail4
+                    stepDetail5">
+                        <div class="detailsRow">
+                            <div class="DetailPhotoLeft bgWhiteDetails">
+                              <div class="detailsColBg">
+                                <h3 class="headingBlackText">Meals</h3>
+                                <h3>Do you provide meals?</h3>
+                                <mat-radio-group  aria-label="Select an
+                                    option">
+                                  <mat-radio-button [checked]="is_meal_provided == true" value="1">Yes</mat-radio-button>
+                                  <mat-radio-button [checked]="is_meal_provided == false" value="2">No</mat-radio-button>
+                                </mat-radio-group>
+                                <ng-container *ngIf="is_meal_provided == true">
+                                <h3>Which meals do you provide?</h3>
+                                <div class="daysCheckBoxs checkHalfBoxed blockSingle matCheckBlack">
+                                    <mat-checkbox  [(ngModel)]="isBreakFast" [checked]="isBreakFast" value="fulltime"
+                                      [ngModelOptions]="{standalone: true}">Breakfast</mat-checkbox>
+                                    <mat-checkbox  [(ngModel)]="isLunch" [checked]="isLunch" value="parttime"
+                                      [ngModelOptions]="{standalone: true}">Lunch</mat-checkbox>
+                                    <mat-checkbox  [(ngModel)]="isDinner" [checked]="isDinner" value="halfday"
+                                      [ngModelOptions]="{standalone: true}">Dinner</mat-checkbox>
+                                </div>
+                              </ng-container>
+                              </div>
+                            </div>
+                            <div class="DetailPhotoRight
+                                bgWhiteDetails">
+                              <div class="detailsColBg">
+
+                                <h3 class="headingBlackText">Snacks</h3>
+                                <h3>Do you provide snacks?</h3>
+                                <mat-radio-group aria-label="Select an option" >
+                                  <mat-radio-button [checked]="is_snack_provided == true" value="1">Yes</mat-radio-button>
+                                  <mat-radio-button [checked]="is_snack_provided == false" value="2">No</mat-radio-button>
+                                </mat-radio-group>
+                                <ng-container *ngIf="is_snack_provided == true">
+                                <h3>Which snacks do you provide?</h3>
+                                <div class="daysCheckBoxs checkHalfBoxed blockSingle matCheckBlack">
+                                    <mat-checkbox  [(ngModel)]="isMorning"  [checked]="isMorning" [ngModelOptions]="{standalone: true}"
+                                    value="morning">Morning</mat-checkbox>
+                                    <mat-checkbox  [(ngModel)]="isAfternoon" [checked]="isAfternoon" [ngModelOptions]="{standalone: true}"
+                                    value="afternoon">Afternoon</mat-checkbox>
+                                    <mat-checkbox  [(ngModel)]="isEvening" [checked]="isEvening" [ngModelOptions]="{standalone: true}"
+                                    value="halfday">Evening</mat-checkbox>
+                                </div>
+                              </ng-container>
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+              </div>
+                      <div class="settingSave">
+                        <button class="saveShareBtn" mat-focus-indicator mat-button mat-button-base color="primary"><span
+                            class="saveIcon"></span> Save</button>
+                      </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>

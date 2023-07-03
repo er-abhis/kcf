@@ -1,0 +1,35 @@
+<div class="mainBgColor baby-sitter-sign-up-form">
+  <app-header></app-header>
+  <div class="container-fluid">
+    <div class="row mt-4">
+      <div class="col-md-2 position-relative" style="padding-top: 35px;">
+        <app-bs-signup-sidebar></app-bs-signup-sidebar>
+      </div>
+      <div class="col-md-10">
+        <mat-horizontal-stepper>
+          <mat-step [stepControl]="stepOne">
+            <form [formGroup]="stepOne">
+              <ng-template matStepLabel>
+                Babysitter provider sign-up
+              </ng-template>
+              <app-bs-signup-step-one></app-bs-signup-step-one>
+            </form>
+          </mat-step>
+          <mat-step [stepControl]="stepTwo">
+            <form [formGroup]="stepTwo">
+              <ng-template matStepLabel>
+              </ng-template>
+            </form>
+          </mat-step>
+          <mat-step [stepControl]="stepThree">
+            <form [formGroup]="stepThree">
+              <ng-template matStepLabel>
+              </ng-template>
+            </form>
+          </mat-step>
+        </mat-horizontal-stepper>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

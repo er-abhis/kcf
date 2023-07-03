@@ -1,0 +1,80 @@
+
+$mat-menu-side-padding: 16px !default;
+$scrollbar-width: 17px;
+$clear-button-width: 20px;
+$multiple-check-width: 33px;
+
+.mat-select-search-hidden {
+  visibility: hidden;
+}
+.mat-select-search-inner {
+  position: absolute;
+  top: 0;
+  width: calc(100% + #{2 * $mat-menu-side-padding - $scrollbar-width});
+  border-bottom: 1px solid #cccccc;
+  background: white;
+  z-index: 100;
+  &.mat-select-search-inner-multiple {
+
+    width: calc(100% + #{2 * $mat-menu-side-padding - $scrollbar-width + $multiple-check-width});
+  }
+}
+
+ .mat-select-search-panel {
+  /* allow absolute positioning relative to outer options container */
+  transform: none !important;
+  max-height: 350px;
+}
+
+.mat-select-search-input {
+  padding: $mat-menu-side-padding;
+  padding-right: $mat-menu-side-padding + $clear-button-width;
+  box-sizing: border-box;
+
+}
+.mat-select-search-no-entries-found {
+  padding: $mat-menu-side-padding;
+}
+.mat-select-search-clear {
+  position: absolute;
+  right: 0;
+  top: 4px;
+}
+ .cdk-overlay-pane-select-search {
+  margin-top: -50px;
+}
+
+.multiDropserach .sIcon{
+  position: sticky;
+}
+::ng-deep .multiDropserach {
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: #E7E7E7;
+  padding: 5px 10px;
+  border-radius: 0px;
+  border: none;
+  outline: none;
+  height: 40px;
+  
+}
+::ng-deep .multiDropserach span.sIcon {
+  background: var(--primaryLight);
+  color: var(--whiteColor);
+  width: 35px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+}
+::ng-deep .multiDropserach input {
+  height: 32px;
+  border-radius: 0px;
+  padding: 0px 10px;
+  width: 100%;
+  border: none;
+  outline: none;
+}

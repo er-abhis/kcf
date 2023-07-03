@@ -1,0 +1,106 @@
+.shareBoxFixed {
+  padding: 15px;
+  height: 600px;
+  overflow: auto;
+}
+.contentrightBg {
+  border: 1px solid #8AD5FF;
+}
+// Continue button design
+::ng-deep .enrollContinue {
+    text-align: center !important;
+    margin-top: 20px;
+    margin-bottom: 0;
+  }
+
+  ::ng-deep .enrollContinue .btn-primary {
+    background: var(--primaryLight);
+    border-color: var(--primaryLight);
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 27px;
+    width: 182px;
+    height: 57px;
+}
+
+  .headingbgBtn {
+    min-width: 265px;
+  }
+
+
+
+@media screen and (max-width:767px) {
+  .customCombine {
+    padding: 0;
+  }
+  .contentrightBg {
+    background: transparent;
+    border: 0px;
+    padding: 0 15px;
+  }
+  .headingbg {
+    background: transparent;
+    padding: 0px 15px;
+    border-radius: 0px;
+    border: none;
+  }
+  .headingbg h1.headingh1 {
+    // display: none;
+    text-align: center;
+    font-weight: 800;
+  }
+  .headingbg p.paratop{
+    margin-top: 0px;
+  }
+  .shareBoxFixed {
+    padding: 15px;
+    height: auto;
+    background: #e7f6ff;
+    border: 1px solid #D9D9D9;
+    border-radius: 10px;
+    margin-top: 25px;
+  }
+  .enrollmentCombine {
+    flex-direction: column;
+  }
+  .paperEnrollment {
+    width: 100%;
+  }
+  .onlineEnrollment {
+    width: 100%;
+  }
+  .headingbgBtnProvider a{
+    font-size: 13px !important;
+  }
+  .enrollElectro h3.enrollh33{
+    font-size: 20px !important;
+  }
+  .paperText h5.enrolAvg3{
+    font-size: 16px;
+    line-height: 22px;
+  }
+  .paperText3{
+    padding: 6px;
+  }
+  .paperInner3{
+    height: 112px;
+  }
+  .paperBox h3.paperh3{
+    font-size: 16px;
+  }
+  .topOnline h4.onlineh4{
+    font-size: 16px;
+  }
+  .enrollContinue .btn-primary{
+    font-size: 16px;
+  }
+  .paperBox h5.paperChild,.paperBox h3.paperh3{
+    font-size: 14px;
+  }
+  .paperBox h6.paperh6 {
+    font-size: 14px;
+    font-weight: 400;
+}
+}

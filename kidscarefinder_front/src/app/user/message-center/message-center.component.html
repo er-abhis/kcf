@@ -1,0 +1,22 @@
+<div class="mainBgColor">
+  <app-header></app-header>
+  <section class="userSignupOuter">
+    <div class="customCombine customCombineProviderPortMob">
+      <app-user-sidebar></app-user-sidebar>
+        <div class="contentright">
+          <app-mobo-top-menu></app-mobo-top-menu>
+          <!-- <div class="shareBoxFixed p-0">
+            <div class="contentrightBg">
+              <app-messenger></app-messenger>
+            </div>
+          </div> -->
+          <div class="contentrightBg">
+            <app-messenger (subsriptionChange)="subsriptionChange($event)"></app-messenger>
+          </div>
+            <!-- <div class="cancleAccoutBtn">
+                <a href="#" class="btn btn-outline-primary">Cancel Account</a>
+            </div> -->
+        </div>
+    </div>
+  </section>
+</div>

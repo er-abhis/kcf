@@ -1,0 +1,10 @@
+<div>
+  <div mat-dialog-content class="fs-2 lh-sm text-center w-100 m-0">
+    Are you sure you want to invite <span class="fw-bold">{{data.name}}</span> to {{data.invitationFor}}?
+  </div>
+  <div mat-dialog-actions class="d-flex gap-4 justify-content-center mat-dialog-actions pb-4">
+    <button class="btn" [mat-dialog-close]="false">Cancel and exit</button>
+    <button class="btn btn-primary" [mat-dialog-close]="true">Yes, invite to {{data.invitationFor}}</button>
+  </div>
+</div>
++

@@ -1,0 +1,36 @@
+<!-- Header Section Start -->
+<div
+  class=""
+  [ngClass]="path != 'HomeComponent' ? 'headerWrapper' : 'Homepage'"
+>
+  <header id="header" class="main_block header">
+    <div class="container-fluid">
+      <div class="row paddingXmd">
+        <div class="col header_logo">
+          <div class="main_block">
+            <a [routerLink]="['']" class="logo-main"
+              ><img
+                src="../../../../assets/images/logo.svg"
+                class="img-responsive"
+                alt="image"
+            /></a>
+          </div>
+        </div>
+        <div class="col-7 header_center">
+          <div class="main_block">
+            <p class="headerPara">
+              The simple solution to <b>all</b> your childcare needs
+            </p>
+          </div>
+        </div>
+        <!-- Header Section End -->
+        <!-- Menu Section start -->
+        <div class="col header_menu">
+          <app-custom-menu></app-custom-menu>
+        </div>
+        <!-- Menu Section end -->
+      </div>
+    </div>
+  </header>
+</div>
+<!-- Header Section End -->

@@ -1,0 +1,22 @@
+<!-- <input matInput class="mat-select-search-input mat-select-search-hidden" /> -->
+
+<!-- <div class="mat-select-search-inner" [ngClass]="{'mat-select-search-inner-multiple': matSelect.multiple}">
+  <input matInput class="mat-select-search-input" #searchSelectInput (keydown)="_handleKeydown($event)"
+    (input)="onInputChange($event)" (blur)="onBlur($event)" [placeholder]="placeholderLabel" />
+</div> -->
+
+<div class="multiDropserach" [ngClass]="{'mat-select-search-inner-multiple': matSelect.multiple}">
+  <input type="search" [placeholder]="placeholderLabel" #searchSelectInput (keydown)="_handleKeydown($event)"
+    (input)="onInputChange($event)" (blur)="onBlur($event)" />
+  <span class="sIcon" (click)="close()">
+    <svg width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M9.67379 8.83064C10.4302 7.79825 10.7691 6.51828 10.6224 5.24679C10.4758 3.9753 9.85458 2.80606 8.88301 1.973C7.91145 1.13994 6.66121 0.704488 5.38242 0.753769C4.10363 0.80305 2.8906 1.33343 1.98601 2.23879C1.08142 3.14415 0.551989 4.35773 0.50363 5.63674C0.455271 6.91574 0.891553 8.16585 1.72519 9.13695C2.55883 10.1081 3.72835 10.7285 4.99977 10.8743C6.27118 11.02 7.55073 10.6802 8.58243 9.92294H8.58165C8.60508 9.95419 8.63008 9.98388 8.65821 10.0128L11.6659 13.0209C11.8124 13.1675 12.0111 13.2499 12.2183 13.25C12.4256 13.2501 12.6244 13.1678 12.7709 13.0213C12.9175 12.8748 12.9999 12.6761 13 12.4688C13.0001 12.2615 12.9178 12.0627 12.7713 11.9161L9.76363 8.90799C9.7357 8.87971 9.70567 8.85359 9.67379 8.82985V8.83064ZM9.87535 5.8272C9.87535 6.39153 9.76421 6.95034 9.54828 7.47171C9.33235 7.99309 9.01586 8.46682 8.61687 8.86586C8.21788 9.26491 7.74422 9.58145 7.22292 9.79741C6.70162 10.0134 6.14289 10.1245 5.57864 10.1245C5.01438 10.1245 4.45566 10.0134 3.93435 9.79741C3.41305 9.58145 2.93939 9.26491 2.5404 8.86586C2.14141 8.46682 1.82492 7.99309 1.60899 7.47171C1.39306 6.95034 1.28192 6.39153 1.28192 5.8272C1.28192 4.68748 1.73461 3.59444 2.5404 2.78854C3.34619 1.98264 4.43908 1.52988 5.57864 1.52988C6.71819 1.52988 7.81108 1.98264 8.61687 2.78854C9.42266 3.59444 9.87535 4.68748 9.87535 5.8272Z"
+        fill="white" />
+    </svg>
+  </span>
+</div>
+
+<!-- <div *ngIf="noEntriesFoundLabel && value && _options?.length === 0" class="mat-select-search-no-entries-found">
+  {{noEntriesFoundLabel}}
+</div> -->

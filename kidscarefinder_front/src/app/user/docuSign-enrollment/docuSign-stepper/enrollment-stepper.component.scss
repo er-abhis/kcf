@@ -1,0 +1,68 @@
+::ng-deep .mat-horizontal-stepper-header-container {
+  display: none !important;
+}
+
+::ng-deep .mat-horizontal-stepper-wrapper {
+  padding-top: 0px !important;
+}
+
+.mainBgColor {
+  background-color: #e7f6ff !important;
+  background-image: none !important;
+}
+.userSignupOuter {
+  margin: 25px 0 25px;
+}
+
+.enrollmentPopup {
+  max-width: 96vw;
+  margin: auto;
+  // max-height: 810px;
+  height: 700px;
+  overflow: auto;
+}
+::ng-deep .paperText {
+  padding: 10px !important;
+}
+
+::ng-deep .mat-select-arrow::after {
+  top: -2px;
+}
+
+.matButtonControls {
+  justify-content: center;
+  width: auto;
+  min-width: 70%;
+  gap: 12px;
+  margin: 20px auto 20px;
+}
+::ng-deep .mat-button {
+  border-radius: 10px !important;
+}
+
+
+.contentright.mainStepscroll {
+  width: calc(100% - 320px);
+}
+
+.sidebarleft {
+  width: 270px;
+}
+
+.paperBox h3.paperh3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 10px 0 0;
+}
+.paperText {
+  padding: 10px;
+}
+.headingbgBtn {
+  min-width: 264px;
+}
+
+  @media screen and (max-width:767px){
+    .headingh1{
+      font-weight: 800 !important;
+    }
+  }

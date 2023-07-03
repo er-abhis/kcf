@@ -1,0 +1,40 @@
+<section class="reviewPostSection">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="sect_titl">{{matTitle}}</h2>
+            </div>
+            <div class="col-12 textShowOut">
+                <form [formGroup]="firstFormGroup">
+                    <!-- <mat-form-field [floatLabel]="'never'">
+                        <mat-label class="textShow">{{label}}</mat-label>
+                        <mat-select [placeholderLabel]="placeholder" formControlName="bankCtrl" multiple id="signup_provider">
+                            <kcf-select-search formControlName="bankFilterCtrl"
+                                [placeholderLabel]="placeholder"></kcf-select-search>
+                            <mat-option *ngFor="let bank of filteredBanks | async" [value]="bank">
+                                {{bank.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field> -->
+                    <mat-form-field class="selectPlaceHolder" floatLabel="never">
+                        <mat-label class="textShow">{{label}}</mat-label>
+                        <mat-select [placeholderLabel]="placeholder" formControlName="bankCtrl" class="ProDrop"
+                            multiple>
+                            <kcf-select-search [placeholder]="placeholder" (keyup)="search($event)"></kcf-select-search>
+                            <mat-option *ngFor="let bank of options" [value]="bank">
+                                {{bank.name}}
+                            </mat-option>
+                            <span class="ps-3" *ngIf="options.length==0">{{error}}</span>
+                        </mat-select>
+                    </mat-form-field>
+                </form>
+            </div>
+            <div class="col-12">
+                <div class="reviewActionsBtn CenterBtn">
+                    <button mat-button color="primary" class="buttonPre blueBtn"
+                        (click)="submitSelection()">Done</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

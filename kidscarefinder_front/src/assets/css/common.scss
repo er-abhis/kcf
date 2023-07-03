@@ -1,0 +1,425 @@
+
+/* ===================== user signup setting page css start =====================*/
+// .userSignupOuter {
+//   width: 100%;
+//   min-height: 80vh;
+//   margin-top: 25px;
+//   .customCombine {
+//     display: flex;
+//     position: relative;
+//     padding-left: 275px;
+//     padding-right: 60px;
+//   }
+//   .sidebarleft {
+//     background: var(--primaryColor);
+//     border: 1px solid #8AD5FF;
+//     position: absolute;
+//     left: 0;
+//     width: 250px;
+//     border-radius: 0px 20px 20px 0px;
+//     transition: all .3s ease;
+//     .sidebar {
+//       width: auto;
+//       .userProfle {
+//         text-align: center;
+//         padding: 15px 15px 5px;
+//         .userIcon {
+//           width: 45px;
+//           display: inline-block;
+//         }
+//         .userProfle h4.userTitle {
+//           font-size: 18px;
+//           font-weight: 600;
+//           color: var(--whiteColor);
+//           padding-bottom: 10px;
+//           margin-top: 6px;
+//           border-bottom: 1px solid #D9D9D9;
+//         }
+//       }
+//       .nav {
+//         list-style: none;
+//         a.nav-link {
+//           color: var(--whiteColor);
+//           font-size: 15px;
+//           padding: .75rem .75rem;
+//           border-bottom: 1px solid #95F2FF;
+//           span {
+//             padding-right: 4px;
+//           }
+//           &:active {
+//             color: var(--blackColor);
+//             background: var(--whiteColor);
+//           }
+//           &:last-of-type(1) {
+//             border-bottom: 0px solid #95F2FF;
+//           }
+//         }
+//       }
+//     }
+//   }
+//   .contentright {
+//     width: 100%;
+//     .contentrightBg {
+//       background: #e7f6ff;
+//       min-height: 70vh;
+//       border-radius: 25px;
+//       transition: all .3s ease;
+//       .accountSetting{
+//         .accountHeading {
+//           padding: 15px;
+//           background: var(--primaryColor);
+//           color: var(--whiteColor);
+//           border-radius: 25px 25px 0 0;
+//           .accountHeading h1 {
+//             font-size: 32px;
+//             font-weight: 600;
+//           }
+//           .accountHeading p {
+//             font-size: 16px;
+//             font-weight: 600;
+//           }
+//         }
+//       }
+//       .paymentInformartion {
+//         padding: 15px;
+//         .tabelCombine {
+//           margin: 15px 0 30px;
+//           .flexTitleTable {
+//             display: flex;
+//             justify-content: space-between;
+//             align-items: center;
+//             margin-bottom: 10px;
+//             .providerh3 {
+//               font-size: 24px;
+//               font-weight: 800;
+//               margin-bottom: 0px;
+//             }
+//           }
+//           .profleTable {
+//             background: var(--whiteColor);
+//             margin-top: 15px;
+//             border: 1px solid #D9D9D9;
+//             border-radius: 10px;
+//             .table {
+//               th {
+//                 font-size: 16px;
+//                 font-weight: 400;
+//               }
+//               td {
+//                 font-size: 18px;
+//                 font-weight: 700;
+//               }
+//               td.action-tbl {
+//                 a {
+//                   font-size: 14px;
+//                   font-weight: 700;
+//                   color: #164789;
+//                 }
+//               }
+//             }
+//           }
+//         }
+//         .paymentContinue {
+//           text-align: right;
+//           margin-top: 15px;
+//           .btn-primary {
+//             background: var(--primaryColor);
+//             border-color: var(--primaryColor);
+//             padding: 8px 25px;
+//             border-radius: 20px;
+//             font-size: 15px;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+/* ===================== user signup setting page css start =====================*/
+
+
+
+
+/* ===================== result home page css start =====================*/
+.resultOuter {
+  background: #fff;
+  .resultTableBox {
+    // margin-bottom: 30px;
+    .resultTableInner {
+      width: 100%;
+      // overflow-x: scroll;
+      table.mat-table {
+        width: 100%;
+        border: 0px solid var(--tableGray);
+        border-radius: 10px;
+        overflow: auto;
+
+        thead {
+          position: sticky;
+          top: 0;
+          z-index: 2;
+          tr th:first-child{
+            position: sticky;
+            left: 0;
+            z-index: 2;
+          }
+        }
+
+        thead th.mat-sort-header {
+          font-family: 'Nunito';
+          background: #b6d1e2;
+          color: var(--blackColor);
+          font-size: 18px;
+          font-weight: 400;
+          border-top: 0px;
+          .mat-sort-header-container {
+            height: 90px;
+            justify-content: center;
+          }
+        }
+        tbody {
+          tr td:first-child{
+            position: sticky;
+            left: 0;
+          }
+          tr td:last-child{
+            min-width: 120px;
+          }
+          tr:nth-child(odd) td{ background-color: #6ca3c6;}
+          tr:hover td{ background-color:var(--primaryLight); color: var(--whiteColor);}
+          tr:hover td a {color: var(--whiteColor);}
+          tr:hover td .providerTopLeft a.schoolLink.capitalize
+          {
+            color: var(--whiteColor) !important;
+          }
+          tr:hover td .providerCellOuter .providerCell .tableheart svg path {
+            fill: var(--whiteColor) !important;
+          }
+          tr:hover td .providerCell .starCellFlx {
+            color: var(--whiteColor) !important;
+          }
+          tr:hover td .providerCell .tblReview {
+            color: var(--whiteColor) !important;
+          }
+          tr:hover td .providerCell .providerTabBtn {
+            background: var(--whiteColor) !important;
+            color: var(--primaryLight) !important;
+          }
+          tr:hover td .providerCell .providerTabBtn svg path {
+            fill: var(--primaryLight) !important;
+          }
+        }
+        .tblMatCell {
+          font-family: "Nunito";
+          font-size: 16px;
+          font-weight: 400;;
+          // width: 430px;
+          width: auto;
+          overflow: hidden;
+          color: var(--blackColor);
+          text-align: center;
+          a{
+            color: var(--blackColor);
+          }
+          &:first-child{
+            text-align: left;
+          }
+        }
+
+        th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+          background: #b6d1e2;
+          padding: 10px;
+          border-bottom-style: solid;
+          border: 1px solid var(--whiteColor);
+          .providerCellOuter {
+            position: relative;
+            .providerCell {
+              min-width: 410px;
+              .tableheart {
+                position: absolute;
+                left: 0;
+                top: 0;
+                svg {
+                  width: 20px;
+                  height: 20px;
+                  path {
+                    fill: #772162;
+                  }
+                }
+
+              }
+              .providerData {
+                padding-left:28px;
+                .providerTop {
+                  display: flex;
+                  justify-content: space-between;
+                  flex-wrap: nowrap;
+                  column-gap: 10px;
+                  .providerTopLeft{
+                    .schoolLink {
+                      color: var(--blackColor);
+                      font-size: 18px;
+                      font-weight: 400;
+                      cursor: pointer;
+                    }
+                    .starCellFlx {
+                      display: flex;
+                      color: var(--blackColor);
+                      margin: 5px 0px 2px;
+                      .starCell{
+                        svg{
+                          width: 15px;
+                          height: 15px;
+                        }
+                      }
+                    }
+                    .tblReview {
+                      color: var(--blackColor);
+                      display: flex;
+                      gap: 5px;
+                      margin-bottom: 5px;
+                      font-family: 'Nunito';
+                      font-size: 14px;
+                      font-weight: 300;
+                    }
+                  }
+                  .providerTopRight {
+                    max-width: 120px;
+                    margin-bottom: 10px;
+                    p {
+                      margin: 0px;
+                      display: inline-flex;
+                      align-items: center;
+                      column-gap: 10px;
+                      background: #0E2E58;
+                      border: 3px solid #FFFFFF;
+                      box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.15);
+                      border-radius: 10px;
+                      color: #fff;
+                      line-height: 1.2;
+                      padding: 5px;
+                      font-size: 14px;
+                      svg {
+                        width: 30px;
+                        height: 30px;
+                      }
+                      img {
+                        width: 23px;
+                      }
+
+                      span {
+                        font-weight: 400;
+                        text-align: left;
+                        display: inline-block;
+                      }
+                    }
+                  }
+
+                }
+
+                .providerTab {
+                  display: flex;
+                  justify-content: space-between;
+                  flex-wrap: wrap;
+                  gap: 5px;
+                    .providerTabBtn{
+                      width: 49%;
+                      background: var(--primaryColor);
+                      color: var(--whiteColor);
+                      border-radius: 10px;
+                      padding:3px 5px;
+                      font-family: 'Nunito';
+                      font-size: 16px;
+                      font-weight: 400;
+                      height: 35px;
+                      line-height: inherit;
+                      text-align: left;
+
+                      .mat-button-wrapper {
+                        font-size: 16px;
+                        span.msgIcon {
+                          padding-right: 5px;
+                        }
+                        svg {
+                          width: 24px;
+                          height: 24px;
+                          path {
+                            fill: var(--whiteColor);
+                          }
+                        }
+                      }
+
+                    }
+                }
+
+              }
+
+              .tableStar {
+                position: absolute;
+                top: -20px;
+                right: -48px;
+                width: 100px;
+                height: 44px;
+                padding-bottom: 5px;
+                background: var(--whiteColor);
+                transform: rotate(45deg);
+                display: flex;
+                align-items: flex-end;
+                justify-content: center;
+                svg {
+                  fill: var(--primaryLight);
+                  height: 20px;
+                  width: 20px;
+                  transform: rotate(27deg);
+                }
+              }
+
+            }
+          }
+
+        }
+
+      }
+    }
+  }
+
+}
+
+.verified .providerTabBtn {
+  background: var(--whiteColor) !important;
+  color: var(--primaryLight) !important;
+}
+.verified .providerCell .tableheart path {
+  fill: var(--whiteColor) !important;
+}
+
+.verified .providerTabBtn svg path {
+  fill: var(--primaryLight) !important;
+}
+.verified .providerCell .providerTopLeft a.schoolLink.capitalize {
+  color: var(--whiteColor) !important;
+}
+.verified .providerCell .starCellFlx {
+  color: var(--whiteColor) !important;
+}
+.verified .providerCell .tblReview {
+  color: var(--whiteColor) !important;
+}
+@media screen and (max-width:767px){
+    .providerTopRight p {
+      font-size: 10px !important;
+    }
+    .providerTopRight p img .tblMatCell {
+        font-size: 10px !important;
+    }
+    .providerTabBtn .mat-button-wrapper {
+        font-size: 10px !important;
+    }
+    .mat-button-wrapper span.msgIcon svg {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+/* ===================== result home page css exit =====================*/
+
+

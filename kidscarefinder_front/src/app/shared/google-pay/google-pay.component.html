@@ -1,0 +1,4 @@
+<ng-container *ngIf="amount"><google-pay-button environment="TEST" [buttonColor]="buttonColor" [buttonType]="buttonType"
+[buttonSizeMode]="isCustomSize ? 'fill' : 'static'" [paymentRequest]="paymentRequest" [style.width.px]="buttonWidth"
+[style.height.px]="buttonHeight" (loadpaymentdata)="onLoadPaymentData($event)"></google-pay-button>
+</ng-container>

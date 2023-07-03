@@ -1,0 +1,68 @@
+::ng-deep .CustomModal .mat-dialog-container {
+  overflow-x: hidden;
+  width: 630px;
+  min-height: 275px;
+  border-radius: 25px;
+}
+.resultMessagePopup {
+  padding: 20px 100px;
+  border-radius: 25px;
+}
+.resultMessagePopup h1.resultMsgPopTitle {
+  font-family: 'Nunito';
+  color: var(--primaryLight);
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 40px;
+  text-align: center;
+  margin-bottom: 20px
+}
+.resultMessageBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+.resultMessageBtn .modalBtn {
+  background: #0E2E58;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 400;
+  padding: 15px;
+  margin-bottom: 15px;
+  min-width: 163px;
+  min-height: 57px;
+  border-radius: 10px;
+}
+.resultMessageBtn .modalOutline {
+  background:transparent;
+  color: #0E2E58;
+  border-color:#0E2E58 ;
+  font-size: 20px;
+  font-weight: 400;
+  padding: 15px;
+  margin-bottom: 15px;
+  min-height: 57px;
+  border-radius: 10px;
+}
+::ng-deep .resultMessageDrop .mat-form-field-appearance-fill .mat-form-field-underline::before {
+  height: 0px;
+}
+::ng-deep .resultMessageDrop .mat-form-field-appearance-fill .mat-form-field-ripple {
+  height: 0px;
+}
+::ng-deep .resultMessageDrop .mat-form-field-appearance-fill .mat-select-arrow-wrapper {
+  transform: translateY(0%);
+}
+::ng-deep .resultMessageDrop .mat-form-field-appearance-fill .mat-select-arrow-wrapper .mat-select-arrow {
+  color: var(--blackColor);
+  border-left: 12px solid rgba(0,0,0,0);
+  border-right: 12px solid rgba(0,0,0,0);
+  border-top: 12px solid;
+}
+::ng-deep.resultMessageDrop span.mat-select-min-line {
+  color: var(--blackColor);
+  font-size: 16px;
+  font-weight: 400;
+}

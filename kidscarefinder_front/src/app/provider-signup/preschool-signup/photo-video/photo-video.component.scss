@@ -1,0 +1,177 @@
+// Review section Profile pic design
+
+.uploadRemovPhotoBtns {
+  gap: 15px;
+}
+.photoUploads{
+  box-sizing: border-box;
+  width: 150px;
+  height: 150px;
+  border: 1px solid #B9B9B9;
+  border-radius: 180px;
+  object-fit: cover;
+  object-position: top;
+}
+.buttonsGroupsUploadPhoto .btnSquare {
+  color: #fff;
+}
+.disable-section {
+  // opacity: 0.7;
+  pointer-events: none;
+}
+
+.buttonsGroupsUploadPhoto .whiteBtn {
+  color: var(--primaryColor);
+    height: 50px;
+    line-height: 28px;
+    border-radius: 10px !important;
+    margin-top: 10px;
+}
+.buttonsGroupsUploadPhoto .btnwidth140{
+  min-width: 144px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0px 10px;
+}
+.buttonsGroupsUploadPhoto .whiteBtn {
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+::ng-deep .buttonsGroupsUploadPhoto .whiteBtn span.mat-button-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.buttonsGroupsUploadPhoto .whiteBtn span.btnIcon.remove {
+  width: 18px;
+  height: 18px;
+  background-size: 14px;
+}
+
+
+
+// new css
+.uploadFilesComponent {
+  background: #FFFFFF;
+  border-radius: 10px;
+  padding: 20px 25px 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0px auto 20px;
+  max-width: 400px;
+  width: auto;
+}
+.profilePicture {
+  width: 150px;
+  height: 150px;
+  background: #ddd;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profileUpload {
+  max-width: 175px;
+  width: 100%;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.profileUploadBtn input[type="file"] + label {
+  background: var(--primaryColor);
+  padding: 12px 12px;
+  border: 1px solid var(--primaryColor);
+  border-radius: 10px;
+  color: #fff;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.profileUpload .btn-outline-secondary {
+  border: 1px solid var(--primaryColor);
+  color: var(--primaryColor);
+  padding: 10px 12px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+// .profileUpload .spanRemove {
+//   font-size: 14px;
+//   font-weight: 600;
+//   padding-left: 8px;
+// }
+.profileUpload .spanRemove {
+  padding-left: 0px;
+}
+
+.profileDisclaim {
+  color: #767676;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  width: 100%;
+  text-align: center;
+  margin: 5px 0;
+}
+
+
+.DetailPhotoLeft.phodetaiL {
+  width: 40%;
+  margin-right: 0;
+}
+.DetailPhotoLeft.phodetaiL .detailsColBg {
+  padding-left: 15px;
+}
+.DetailPhotoReft.phodetaiR {
+  width: 60%;
+}
+
+
+@media screen and (max-width:1199px) {
+  .uploadFilesComponent {
+    width: 100%;
+    padding: 20px 15px 10px;
+  }
+  .profileUpload {
+    max-width: 100%;
+    width: auto;
+  }
+  .profilePicture {
+    width: 140px;
+    height: 140px;
+  }
+
+  .profileUploadBtn input[type="file"] + label {
+    padding: 8px;
+    height: 50px;
+  }
+  .profileUpload .btn-outline-secondary {
+    padding: 8px;
+    height: 50px;
+  }
+
+
+}
+@media screen and (max-width:1848px) {
+  .buttonsGroupsUploadPhoto {
+    width: 45%;
+  }
+}
+
+

@@ -1,0 +1,508 @@
+<!-----------------------------------------------Login Modal Start -------------------------------->
+<div class="logsign_popup" id="loginPop" *ngIf="login">
+  <div class="row">
+    <div class="col-md popup_leftside">
+      <img src="../../../../assets/images/logo.svg" alt="logo" />
+    </div>
+    <div class="col-md popup_rightside">
+      <button type="button" class="btn-close" (click)="closeModal()"></button>
+      <div class="inner_content main_block">
+        <div class="sect_head">
+          <h2 class="sect_title popup_title text-center">Welcome!</h2>
+          <p class="sect_subtitle">Welcome to KCF, Please Login</p>
+        </div>
+        <div class="popup_form main_block loginPopControl">
+          <form id="login_form" class="logsi_form loginCust" [formGroup]="loginForm" (ngSubmit)="SignInUser()">
+            <div class="row form_row">
+              <div class="col-12 form-group error-mess-fixes">
+                <span class="field_icon"><i class="fa-solid fa-at"></i></span>
+                <input type="email" matInput class="form-control" (keydown.space)="$event.preventDefault()"
+                  id="login_email" autocomplete="off" formControlName="email" placeholder="Email" required />
+                <span class="logError error-mess" style="color: red" *ngIf="
+                    (f['email'].errors && f['email'].touched) ||
+                    (submitted && f['email'].errors)
+                  ">
+                  <mat-error *ngIf="f['email'].errors['required']">Email can't be blank</mat-error>
+                  <mat-error *ngIf="f['email'].errors['pattern']">Email is invalid</mat-error>
+                </span>
+              </div>
+
+              <div class="col-12 form-group">
+                <span class="field_icon"><i class="fa-solid fa-lock"></i></span>
+                <input type="password" matInput class="form-control" id="login_password"
+                  (keydown.space)="$event.preventDefault()" formControlName="password" placeholder="Password" required
+                  autocomplete="off" />
+                <span class="logError" style="color: red" *ngIf="
+                    (f['password'].errors && f['password'].touched) ||
+                    (submitted && f['password'].errors)
+                  ">
+                  <mat-error *ngIf="f['password'].errors['required']">Password can't be blank</mat-error>
+                  <mat-error *ngIf="f['password'].errors['pattern']">Password is invalid</mat-error>
+                </span>
+              </div>
+              <div class="col-12 form-group remem_block">
+                <div class="remember_tick">
+                  <input type="checkbox" id="login_remember" name="login_remember" required />
+                  <label for="login_remember">Remember Me</label>
+                </div>
+                <a routerLinkActive="router-link-active" href="javascript:void(0)" (click)="openModel('resetPass')"
+                  class="forgot_pass">
+                  <!-- Forgot username/password? -->
+                  Forgot password?
+                </a>
+              </div>
+              <div class="col-12 form-group submit_block login_btn_block">
+                <button type="submit" class="btn btn-primary btn-custom-desg">
+                  Login
+                </button>
+                <a href="javascript:void(0)" class="btn btn-primary btn-custom-desg sign_google_btn">Or sign in with
+                  Google</a>
+              </div>
+              <div class="col-12 form-group target_other_block">
+                <p class="alreadyAcct">
+                  Don’t have an account yet?
+                  <a href="javascript:void(0)" (click)="openModel('signup')" class="add_favrt_provider">Sign up</a>
+                </p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!----------------------------------------------------- Login Modal End-------------------------------------------------- -->
+<!------------------------------------------------------ Sign up Modal Start--------------------------------------------- -->
+<div class="logsign_popup" id="SignupPop" [ngClass]="{ loaderCustom: showLoader }" *ngIf="signup">
+  <div class="loaderPreschool" *ngIf="showLoader">
+    <img src="../../../../assets/images/loader.gif" alt="" />
+  </div>
+
+  <div class="row" id="">
+    <div class="col-xl-4 col-lg-4 col-md-5 col-sm-12 popup_leftside">
+      <img src="../../../../assets/images/logo.svg" alt="logo" />
+      <ul class="singUpLeftMenu">
+        <li>Save providers</li>
+        <li>Unlimited messaging</li>
+        <li>Access to waitlists</li>
+        <li>Apply online</li>
+        <li>Enroll electronically</li>
+      </ul>
+    </div>
+    <div class="col-xl-8 col-lg-8 col-md-7 col-sm-12 popup_rightside">
+      <button type="button" class="btn-close" (click)="closeModal()"></button>
+      <div class="inner_content main_block">
+        <div class="sect_head">
+          <h2 class="sect_title popup_title">
+            Create your <b>free</b> account
+          </h2>
+          <p class="sect_subtitle big_subtitle pb-2">
+            Register for a complimentary account with
+            <b> Kids Care Finder</b> to be able to add to favorite, message,
+            access waitlists, apply and enroll online and more!
+          </p>
+        </div>
+        <div class="popup_form main_block">
+          <form id="login_form" class="logsi_form loginCust" [formGroup]="signupForm" (ngSubmit)="SignUpUser()"
+            autocomplete="off">
+            <div class="row">
+              <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                <div class="form-group error-mess-fixes">
+                  <label for="signup_fname">First Name</label>
+                  <input type="name" matInput class="form-control" id="signup_fname" required autocomplete="off"
+                    formControlName="first_name" />
+                  <span style="color: red" class="error-mess" *ngIf="
+                      (s['first_name'].errors && s['first_name'].touched) ||
+                      (signupSubmitted && s['first_name'].errors)
+                    ">
+                    <mat-error *ngIf="s['first_name'].errors['required']">First name can't be blank</mat-error>
+                    <mat-error *ngIf="s['first_name'].errors['pattern']">First name is invalid</mat-error>
+                  </span>
+                </div>
+              </div>
+
+              <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                <div class="form-group error-mess-fixes">
+                  <label for="signup_lname">Last Name</label>
+                  <input type="name" matInput class="form-control" id="signup_lname" required autocomplete="off"
+                    formControlName="last_name" />
+                  <span style="color: red" class="error-mess" *ngIf="
+                      (s['last_name'].errors && s['last_name'].touched) ||
+                      (signupSubmitted && s['last_name'].errors)
+                    ">
+                    <mat-error *ngIf="s['last_name'].errors['required']">Last name can't be blank</mat-error>
+                    <mat-error *ngIf="s['last_name'].errors['pattern']">Last name is invalid</mat-error>
+                  </span>
+                </div>
+              </div>
+
+              <div class="col-12 form-group error-mess-fixes">
+                <label for="signup_address">Address</label>
+                <input type="text" ngx-google-places-autocomplete (onAddressChange)="AddressChange($event)" matInput
+                  class="form-control" autocomplete="off" formControlName="address" id="address" />
+                <input hidden matInput #latitude formControlName="latitude" [value]="latitudedata" />
+                <input hidden matInput #longitude formControlName="longitude" [value]="longitudedata" />
+                <!-- <input hidden matInput formControlName="city" />
+                <input hidden matInput formControlName="state" /> -->
+
+                <span style="color: red" class="error-mess" *ngIf="
+                    (s['address'].errors && s['address'].touched) ||
+                    (signupSubmitted && s['address'].errors)
+                  ">
+                  <mat-error *ngIf="s['address'].errors['required']">Address can't be blank</mat-error>
+                </span>
+              </div>
+
+              <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 form-group error-mess-fixes">
+                <label for="signup_phone">Phone Number</label>
+                <input type="text" matInput class="form-control" id="signup_phone" autocomplete="off"
+                       mask="000-000-0000" formControlName="contact" />
+                <span style="color: red" class="error-mess"
+                      *ngIf="(s['contact'].errors && s['contact'].touched) || (signupSubmitted && s['contact'].errors)">
+                  <mat-error *ngIf="s['contact'].errors['required']">Contact can't be blank</mat-error>
+                  <mat-error *ngIf="s['contact'].errors['minlength']">Contact number is invalid</mat-error>
+                </span>
+              </div>
+
+              <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 form-group error-mess-fixes">
+                <label for="signup_email">Email</label>
+                <input type="email" matInput class="form-control" id="signup_email" required autocomplete="off"
+                  formControlName="email" />
+                <span style="color: red" class="error-mess" *ngIf="(signupSubmitted && s['email'].errors)
+                  ">
+                  <mat-error *ngIf="s['email'].errors['required']">Email can't be blank</mat-error>
+                  <mat-error *ngIf="s['email'].errors['pattern']">Email is invalid</mat-error>
+                </span>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 form-group">
+                <div class="tooltipManage error-mess-fixes">
+                  <label for="signup_password">Password</label>
+                  <button type="button" mat-raised-button matTooltip="Password must be at least eight characters in length,
+                      contain at least one uppercase and one lowercase letter,
+                      one number,
+                      and at least one special character" aria-label="Displays a tooltip">
+                    <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M11.5 7.5H9.5V5.5H11.5M11.5 15.5H9.5V9.5H11.5M10.5 0.5C9.18678 0.5 7.88642 0.758658 6.67317 1.2612C5.45991 1.76375 4.35752 2.50035 3.42893 3.42893C1.55357 5.3043 0.5 7.84784 0.5 10.5C0.5 13.1522 1.55357 15.6957 3.42893 17.5711C4.35752 18.4997 5.45991 19.2362 6.67317 19.7388C7.88642 20.2413 9.18678 20.5 10.5 20.5C13.1522 20.5 15.6957 19.4464 17.5711 17.5711C19.4464 15.6957 20.5 13.1522 20.5 10.5C20.5 9.18678 20.2413 7.88642 19.7388 6.67317C19.2362 5.45991 18.4997 4.35752 17.5711 3.42893C16.6425 2.50035 15.5401 1.76375 14.3268 1.2612C13.1136 0.758658 11.8132 0.5 10.5 0.5Z"
+                        fill="white" />
+                    </svg>
+                  </button>
+                  <input type="password" matInput class="form-control" id="signup_password" required autocomplete="off"
+                    formControlName="password" />
+                  <span style="color: red" class="error-mess" *ngIf="(signupSubmitted && s['password'].errors)">
+                    <mat-error *ngIf="s['password'].errors['required']">Password can't be blank</mat-error>
+                    <mat-error *ngIf="s['password'].errors['pattern']">
+                      Please enter a valid password.
+                    </mat-error>
+                  </span>
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 form-group error-mess-fixes">
+                <div class="tooltipManage">
+                  <label for="signup_conpassword">Confirm Password</label>
+                  <button type="button" mat-raised-button matTooltip="Password must be at least eight characters in length,
+                contain at least one uppercase and one lowercase letter,
+                one number,
+                and at least one special character" aria-label="Displays a tooltip">
+                    <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M11.5 7.5H9.5V5.5H11.5M11.5 15.5H9.5V9.5H11.5M10.5 0.5C9.18678 0.5 7.88642 0.758658 6.67317 1.2612C5.45991 1.76375 4.35752 2.50035 3.42893 3.42893C1.55357 5.3043 0.5 7.84784 0.5 10.5C0.5 13.1522 1.55357 15.6957 3.42893 17.5711C4.35752 18.4997 5.45991 19.2362 6.67317 19.7388C7.88642 20.2413 9.18678 20.5 10.5 20.5C13.1522 20.5 15.6957 19.4464 17.5711 17.5711C19.4464 15.6957 20.5 13.1522 20.5 10.5C20.5 9.18678 20.2413 7.88642 19.7388 6.67317C19.2362 5.45991 18.4997 4.35752 17.5711 3.42893C16.6425 2.50035 15.5401 1.76375 14.3268 1.2612C13.1136 0.758658 11.8132 0.5 10.5 0.5Z"
+                        fill="white" />
+                    </svg>
+                  </button>
+                  <input type="password" matInput class="form-control" id="signup_conpassword" name="signup-conpassword"
+                    required autocomplete="off" formControlName="conPass" />
+                  <span style="color: red" class="error-mess" *ngIf="
+                      (s['conPass'].errors && s['conPass'].touched) ||
+                      (signupSubmitted && s['conPass'].errors)
+                    ">
+                    <mat-error *ngIf="s['conPass'].errors['required']">Confirm password can't be blank</mat-error>
+                    <mat-error *ngIf="s['conPass'].errors['passwordNotMatch']">
+                      {{customAlertMessage.passwordMismatch[2].message}}
+                    </mat-error>
+                  </span>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="form-group sanVibhu error-mess-fixes">
+                  <label for="signup_provider">Which provider types are you interested in?</label>
+                  <mat-form-field appearance="fill">
+                    <mat-select multiple placeholder="Select provider type(s)" id="signup_provider"
+                      name="signup-provider" formControlName="interested_provider_type">
+                      <div class="multiDropserach">
+                        <input type="search" matInput placeholder="Search for provider type(s)"
+                          (keyup)="search($event)" />
+                        <span class="sIcon">
+                          <svg width="13" height="14" viewBox="0 0 13 14" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                              d="M9.67379 8.83064C10.4302 7.79825 10.7691 6.51828 10.6224 5.24679C10.4758 3.9753 9.85458 2.80606 8.88301 1.973C7.91145 1.13994 6.66121 0.704488 5.38242 0.753769C4.10363 0.80305 2.8906 1.33343 1.98601 2.23879C1.08142 3.14415 0.551989 4.35773 0.50363 5.63674C0.455271 6.91574 0.891553 8.16585 1.72519 9.13695C2.55883 10.1081 3.72835 10.7285 4.99977 10.8743C6.27118 11.02 7.55073 10.6802 8.58243 9.92294H8.58165C8.60508 9.95419 8.63008 9.98388 8.65821 10.0128L11.6659 13.0209C11.8124 13.1675 12.0111 13.2499 12.2183 13.25C12.4256 13.2501 12.6244 13.1678 12.7709 13.0213C12.9175 12.8748 12.9999 12.6761 13 12.4688C13.0001 12.2615 12.9178 12.0627 12.7713 11.9161L9.76363 8.90799C9.7357 8.87971 9.70567 8.85359 9.67379 8.82985V8.83064ZM9.87535 5.8272C9.87535 6.39153 9.76421 6.95034 9.54828 7.47171C9.33235 7.99309 9.01586 8.46682 8.61687 8.86586C8.21788 9.26491 7.74422 9.58145 7.22292 9.79741C6.70162 10.0134 6.14289 10.1245 5.57864 10.1245C5.01438 10.1245 4.45566 10.0134 3.93435 9.79741C3.41305 9.58145 2.93939 9.26491 2.5404 8.86586C2.14141 8.46682 1.82492 7.99309 1.60899 7.47171C1.39306 6.95034 1.28192 6.39153 1.28192 5.8272C1.28192 4.68748 1.73461 3.59444 2.5404 2.78854C3.34619 1.98264 4.43908 1.52988 5.57864 1.52988C6.71819 1.52988 7.81108 1.98264 8.61687 2.78854C9.42266 3.59444 9.87535 4.68748 9.87535 5.8272Z"
+                              fill="white" />
+                          </svg>
+                        </span>
+                      </div>
+
+                      <!-- <kcf-select-search formControlName="providerMultiFilterCtrl"
+                      placeholderLabel="Search for provider type(s)"></kcf-select-search> -->
+
+                      <mat-option *ngFor="let item of providerTypeArray" [value]="item.id">
+                        {{ item.providercategory }}
+                      </mat-option>
+                      <span *ngIf="providerTypeArray.length == 0" class="ps-3">No provider found</span>
+                    </mat-select>
+                  </mat-form-field>
+                  <span *ngIf="
+                      (s['interested_provider_type'].errors &&
+                        s['interested_provider_type'].touched) ||
+                      (signupSubmitted && s['interested_provider_type'].errors)
+                    " class="error-mess-two">
+                    <mat-error style="color: red !important"
+                      *ngIf="s['interested_provider_type'].errors['required']">Please
+                      select provider</mat-error>
+                  </span>
+                </div>
+              </div>
+
+              <div class="col-12 form-group remem_block">
+                <div class="remember_tick">
+                  <input type="checkbox" id="signup_opt" name="signup-opt" />
+                  <label for="signup_opt">I agree to receive marketing updates from Kids Care Finder
+                    and its affiliates</label>
+                </div>
+              </div>
+              <div class="col-12 form-group remem_block">
+                <div class="remember_tick">
+                  <input type="checkbox" id="signup_agree" [checked]="termsConditions" (click)="submitUserReason(true)"
+                    name="signup-agree" />
+                  <label for="signup_agree">Yes, I agree to all
+                    <a href="javascript:void(0)" (click)="openSignupTerms('openSignupTerms')"><b>terms and
+                        conditions</b>
+                    </a>
+                  </label>
+                </div>
+              </div>
+              <div class="col-12 form-group submit_block login_btn_block row">
+                <button type="submit" class="col-md btn btn-primary btn-custom-desg">
+                  Create account
+                </button>
+                <a href="javascript:void(0)" class="col-md btn btn-primary btn-custom-desg sign_google_btn">Or sign in
+                  with Google</a>
+              </div>
+              <div class="col-12 form-group target_other_block">
+                <p class="alreadyAcct">
+                  Already have an account?
+                  <a href="javascript:void(0)" (click)="openModel('login')" class="add_favrt_provider">Log in</a>
+                </p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!----------------------------------- Sign up Modal End --------------------------------------------->
+<!--------------------------------------OTP Modal Start -------------------------------------------->
+<div class="logsign_popup" id="otpPop" *ngIf="verifyOtp">
+  <div class="row">
+    <div class="col-md popup_leftside">
+      <img src="../../../../assets/images/logo.svg" alt="logo" />
+    </div>
+    <div class="col-md popup_rightside">
+      <button type="button" class="btn-close" (click)="closeModal()"></button>
+      <div class="inner_content main_block">
+        <div class="sect_head">
+          <h2 class="sect_title popup_title">Welcome!</h2>
+          <p class="sect_subtitle text-center">
+            Enter OTP to Activate Account.
+          </p>
+        </div>
+        <div class="popup_form main_block">
+          <form id="otp_form" class="logsi_form loginCust" [formGroup]="verifyOTP" (ngSubmit)="verifyUserOtp()">
+            <div class="row form_row">
+              <div class="col-12 form-group">
+                <span class="field_icon"><i class="fa-solid fa-at"></i></span>
+                <input readonly type="email" matInput class="form-control" id="login_email" autocomplete="off"
+                  formControlName="email" placeholder="Email" />
+                <span style="color: red" *ngIf="
+                    (otp_Submitted || o['email']?.touched) && o['email'].errors
+                  ">
+                  <mat-error *ngIf="o['email'].errors['required']">Email is required</mat-error>
+                  <mat-error *ngIf="o['email'].errors['pattern']">Email is invalid</mat-error>
+                </span>
+              </div>
+
+              <div class="col-12 form-group">
+                <span class="field_icon"><i class="fa-solid fa-lock"></i></span>
+                <input type="text" matInput class="form-control" id="login_password" formControlName="otp"
+                  placeholder="Otp" required autocomplete="off" maxlength="6" minlength="6" />
+                <span style="color: red" *ngIf="
+                    (otp_Submitted || o['otp']?.touched) && o['otp'].errors
+                  ">
+                  <mat-error *ngIf="o['otp'].errors['required']">OTP is required</mat-error>
+                  <mat-error *ngIf="o['otp'].errors['pattern']">OTP is invalid</mat-error>
+                  <mat-error *ngIf="o['otp'].errors['maxlength']">OTP is invalid</mat-error>
+                  <mat-error *ngIf="o['otp'].errors['minlength']">OTP is invalid</mat-error>
+                </span>
+              </div>
+              <div class="col-12 form-group submit_block login_btn_block">
+                <button type="submit" class="btn btn-primary btn-custom-desg">
+                  Verify OTP
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!------------------------------------------ OTP Modal End ------------------------------------------------>
+<!--------------------------------------Reset Password Modal Start -------------------------------------------->
+<div class="logsign_popup otpscreen" id="resetPassPop" *ngIf="resetPass">
+  <div class="row">
+    <div class="col-md popup_leftside">
+      <img src="../../../../assets/images/logo.svg" alt="logo" />
+    </div>
+    <div class="col-md popup_rightside">
+      <button type="button" class="btn-close" (click)="closeModal()"></button>
+      <div class="inner_content main_block">
+        <div class="sect_head">
+          <h2 class="sect_title popup_title text-center">Welcome!</h2>
+          <p class="sect_subtitle">Reset Password</p>
+        </div>
+        <div class="popup_form main_block">
+          <form id="otp_form" class="logsi_form loginCust" [formGroup]="forgotPass">
+            <div class="row form_row">
+              <div class="col-12 form-group">
+                <span class="field_icon"><i class="fa-solid fa-at"></i></span>
+                <input type="email" [readonly]="showOtpSec || afterOTP" matInput class="form-control" id="login_email" autocomplete="off"
+                  formControlName="email" placeholder="Email" />
+                <span style="color: red" *ngIf="submitted && r['email']?.touched && r['email'].errors">
+                  <mat-error *ngIf="r['email'].errors['required']">Email is required</mat-error>
+                  <mat-error *ngIf="r['email'].errors['pattern']">Email is invalid</mat-error>
+                </span>
+              </div>
+
+              <div class="col-12 form-group" *ngIf="showOtpSec">
+                <span class="field_icon"><i class="fa-solid fa-lock"></i></span>
+                <input type="number" matInput class="form-control" id="login_password" formControlName="otp"
+                  placeholder="Otp" required autocomplete="off" maxlength="6" minlength="6" />
+                <span style="color: red" *ngIf="submitted && r['otp']?.touched && r['otp'].errors">
+                  <mat-error *ngIf="r['otp'].errors['required']">OTP is required</mat-error>
+                  <mat-error *ngIf="r['otp'].errors['pattern']">OTP is invalid</mat-error>
+                  <mat-error *ngIf="r['otp'].errors['maxlength']">OTP is invalid</mat-error>
+                  <mat-error *ngIf="r['otp'].errors['maxlength']">OTP is invalid</mat-error>
+                </span>
+              </div>
+
+              <div class="col-12 form-group" *ngIf="afterOTP">
+                <span class="field_icon"><i class="fa-solid fa-lock"></i></span>
+                <input type="password" matInput class="form-control" id="login_password" formControlName="password"
+                  placeholder="Enter New Password" required autocomplete="off" />
+                <span style="color: red" *ngIf="submitted && r['password']?.touched && r['password'].errors">
+                  <mat-error *ngIf="r['password'].errors['required']">Password is required</mat-error>
+                  <mat-error *ngIf="r['password'].errors['pattern']">
+                    PLease enter a valid password.
+                  </mat-error>
+                </span>
+              </div>
+              <div class="col-12 form-group" *ngIf="afterOTP">
+                <span class="field_icon"><i class="fa-solid fa-lock"></i></span>
+                <input type="password" matInput class="form-control" id="login_password" formControlName="newpassword"
+                  placeholder="Enter Confirm Password" required autocomplete="off" />
+                <span style="color: red" *ngIf="submitted && r['newpassword']?.touched && r['newpassword'].errors ">
+                  <mat-error *ngIf="r['newpassword'].errors['required']">Confirm Password is required</mat-error>
+                  <mat-error *ngIf="r['newpassword'].errors['passwordNotMatch']">
+                    {{customAlertMessage.passwordMismatch[2].message}}
+                  </mat-error>
+                </span>
+              </div>
+
+              <div class="col-12 form-group submit_block login_btn_block" *ngIf="hidegetOtp">
+                <button type="submit" class="btn btn-primary btn-custom-desg" (click)="ResetGetOtp()">
+                  Get OTP
+                </button>
+              </div>
+              <div class="col-12 form-group submit_block login_btn_block" *ngIf="!hidegetOtp">
+                <button type="submit" class="btn btn-primary btn-custom-desg" (click)="ResetPasAOtp()">
+                  Reset Password
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!------------------------------------------Reset Password Modal End ------------------------------------------------>
+
+<!--------------------------------------change Password Modal Start -------------------------------------------->
+<div class="logsign_popup" id="changePassword" *ngIf="changePassword">
+  <div class="row">
+    <div class="col-md popup_leftside">
+      <img src="../../../../assets/images/logo.svg" alt="logo" />
+    </div>
+    <div class="col-md popup_rightside">
+      <button type="button" class="btn-close" (click)="closeModal()"></button>
+      <div class="inner_content main_block">
+        <div class="sect_head">
+          <h2 class="sect_title popup_title">Welcome!</h2>
+          <p class="sect_subtitle">Change Password</p>
+        </div>
+        <div class="popup_form main_block">
+          <form id="otp_form" class="logsi_form loginCust" [formGroup]="changePasswordForm">
+            <div class="row form_row">
+              <div class="col-12 form-group">
+                <span class="field_icon"><i class="fa-solid fa-lock"></i></span>
+                <input type="password" matInput class="form-control" id="current_password"
+                  formControlName="current_password" placeholder="Enter Old Password" required autocomplete="off" />
+                <span style="color: red" *ngIf="
+                    changePassSubmitted &&
+                    cpControls['current_password']?.touched &&
+                    cpControls['current_password'].errors
+                  ">
+                  <mat-error *ngIf="cpControls['current_password'].errors['required']">Password is required</mat-error>
+                </span>
+              </div>
+              <div class="col-12 form-group">
+                <span class="field_icon"><i class="fa-solid fa-lock"></i></span>
+                <input type="password" matInput class="form-control" id="new_password" formControlName="new_password"
+                  placeholder="Enter New Password" required autocomplete="off" />
+                <span style="color: red" *ngIf="
+                    changePassSubmitted &&
+                    cpControls['new_password']?.touched &&
+                    cpControls['new_password'].errors
+                  ">
+                  <mat-error *ngIf="cpControls['new_password'].errors['required']">Confirm Password is
+                    required</mat-error>
+                </span>
+              </div>
+              <div class="col-12 form-group">
+                <span class="field_icon"><i class="fa-solid fa-lock"></i></span>
+                <input type="password" matInput class="form-control" id="confirm_password"
+                  formControlName="confirm_password" placeholder="Enter Confirm Password" required autocomplete="off" />
+                <span style="color: red" *ngIf="
+                    changePassSubmitted &&
+                    cpControls['confirm_password']?.touched &&
+                    cpControls['confirm_password'].errors
+                  ">
+                  <mat-error *ngIf="cpControls['confirm_password'].errors['required']">Confirm Password is
+                    required</mat-error>
+                </span>
+              </div>
+              <div class="col-12 form-group submit_block login_btn_block">
+                <button type="submit" class="btn btn-primary btn-custom-desg" (click)="changeProviderPassword()">
+                  Reset Password
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!------------------------------------------change Password Modal End ------------------------------------------------>

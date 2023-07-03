@@ -1,0 +1,245 @@
+<section class="userSignupOuter providerSignup">
+  <div class="">
+    <div class="signUpReligiousSection">
+      <div class="ReligiousSteps0" *ngIf="stepCount === 0">
+        <form [formGroup]="affliationGroup">
+          <div class="main_block sect_head">
+            <h2 class="sect_title my-0">
+              Does your Preschool have a religious affiliations?
+            </h2>
+          </div>
+          <div class="licenceBtns radioButtons">
+            <mat-radio-group matInput aria-labelledby="example-radio-group-label" class="example-radio-group"
+              formControlName="religiousHave">
+              <span *ngFor="let season of ReligiousProYesNo" class="spanRadio">
+                <mat-radio-button (change)="ReligiousChange($event, season)" class="example-radio-button form-control1"
+                  [value]="season">
+                  {{ season }}
+                </mat-radio-button>
+              </span>
+            </mat-radio-group>
+          </div>
+          <div class="col-xl-5 col-lg-5 col-md-12 mx-auto" *ngIf="ReligiousHaveDrop">
+            <div class="childYearDropdowns">
+              <div class="selectBlock addArrow">
+                <h3 class="step8drophed">Select religious affiliation:</h3>
+                <mat-form-field class="selectPlaceHolder">
+                  <mat-label class="invisible">Select religious affiliation</mat-label>
+                  <mat-select placeholder="Search for religion" formControlName="toppingsReligious"
+                    name="toppingsReligious" class="ProDrop" multiple #multiSelect>
+                    <kcf-select-search formControlName="providerMultiFilterCtrl"
+                      placeholderLabel="Search for religion"></kcf-select-search>
+                    <div class="PreCheckBoxGroup matCheckBlack">
+                      <mat-option *ngFor="let toppingReligious of filteredProvidersList | async"
+                        [value]="toppingReligious.id">{{ toppingReligious.religion }}
+                      </mat-option>
+                      <span class="ps-3" *ngIf="religionMesg">No religious found</span>
+
+                    </div>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="ReligiousSteps1" *ngIf="stepCount === 1">
+        <form [formGroup]="ChildNeedCareGroup">
+          <div class="main_block sect_head">
+            <h2 class="sect_title my-0">
+              Do you offer programs in any language other than English?
+            </h2>
+          </div>
+          <div class="licenceBtns radioButtons">
+            <mat-radio-group matInput aria-labelledby="example-radio-group-label1" class="example-radio-group"
+              [(ngModel)]="favoriteSeason1" formControlName="langHave">
+              <span *ngFor="let season of LanguageOtherYesNo" class="spanRadio">
+                <mat-radio-button (change)="LanguageOtherChange($event, season)"
+                  class="example-radio-button form-control1" [value]="season">
+                  {{ season }}
+                </mat-radio-button>
+              </span>
+            </mat-radio-group>
+          </div>
+
+          <div class="col-xl-5 col-lg-5 col-md-12 mx-auto" *ngIf="LanguageOtherDrop">
+            <div class="childYearDropdowns">
+              <div class="selectBlock addArrow">
+                <h3 class="step8drophed">Select additional languages:</h3>
+                <mat-form-field class="selectPlaceHolder">
+                  <mat-label class="invisible">Select additional language(s)</mat-label>
+                  <mat-select placeholder="Search for language" formControlName="toppingslanguage" class="ProDrop"
+                    multiple>
+                    <kcf-select-search formControlName="providerLangFilterCtrl"
+                      placeholderLabel="Search for language"></kcf-select-search>
+                    <mat-option *ngFor="
+                          let toppingslanguage of filteredToppingListlanguage | async
+                        " [value]="toppingslanguage.id">{{ toppingslanguage.language }}</mat-option>
+                    <span class="ps-3" *ngIf="languageMesg">No language found</span>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="ReligiousSteps2" *ngIf="stepCount === 2">
+        <form [formGroup]="ChildNeedCareTK12">
+          <div class="main_block sect_head">
+            <h2 class="sect_title">Do you offer private school?</h2>
+          </div>
+          <div class="licenceBtns radioButtons">
+            <mat-radio-group matInput aria-labelledby="example-radio-group-label" class="example-radio-group"
+              [(ngModel)]="favoriteSeason" formControlName="tk12">
+              <span *ngFor="let season of PrivateSchoolYesNo" class="spanRadio">
+                <mat-radio-button (change)="PrivteSchoolChange($event, season)"
+                  class="example-radio-button form-control1" [value]="season">
+                  {{ season }}
+                </mat-radio-button>
+              </span>
+            </mat-radio-group>
+          </div>
+        </form>
+      </div>
+      <div class="ReligiousSteps3" *ngIf="stepCount === 3">
+        <form [formGroup]="ChildNeedCare">
+          <div class="main_block sect_head">
+            <h2 class="sect_title my-0">
+              Do you have affiliated provider types?
+            </h2>
+          </div>
+          <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mx-auto">
+            <div class="alertCustom spaceFix">
+              <strong>Example:</strong> If you are a preschool who also offers
+              private school, input that here. Similarly, if you offer before/
+              aftercare or summer camp as standalone programs for children who
+              do not attend your school, enter those here as well
+            </div>
+          </div>
+          <div class="licenceBtns radioButtons">
+            <mat-radio-group matInput aria-labelledby="example-radio-group-label" class="example-radio-group"
+              formControlName="affiliatedProvider">
+              <span *ngFor="let season of AffProTypeYesNo" class="spanRadio">
+                <mat-radio-button (change)="AffProTypeChange($event, season)" class="example-radio-button form-control1"
+                  [value]="season">
+                  {{ season }}
+                </mat-radio-button>
+              </span>
+            </mat-radio-group>
+          </div>
+        </form>
+        <div class="col-sm-6 mx-auto" *ngIf="affliationType">
+          <div class="main_block sect_head">
+            <h2 class="sect_title">Add affiliated provider types:</h2>
+          </div>
+          <div class="alertCustom" style="margin: 0px">
+            <span class="exclamation" style="font-weight: 900; border: none">!</span>
+            If you add an affiliated provider, their administrator(s) will be
+            notified and asked to approve the affiliation. Once approved, all
+            affiliated provider pages will be highlighted on each other's
+            customized provider pages.
+          </div>
+        </div>
+
+        <div class="col-10 mx-auto">
+          <div class="profleTable steptable" *ngIf="affliationType">
+            <div class="table-responsive">
+              <table class="table table-hover" style="margin: 0px">
+                <thead>
+                  <tr>
+                    <th *ngIf="affiliatedProvidersList.length"></th>
+                    <th style="width: 33%;" scope="col">
+                      Provider type
+                    </th>
+                    <th style="width: 33%;" scope="col">
+                      Provider name
+                    </th>
+                    <th style="width: 33%;" scope="col">
+                      Provider page URL
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of affiliatedProvidersList">
+                    <td>
+                      <svg (click)="deleteAffiliatedProvider(item.id)" width="18" height="19" viewBox="0 0 18 19"
+                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M9 0.5C13.977 0.5 18 4.523 18 9.5C18 14.477 13.977 18.5 9 18.5C4.023 18.5 0 14.477 0 9.5C0 4.523 4.023 0.5 9 0.5ZM12.231 5L9 8.231L5.769 5L4.5 6.269L7.731 9.5L4.5 12.731L5.769 14L9 10.769L12.231 14L13.5 12.731L10.269 9.5L13.5 6.269L12.231 5Z"
+                          fill="#B9B9B9" />
+                      </svg>
+                    </td>
+                    <td>{{ item?.provider_type === 'PRE_SCHOOL'?'Preschool': item?.provider_type }}</td>
+                    <td>{{ item?.first_name }} {{ item?.last_name }}</td>
+                    <td>{{ item?.affiliated_provider_url }}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div style="text-align: center" *ngIf="!affiliatedProvidersList.length" class="noData-warning">
+                You haven't added an affiliated provider type yet. Click 'Add
+                affiliated provider type' to get started.
+              </div>
+              <div class="addChild mt-3">
+                <a href="javascript:void(0)">
+                  <span class="addchildIcon">
+                    <svg width="35" height="21" viewBox="0 0 35 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M27.5003 17.6429V20.5H10.3574V17.6429C10.3574 17.6429 10.3574 11.9286 18.9288 11.9286C27.5003 11.9286 27.5003 17.6429 27.5003 17.6429ZM23.2146 4.78572C23.2146 3.93808 22.9632 3.10948 22.4923 2.4047C22.0214 1.69992 21.352 1.15061 20.5689 0.826232C19.7858 0.501857 18.9241 0.416985 18.0927 0.582351C17.2614 0.747716 16.4978 1.15589 15.8984 1.75526C15.299 2.35463 14.8908 3.11827 14.7255 3.94961C14.5601 4.78096 14.645 5.64268 14.9694 6.42579C15.2937 7.2089 15.843 7.87824 16.5478 8.34916C17.2526 8.82008 18.0812 9.07143 18.9288 9.07143C20.0655 9.07143 21.1556 8.6199 21.9593 7.81617C22.763 7.01245 23.2146 5.92236 23.2146 4.78572ZM27.786 12.0143C28.5669 12.7347 29.1965 13.6035 29.638 14.5699C30.0795 15.5363 30.324 16.5809 30.3574 17.6429V20.5H34.6431V17.6429C34.6431 17.6429 34.6431 12.7143 27.786 12.0143ZM26.0717 0.500002C25.6401 0.50026 25.2111 0.567735 24.8003 0.700001C25.6361 1.89853 26.0842 3.32455 26.0842 4.78572C26.0842 6.24688 25.6361 7.6729 24.8003 8.87143C25.2111 9.0037 25.6401 9.07117 26.0717 9.07143C27.2083 9.07143 28.2984 8.6199 29.1022 7.81617C29.9059 7.01245 30.3574 5.92236 30.3574 4.78572C30.3574 3.64907 29.9059 2.55899 29.1022 1.75526C28.2984 0.951531 27.2083 0.500002 26.0717 0.500002ZM11.786 7.64286H7.50028V3.35714H4.64314V7.64286H0.357422V10.5H4.64314V14.7857H7.50028V10.5H11.786V7.64286Z"
+                        fill="#164789" />
+                    </svg>
+                  </span>
+                  <span class="addChildtext" (click)="addaffiliationType = !addaffiliationType">Add affiliated provider
+                    type</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="addBriefBoxOuter" *ngIf="addaffiliationType">
+              <div class="addBriefBox boxshadow">
+                <div class="addBriefCross">
+                  <span class="briefCross">
+                    <a href="javascript:void(0)" (click)="addaffiliationType = false">
+                      <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M26 4.72875L21.2712 0L13 8.27125L4.72875 0L0 4.72875L8.27125 13L0 21.2712L4.72875 26L13 17.7288L21.2712 26L26 21.2712L17.7288 13L26 4.72875Z"
+                          fill="#D9D9D9" />
+                      </svg>
+                    </a>
+                  </span>
+                </div>
+                <div class="addBriefBoxInn">
+                  <div class="mb-3">
+                    <label class="form-label-md">Affiliated provider's Kids Care Finder's Provider ID or
+                      provider page URL</label>
+                    <input class="form-control" type="text" placeholder="" aria-label="default"
+                      [(ngModel)]="affiliatedProviderData" />
+                  </div>
+                </div>
+
+                <div class="addBriefCombine">
+                  <a href="javascript:void(0)" class="btn btn-danger" (click)="addaffiliationType = false">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M10 0C15.5 0 20 4.5 20 10C20 15.5 15.5 20 10 20C4.5 20 0 15.5 0 10C0 4.5 4.5 0 10 0ZM10 2C8.1 2 6.4 2.6 5.1 3.7L16.3 14.9C17.3 13.5 18 11.8 18 10C18 5.6 14.4 2 10 2ZM14.9 16.3L3.7 5.1C2.6 6.4 2 8.1 2 10C2 14.4 5.6 18 10 18C11.9 18 13.6 17.4 14.9 16.3Z"
+                        fill="white" />
+                    </svg>
+                    Cancel</a>
+                  <a href="javascript:void(0)" (click)="saveData()" class="btn btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M13.3333 6.66667H2.22222V2.22222H13.3333M10 17.7778C9.11595 17.7778 8.2681 17.4266 7.64298 16.8015C7.01786 16.1763 6.66667 15.3285 6.66667 14.4444C6.66667 13.5604 7.01786 12.7125 7.64298 12.0874C8.2681 11.4623 9.11595 11.1111 10 11.1111C10.8841 11.1111 11.7319 11.4623 12.357 12.0874C12.9821 12.7125 13.3333 13.5604 13.3333 14.4444C13.3333 15.3285 12.9821 16.1763 12.357 16.8015C11.7319 17.4266 10.8841 17.7778 10 17.7778ZM15.5556 0H2.22222C0.988889 0 0 1 0 2.22222V17.7778C0 18.3671 0.234126 18.9324 0.650874 19.3491C1.06762 19.7659 1.63285 20 2.22222 20H17.7778C18.3671 20 18.9324 19.7659 19.3491 19.3491C19.7659 18.9324 20 18.3671 20 17.7778V4.44444L15.5556 0Z"
+                        fill="white" />
+                    </svg>
+                    Save</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ReligiousSteps4" *ngIf="stepCount === 4">
+        <app-daycare-affiliation-review></app-daycare-affiliation-review>
+      </div>
+    </div>
+  </div>
+</section>

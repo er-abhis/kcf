@@ -1,0 +1,1135 @@
+<div class="mainBgColor">
+  <app-header></app-header>
+  <section class="userSignupOuter">
+    <div class="customCombine" id="customCombineParent">
+      <app-user-sidebar></app-user-sidebar>
+      <div class="contentright">
+        <app-mobo-top-menu></app-mobo-top-menu>
+          <div class="contentrightBg contentrightBgParent contentrightBgParentRemove">
+          <div class="accountSetting">
+            <div class="headingbg headingbgParent">
+              <div class="">
+                <h1 class="headingh1 headingh1Health">Health History</h1>
+                <p class="paratop paratopHealth">Child’s Preadmission Health History - Parent’s Report</p>
+                <p class="paratopTwo paratopHealth">This form will need to be completed for each child being enrolled.</p>
+              </div>
+              <div class="headingbgBtn">
+                <a href="javascript:void(0)" routerLink="/user/support" class="btn btn-light">
+                  <span class="watchBtn"><svg width="20" height="21" viewBox="0 0 20 21" fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M13.07 9.72192L12.17 10.6419C11.45 11.3619 11 11.9719 11 13.4719H9V12.9719C9 11.8619 9.45 10.8619 10.17 10.1419L11.41 8.88192C11.78 8.52192 12 8.02192 12 7.47192C12 6.36192 11.1 5.47192 10 5.47192C9.46957 5.47192 8.96086 5.68264 8.58579 6.05771C8.21071 6.43278 8 6.94149 8 7.47192H6C6 6.41106 6.42143 5.39364 7.17157 4.6435C7.92172 3.89335 8.93913 3.47192 10 3.47192C11.0609 3.47192 12.0783 3.89335 12.8284 4.6435C13.5786 5.39364 14 6.41106 14 7.47192C14 8.35192 13.64 9.14192 13.07 9.72192ZM11 17.4719H9V15.4719H11M10 0.471924C8.68678 0.471924 7.38642 0.730582 6.17317 1.23313C4.95991 1.73568 3.85752 2.47227 2.92893 3.40086C1.05357 5.27622 0 7.81976 0 10.4719C0 13.1241 1.05357 15.6676 2.92893 17.543C3.85752 18.4716 4.95991 19.2082 6.17317 19.7107C7.38642 20.2133 8.68678 20.4719 10 20.4719C12.6522 20.4719 15.1957 19.4184 17.0711 17.543C18.9464 15.6676 20 13.1241 20 10.4719C20 4.94192 15.5 0.471924 10 0.471924Z"
+                        fill="#E7E7E7" />
+                    </svg>
+                  </span>
+                  Watch Tutorial Video
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="shareBoxFixed">
+            <div class="historyHealth p-0">
+              <form [formGroup]="healthHistoryForm">
+                <div class="healthSelectOut">
+                  <div class="custom-select-box">
+                    <mat-form-field class="selectBlock custom-select-b" floatLabel="never">
+                      <mat-label>Health history for:</mat-label>
+                      <mat-select disableRipple disableOptionCentering panelClass="child-select-dropdown" (selectionChange)="call($event.value)">
+                        <div *ngFor="let child of children; let i = index">
+                          <mat-option *ngIf="!child.expected_due_date" #ref value="{{i}}|{{child.id}}">
+                            <div class="checkbox-icon">
+                              <div class="content"></div>
+                            </div>
+                            {{ subString(ucFirst(child.first_name),0,7) }}&nbsp;{{ usLast(child.last_name) }}.
+                          </mat-option>
+                        </div>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <!-- Basic Info and development history form -->
+                <div class="historyHealthBox border-0">
+                  <div class="historyhTitle">
+                    <h3 class="historyh3">Basic info</h3>
+                  </div>
+                  <div class="historyBasic">
+                    <div class="historyChild">
+                      <div class="historyChild35">
+                        <div class="healthInput">
+                          <div class="inputGroup">
+                            <label for="">Child's Name</label>
+                            <span class="mandatory">*</span>
+                            <input class="inputBlock" formControlName="first_name" readonly type="text" placeholder="">
+                            <span style="color: red" *ngIf="(healthSubmitted && u['first_name'].errors) ">
+                              <mat-error class="m-0 ms-2" *ngIf="u['first_name'].errors['required']">Required*</mat-error>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="historyChild65">
+                        <div class="historygender">
+                          <div class="healthInput">
+                            <div class="inputGroup">
+                              <label for="">Sex</label>
+                              <span class="mandatory">*</span>
+                              <input class="inputBlock" formControlName="gender" readonly type="text" placeholder="">
+                              <span style="color: red" *ngIf="(healthSubmitted && u['gender'].errors) ">
+                              <mat-error class="m-0 ms-2" *ngIf="u['gender'].errors['required']">Required*</mat-error>
+                            </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="historybirth">
+                          <div class="healthInput">
+                            <div class="inputGroup calSetIn">
+                              <label for="dob-date-picker">Birthdate</label>
+                              <span class="mandatory">*</span>
+                              <input class="inputBlock" [disabled]="true" matInput [matDatepicker]="$any(dateOfBirthPicker)" min='2000-01-01' [readonly]="true"
+                                [max]="dobMaxDate" (click)="dateOfBirthPicker.open()"  (focus)="dateOfBirthPicker.open()" formControlName="date_of_birth" id="dob-date-picker">
+                              <mat-datepicker-toggle [for]="dateOfBirthPicker" class="calSet"></mat-datepicker-toggle>
+                              <mat-datepicker #dateOfBirthPicker ></mat-datepicker>
+                              <span style="color: red" *ngIf="(healthSubmitted && u['date_of_birth'].errors) ">
+                              <mat-error class="m-0 ms-2" *ngIf="u['date_of_birth'].errors['required']">Required*</mat-error>
+                            </span>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="historyChild">
+                      <div class="historyChild35 historyDomest40">
+                        <div class="healthInput">
+                          <div class="inputGroup">
+                            <label for="">Father/Father’s domestic partner’s name</label>
+                            <input class="inputBlock" formControlName="father_domestic_partner_name" type="text"
+                              placeholder="">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="historyChild65 historyDomest60">
+                        <div class="historygender historyDomest100">
+                          <div class="healthInput">
+                            <div class="inputGroup">
+                              <label for="">Does father/father’s domestic partner live in home with child?</label>
+                              <input class="inputBlock" formControlName="is_father_domestic_partner_live_with_child"
+                                type="text" placeholder="">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="historyChild">
+                      <div class="historyChild35 historyDomest40">
+                        <div class="healthInput">
+                          <div class="inputGroup">
+                            <label for="">Mother/Mother’s domestic partner’s name</label>
+                            <input class="inputBlock" formControlName="mother_domestic_partner_name" type="text"
+                              placeholder="">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="historyChild65 historyDomest60">
+                        <div class="historygender historyDomest100">
+                          <div class="healthInput">
+                            <div class="inputGroup">
+                              <label for="">Does mother/mother’s domestic partner live in home with child?</label>
+                              <input class="inputBlock" formControlName="is_mother_domestic_partner_live_with_child"
+                                type="text" placeholder="">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="historyChild">
+                      <div class="historyChild35 historyDomest60">
+                        <div class="healthInput">
+                          <div class="inputGroup">
+                            <label for="">Has child been under regular supervision of physician?</label>
+                            <span class="mandatory">*</span>
+                            <input class="inputBlock" formControlName="is_under_supervision_physician" type="text"
+                              placeholder="">
+                            <span style="color: red" *ngIf="(healthSubmitted && u['is_under_supervision_physician'].errors)
+                      ">
+                              <mat-error *ngIf="u['is_under_supervision_physician'].errors['required']">Physician
+                                supervision is required</mat-error>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="historyChild65 historyDomest40">
+                        <div class="historybirth">
+                          <div class="healthInput">
+                            <div class="inputGroup calSetIn">
+                              <label for="date-of-last-med-exam">Date of last medical examination</label>
+                              <span class="mandatory">*</span>
+                              <input class="inputBlock" matInput min="2000-01-01" [max]="currentDate"
+                                     [matDatepicker]="lastMedExam"
+                                     (click)="lastMedExam.open()"
+                                     (focus)="lastMedExam.open()"
+                                     formControlName="last_med_exam"
+                                     [readonly]="true"
+                                     id="date-of-last-med-exam" >
+                              <mat-datepicker-toggle [for]="lastMedExam" class="calSet"></mat-datepicker-toggle>
+                              <mat-datepicker #lastMedExam ></mat-datepicker>
+                              <span style="color: red" *ngIf="(healthSubmitted && u['last_med_exam'].errors)">
+                                <mat-error *ngIf="u['last_med_exam'].errors['required']">Date of last medical exam is
+                                  required</mat-error>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="historyHealthBox boxshadow">
+                  <div class="historyhTitle">
+                    <h3 class="historyh3">Developmental History</h3>
+                    <h6 class="developh6">*For infants and preschool-age children only</h6>
+                  </div>
+                  <div class="historyDeployment">
+                    <div class="historyDeployGrid">
+                      <div class="historyDeployGridItem">
+                        <div class="historyChild65 historyDomest100">
+                          <div class="historybirth">
+                            <div class="healthInput">
+                              <div class="inputGroup">
+                                <label for="">Walked at</label>
+                                <span class="mandatory">*</span>
+                                <span class="d-inline-block m-0 ms-2" style="color: red"
+                                      *ngIf="(healthSubmitted && u['walked_at'].errors)">
+                                      <mat-error *ngIf="u['walked_at'].errors['required']">Required*</mat-error>
+                                    </span>
+                                <ul>
+                                  <li>
+                                    <select class="hsseloption" formControlName="walked_at" name="cars" id="cars">
+                                      <option [value]="1">1</option>
+                                      <option [value]="2">2</option>
+                                      <option [value]="3">3</option>
+                                      <option [value]="4">4</option>
+                                      <option [value]="5">5</option>
+                                      <option [value]="6">6</option>
+                                      <option [value]="7">7</option>
+                                      <option [value]="8">8</option>
+                                      <option [value]="9">9</option>
+                                      <option [value]="10">10</option>
+                                      <option [value]="11">11</option>
+                                      <option [value]="12">12</option>
+                                      <option [value]="13">13</option>
+                                      <option [value]="14">14</option>
+                                      <option [value]="15">15</option>
+                                      <option [value]="16">16</option>
+                                      <option [value]="17">17</option>
+                                      <option [value]="18">18</option>
+                                      <option [value]="19">19</option>
+                                      <option [value]="20">20</option>
+                                      <option [value]="21">21</option>
+                                      <option [value]="22">22</option>
+                                      <option [value]="23">23</option>
+                                      <option [value]="24">24</option>
+                                      <option [value]="25">25</option>
+                                      <option [value]="26">26</option>
+                                      <option [value]="27">27</option>
+                                      <option [value]="28">28</option>
+                                      <option [value]="29">29</option>
+                                      <option [value]="30">30</option>
+                                      <option [value]="31">31</option>
+                                      <option [value]="32">32</option>
+                                      <option [value]="33">33</option>
+                                      <option [value]="34">34</option>
+                                      <option [value]="35">35</option>
+                                      <option [value]="36">36</option>
+                                      <option [value]="37">37</option>
+                                      <option [value]="38">38</option>
+                                      <option [value]="39">39</option>
+                                      <option [value]="40">40</option>
+                                      <option [value]="41">41</option>
+                                      <option [value]="42">42</option>
+                                      <option [value]="43">43</option>
+                                      <option [value]="44">44</option>
+                                      <option [value]="45">45</option>
+                                      <option [value]="46">46</option>
+                                      <option [value]="47">47</option>
+                                      <option [value]="48">48</option>
+                                      <option [value]="49">49</option>
+                                      <option [value]="50">50</option>
+                                      <option [value]="51">51</option>
+                                      <option [value]="52">52</option>
+                                      <option [value]="53">53</option>
+                                      <option [value]="54">54</option>
+                                      <option [value]="55">55</option>
+                                      <option [value]="56">56</option>
+                                      <option [value]="57">57</option>
+                                      <option [value]="58">58</option>
+                                      <option [value]="59">59</option>
+                                      <option [value]="60">60</option>
+
+
+                                    </select>
+                                    <span class="selectside">Months</span>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="historyDeployGridItem">
+                        <div class="historyChild65 historyDomest100">
+                          <div class="historybirth">
+                            <div class="healthInput">
+                              <div class="inputGroup">
+                                <label for="">Began talking at</label>
+                                <span class="mandatory">*</span>
+                                <span style="color: red" *ngIf="(healthSubmitted && u['talked_at'].errors)">
+                                      <mat-error class="d-inline-block m-0 ms-2" *ngIf="u['talked_at'].errors['required']">Required*</mat-error>
+                                </span>
+
+                                <ul>
+                                  <li>
+                                    <select class="hsseloption" formControlName="talked_at" name="cars" id="cars">
+                                      <option [value]="1">1</option>
+                                      <option [value]="2">2</option>
+                                      <option [value]="3">3</option>
+                                      <option [value]="4">4</option>
+                                      <option [value]="5">5</option>
+                                      <option [value]="6">6</option>
+                                      <option [value]="7">7</option>
+                                      <option [value]="8">8</option>
+                                      <option [value]="9">9</option>
+                                      <option [value]="10">10</option>
+                                      <option [value]="11">11</option>
+                                      <option [value]="12">12</option>
+                                      <option [value]="13">13</option>
+                                      <option [value]="14">14</option>
+                                      <option [value]="15">15</option>
+                                      <option [value]="16">16</option>
+                                      <option [value]="17">17</option>
+                                      <option [value]="18">18</option>
+                                      <option [value]="19">19</option>
+                                      <option [value]="20">20</option>
+                                      <option [value]="21">21</option>
+                                      <option [value]="22">22</option>
+                                      <option [value]="23">23</option>
+                                      <option [value]="24">24</option>
+                                      <option [value]="25">25</option>
+                                      <option [value]="26">26</option>
+                                      <option [value]="27">27</option>
+                                      <option [value]="28">28</option>
+                                      <option [value]="29">29</option>
+                                      <option [value]="30">30</option>
+                                      <option [value]="31">31</option>
+                                      <option [value]="32">32</option>
+                                      <option [value]="33">33</option>
+                                      <option [value]="34">34</option>
+                                      <option [value]="35">35</option>
+                                      <option [value]="36">36</option>
+                                      <option [value]="37">37</option>
+                                      <option [value]="38">38</option>
+                                      <option [value]="39">39</option>
+                                      <option [value]="40">40</option>
+                                      <option [value]="41">41</option>
+                                      <option [value]="42">42</option>
+                                      <option [value]="43">43</option>
+                                      <option [value]="44">44</option>
+                                      <option [value]="45">45</option>
+                                      <option [value]="46">46</option>
+                                      <option [value]="47">47</option>
+                                      <option [value]="48">48</option>
+                                      <option [value]="49">49</option>
+                                      <option [value]="50">50</option>
+                                      <option [value]="51">51</option>
+                                      <option [value]="52">52</option>
+                                      <option [value]="53">53</option>
+                                      <option [value]="54">54</option>
+                                      <option [value]="55">55</option>
+                                      <option [value]="56">56</option>
+                                      <option [value]="57">57</option>
+                                      <option [value]="58">58</option>
+                                      <option [value]="59">59</option>
+                                      <option [value]="60">60</option>
+                                    </select>
+                                    <span class="selectside">Months</span>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="historyDeployGridItem">
+                        <div class="historyChild65 historyDomest100">
+                          <div class="historybirth">
+                            <div class="healthInput">
+                              <div class="inputGroup">
+                                <label for="">Toilet training started at</label>
+                                <span class="mandatory">*</span>
+                                  <span class="d-inline-block m-0 ms-2" style="color: red" *ngIf="(healthSubmitted && u['toilet_training_started_at'].errors)">
+                                    <mat-error *ngIf="u['toilet_training_started_at'].errors['required']">Required*</mat-error>
+                                  </span>
+
+                                <ul>
+                                  <li>
+                                    <select class="hsseloption" formControlName="toilet_training_started_at" name="cars"
+                                      id="cars">
+                                      <option [value]="1">1</option>
+                                      <option [value]="2">2</option>
+                                      <option [value]="3">3</option>
+                                      <option [value]="4">4</option>
+                                      <option [value]="5">5</option>
+                                      <option [value]="6">6</option>
+                                      <option [value]="7">7</option>
+                                      <option [value]="8">8</option>
+                                      <option [value]="9">9</option>
+                                      <option [value]="10">10</option>
+                                      <option [value]="11">11</option>
+                                      <option [value]="12">12</option>
+                                      <option [value]="13">13</option>
+                                      <option [value]="14">14</option>
+                                      <option [value]="15">15</option>
+                                      <option [value]="16">16</option>
+                                      <option [value]="17">17</option>
+                                      <option [value]="18">18</option>
+                                      <option [value]="19">19</option>
+                                      <option [value]="20">20</option>
+                                      <option [value]="21">21</option>
+                                      <option [value]="22">22</option>
+                                      <option [value]="23">23</option>
+                                      <option [value]="24">24</option>
+                                      <option [value]="25">25</option>
+                                      <option [value]="26">26</option>
+                                      <option [value]="27">27</option>
+                                      <option [value]="28">28</option>
+                                      <option [value]="29">29</option>
+                                      <option [value]="30">30</option>
+                                      <option [value]="31">31</option>
+                                      <option [value]="32">32</option>
+                                      <option [value]="33">33</option>
+                                      <option [value]="34">34</option>
+                                      <option [value]="35">35</option>
+                                      <option [value]="36">36</option>
+                                      <option [value]="37">37</option>
+                                      <option [value]="38">38</option>
+                                      <option [value]="39">39</option>
+                                      <option [value]="40">40</option>
+                                      <option [value]="41">41</option>
+                                      <option [value]="42">42</option>
+                                      <option [value]="43">43</option>
+                                      <option [value]="44">44</option>
+                                      <option [value]="45">45</option>
+                                      <option [value]="46">46</option>
+                                      <option [value]="47">47</option>
+                                      <option [value]="48">48</option>
+                                      <option [value]="49">49</option>
+                                      <option [value]="50">50</option>
+                                      <option [value]="51">51</option>
+                                      <option [value]="52">52</option>
+                                      <option [value]="53">53</option>
+                                      <option [value]="54">54</option>
+                                      <option [value]="55">55</option>
+                                      <option [value]="56">56</option>
+                                      <option [value]="57">57</option>
+                                      <option [value]="58">58</option>
+                                      <option [value]="59">59</option>
+                                      <option [value]="60">60</option>
+                                    </select>
+                                    <span class="selectside">Months</span>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- end of basic info and health history form -->
+                <div class="historyHealthBox boxshadow">
+                  <div class="historyhTitle">
+                    <h3 class="historyh3">Past Illness</h3>
+                    <p class="paragray">Check illnesses that child has had and specify approximate dates of Illnesses
+                    </p>
+                  </div>
+                  <div class="historyDeployment">
+<!--                    <app-past-illness [formGroup]="healthHistoryForm"></app-past-illness>-->
+                    <div class="historyIlluness">
+                      <div class="historyIllunessItem" *ngFor="let item of illnessData; let i =index"
+                        formArrayName="pastillness">
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" [checked]="item.checked" [value]="item.id"
+                            (change)="onSelected(item,$event,'id')" name="illnessData_{{item.id}}"
+                            id="illnessData_{{item.id}}" type="checkbox">
+                          <label class="form-check-label" for="illnessData_{{item.id}}">
+                            {{ item.illness }}
+                          </label>
+                        </div>
+                        <div class="form-check form-check-inline expandInput"
+                          *ngIf="item.checked || selectedProvider.indexOf(item.id) != -1">
+                          <select class="form-select" aria-label="Default select example"
+                            (change)="onSelected(item,$event,'month')">
+                            <option [value]="key" [selected]="item.month == key" *ngFor="let key of monthNameArray">
+                              {{key}}
+                            </option>
+                          </select>
+                        </div>
+                        <div class="form-check form-check-inline expandInput"
+                          *ngIf="item.checked || selectedProvider.indexOf(item.id) !=-1">
+                          <select class="form-select" aria-label="Default select example"
+                            (change)="onSelected(item,$event,'year')">
+                            <option [value]="key" [selected]="item.year == key" *ngFor="let key of yearArray">{{key}}
+                            </option>
+<!---->
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- end of past ollness form -->
+                    <div class="developSpecify">
+                      <div class="developSpecify100 specifymb">
+                        <div class="healthInput">
+                          <div class="inputGroup">
+                            <label for="">Specify any other serious or severe illness or accidents</label>
+                            <span class="mandatory">*</span>
+
+                            <input class="inputBlock" formControlName="other_illness_accident" type="text"
+                              placeholder="">
+                            <span style="color: red" *ngIf="(healthSubmitted && u['other_illness_accident'].errors)
+                      ">
+                              <mat-error *ngIf="u['other_illness_accident'].errors['required']">Required*</mat-error>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="developColds specifymb">
+                        <div class="developColdsItem">
+                          <div class="inputGroup">
+                            <div class="d-flex">
+                              <label class="form-label">Does child have frequent colds?</label>
+                              <span class="mandatory">*</span>
+                              <span style="color: red" *ngIf="(healthSubmitted && u['does_frequent_cold'].errors)">
+                                <mat-error class="m-0 ms-2" *ngIf="u['does_frequent_cold'].errors['required']">Required*</mat-error>
+                              </span>
+                            </div>
+                            <div class="yesNo">
+                              <div class="yesRadio">
+                                <mat-radio-group matInput aria-labelledby="example-radio-group-label"
+                                  class="example-radio-group" formControlName="does_frequent_cold">
+                                  <span *ngFor="let season of frequentCold" class="spanRadio">
+                                    <mat-radio-button class="example-radio-button form-control1" [value]="season">
+                                      {{season}}
+                                    </mat-radio-button>
+                                  </span>
+                                </mat-radio-group>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="developColdsItem">
+                          <div class="inputGroup" *ngIf="u['does_frequent_cold'].value === 'Yes'">
+                            <div class="d-flex">
+                              <label class="form-label">How many in last year?</label>
+                              <span class="mandatory">*</span>
+                              <span style="color: red" *ngIf="(healthSubmitted && u['cold_last_year'].errors)">
+                              <mat-error class="m-0 ms-2" *ngIf="u['cold_last_year'].errors['required']">Required*</mat-error>
+                            </span>
+                            </div>
+
+                            <select class="hsseloption" formControlName="cold_last_year" name="cars" id="cars">
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
+                              <option value="6">6</option>
+                              <option value="7">7</option>
+                              <option value="8">8</option>
+                              <option value="9">9</option>
+                              <option value="10">10</option>
+                              <option value="11">11</option>
+                              <option value="12">12</option>
+                            </select>
+                            <span class="selectside">Months</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="developSpecify60 specifymb marginBottom1">
+                        <div class="healthInput">
+                          <div class="inputGroup">
+                            <label for="allergies">List any allergies staff should be aware of</label>
+                            <input class="inputBlock" formControlName="allergies" type="text" placeholder="" id="allergies">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- end of specify listing -->
+                  </div>
+                </div>
+                <div class="historyHealthBox boxshadow">
+                  <div class="historyhTitle">
+                    <h3 class="historyh3 text-uppercase">Daily Routines</h3>
+                    <h6 class="developh6">*For infants and preschool-age children only</h6>
+                  </div>
+                  <div class="historyRoutine">
+                    <div class="inputGroup">
+                      <div class="d-flex">
+                        <label class="form-label">What time does child get up?</label>
+                        <span class="mandatory">*</span>
+                        <span style="color: red" *ngIf="(healthSubmitted && u['child_getup_time'].errors)">
+                          <mat-error class="m-0 ms-2" *ngIf="u['child_getup_time'].errors['required']">Required*</mat-error>
+                        </span>
+                      </div>
+                      <div class="inputGroupTimeFlex">
+                        <div class="inputGroupTime">
+                          <span class="form-label-small">Time</span>
+                          <input class="inputBlock" formControlName="child_getup_time" aria-label="default time"
+                            [ngxTimepicker]="defaultValue1" [value]="'05:11 am'" readonly>
+                          <ngx-material-timepicker #defaultValue1></ngx-material-timepicker>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="inputGroup">
+                      <div class="d-flex">
+                        <label class="form-label">What time does child go to bed?</label>
+                        <span class="mandatory">*</span>
+                        <span style="color: red" *ngIf="(healthSubmitted && u['child_sleep_time'].errors) ">
+                          <mat-error class="m-0 ms-2" *ngIf="u['child_sleep_time'].errors['required']">Required*</mat-error>
+                        </span>
+                      </div>
+                      <div class="inputGroupTimeFlex">
+                        <div class="inputGroupTime">
+                          <span class="form-label-small">Time</span>
+                          <input class="inputBlock" formControlName="child_sleep_time" aria-label="default time"
+                            [ngxTimepicker]="defaultValue3" [value]="'05:11 am'" readonly>
+                          <ngx-material-timepicker #defaultValue3></ngx-material-timepicker>
+                        </div>
+
+                      </div>
+                    </div>
+
+                    <div class="developSpecify30 specifymb">
+                      <div class="healthInput">
+                        <div class="inputGroup">
+                          <div class="d-flex">
+                            <label for="does-sleep-well">Does child sleep well?</label>
+                            <span class="mandatory">*</span>
+                            <span style="color: red" *ngIf="(healthSubmitted && u['does_sleep_well'].errors)">
+                              <mat-error class="m-0 ms-2" *ngIf="u['does_sleep_well'].errors['required']">Required*</mat-error>
+                            </span>
+                          </div>
+                          <input formControlName="does_sleep_well" class="inputBlock" type="text" placeholder="" id="does-sleep-well">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="developColds developDuring specifymb">
+                      <div class="developColdsItem">
+                        <div class="inputGroup">
+                          <div class="d-flex">
+                            <label class="form-label">Does child sleep during the day?</label>
+                            <span class="mandatory">*</span>
+                            <span style="color: red" *ngIf="(healthSubmitted && u['does_sleep_during_day'].errors)">
+                              <mat-error class="m-0 ms-2" *ngIf="u['does_sleep_during_day'].errors['required']">Required*</mat-error>
+                            </span>
+                          </div>
+                          <div class="yesNo">
+                            <div class="yesRadio">
+                              <mat-radio-group matInput aria-labelledby="example-radio-group-label"
+                                class="example-radio-group" formControlName="does_sleep_during_day">
+                                <span *ngFor="let season of sleep_during_day" class="spanRadio">
+                                  <mat-radio-button class="example-radio-button form-control1" [value]="season">
+                                    {{season}}
+                                  </mat-radio-button>
+                                </span>
+                              </mat-radio-group>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <app-usual-time-picker-input
+                        *ngIf="u['does_sleep_during_day'].value === 'Yes'"
+                        [label]="'When?'"
+                        [control]="getCtrl('child_daysleep_time')"
+                        [isFormSubmitted]="healthSubmitted"
+                      ></app-usual-time-picker-input>
+                      <div class="developColdsItem" *ngIf="u['does_sleep_during_day'].value === 'Yes'">
+                        <div class="inputGroup">
+                          <div class="d-flex">
+                            <label class="form-label">How long?</label>
+                            <span class="mandatory">*</span>
+                            <span style="color: red" *ngIf="(healthSubmitted && u['day_sleep_length'].errors)">
+                              <mat-error class="m-0 ms-2" *ngIf="u['day_sleep_length'].errors['required']">Required*</mat-error>
+                            </span>
+                          </div>
+                          <select formControlName="day_sleep_length" class="hsseloption" name="cars">
+                            <option [value]="key" *ngFor="let key of minuteArray">{{key}}</option>
+                          </select>
+                          <span class="selectside">Minutes</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="historyhPattern">
+                    <div class="historyhTitle">
+                      <div class="d-flex">
+                        <h3 class="historyh3 text-uppercase dietcolor">Diet Pattern</h3>
+                        <span class="mandatory">*</span>
+                      </div>
+                      <h6 class="developh6">What does child usually eat for these meals?</h6>
+                    </div>
+                    <div class="historyhFood">
+                      <div class="historyhFoodFlex85">
+                        <div class="historyhFoodItem ">
+                          <div class="inputGroup">
+                            <div class="d-flex">
+                              <label class="form-label inputColorsize">Breakfast</label>
+                              <span class="mandatory">*</span>
+                            </div>
+                            <input class="inputBlock" formControlName="breakfast" type="text" placeholder="">
+                            <span style="color: red" *ngIf="(healthSubmitted && u['breakfast'].errors)">
+                              <mat-error *ngIf="u['breakfast'].errors['required']">Required*</mat-error>
+                            </span>
+                          </div>
+                        </div>
+                        <div class="historyhFoodItem">
+                          <div class="inputGroup">
+                            <div class="d-flex">
+                              <label class="form-label inputColorsize">Breakfast time</label>
+                              <span class="mandatory">*</span>
+                            </div>
+                            <input class="inputBlock" formControlName="breakfast_time" aria-label="default time"
+                                   [ngxTimepicker]="defaultValueA" [value]="'05:11 am'" readonly>
+                            <ngx-material-timepicker #defaultValueA></ngx-material-timepicker>
+                            <span style="color: red" *ngIf="(healthSubmitted && u['breakfast_time'].errors)">
+                                <mat-error *ngIf="u['breakfast_time'].errors['required']">Required*</mat-error>
+                              </span>
+                          </div>
+                        </div>
+                        <div class="historyhFoodItem">
+                          <div class="inputGroup">
+                            <div class="d-flex">
+                              <label class="form-label inputColorsize">Lunch</label>
+                              <span class="mandatory">*</span>
+
+                            </div>
+
+
+                            <input class="inputBlock" formControlName="lunch" type="text" placeholder="">
+                            <span style="color: red" *ngIf="(healthSubmitted && u['lunch'].errors)
+                      ">
+                              <mat-error *ngIf="u['lunch'].errors['required']">Required*</mat-error>
+                            </span>
+                          </div>
+                        </div>
+                        <div class="historyhFoodItem">
+                          <div class="inputGroup">
+                            <div class="d-flex">
+                              <label class="form-label inputColorsize">Lunch time</label>
+                              <span class="mandatory">*</span>
+                            </div>
+                            <input class="inputBlock" formControlName="lunch_time" aria-label="default time"
+                                   [ngxTimepicker]="defaultValueB" [value]="'05:11 pm'" readonly>
+                            <ngx-material-timepicker #defaultValueB></ngx-material-timepicker>
+                            <span style="color: red" *ngIf="(healthSubmitted && u['lunch_time'].errors)">
+                                <mat-error *ngIf="u['lunch_time'].errors['required']">Required*</mat-error>
+                              </span>
+                          </div>
+                        </div>
+                        <div class="historyhFoodItem">
+                          <div class="inputGroup">
+                            <div class="d-flex">
+                              <label class="form-label inputColorsize">Dinner</label>
+                              <span class="mandatory">*</span>
+                            </div>
+                            <input class="inputBlock" formControlName="dinner" type="text" placeholder="">
+                            <span style="color: red" *ngIf="(healthSubmitted && u['dinner'].errors)">
+                                <mat-error *ngIf="u['dinner'].errors['required']">Required*</mat-error>
+                              </span>
+                          </div>
+                        </div>
+                        <div class="historyhFoodItem">
+                          <div class="inputGroup">
+                            <div class="d-flex">
+                              <label class="form-label inputColorsize">Dinner time</label>
+                              <span class="mandatory">*</span>
+                            </div>
+                            <input class="inputBlock" formControlName="dinner_time" aria-label="default time"
+                                   [ngxTimepicker]="defaultValueC" [value]="'05:11 pm'" readonly>
+                            <ngx-material-timepicker #defaultValueC></ngx-material-timepicker>
+                            <span style="color: red" *ngIf="(healthSubmitted && u['dinner_time'].errors)">
+                                <mat-error *ngIf="u['dinner_time'].errors['required']">Required*</mat-error>
+                              </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="historyhFoodFlex100 marginTop2">
+                        <div class="historyhFoodItem">
+                          <div class="inputGroup">
+                            <div class="d-flex">
+                              <label class="form-label inputColorsize">Any food dislikes?</label>
+                              <span class="mandatory">*</span>
+                            </div>
+                            <input class="inputBlock" formControlName="food_dislikes" type="text" placeholder="">
+                            <span style="color: red" *ngIf="(healthSubmitted && u['food_dislikes'].errors)">
+                                <mat-error *ngIf="u['food_dislikes'].errors['required']">Required*</mat-error>
+                              </span>
+                          </div>
+                        </div>
+                        <div class="historyhFoodItem">
+                          <div class="inputGroup">
+                            <div class="d-flex">
+                              <label class="form-label inputColorsize">Any eating problems?</label>
+                              <span class="mandatory">*</span>
+                            </div>
+                            <input class="inputBlock" formControlName="eating_problems" type="text" placeholder="">
+                              <span style="color: red" *ngIf="(healthSubmitted && u['eating_problems'].errors)">
+                                <mat-error *ngIf="u['eating_problems'].errors['required']">Required*</mat-error>
+                              </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="historyhFoodYesno marginTop3">
+                        <div class="trainedExpand">
+                          <div class="inputGroup">
+                            <div class="d-flex">
+                              <label class="form-label inputColorsize">Is child toilet trained?</label>
+                              <span class="mandatory">*</span>
+                              <span style="color: red" *ngIf="(healthSubmitted && u['is_toilet_trained'].errors)">
+                                <mat-error class="m-0 ms-2" *ngIf="u['is_toilet_trained'].errors['required']">Required*</mat-error>
+                              </span>
+                            </div>
+                            <div class="yesNo">
+                              <div class="yesRadio">
+                                <mat-radio-group matInput aria-labelledby="example-radio-group-label"
+                                  class="example-radio-group" formControlName="is_toilet_trained">
+                                  <span *ngFor="let season of toiletData" class="spanRadio">
+                                    <mat-radio-button class="example-radio-button form-control1" [value]="season">
+                                      {{season}}
+                                    </mat-radio-button>
+                                  </span>
+                                </mat-radio-group>
+                              </div>
+                            </div>
+
+
+                          </div>
+                        </div>
+                        <app-usual-time-picker-input
+                          *ngIf="u['is_toilet_trained'].value === 'Yes'"
+                          [control]="getCtrl('toilet_trained_stage')"
+                          [isFormSubmitted]="healthSubmitted"
+                        ></app-usual-time-picker-input>
+                      </div>
+                      <div class="historyhFoodYesno marginTop3">
+                        <div class="trainedExpand" (change)="pastSelectChange($event)">
+                          <div class="inputGroup">
+                            <div class="d-flex">
+                              <label class="form-label inputColorsize">Are bowel
+                                movements reqular?</label>
+                              <span class="mandatory">*</span>
+                              <span style="color: red" *ngIf="(healthSubmitted && u['are_bowels_regular'].errors)">
+                                <mat-error class="m-0 ms-2" *ngIf="u['are_bowels_regular'].errors['required']">Required*</mat-error>
+                              </span>
+                            </div>
+                            <div class="yesNo">
+                              <div class="yesRadio">
+                                <mat-radio-group matInput aria-labelledby="example-radio-group-label"
+                                  class="example-radio-group" formControlName="are_bowels_regular">
+                                  <span *ngFor="let season of bowelData" class="spanRadio">
+                                    <mat-radio-button
+                                      class="example-radio-button form-control1" [value]="season">
+                                      {{season}}
+                                    </mat-radio-button>
+                                  </span>
+                                </mat-radio-group>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <app-usual-time-picker-input
+                          *ngIf="u['are_bowels_regular'].value === 'Yes'"
+                          [control]="getCtrl('bowel_movement_stage')"
+                          [isFormSubmitted]="healthSubmitted"
+                        ></app-usual-time-picker-input>
+                      </div>
+                      <div class="historyhFoodFlex100 marginTop3">
+                        <div class="historyhFoodItem">
+                          <div class="inputGroup">
+                            <div class="d-flex">
+                              <label class="form-label inputColorsize">Word used for "bowel movement"</label>
+                              <span class="mandatory">*</span>
+                            </div>
+                            <input formControlName="word_for_bowel" class="inputBlock" type="text" placeholder="">
+                              <span style="color: red" *ngIf="(healthSubmitted && u['word_for_bowel'].errors)">
+                                <mat-error *ngIf="u['word_for_bowel'].errors['required']">Required*</mat-error>
+                              </span>
+                          </div>
+                        </div>
+                        <div class="historyhFoodItem">
+                          <div class="inputGroup">
+                            <div class="d-flex">
+                              <label class="form-label inputColorsize">Word used for urination</label>
+                              <span class="mandatory">*</span>
+                            </div>
+                            <input class="inputBlock" formControlName="word_for_urination" type="text" placeholder="">
+                              <span style="color: red" *ngIf="(healthSubmitted && u['word_for_urination'].errors)">
+                                <mat-error *ngIf="u['word_for_urination'].errors['required']">Required*</mat-error>
+                              </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="historyhFoodsingle marginTop3">
+                        <div class="historyhFoodItem">
+                          <div class="inputGroup">
+                            <div class="d-flex">
+                              <label class="form-label inputColorsize">Parent evaluation of child's health</label>
+                              <span class="mandatory">*</span>
+                            </div><input class="inputBlock" formControlName="parent_eval_health" type="text"
+                              placeholder="">
+                            <span style="color: red" *ngIf="(healthSubmitted && u['parent_eval_health'].errors)">
+                              <mat-error *ngIf="u['parent_eval_health'].errors['required']">Required*</mat-error>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="historyhFoodYesno marginTop3">
+                        <div class="trainedExpand">
+                          <div class="inputGroup">
+                            <div class="d-flex">
+                              <label class="form-label inputColorsize">Is child presently under a doctor's care?</label>
+                              <span class="mandatory">*</span>
+                              <span style="color: red" *ngIf="(healthSubmitted && u['is_under_doctor_care'].errors)">
+                                <mat-error class="m-0 ms-2" *ngIf="u['is_under_doctor_care'].errors['required']">Required*</mat-error>
+                              </span>
+                            </div>
+                            <div class="yesNo">
+                              <div class="yesRadio">
+                                <mat-radio-group matInput aria-labelledby="example-radio-group-label"
+                                  class="example-radio-group" formControlName="is_under_doctor_care">
+                                  <span *ngFor="let season of underCareData" class="spanRadio">
+                                    <mat-radio-button class="example-radio-button form-control1" [value]="season">
+                                      {{season}}
+                                    </mat-radio-button>
+                                  </span>
+                                </mat-radio-group>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <app-usual-time-picker-input
+                          *ngIf="u['is_under_doctor_care'].value === 'Yes'"
+                          [control]="getCtrl('doctor_care_stage')"
+                          [isFormSubmitted]="healthSubmitted"
+                        ></app-usual-time-picker-input>
+                      </div>
+                      <div class="historyhFoodYesno marginTop3">
+                        <div class="trainedExpand">
+                          <div class="inputGroup">
+                            <div class="d-flex">
+                              <label class="form-label inputColorsize">Does child take prescribed medicines?</label>
+                              <span class="mandatory">*</span>
+                              <span style="color: red" *ngIf="(healthSubmitted && u['does_prescribed_medicine'].errors)">
+                                <mat-error class="m-0 ms-2"
+                                  *ngIf="u['does_prescribed_medicine'].errors['required']">Required*</mat-error>
+                              </span>
+                            </div>
+                            <div class="yesNo">
+                              <div class="yesRadio">
+                                <mat-radio-group matInput aria-labelledby="example-radio-group-label"
+                                  class="example-radio-group" formControlName="does_prescribed_medicine">
+                                  <span *ngFor="let season of prescribeData" class="spanRadio">
+                                    <mat-radio-button class="example-radio-button form-control1" [value]="season">
+                                      {{season}}
+                                    </mat-radio-button>
+                                  </span>
+                                </mat-radio-group>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <app-usual-time-picker-input
+                          *ngIf="u['does_prescribed_medicine'].value === 'Yes'"
+                          [control]="getCtrl('prescribed_medicine_stage')"
+                          [isFormSubmitted]="healthSubmitted"
+                        ></app-usual-time-picker-input>
+                      </div>
+                      <div class="historyhFoodYesno marginTop3">
+                        <div class="trainedExpand">
+                          <div class="inputGroup">
+                            <div class="d-flex">
+                              <label class="form-label inputColorsize">Does child use any special devices?</label>
+                              <span class="mandatory">*</span>
+                              <span style="color: red" *ngIf="(healthSubmitted && u['does_special_device'].errors)">
+                                <mat-error class="m-0 ms-2" *ngIf="u['does_special_device'].errors['required']">Required*</mat-error>
+                              </span>
+                            </div>
+                            <div class="yesNo">
+                              <div class="yesRadio">
+                                <mat-radio-group matInput aria-labelledby="example-radio-group-label"
+                                  class="example-radio-group" formControlName="does_special_device">
+                                  <span *ngFor="let season of deviceData" class="spanRadio">
+                                    <mat-radio-button class="example-radio-button form-control1" [value]="season">
+                                      {{season}}
+                                    </mat-radio-button>
+                                  </span>
+                                </mat-radio-group>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <app-usual-time-picker-input
+                          *ngIf="u['does_special_device'].value === 'Yes'"
+                          [control]="getCtrl('special_device_stage')"
+                          [isFormSubmitted]="healthSubmitted"
+                        ></app-usual-time-picker-input>
+                      </div>
+                      <div class="historyhFoodYesno marginTop3">
+                        <div class="trainedExpand">
+                          <div class="inputGroup">
+                            <div class="d-flex">
+                              <label class="form-label inputColorsize">Does child use any special device(s) at
+                                home?</label>
+                              <span class="mandatory">*</span>
+                              <span style="color: red" *ngIf="(healthSubmitted && u['does_special_device_home'].errors)">
+                                <mat-error class="m-0 ms-2"
+                                  *ngIf="u['does_special_device_home'].errors['required']">Required*</mat-error>
+                              </span>
+                            </div>
+                            <div class="yesNo">
+                              <div class="yesRadio">
+                                <mat-radio-group matInput aria-labelledby="example-radio-group-label"
+                                  class="example-radio-group" formControlName="does_special_device_home">
+                                  <span *ngFor="let season of deviceHomeData" class="spanRadio">
+                                    <mat-radio-button class="example-radio-button form-control1" [value]="season">
+                                      {{season}}
+                                    </mat-radio-button>
+                                  </span>
+                                </mat-radio-group>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <app-usual-time-picker-input
+                          *ngIf="u['does_special_device_home'].value === 'Yes'"
+                          [control]="getCtrl('special_device_home_stage')"
+                          [isFormSubmitted]="healthSubmitted"
+                        ></app-usual-time-picker-input>
+                      </div>
+                      <div class="historyhFoodsingle marginTop3">
+                        <div class="historyhFoodItem">
+                          <div class="inputGroup">
+                            <div class="d-flex">
+                              <label class="form-label inputColorsize">Parent evalution of child's personality</label>
+                              <span class="mandatory">*</span>
+                            </div>
+                            <input formControlName="parent_eval_personality" class="inputBlock" type="text"
+                              placeholder="">
+                            <span style="color: red" *ngIf="(healthSubmitted && u['parent_eval_personality'].errors)">
+                              <mat-error *ngIf="u['parent_eval_personality'].errors['required']">Required*</mat-error>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="historyhFoodsingle marginTop3">
+                        <div class="historyhFoodItem">
+                          <div class="inputGroup">
+                            <div class="d-flex">
+                              <label class="form-label inputColorsize">How does child get along with parents, brothers,
+                                sisters and other children</label>
+                              <span class="mandatory">*</span>
+                            </div>
+
+
+                            <input formControlName="get_along" class="inputBlock" type="text" placeholder="">
+                            <span style="color: red" *ngIf="(healthSubmitted && u['get_along'].errors)">
+                              <mat-error *ngIf="u['get_along'].errors['required']">Required*</mat-error>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="historyhFoodsingle marginTop3">
+                        <div class="historyhFoodItem">
+                          <div class="inputGroup">
+                            <div class="d-flex">
+                              <label class="form-label inputColorsize">Has the child had group play experience?</label>
+                              <span class="mandatory">*</span>
+                            </div>
+                            <input class="inputBlock" formControlName="group_play_experience" type="text"
+                              placeholder="">
+                            <span style="color: red" *ngIf="(healthSubmitted && u['group_play_experience'].errors)">
+                              <mat-error *ngIf="u['group_play_experience'].errors['required']">Required*</mat-error>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="historyhFoodsingle marginTop3">
+                        <div class="historyhFoodItem">
+                          <div class="inputGroup">
+                            <div class="d-flex">
+                              <label class="form-label inputColorsize">Does the child have any special
+                                problems/fears/needs?
+                                (Explain.)</label>
+                              <span class="mandatory">*</span>
+                            </div>
+                            <input class="inputBlock" formControlName="any_special_prob" type="text" placeholder="">
+                            <span style="color: red" *ngIf="(healthSubmitted && u['any_special_prob'].errors)">
+                              <mat-error *ngIf="u['any_special_prob'].errors['required']">Required*</mat-error>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="historyhFoodsingle marginTop3">
+                        <div class="historyhFoodItem">
+                          <div class="inputGroup">
+                            <div class="d-flex">
+                              <label class="form-label inputColorsize">What is the plan of care when the child is
+                                ill?</label>
+                              <span class="mandatory">*</span>
+                            </div>
+                            <input class="inputBlock" formControlName="care_plan_for_illness" type="text"
+                              placeholder="">
+                            <span style="color: red" *ngIf="(healthSubmitted && u['care_plan_for_illness'].errors)">
+                              <mat-error *ngIf="u['care_plan_for_illness'].errors['required']">Required*</mat-error>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="historyhFoodsingle marginTop3">
+                        <div class="historyhFoodItem">
+                          <div class="inputGroup">
+                            <div class="d-flex">
+                              <label class="form-label inputColorsize">Reason for requesting day care placement</label>
+                              <span class="mandatory">*</span>
+                            </div>
+                            <input class="inputBlock" formControlName="reason_for_day_care" type="text" placeholder="">
+                            <span style="color: red" *ngIf="(healthSubmitted && u['reason_for_day_care'].errors)">
+                              <mat-error *ngIf="u['reason_for_day_care'].errors['required']">Required*</mat-error>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="marginTop3">
+                    <small class="dietcolor">Last updated on {{lastUpdatedOn}}</small>
+                  </div>
+                </div>
+                <!-- end of daily routine -->
+                <div class="healthContinue">
+                  <button (click)="SubmitData()" class="btn btn-primary">
+                    Validate and Continue
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

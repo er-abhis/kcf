@@ -1,0 +1,24 @@
+<div class="resultMessagePopup">
+  <h1 class="resultMsgPopTitle">Which child(ren) would you like to request enrollment for at the
+    <span>{{this.providerSelectedData?.provider?.organization_name}}</span>?
+  </h1>
+  <div class="resultMessageDrop">
+    <mat-form-field appearance="fill">
+      <mat-select placeholder="Select child for enrollment" (selectionChange)="callChild($event.value)">
+        <div *ngFor="let child of children; let i = index">
+          <mat-option *ngIf="child.date_of_birth" #ref value="{{i}}|{{child.id}}">{{ subString(ucFirst(child.first_name),0,10) }}&nbsp;{{ usLast(child.last_name) }}.</mat-option>
+          <mat-option *ngIf="child.expected_due_date" #ref value="{{i}}|{{child.id}}">Pregnancy
+            ({{child.expected_due_date | date: 'MM/dd/YY'}})</mat-option>
+        </div>
+      </mat-select>
+      <span style="color: red" *ngIf="submitted && !selectedChild
+      ">
+      <mat-error>Please select child</mat-error>
+    </span>
+    </mat-form-field>
+  </div>
+  <div class="resultMessageBtn">
+    <button class="btn modalOutline btn-outline-primary" (click)="closeModal()">Cancel and exit</button>
+    <button class="btn modalBtn" (click)="openThanksModal()">Request enrollment</button>
+  </div>
+</div>

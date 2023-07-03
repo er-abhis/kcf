@@ -1,0 +1,227 @@
+<section class="userSignupOuter providerSignup">
+    <div>
+        <div class="signUpTutionSection">
+            <div class="TutionSteps0 PreSchoolInfo" *ngIf="stepCount === 0">
+                <form [formGroup]="childTutionGroup">
+                    <div class="main_block sect_head">
+                        <h2 class="sect_title">What is your
+                            tuition?</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-xxl-6 col-xl-6 col-lg-7 col-md-10 mx-auto">
+                            <div class="alertCustom">
+                                <span class="exclamation">
+                                    <svg width="5" height="20" viewBox="0 0 5 20" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M0.277344 0H4.72179V12.2222H0.277344V0ZM0.277344 20V15.5556H4.72179V20H0.277344Z"
+                                            fill="#772162" />
+                                    </svg>
+                                </span>
+                                If you have different pricing for different
+                                programs
+                                and schedule options, you should upload a
+                                pricing
+                                schedule or insert a link to a pricing page
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-center clearCenter">
+                            <button (click)="clearAll()" class="btn btn-primary clearbtn">Clear</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-5 col-sm-6 mx-auto">
+                            <div class="tutionFlex">
+                                <div class="tutionFiled">
+                                    <mat-form-field appearance="fill">
+                                        <input matInput type="text" (keydown.space)="$event.preventDefault()"
+                                            placeholder="Enter Fee Details" formControlName="tutionFee" name="tutionFee"
+                                            autocomplete="off">
+                                        <span class="tutionPrice" matPrefix>$&nbsp;</span>
+                                        <span style="color: red"
+                                            *ngIf="(s['tutionFee'].errors && s['tutionFee'].touched) || Submitted && s['tutionFee'].errors">
+                                            <mat-error *ngIf="s['tutionFee'].errors['required']">Feild can't be
+                                                blank</mat-error>
+                                            <mat-error *ngIf="s['tutionFee'].errors['pattern']">Please enter valid
+                                                fee</mat-error>
+                                        </span>
+                                    </mat-form-field>
+                                </div>
+                                <div class="tutionDropdown">
+                                    <mat-select formControlName="tuitionfees_time" placeholder="Select">
+                                        <mat-option value="weekly">weekly</mat-option>
+                                        <mat-option value="monthly">monthly</mat-option>
+                                        <mat-option value="annually">annually</mat-option>
+                                    </mat-select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container p-0">
+                        <div class="row">
+                            <div class="col-xxl-12 col-sm-12 mx-auto">
+                                <h3 class="tutionSubHead">or upload pricing document </h3>
+                            </div>
+                            <div class="col-xxl-5 col-xl-5 col-lg-6 col-md-12 mx-auto">
+                                <div class="uploadstepCust7">
+                                    <div class="uploadFilesComponent upoveride">
+                                        <div class="uploadFilestep7">
+                                            <h3 *ngIf="!pdfData && !fileLink?.length">No file uploaded</h3>
+                                            <h3 *ngIf="pdfData && pdfData.name">{{pdfData.name}}</h3>
+                                            <h3 *ngIf="!pdfData && fileLink && fileLink?.length">
+                                                {{fileLink.split('//')[1].split('/')[1]}}</h3>
+                                            <input class="ng-hide" #holidayPhoto type="file" (change)="handle($event)"
+                                                accept=".pdf" />
+                                            <button mat-button class="btnSquare" (click)="handleUpload(holidayPhoto)"
+                                                type="button">
+                                                <span class="btnIcon upload"></span>
+                                                Upload file
+                                            </button>
+                                        </div>
+                                        <p>Upload documents with supported file type (.pdf)</p>
+                                        <small class="uploadsize">* Max file size 10 mb</small>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="main_block sect_head">
+                                <h3 class="tutionSubHead m-0">or add a link to
+                                    an
+                                    external site showing pricing details</h3>
+                            </div>
+                            <div class="col-xxl-5 col-xl-5 col-lg-5
+                  col-md-5 col-sm-6 mx-auto">
+                                <div class="tutionFiled">
+                                    <mat-form-field appearance="fill">
+                                        <input matInput placeholder="URL" (keydown.space)="$event.preventDefault()"
+                                            type="text" formControlName="ChildTutionURL" name="ChildTutionURL"
+                                            autocomplete="off">
+                                        <span style="color: red"
+                                            *ngIf="(s['ChildTutionURL'].errors && s['ChildTutionURL'].touched) || Submitted && s['ChildTutionURL'].errors">
+                                            <mat-error *ngIf="s['ChildTutionURL'].errors['required']">Feild can't be
+                                                blank</mat-error>
+                                        </span>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="ChildTutionSteps1" *ngIf="stepCount === 1">
+                <form [formGroup]="childTutionGroup">
+                    <div class="container p-0">
+                        <div class="StepDetailsLists stepDetail4
+                stepDetail7">
+                            <div class="row">
+                                <div class="col-sm-12 mx-auto">
+                                    <div class="main_block sect_head
+                      StepDetailHeading">
+                                        <h2 class="titleDetails">Review | Step
+                                            7:
+                                            Tuition</h2>
+                                        <p class="smallTextDetails">Review and
+                                            edit
+                                            tuition</p>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="detailsRow tutionDetailsRow">
+                                        <div class="DetailPhotoLeft bgWhiteDetails tutgap">
+                                            <div class="detailsColBg">
+                                                <h3 class="headingBlackText spaceBottom"> Tuition</h3>
+                                                <div class="tutionDetailRow disable-section">
+                                                    <div class="tutionColGrp oneThird oneThirdMod oneOne matCheckBlack">
+                                                        <div class="phoneWhiteBg">
+                                                            <mat-checkbox disabled
+                                                                [checked]="tutionData?.tuitionfees?.length? true: false">Tuition
+                                                            </mat-checkbox>
+                                                            <div class="tutionReviewFlex">
+                                                                <mat-form-field appearance="fill">
+                                                                    <input matInput type="text"
+                                                                        formControlName="tutionFee" name="tutionFee"
+                                                                        autocomplete="off">
+                                                                    <span class="reviewDolar" matPrefix>$&nbsp;</span>
+                                                                    <span style="color: red"
+                                                                        *ngIf="(s['tutionFee'].errors && s['tutionFee'].touched) || Submitted && s['tutionFee'].errors">
+                                                                        <mat-error
+                                                                            *ngIf="s['tutionFee'].errors['required']">Feild
+                                                                            can't be blank
+                                                                        </mat-error>
+                                                                        <mat-error
+                                                                            *ngIf="s['tutionFee'].errors['pattern']">Please
+                                                                            enter valid fee
+                                                                        </mat-error>
+                                                                    </span>
+                                                                </mat-form-field>
+                                                                <div class="tutionDropdown tutionRewDrop">
+                                                                    <mat-select formControlName="tuitionfees_time">
+                                                                        <mat-option value="weekly">weekly</mat-option>
+                                                                        <mat-option value="monthly">monthly</mat-option>
+                                                                        <mat-option
+                                                                            value="annually">annually</mat-option>
+                                                                    </mat-select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="tutionColGrp oneCol orMobile">or</div>
+                                                    <div class="tutionColGrp oneThird matCheckBlack uploadBack">
+                                                        <div class="phoneWhiteBg">
+                                                            <mat-checkbox disabled
+                                                                [checked]="tutionData?.pdf_link?.length? true: false">Upload
+                                                                pricing document </mat-checkbox>
+                                                            <p class="uploadTopTitle stp7para">Upload
+                                                                documents with supported
+                                                                file type (.pdf)</p>
+                                                            <div class="uploadFilesComponent uploadstepCust7 gaping">
+                                                                <h3 class="tutuplod"
+                                                                    *ngIf="!pdfData && !fileLink?.length">No file
+                                                                    uploaded</h3>
+                                                                <h3 class="tutuplod" *ngIf="pdfData && pdfData.name">
+                                                                    {{pdfData.name}}</h3>
+                                                                <h3 class="tutuplod"
+                                                                    *ngIf="!pdfData && fileLink && fileLink?.length">
+                                                                    {{fileLink.split('//')[1].split('/')[1]}}</h3>
+                                                                <input class="ng-hide" #holidayPhoto multiple
+                                                                    type="file" disabled (change)="handle($event)" />
+                                                                <button mat-button class="btnSquare" disabled
+                                                                    (click)="handleUpload(holidayPhoto)"
+                                                                    type="button"><span class="btnIcon upload"></span>
+                                                                    Upload file </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tutionColGrp oneCol orMobile">or</div>
+                                                    <div class="tutionColGrp oneThird matCheckBlack uploadBack">
+                                                        <div class="phoneWhiteBg">
+                                                            <mat-checkbox disabled
+                                                                [checked]="tutionData?.web_link?.length? true: false">Link
+                                                                to
+                                                                external pricing page</mat-checkbox>
+                                                            <mat-form-field appearance="fill">
+                                                                <input matInput type="text"
+                                                                    formControlName="ChildTutionURL"
+                                                                    name="ChildTutionURL" autocomplete="off">
+                                                            </mat-form-field>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- </section> -->

@@ -1,0 +1,27 @@
+::ng-deep .SelectTime.arrowmodi .mat-select-trigger {
+    position: relative;
+  }
+  
+  ::ng-deep .SelectTime.arrowmodi .mat-select-trigger::after {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    content: "\f078";
+    color: var(--blackColor);
+    font-size: 14px;
+    position: absolute;
+    height: 15px;
+    top: 0px;
+    right: 2px;
+    z-index: 1;
+  }
+  ::ng-deep .SelectTime.arrowmodi .mat-select-arrow {
+    border-left: 5px solid rgba(0, 0, 0, 0) !important;
+    border-right: 5px solid rgba(0, 0, 0, 0) !important;
+    border-top: 5px solid !important;
+    border: none !important;
+  }
+  
+  ::ng-deep .cdk-overlay-container .cdk-overlay-pane {
+    margin-top: 45px;
+  }
+  

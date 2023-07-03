@@ -1,0 +1,67 @@
+.shareBoxFixed {
+  padding: 15px;
+  height: 640px;
+  overflow: auto;
+}
+.historyHealthBox {
+  background: var(--whiteColor);
+  padding: 20px;
+  margin-top: 15px;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+}
+.historyhTitle .historyh3 {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 0px;
+}
+
+.contentrightBg {
+  border: 1px solid #8ad5ff;
+}
+
+@media screen and (max-width: 991px) {
+  .historyHealthBox {
+    padding: 15px;
+  }
+  .contentBoxGrid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media screen and (max-width: 767px){
+.contentrightBg {
+  border: none;
+}
+.headingbg{
+  background-color: transparent;
+  padding: 0px;
+  border: none;
+}
+.shareBoxFixed{
+  padding: 0px;
+}
+.contentrightBg{
+  background-color: transparent;
+}
+.headingbg h1.headingh1{
+  font-weight: 800;
+  text-align: center;
+}
+.historyhTitle .historyh3{
+  font-size: 16px;
+}
+.suportEmail a.suportbtn{
+  font-size: 12px;
+}
+.contentBoxVideoLabel{
+  padding: 10px !important;
+}
+.contentBoxVideoLabel p.videoLabel{
+  font-size: 14px;
+}
+}
+@media screen and (max-width: 480px) {
+  span.emlicon {
+    display: none;
+  }
+}

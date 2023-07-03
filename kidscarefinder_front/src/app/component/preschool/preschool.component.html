@@ -1,0 +1,291 @@
+<div class="mainBgColor">
+  <app-header></app-header>
+  <!-- Preschool Section Start -->
+  <section id="banner" class="main_block form_banner">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="SgeperMain headWrapOuter" id="preschoolForm">
+            <p class="steps_count">
+              Step <b>{{ step }}</b> of <b>{{ totalStep }}</b>
+            </p>
+
+            <mat-horizontal-stepper #stepper>
+              <form [formGroup]="PreschoolForm">
+                <mat-step [stepControl]="firstFormGroup">
+                  <form formGroupName="firstFormGroup" class="whereStep">
+                    <ng-template matStepLabel>
+                      <div>{{ getFilterText(1) }}</div>
+                    </ng-template>
+                    <mat-form-field appearance="fill">
+                      <div class="main_block sect_head">
+                        <h2 class="sect_title margtop">
+                          Where are you looking for a
+                          <a href="javascript:void(0)" class="text-light">Preschool</a>?
+                        </h2>
+                      </div>
+                      <div class="location_form_block">
+                        <div class="form-block location_block">
+                          <p class="location_head_block">
+                            We are currently available in all of
+                            <u class="underLine">San Diego County</u>.
+                          </p>
+                          <p>
+                            Check back soon as we are working hard to expand to
+                            additional cities in Southern California
+                          </p>
+                        </div>
+                        <div class="location_fields">
+                          <div class="form-block location_input">
+                            <input required placeholder="Enter your city, zip code, or street address" matInput
+                              formControlName="user_location" required id="user_location" name="user_location"
+                              autocomplete="off" ngx-google-places-autocomplete
+                              (onAddressChange)="AddressChange($event)" />
+                            <!-- <span style="color: red" *ngIf="
+                                firstFormSubmitted && f['user_location'].errors
+                              ">
+                              <mat-error *ngIf="f['user_location'].errors['required']">Address Can't be
+                                blank</mat-error>
+                            </span> -->
+                            <!-- <span style="color: red" class="error-mess"
+                              *ngIf="(f['user_location'].errors && f['user_location'].touched) || (firstFormSubmitted && f['user_location'].errors)">
+                              <mat-error *ngIf="f['user_location'].errors['pattern']">Address should not contain
+                                whitespace Characters
+
+                              </mat-error>
+                            </span> -->
+                            <input hidden matInput #latitude formControlName="latitude" [value]="latitudedata" />
+                            <input hidden matInput #longitude formControlName="longitude" [value]="longitudedata" />
+
+                          </div>
+                          <div class="form-block location_radius">
+                            <label class="textradius">Radius:</label>
+                            <div class="form-block">
+                              <span>
+                                <input type="radio" formControlName="radius" class="form-control radio_btn" oninput="this.className=
+                                                              ''" name="radius" value="5" />
+                                <label>5 miles</label>
+                              </span>
+                              <span>
+                                <input type="radio" formControlName="radius" class="form-control radio_btn" oninput="this.className=
+                                                              ''" name="radius" value="10" />
+                                <label>10 miles</label>
+                              </span>
+                              <span>
+                                <input type="radio" formControlName="radius" class="form-control radio_btn" oninput="this.className=
+                                                              ''" name="radius" value="15" />
+                                <label>15 miles</label>
+                              </span>
+                              <span>
+                                <input type="radio" formControlName="radius" class="form-control radio_btn" oninput="this.className=
+                                                              ''" name="radius" value="20" />
+                                <label>20 miles</label>
+                              </span>
+                              <span>
+                                <input type="radio" formControlName="radius" class="form-control radio_btn" oninput="this.className=
+                                                              ''" name="radius" value="50" />
+                                <label>50 miles</label>
+                              </span>
+                            </div>
+                          </div>
+                          <span class="radio_error"></span>
+                        </div>
+                      </div>
+                    </mat-form-field>
+                    <div class="matButtonControls preschoolBtn mb-3">
+                      <button mat-button (click)="goForward(1)">Next</button>
+                    </div>
+                  </form>
+                </mat-step>
+              </form>
+              <mat-step [stepControl]="secondFormGroup">
+                <ng-template matStepLabel>
+                  <div>{{ getFilterText(2) }}</div>
+                </ng-template>
+                <div class="form_header">
+                  <ng-container *ngTemplateOutlet="searchProv"></ng-container>
+                </div>
+                <div class="main_block sect_head">
+                  <h2 class="sect_title">
+                    When do you need a
+                    <a href="javascript:void(0)" class="text-light">Preschool</a>?
+                  </h2>
+                </div>
+                <div class="when_form_block">
+                  <div class="when_fields">
+                    <div class="form-block when_time">
+                      <div class="form-block">
+                        <span (click)="radioChangeStep2(season)" *ngFor="let season of seasons"
+                          class="spanRadio season-checkgroup">
+                          <mat-checkbox [value]="season" (click)="checkboxClick($event)"
+                            [(ngModel)]="step2Filter[season]">
+                            {{ season }}
+                          </mat-checkbox>
+                        </span>
+                        <!-- <mat-radio-group matInput aria-labelledby="example-radio-group-label"
+                              class="example-radio-group" formControlName="secondCtrl" [(ngModel)]="favoriteSeason"
+                              required>
+                              <span *ngFor="let season of seasons" class="spanRadio">
+                                <mat-radio-button class="example-radio-button form-control1" [value]="season">
+                                  {{ season }}
+                                </mat-radio-button>
+                              </span>
+                            </mat-radio-group> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="matButtonControls preschoolBtn prescholFlex">
+                  <!-- <button mat-button  (click)="goBack()">
+                                          Back
+                                      </button> -->
+                  <button mat-button class="saveShareBtn" (click)="goBack()">
+                    Back
+                  </button>
+                  <button mat-button (click)="goForward(2)">Next</button>
+                </div>
+                <div class="skip_Provider text-center h5">
+                  <a href="javascipt:void(0)" class="skipText" (click)="skipStep()"
+                    routerLinkActive="router-link-active">Or skip this step, and see all providers</a>
+                </div>
+              </mat-step>
+              <mat-step [stepControl]="thirdFormGroup">
+                <ng-template matStepLabel>
+                  <div>{{ getFilterText(3) }}</div>
+                </ng-template>
+                <div class="form_header">
+                  <ng-container *ngTemplateOutlet="searchProv"></ng-container>
+                </div>
+                <div class="main_block sect_head">
+                  <!-- <h2 class="sect_title">What are you looking for?</h2> -->
+                  <h2 class="sect_title">What schedule are you looking for?</h2>
+                </div>
+                <div class="what_looking religiousPopup">
+                  <div class="what_fields">
+                    <div class="form-block what_looking_dur">
+                      <p class="middleTittle">First, select your duration</p>
+                      <div class="form-block inlineButtonsSpan refixed">
+                        <span *ngFor="let duration of durations" (click)="radioChangeStep3(duration)"
+                          class="spanRadio season-checkgroup scheduleRadio">
+                          <mat-checkbox [value]="duration" (click)="checkboxClick($event)"
+                            [(ngModel)]="step3Filter[duration]">
+                            {{ duration }}
+                          </mat-checkbox>
+                        </span>
+                        <!-- <mat-radio-group matInput aria-labelledby="example-radio-group-label"
+                              class="example-radio-group inlineHalf optionBtn bottomBorder" formControlName="duration"
+                              [(ngModel)]="DurationModal" required>
+                              <span *ngFor="let duration of durations" class="spanRadio">
+                                <mat-radio-button class="example-radio-button form-control1" [value]="duration">
+                                  {{ duration }}
+                                </mat-radio-button>
+                              </span>
+                            </mat-radio-group> -->
+                      </div>
+                    </div>
+                    <div class="form-block what_looking_leng mt-4">
+                      <p class="middleTittle">Then select length of time</p>
+                      <div class="form-block inlineButtonsSpan refixed">
+                        <span (click)="radioChangeStep3(timeLen)" *ngFor="let timeLen of timeLens"
+                          class="spanRadio season-checkgroup scheduleRadio">
+                          <mat-checkbox [value]="timeLen" (click)="checkboxClick($event)"
+                            [(ngModel)]="step3Filter[timeLen]">
+                            {{ timeLen }}
+                          </mat-checkbox>
+                        </span>
+                        <!-- <mat-radio-group matInput aria-labelledby="example-radio-group-label"
+                              class="example-radio-group inlineHalf optionBtn" formControlName="timeLength"
+                              [(ngModel)]="TimeeModal" required>
+                              <span *ngFor="let timeLen of timeLens" class="spanRadio">
+                                <mat-radio-button class="example-radio-button form-control1" [value]="timeLen">
+                                  {{ timeLen }}
+                                </mat-radio-button>
+                              </span>
+                            </mat-radio-group> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="matButtonControls preschoolBtn prescholFlex mt-5">
+                  <button class="saveShareBtn" mat-button (click)="goBack()">
+                    Back
+                  </button>
+                  <button mat-button (click)="goForward(3)">Next</button>
+                </div>
+                <div class="skip_Provider text-center h5">
+                  <a href="javascipt:void(0)" class="skipText" (click)="skipStep()"
+                    routerLinkActive="router-link-active">Or skip this step, and see all providers</a>
+                </div>
+              </mat-step>
+              <mat-step [stepControl]="fourthFormGroup">
+                <ng-template matStepLabel>
+                  <div class="headWrap">{{ getFilterText(4) }}</div>
+                </ng-template>
+                <div class="form_header">
+                  <ng-container *ngTemplateOutlet="searchProv"></ng-container>
+                </div>
+                <div class="main_block sect_head">
+                  <h2 class="sect_title">
+                    What specifics are important to you?
+                  </h2>
+                </div>
+                <div class="what_looking what_specifies">
+                  <div class="what_fields fieldLarge">
+                    <div class="form-block what_looking_dur">
+                      <p class="middleTittle">Select all that applysss</p>
+                      <div class="form-block specificsChecks">
+                        <mat-radio-group matInput aria-labelledby="example-radio-group-label">
+                          <span (click)="radioChange(applyLen, $event)" *ngFor="let applyLen of applyLens"
+                            class="spanRadio d-block">
+                            <mat-checkbox (click)="checkboxClick($event)" [(ngModel)]="step4Filter[applyLen]"
+                              [value]="applyLen">{{ applyLen }}</mat-checkbox>
+                          </span>
+                        </mat-radio-group>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="matButtonControls preschoolBtn prescholFlex">
+                  <button class="saveShareBtn" mat-button (click)="goBack()">
+                    Back
+                  </button>
+                  <button mat-button (click)="goForward(4)" [routerLink]="['/preschool/result']"
+                    routerLinkActive="router-link-active">
+                    Next
+                  </button>
+                </div>
+                <div class="skip_Provider text-center h5">
+                  <a href="javascipt:void(0)" class="skipText" (click)="skipStep()"
+                    routerLinkActive="router-link-active">Or skip this step, and see all providers</a>
+                </div>
+              </mat-step>
+            </mat-horizontal-stepper>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<app-advertising-space></app-advertising-space>
+<!-- Preschool Section End -->
+<app-footer></app-footer>
+<ng-template #searchProv>
+  <div class="search_provider">
+    <div class="form-block SearchBlock">
+      <img src="../../../assets/images/search_icon.svg" alt="search-icon" />
+
+      <input type="search" class="form-control example-input" id="provider_search" [formControl]="stateCtrl"
+        [matAutocomplete]="auto" placeholder="Search by Provider name" />
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let street of filteredStates | async" [value]="street.first_name + ' ' + street.last_name">
+          {{ street.first_name + " " + street.last_name }}
+        </mat-option>
+      </mat-autocomplete>
+      <!-- <input type="search" class="form-control" id="provider_search"
+            placeholder="Search by provider name" /> -->
+      <!-- <button type="submit" class="btn btn-primary btn-custom-desg">
+            Search
+          </button> -->
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,28 @@
+<div class="popupOuter">
+  <mat-icon class="confirmationboxclose" (click)="cancel()"></mat-icon>
+  <div class="popupInner">
+    <div class="iconw icond icons"></div>
+    <h1 mat-dialog-title>{{ data.heading }}</h1>
+    <div mat-dialog-content>
+      <p class="popuptitle">{{ data.confirmMsg }}</p>
+    </div>
+    <div mat-dialog-actions class="confirmbuttons">
+      <button
+        mat-button
+        *ngIf="data.confirmBtnText"
+        (click)="confirm()"
+        class="btnwarn btndanger btnsuccess mat-focus-indicator mat-raised-button mat-button-base mat-primary"
+      >
+        {{ data.confirmBtnText }}
+      </button>
+      <button
+        mat-button
+        *ngIf="data.cancelBtnText"
+        (click)="cancel()"
+        class="btnsave mat-focus-indicator mat-raised-button mat-button-base mat-warn"
+      >
+        {{ data.cancelBtnText }}
+      </button>
+    </div>
+  </div>
+</div>

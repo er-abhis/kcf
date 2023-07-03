@@ -1,0 +1,96 @@
+<div class="searchPublicUserBg">
+  <app-header></app-header>
+  <section id="resultsingle_sect" class="searchPublicUser">
+    <div class="sds">
+      <div class="container-fluid g-0">
+        <div class="singleTopFlex">
+          <a href="javascript:void(0)" *ngIf="user" routerLink="/user/profile" class="backToResult"><i
+              class="fa-solid fa-arrow-left"></i>
+            Return to User Portal
+          </a>
+          <div class="singleToptext">
+            <h5>User Profile Page</h5>
+          </div>
+        </div>
+      </div>
+      <div class="publicUserPhoto">
+        <div class="userPhotoCenter" *ngIf="user && user.userDetails">
+          <div class="userPhotoCircle">
+            <img src="{{url}}" *ngIf="url" alt="Profile">
+            <img src="../../../../assets/images/dummy.png" *ngIf="!url" alt="Profile">
+          </div>
+          <h2 class="publich2">{{user.userDetails
+            .first_name | titlecase}} {{user.userDetails.last_name | titlecase}}</h2>
+          <h3 class="publich3" *ngIf="user.address.city">{{user.address.city}}, {{user.address.state}}</h3>
+          <h3 class="publich3" *ngIf="!user.address.city">{{user.address.state}}</h3>
+          <h3 class="publich3" *ngIf="(!user.address.city && !user.address.state)">Address not available</h3>
+          <h6 class="publich6"><span *ngIf="user.is_active">Active</span><span *ngIf="!user.is_active">Inactive</span>
+            Today</h6>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="publicUserButtonsSection" *ngIf="loginRole !='USER'">
+  <div class="premiumButtons">
+    <button mat-button color="primary" class="buttonPre" (click)="messageUser(user?.parent_1)">
+      <span class="buttonIcons ProIcon1"></span>
+      Message Amber
+    </button>
+  </div>
+</div>
+<!-- family section start -->
+<div class="aboutFamilyResutl">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2 class="heading">About my family </h2>
+        <div class="aboutFamilyResultIn" *ngIf="user && user.userDetails">
+          <p class="paragraph" [innerHtml]="user.userDetails.family_description">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- family section start -->
+<!-- Card Section Start -->
+<section class="AdditionalCards" *ngIf="children">
+  <div class="container">
+    <div class="prfileChildBg">
+      <h2 class="heading">My children</h2>
+      <div class="prfileChildGrid">
+        <div class="prfileChildBox" *ngFor="let child of children">
+          <div class="abcd prfileChildBoxIcon" *ngIf="child.date_of_birth">
+            <svg width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M21.4993 0C24.3283 0 27.0414 1.12381 29.0418 3.12419C31.0422 5.12458 32.166 7.83769 32.166 10.6667C32.166 13.4956 31.0422 16.2088 29.0418 18.2091C27.0414 20.2095 24.3283 21.3333 21.4993 21.3333C18.6704 21.3333 15.9573 20.2095 13.9569 18.2091C11.9565 16.2088 10.8327 13.4956 10.8327 10.6667C10.8327 7.83769 11.9565 5.12458 13.9569 3.12419C15.9573 1.12381 18.6704 0 21.4993 0M21.4993 26.6667C33.286 26.6667 42.8327 31.44 42.8327 37.3333V42.6667H0.166016V37.3333C0.166016 31.44 9.71268 26.6667 21.4993 26.6667Z"
+                fill="#164789"></path>
+            </svg>
+            <h4 class="austinh4">
+              {{ subString(ucFirst(child.first_name),0,10) }}&nbsp;{{ usLast(child.last_name) }}.
+            </h4>
+            <h5 class="austinh5">
+              Age: <span>{{ child.age }}</span>
+            </h5>
+          </div>
+
+          <div class="abcd prfileChildBoxIcon" *ngIf="child.expected_due_date">
+            <svg width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M21.4993 0C24.3283 0 27.0414 1.12381 29.0418 3.12419C31.0422 5.12458 32.166 7.83769 32.166 10.6667C32.166 13.4956 31.0422 16.2088 29.0418 18.2091C27.0414 20.2095 24.3283 21.3333 21.4993 21.3333C18.6704 21.3333 15.9573 20.2095 13.9569 18.2091C11.9565 16.2088 10.8327 13.4956 10.8327 10.6667C10.8327 7.83769 11.9565 5.12458 13.9569 3.12419C15.9573 1.12381 18.6704 0 21.4993 0M21.4993 26.6667C33.286 26.6667 42.8327 31.44 42.8327 37.3333V42.6667H0.166016V37.3333C0.166016 31.44 9.71268 26.6667 21.4993 26.6667Z"
+                fill="#164789"></path>
+            </svg>
+            <h4 class="austinh4">
+              Pregnancy
+            </h4>
+            <h5 class="austinh5 dateItelic">
+              Due date: {{ child.expected_due_date | date: 'MM/dd/YY'}}
+            </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Card Section End -->
+<app-footer></app-footer>

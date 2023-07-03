@@ -1,0 +1,30 @@
+.menuText {
+    background: url('../../../../../../assets/images/turquoise.png');
+    background-size: cover;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin: 0px;
+    font-size: 30px;
+    font-weight: 700;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  span.user_btn {
+    display: flex;
+    justify-content: center;
+}
+
+.imgUserRev {
+  display: flex;
+  justify-content: center;
+}
+.mat-icon {
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+}

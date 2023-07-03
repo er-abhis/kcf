@@ -1,0 +1,32 @@
+<div class="modal-wrapper">
+  <h1 mat-dialog-title [class]="data.titleClass">{{data.title}}</h1>
+  <div mat-dialog-content>
+    <ng-container *ngIf="data.content !== ''">
+      <ng-container *ngIf="data.content === 'type1'">
+        <ng-container *ngTemplateOutlet="type1"></ng-container>
+      </ng-container>
+      <ng-container *ngIf="data.content === 'type2'">
+        <ng-container *ngTemplateOutlet="type2;context: {data: data}"></ng-container>
+      </ng-container>
+    </ng-container>
+  </div>
+  <div mat-dialog-actions>
+    <div class="custAction">
+      <label class="custom-checkbox" for="don't-show" [ngClass]="[checked ? 'checked' : '' ]">
+        <input style="display: none" type="checkbox" id="don't-show" name="don't-show" [(ngModel)]="checked" />
+        <span class="checkbox-icon" [ngClass]="[checked ? 'checked' : '' ]"></span>
+        <span class="checkbox-label">Don't show this again</span>
+      </label>
+    </div>
+    <div>
+      <a class="btn btn-primary" [mat-dialog-close]="checked">Close</a>
+    </div>
+  </div>
+</div>
+
+<ng-template #type1></ng-template>
+<ng-template #type2 let-data='data'>
+  <div class="videoPopupBox">
+    <video [src]="data.videoSrc"></video>
+  </div>
+</ng-template>

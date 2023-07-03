@@ -1,0 +1,277 @@
+<div class="mainBgColor">
+  <app-header></app-header>
+  <section class="userSignupOuter">
+    <div class="customCombine">
+      <app-update-details-sidebar></app-update-details-sidebar>
+      <div class="contentright">
+        <div class="contentrightBg">
+          <div class="accountSetting">
+            <div class="headingbg">
+              <h1 class="headingh1">Admins & settings</h1>
+            </div>
+          </div>
+          <div class="paymentInformartion">
+            <div class="addBriefBoxOuter">
+              <div class="addBriefBox cardBox boxshadow">
+                <div class="addBriefDetail">
+                  <div class="">
+                    <div class="paymentInformartion">
+                      <div class="profleTable steptable">
+                        <div class="table-responsive">
+                          <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th scope="col"></th>
+                                <th scope="col">First Name</th>
+                                <th scope="col">Last Name</th>
+                                <th scope="col">Position/Title</th>
+                                <th scope="col">Email Id</th>
+                                <th scope="col">Phone</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let item of administratorList">
+                                <td *ngIf="item.make_primary_admin">
+                                  <mat-icon>lock</mat-icon>
+                                </td>
+                                <td *ngIf="!item.make_primary_admin">
+                                  <mat-icon>cancel</mat-icon>
+                                </td>
+                                <td> {{item.first_name}}</td>
+                                <td> {{item.last_name}}</td>
+                                <td> {{item.position}}</td>
+                                <td> {{item.email}}</td>
+                                <td class="steptblLastflex"> {{item.mobile | phoneNumberFormat }}
+                                  <a class="steptblLastLink" href="javascript:void(0)">
+                                    <svg width="20" height="21" viewBox="0 0 20 21" fill="none"
+                                      xmlns="http://www.w3.org/2000/svg">
+                                      <path
+                                        d="M2.22222 20.5L17.7778 20.5C18.3671 20.5 18.9324 20.2659 19.3491 19.8491C19.7659 19.4324 20 18.8671 20 18.2778L20 2.72222C20 1.48889 19 0.5 17.7778 0.5L2.22222 0.5C0.988888 0.5 0 1.48889 0 2.72222L0 18.2778C0 18.8671 0.234125 19.4324 0.650873 19.8491C1.06762 20.2659 1.63285 20.5 2.22222 20.5ZM12.5444 3.83333L14.1222 5.4L9.02222 10.5L14.1222 15.6L12.5444 17.1667L5.87778 10.5L12.5444 3.83333Z"
+                                        fill="#164789" />
+                                    </svg>
+                                  </a>
+                                </td>
+                              </tr>
+                              <tr *ngIf="!administratorList || !administratorList.length">
+                                <td colspan="7">No Admin Found</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <div class="addChild">
+                            <a href="javascript:void(0)" (click)="addAdministrator()">
+                              <span class="addchildIcon">
+                                <svg width="35" height="21" viewBox="0 0 35 21" fill="none"
+                                  xmlns="http://www.w3.org/2000/svg">
+                                  <path
+                                    d="M27.5003 17.6429V20.5H10.3574V17.6429C10.3574 17.6429 10.3574 11.9286 18.9288 11.9286C27.5003 11.9286 27.5003 17.6429 27.5003 17.6429ZM23.2146 4.78572C23.2146 3.93808 22.9632 3.10948 22.4923 2.4047C22.0214 1.69992 21.352 1.15061 20.5689 0.826232C19.7858 0.501857 18.9241 0.416985 18.0927 0.582351C17.2614 0.747716 16.4978 1.15589 15.8984 1.75526C15.299 2.35463 14.8908 3.11827 14.7255 3.94961C14.5601 4.78096 14.645 5.64268 14.9694 6.42579C15.2937 7.2089 15.843 7.87824 16.5478 8.34916C17.2526 8.82008 18.0812 9.07143 18.9288 9.07143C20.0655 9.07143 21.1556 8.6199 21.9593 7.81617C22.763 7.01245 23.2146 5.92236 23.2146 4.78572ZM27.786 12.0143C28.5669 12.7347 29.1965 13.6035 29.638 14.5699C30.0795 15.5363 30.324 16.5809 30.3574 17.6429V20.5H34.6431V17.6429C34.6431 17.6429 34.6431 12.7143 27.786 12.0143ZM26.0717 0.500002C25.6401 0.50026 25.2111 0.567735 24.8003 0.700001C25.6361 1.89853 26.0842 3.32455 26.0842 4.78572C26.0842 6.24688 25.6361 7.6729 24.8003 8.87143C25.2111 9.0037 25.6401 9.07117 26.0717 9.07143C27.2083 9.07143 28.2984 8.6199 29.1022 7.81617C29.9059 7.01245 30.3574 5.92236 30.3574 4.78572C30.3574 3.64907 29.9059 2.55899 29.1022 1.75526C28.2984 0.951531 27.2083 0.500002 26.0717 0.500002ZM11.786 7.64286H7.50028V3.35714H4.64314V7.64286H0.357422V10.5H4.64314V14.7857H7.50028V10.5H11.786V7.64286Z"
+                                    fill="#164789" />
+                                </svg>
+                              </span>
+                              <span class="addChildtext">Add additional administrator(s)</span>
+                            </a>
+                          </div>
+                          <div class="addBriefBoxOuter">
+                            <div class="addBriefBox boxshadow">
+                              <div class="addBriefDetail">
+                                <div class="historyhTitle">
+                                  <h3 class="historyh3">Settings</h3>
+                                </div>
+                                <form [formGroup]="reviewForm">
+                                  <div class="addBriefInner steper9Modify">
+                                    <div class="steperRadio">
+                                      <label class="form-label-md">Waitlist</label>
+                                      <div class="steperRadioFlex">
+                                        <mat-radio-group matInput aria-labelledby="example-radio-group-label"
+                                          class="radioBasic" formControlName="waitlist_functionality">
+                                          <span *ngFor="let item of onOfRadioBtns" class="spanRadio">
+                                            <mat-radio-button class="example-radio-button form-control1"
+                                              [value]="item.key">
+                                              {{ item.value }}
+                                            </mat-radio-button>
+                                          </span>
+                                        </mat-radio-group>
+                                      </div>
+                                    </div>
+                                    <div class="steperRadio">
+                                      <label class="form-label-md">Online enrollment</label>
+                                      <div class="steperRadioFlex">
+                                        <mat-radio-group matInput aria-labelledby="example-radio-group-label"
+                                          class="radioBasic" formControlName="apply_online">
+                                          <span *ngFor="let item of onOfRadioBtns" class="spanRadio">
+                                            <mat-radio-button class="example-radio-button form-control1"
+                                              [value]="item.key">
+                                              {{ item.value }}
+                                            </mat-radio-button>
+                                          </span>
+                                        </mat-radio-group>
+                                      </div>
+                                    </div>
+                                    <div class="steperRadio">
+                                      <label class="form-label-md">Online applications</label>
+                                      <div class="steperRadioFlex">
+                                        <mat-radio-group matInput aria-labelledby="example-radio-group-label"
+                                          class="radioBasic" formControlName="online_template">
+                                          <span *ngFor="let item of onOfRadioBtns" class="spanRadio">
+                                            <mat-radio-button class="example-radio-button form-control1"
+                                              [value]="item.key">
+                                              {{ item.value }}
+                                            </mat-radio-button>
+                                          </span>
+                                        </mat-radio-group>
+                                      </div>
+                                    </div>
+                                    <div class="steperRadio">
+                                      <label class="form-label-md">Kids Care Finder's application template</label>
+                                      <div class="steperRadioFlex">
+                                        <mat-radio-group matInput aria-labelledby="example-radio-group-label"
+                                          class="radioBasic" formControlName="enrollment_documentation">
+                                          <span *ngFor="let item of yesNoBtns" class="spanRadio">
+                                            <mat-radio-button class="example-radio-button form-control1"
+                                              [value]="item.key">
+                                              {{ item.value }}
+                                            </mat-radio-button>
+                                          </span>
+                                        </mat-radio-group>
+                                      </div>
+                                    </div>
+                                    <div
+                                      *ngIf="!reviewForm.get('online_template')?.value && reviewForm.get('apply_online')?.value"
+                                      class="steperSetting">
+                                      <label class="form-label-md">Insert a link to your own online application
+                                        template</label>
+                                      <mat-form-field appearance="fill">
+                                        <input matInput type="text" placeholder="URL"
+                                          formControlName="own_online_template_url" id="own_online_template_url"
+                                          name="own_online_template_url" autocomplete="off">
+                                      </mat-form-field>
+                                    </div>
+                                    <div
+                                      *ngIf="reviewForm.get('online_template')?.value && reviewForm.get('apply_online')?.value"
+                                      class="steperBox">
+                                      <div class="steperRequired">
+                                        <div class="stepCustom cardBox boxshadow">
+                                          <div class="steperBoxInn">
+                                            <div class="steperListingFlex">
+                                              <div class="steperListingItem">
+                                                <h5 class="steph5">Required fields</h5>
+                                                <p class="steperPara blclr">These fields will automatically be captured
+                                                  on every
+                                                  application</p>
+                                              </div>
+                                            </div>
+                                            <div class="steperGrayList">
+                                              <ul class="staticUl">
+                                                <li class="staticLi"><span
+                                                    class="matlock"><mat-icon>lock</mat-icon></span> Parent's basic
+                                                  information (first name, last name, email, phone number, address)</li>
+                                                <li class="staticLi"><span
+                                                    class="matlock"><mat-icon>lock</mat-icon></span> Child's basic
+                                                  information (first name, last name, date of birth, address)</li>
+                                                <li class="staticLi"><span
+                                                    class="matlock"><mat-icon>lock</mat-icon></span> Provider
+                                                  name</li>
+                                                <li class="staticLi"><span
+                                                    class="matlock"><mat-icon>lock</mat-icon></span> Desired
+                                                  start date</li>
+                                                <li class="staticLi"><span
+                                                    class="matlock"><mat-icon>lock</mat-icon></span> Online
+                                                  enrollment preferences</li>
+                                                <li class="staticLi"><span
+                                                    class="matlock"><mat-icon>lock</mat-icon></span> Program/
+                                                  grade level applying for</li>
+                                              </ul>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="stepCustom cardBox boxshadow marginTop2">
+                                        <div class="steperBoxInn">
+                                          <div class="steperListingFlex">
+                                            <div class="steperListingItem">
+                                              <h5 class="steph5">Optional fields</h5>
+                                              <p class="steperPara blclr">Pick and choose which of these fields you
+                                                would like to capture. Select all that apply.</p>
+                                            </div>
+                                          </div>
+                                          <div class="steperGrayOptional">
+                                            <h6 class="fieldh6">General fields</h6>
+                                            <div class="steperGrayList3">
+                                              <div class="form-check form-check-inline">
+                                                <input class="form-check-input" formControlName="tell_us_about_family"
+                                                  type="checkbox" id="inlineCheckbox1">
+                                                <label class="form-check-label" for="inlineCheckbox1">Tell us about your
+                                                  family</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                <input class="form-check-input" formControlName="tell_us_about_child"
+                                                  type="checkbox" id="inlineCheckbox2">
+                                                <label class="form-check-label" for="inlineCheckbox2">Tell us about your
+                                                  child</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                <input class="form-check-input" formControlName="any_special_needs"
+                                                  type="checkbox" id="inlineCheckbox3">
+                                                <label class="form-check-label" for="inlineCheckbox3">Any special needs
+                                                  or additional information?</label>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="steperGrayOptional">
+                                            <h6 class="fieldh6">Parent employment information</h6>
+                                            <div class="steperGrayList4">
+                                              <div class="form-check form-check-inline">
+                                                <input class="form-check-input" formControlName="occupation"
+                                                  type="checkbox" id="inlineCheckbox4">
+                                                <label class="form-check-label" for="inlineCheckbox4">Occuption</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                <input class="form-check-input" formControlName="employer_name"
+                                                  type="checkbox" id="inlineCheckbox5">
+                                                <label class="form-check-label" for="inlineCheckbox5">Employer
+                                                  name</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                <input class="form-check-input" formControlName="employer_address"
+                                                  type="checkbox" id="inlineCheckbox6">
+                                                <label class="form-check-label" for="inlineCheckbox6">Employer
+                                                  address</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                <input class="form-check-input" formControlName="employer_phone"
+                                                  type="checkbox" id="inlineCheckbox7">
+                                                <label class="form-check-label" for="inlineCheckbox7">Employer
+                                                  phone</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                <input class="form-check-input" formControlName="annual_gross_income"
+                                                  type="checkbox" id="inlineCheckbox8">
+                                                <label class="form-check-label" for="inlineCheckbox8">Annual gross
+                                                  income</label>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="settingSave">
+              <button class="saveShareBtn" mat-focus-indicator mat-button mat-button-base color="primary"><span
+                  class="saveIcon"></span> Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

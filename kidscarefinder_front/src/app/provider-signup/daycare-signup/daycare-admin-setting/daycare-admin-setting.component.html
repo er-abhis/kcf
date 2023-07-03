@@ -1,0 +1,379 @@
+<section class="userSignupOuter providerSignup">
+  <div class="">
+    <div class="contentright">
+      <div class="contentrightBg nobg">
+        <section id="" class="main_block form_banner">
+          <div class="container-fluid p-0">
+            <div class="row">
+              <div class="col-xl-11 col-lg-11 col-md-12 col-sm-12 mx-auto">
+                <div class="SgeperMain propviderSignStepper" id="">
+                  <div class="steperAccount">
+                    <div class="steperBox" *ngIf="stepCount == 0">
+                      <div class="steperheadpara">
+                        <h2 class="steperh2 mb-0">
+                          What are your notification preferences?
+                        </h2>
+                      </div>
+                      <form [formGroup]="notificationPreferences">
+                        <div class="stepCustom cardBox boxshadow">
+                          <div class="steperBoxInn">
+                            <div class="steperListingFlex steperListingFlexMob">
+                              <div class="steperListingItem">
+                                <h6 class="steph5">
+                                  Receive notifications/ alerts for
+                                </h6>
+                              </div>
+                              <div class="steperListingItem">
+                                <a href="javascript:void(0)" class="stepLink" (click)="selectDeselectAll()">Select/
+                                  deselect all</a>
+                              </div>
+                            </div>
+                            <div class="steperCheckListing steperCheckListingMobile">
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                  formControlName="user_messages" />
+                                <label class="form-check-label" for="inlineCheckbox1">User messages</label>
+                              </div>
+                              <div class="form-check form-check-inline backLabelButton">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                  formControlName="waitlist_notifications" />
+                                <label class="form-check-label" for="inlineCheckbox2">Waitlist notifications</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                  formControlName="new_online_applications" />
+                                <label class="form-check-label" for="inlineCheckbox3">New online applications</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox4"
+                                  formControlName="enrollment_requests" />
+                                <label class="form-check-label" for="inlineCheckbox4">Enrollment requests</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox5"
+                                  formControlName="new_enrollment_packages" />
+                                <label class="form-check-label" for="inlineCheckbox5">New enrollment packages</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox6"
+                                  formControlName="monthly_usage_summary" />
+                                <label class="form-check-label" for="inlineCheckbox6">Monthly usage summary</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox7"
+                                  formControlName="affiliated_provider_requests" />
+                                <label class="form-check-label" for="inlineCheckbox7">Affiliated provider
+                                  requests</label>
+                              </div>
+                              <div class="form-check form-check-inline steplistSpan2">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox8"
+                                  formControlName="marketing_from_KCF_affiliates" />
+                                <label class="form-check-label" for="inlineCheckbox8">Marketing from Kids Care Finder
+                                  Affiliates</label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                    <!-----------------------------step no 2-------------------------->
+                    <div class="steperBox" *ngIf="stepCount == 1">
+                      <app-daycare-admin-add (isAddAdminOpen)="isAddAdminOpen($event)"></app-daycare-admin-add>
+                    </div>
+                    <!-----------------------------step no 3-------------------------->
+                    <div class="steperBox" *ngIf="stepCount == 2">
+                      <div class="steperheadpara">
+                        <h2 class="steperh2 steperParaStepNine">
+                          Would you like the waitlist functionality turned on?
+                        </h2>
+                        <p class="steperPara steperParaStepNine">
+                          You can keep and manage a waitlist for your preschool
+                          through Kids Care Finder
+                        </p>
+                        <p class="steperPara steperParaStepNine">
+                          Easily move, remove, message, or see if users are
+                          still interested as you have space become available
+                        </p>
+                      </div>
+                      <div class="licenceBtns radioButtons">
+                        <mat-radio-group matInput aria-labelledby="example-radio-group-label"
+                          class="example-radio-group" [(ngModel)]="waitlist">
+                          <span *ngFor="let item of waitListYesNo" class="spanRadio">
+                            <mat-radio-button class="example-radio-button form-control1" [value]="item.key">
+                              {{ item.value }}
+                            </mat-radio-button>
+                          </span>
+                        </mat-radio-group>
+                      </div>
+                      <div class="enrollmentVideo">
+                        <div class="enrollmentVideoBg marginBottom3">
+                          <div class="enrollmentVideoBox">
+                            <div class="enrollmentFrame"></div>
+                          </div>
+                          <h5 class="enrollWatchtext fw-bold">
+                            Watch this short video tutorial on how our waitlist
+                            feature works
+                          </h5>
+                        </div>
+                      </div>
+                    </div>
+                    <!-----------------------------step no 4-------------------------->
+                    <div class="steperBox" *ngIf="stepCount == 3">
+                      <form [formGroup]="allowApplyOnline">
+                        <div class="steperheadpara">
+                          <h2 class="steperh2">
+                            Would you like to allow users to apply online?
+                          </h2>
+                        </div>
+                        <div class="licenceBtns radioButtons">
+                          <mat-radio-group matInput aria-labelledby="example-radio-group-label"
+                            class="example-radio-group" formControlName="apply_online">
+                            <span *ngFor="let item of waitListYesNo" class="spanRadio">
+                              <mat-radio-button class="example-radio-button form-control1" [value]="item.key">
+                                {{ item.value }}
+                              </mat-radio-button>
+                            </span>
+                          </mat-radio-group>
+                        </div>
+                        <ng-container *ngIf="allowApplyOnline.get('apply_online')?.value">
+                          <div class="marginTop3 marginBottom3">
+                            <div class="steperDiver"></div>
+                          </div>
+                          <div class="steperheadpara">
+                            <h2 class="steperh2 steperParaStepNine">
+                              Would you like to use Kids Care Finder’s online
+                              application template?
+                            </h2>
+                          </div>
+                          <div class="licenceBtns radioButtons">
+                            <mat-radio-group matInput aria-labelledby="example-radio-group-label"
+                              class="example-radio-group" formControlName="online_template">
+                              <span *ngFor="let item of waitListYesNo" class="spanRadio">
+                                <mat-radio-button class="example-radio-button form-control1" [value]="item.key">
+                                  {{ item.value }}
+                                </mat-radio-button>
+                              </span>
+                            </mat-radio-group>
+                          </div>
+                          <div class="enrollmentVideo">
+                            <div class="enrollmentVideoBg marginBottom3">
+                              <div class="enrollmentVideoBox">
+                                <div class="enrollmentFrame"></div>
+                              </div>
+                              <h5 class="enrollWatchtext fw-bold">
+                                Watch this video tutorial on Kids Care Finder's
+                                online application template.
+                              </h5>
+                            </div>
+                          </div>
+                        </ng-container>
+                        <ng-container *ngIf="
+                              allowApplyOnline.get('online_template')?.value &&
+                              allowApplyOnline.get('apply_online')?.value
+                            ">
+                          <div class="steperRequired">
+                            <div class="steperheadpara">
+                              <h2 class="steperh2 steperParaStepNine">
+                                What fields would you like to capture when users
+                                apply online for your program?
+                              </h2>
+                            </div>
+                            <div class="stepCustom cardBox boxshadow">
+                              <div class="steperBoxInn">
+                                <div class="steperListingFlex">
+                                  <div class="steperListingItem">
+                                    <h5 class="steph5">Required fields</h5>
+                                    <p class="steperPara blclr steperParaStepNine">
+                                      These fields will automatically be
+                                      captured on every application
+                                    </p>
+                                  </div>
+                                </div>
+                                <div class="steperGrayList">
+                                  <ul class="staticUl">
+                                    <li class="staticLi">
+                                      <span class="matlock steperParaStepNine"><mat-icon>lock</mat-icon></span>
+                                      Parent's basic information (first name,
+                                      last name, email, phone number, address)
+                                    </li>
+                                    <li class="staticLi">
+                                      <span class="matlock"><mat-icon>lock</mat-icon></span>
+                                      Child's basic information (first name,
+                                      last name, date of birth, address)
+                                    </li>
+                                    <li class="staticLi">
+                                      <span class="matlock"><mat-icon>lock</mat-icon></span>
+                                      Provider name
+                                    </li>
+                                    <li class="staticLi">
+                                      <span class="matlock"><mat-icon>lock</mat-icon></span>
+                                      Desired start date
+                                    </li>
+                                    <li class="staticLi">
+                                      <span class="matlock"><mat-icon>lock</mat-icon></span>
+                                      Online enrollment preferences
+                                    </li>
+                                    <li class="staticLi">
+                                      <span class="matlock"><mat-icon>lock</mat-icon></span>
+                                      Program/ grade level applying for
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="stepCustom cardBox boxshadow marginTop2">
+                            <form [formGroup]="optionalForm">
+                              <div class="steperBoxInn">
+                                <div class="steperListingFlex">
+                                  <div class="steperListingItem">
+                                    <h5 class="steph5">Optional fields</h5>
+                                    <p class="steperPara blclr steperParaStepNine">
+                                      Pick and choose which of these fields you
+                                      would like to capture. Select all that
+                                      apply.
+                                    </p>
+                                  </div>
+                                </div>
+                                <div class="steperGrayOptional">
+                                  <h6 class="fieldh6">General fields</h6>
+                                  <div class="steperGrayList3 steperGrayList3Mob">
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input" formControlName="tell_us_about_family"
+                                        type="checkbox" id="inlineCheckbox1" />
+                                      <label class="form-check-label" for="inlineCheckbox1">Tell us about your
+                                        family</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input" formControlName="tell_us_about_child"
+                                        type="checkbox" id="inlineCheckbox2" />
+                                      <label class="form-check-label" for="inlineCheckbox2">Tell us about your
+                                        child</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input" formControlName="any_special_needs"
+                                        type="checkbox" id="inlineCheckbox3" />
+                                      <label class="form-check-label" for="inlineCheckbox3">Any special needs or
+                                        additional
+                                        information?</label>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="steperGrayOptional">
+                                  <h6 class="fieldh6">
+                                    Parent employment information
+                                  </h6>
+                                  <div class="steperGrayList4 steperGrayList3Mob">
+                                    <div class="form-check form-check-inline backLabelButton">
+                                      <input class="form-check-input" formControlName="occupation" type="checkbox"
+                                        id="inlineCheckbox4" />
+                                      <label class="form-check-label" for="inlineCheckbox4">Occuption</label>
+                                    </div>
+                                    <div class="form-check form-check-inline backLabelButton">
+                                      <input class="form-check-input" formControlName="employer_name" type="checkbox"
+                                        id="inlineCheckbox5" />
+                                      <label class="form-check-label" for="inlineCheckbox5">Employer name</label>
+                                    </div>
+                                    <div class="form-check form-check-inline backLabelButton">
+                                      <input class="form-check-input" formControlName="employer_address" type="checkbox"
+                                        id="inlineCheckbox6" />
+                                      <label class="form-check-label" for="inlineCheckbox6">Employer address</label>
+                                    </div>
+                                    <div class="form-check form-check-inline backLabelButton">
+                                      <input class="form-check-input" formControlName="employer_phone" type="checkbox"
+                                        id="inlineCheckbox7" />
+                                      <label class="form-check-label" for="inlineCheckbox7">Employer phone</label>
+                                    </div>
+                                    <div class="form-check form-check-inline backLabelButton">
+                                      <input class="form-check-input" formControlName="annual_gross_income"
+                                        type="checkbox" id="inlineCheckbox8" />
+                                      <label class="form-check-label" for="inlineCheckbox8">Annual gross income</label>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+                        </ng-container>
+                        <div *ngIf="
+                              !allowApplyOnline.get('online_template')?.value &&
+                              allowApplyOnline.get('apply_online')?.value
+                            ">
+                          <div class="steperheadpara">
+                            <h2 class="steperh2">
+                              Insert a link to your own online application
+                              template
+                            </h2>
+                          </div>
+                          <div class="container">
+                            <div class="row">
+                              <div class="col-sm-6 mx-auto">
+                                <div class="container">
+                                  <div class="row">
+                                    <div class="col-sm-12">
+                                      <mat-form-field appearance="fill">
+                                        <input matInput type="text" placeholder="URL"
+                                          formControlName="own_online_template_url" id="own_online_template_url"
+                                          name="own_online_template_url" autocomplete="off" />
+                                      </mat-form-field>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+
+                    <div class="steperBox" *ngIf="stepCount == 4">
+                      <form [formGroup]="enrollmentDocumentForm">
+                        <div class="steperheadpara">
+                          <h2 class="steperh2 steperParaStepNine">
+                            Would you like to allow users to submit enrollment
+                            documentation electronically through Kids Care
+                            Finder?
+                          </h2>
+                        </div>
+                        <div class="licenceBtns radioButtons">
+                          <mat-radio-group matInput aria-labelledby="example-radio-group-label"
+                            class="example-radio-group" formControlName="enrollment_documentation">
+                            <span *ngFor="let item of waitListYesNo" class="spanRadio">
+                              <mat-radio-button class="example-radio-button form-control1" [value]="item.key">
+                                {{ item.value }}
+                              </mat-radio-button>
+                            </span>
+                          </mat-radio-group>
+                        </div>
+                      </form>
+                      <div class="enrollWork steperenroll">
+                        <h3 class="enrollsld3 steperParaStepNine">How it works:</h3>
+                        <div class="enrollmentSlilde">
+                          <img src="../../../../assets/images/question.svg" alt="">
+                        </div>
+                      </div>
+                      <div class="enrollmentVideo">
+                        <div class="enrollmentVideoBg">
+                          <div class="enrollmentVideoBox">
+                            <div class="enrollmentFrame"></div>
+                          </div>
+                          <h5 class="enrollWatchtext fw-bold">
+                            Watch this short video tutorial on Kids Care
+                            Finder's online enrollment process
+                          </h5>
+                        </div>
+                      </div>
+                    </div>
+                    <div *ngIf="stepCount == 5">
+                      <app-daycare-admin-review (moveToStep)="moveToNextStep($event)"></app-daycare-admin-review>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,228 @@
+<div class="mainBgColor">
+  <app-header></app-header>
+  <section class="userSignupOuter">
+    <div class="customCombine customCombineProviderPort">
+      <app-provider-setting-sidebar></app-provider-setting-sidebar>
+      <div class="contentright">
+        <div class="contentrightBg">
+          <div class="accountSetting">
+            <div class="headingbg">
+              <div class="headingbgFlex3">
+                <div class="headingbgText">
+                  <h1 class="headingh1">Applications</h1>
+                </div>
+                <div class="headingbgSearch">
+                  <mat-form-field appearance="fill">
+                    <input type="search" matInput placeholder="Search applications" #input>
+                  </mat-form-field>
+                  <button class="hedflxBtn" mat-button>
+                    <svg width="26" height="25" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M9.78571 0C12.2484 0 14.6103 0.978313 16.3517 2.71972C18.0931 4.46113 19.0714 6.82299 19.0714 9.28571C19.0714 11.5857 18.2286 13.7 16.8429 15.3286L17.2286 15.7143H18.3571L25.5 22.8571L23.3571 25L16.2143 17.8571V16.7286L15.8286 16.3429C14.2 17.7286 12.0857 18.5714 9.78571 18.5714C7.32299 18.5714 4.96113 17.5931 3.21972 15.8517C1.47831 14.1103 0.5 11.7484 0.5 9.28571C0.5 6.82299 1.47831 4.46113 3.21972 2.71972C4.96113 0.978313 7.32299 0 9.78571 0ZM9.78571 2.85714C6.21429 2.85714 3.35714 5.71429 3.35714 9.28571C3.35714 12.8571 6.21429 15.7143 9.78571 15.7143C13.3571 15.7143 16.2143 12.8571 16.2143 9.28571C16.2143 5.71429 13.3571 2.85714 9.78571 2.85714Z"
+                        fill="#D9D9D9" />
+                    </svg>
+                  </button>
+
+                </div>
+                <div class="headingbgBtn">
+                  <a href="#" class="btn btn-light">
+                    <span class="watchBtn"><svg width="20" height="21" viewBox="0 0 20 21" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M13.07 9.72192L12.17 10.6419C11.45 11.3619 11 11.9719 11 13.4719H9V12.9719C9 11.8619 9.45 10.8619 10.17 10.1419L11.41 8.88192C11.78 8.52192 12 8.02192 12 7.47192C12 6.36192 11.1 5.47192 10 5.47192C9.46957 5.47192 8.96086 5.68264 8.58579 6.05771C8.21071 6.43278 8 6.94149 8 7.47192H6C6 6.41106 6.42143 5.39364 7.17157 4.6435C7.92172 3.89335 8.93913 3.47192 10 3.47192C11.0609 3.47192 12.0783 3.89335 12.8284 4.6435C13.5786 5.39364 14 6.41106 14 7.47192C14 8.35192 13.64 9.14192 13.07 9.72192ZM11 17.4719H9V15.4719H11M10 0.471924C8.68678 0.471924 7.38642 0.730582 6.17317 1.23313C4.95991 1.73568 3.85752 2.47227 2.92893 3.40086C1.05357 5.27622 0 7.81976 0 10.4719C0 13.1241 1.05357 15.6676 2.92893 17.543C3.85752 18.4716 4.95991 19.2082 6.17317 19.7107C7.38642 20.2133 8.68678 20.4719 10 20.4719C12.6522 20.4719 15.1957 19.4184 17.0711 17.543C18.9464 15.6676 20 13.1241 20 10.4719C20 4.94192 15.5 0.471924 10 0.471924Z"
+                          fill="#E7E7E7" />
+                      </svg>
+                    </span>
+                    Watch Tutorial Video
+                  </a>
+                  <button (click)="openApplicationPrefrenceModal()" class="btn btn-primary applicationHideDesktop">
+                    <svg width="23" height="21" viewBox="0 0 23 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18.7 11.4L13 17.1H10.7V14.8L16.4 9.1L18.7 11.4ZM22.1 10.6C22.1 10.9 21.8 11.2 21.5 11.5L19 14L18.1 13.1L20.7 10.5L20.1 9.9L19.4 10.6L17.1 8.3L19.3 6.2C19.5 6 19.9 6 20.2 6.2L21.6 7.6C21.8 7.8 21.8 8.2 21.6 8.5C21.4 8.7 21.2 8.9 21.2 9.1C21.2 9.3 21.4 9.5 21.6 9.7C21.9 10 22.2 10.3 22.1 10.6ZM2 18.5V2.5H9V7.5H14V9L16 7V6.5L10 0.5H2C0.9 0.5 0 1.4 0 2.5V18.5C0 19.6 0.9 20.5 2 20.5H14C15.1 20.5 16 19.6 16 18.5H2ZM10 15.6C9.8 15.6 9.6 15.7 9.5 15.7L9 13.5H7.5L5.4 15.2L6 12.5H4.5L3.5 17.5H5L7.9 14.9L8.5 17.2H9.5L10 17.1V15.6Z" fill="white"/>
+                    </svg>
+                    Application Preferences
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="shareBoxFixed">
+            <div class="paymentInformartion p-0">
+              <div class="tabelCombine mt-0">
+                <div class="flexTitleTable hedpara">
+                  <button (click)="openApplicationPrefrenceModal()" class="btn btn-primary applicationHide">
+                    <svg width="23" height="21" viewBox="0 0 23 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18.7 11.4L13 17.1H10.7V14.8L16.4 9.1L18.7 11.4ZM22.1 10.6C22.1 10.9 21.8 11.2 21.5 11.5L19 14L18.1 13.1L20.7 10.5L20.1 9.9L19.4 10.6L17.1 8.3L19.3 6.2C19.5 6 19.9 6 20.2 6.2L21.6 7.6C21.8 7.8 21.8 8.2 21.6 8.5C21.4 8.7 21.2 8.9 21.2 9.1C21.2 9.3 21.4 9.5 21.6 9.7C21.9 10 22.2 10.3 22.1 10.6ZM2 18.5V2.5H9V7.5H14V9L16 7V6.5L10 0.5H2C0.9 0.5 0 1.4 0 2.5V18.5C0 19.6 0.9 20.5 2 20.5H14C15.1 20.5 16 19.6 16 18.5H2ZM10 15.6C9.8 15.6 9.6 15.7 9.5 15.7L9 13.5H7.5L5.4 15.2L6 12.5H4.5L3.5 17.5H5L7.9 14.9L8.5 17.2H9.5L10 17.1V15.6Z" fill="white"/>
+                    </svg>
+                    Application Preferences
+                  </button>
+                  <h4 class="providerh4 mt-0">New application requests</h4>
+                  <p class="providerPara">Showing <span
+                      *ngIf="newApplications.data && newApplications.data.length">{{newApplications.data.length}}</span>
+                    most recent enrollment requests</p>
+                </div>
+                <div class="profleTable boxshadow scrollManage">
+                  <div class="table-responsive">
+                    <table class="table table-hover table-bordered">
+                      <thead>
+                        <tr>
+                          <th scope="col">Parent Name</th>
+                          <th scope="col">Child Name</th>
+                          <th scope="col">Child Age</th>
+                          <th scope="col">Date Added</th>
+                          <th scope="col">On waitlist?</th>
+                          <th scope="col">View Application</th>
+                          <th class="tblactionTh" scope="col">Action</th>
+                          <th scope="col" class="action-tbl tblRemoveTh">Mark as enrolled </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let item of newApplications.data">
+                          <td>
+                            <div class="tblNewFlx">
+                              {{ ucFirst(item?.parent_1?.first_name) }} {{ ucFirst(item?.parent_1?.last_name) }}
+                              <span class="tblnew">New</span>
+                            </div>
+                          </td>
+                          <td>{{ ucFirst(item?.child?.first_name) }} {{ ucFirst(item?.child?.last_name) }}</td>
+                          <td>{{item?.child?.age}}</td>
+                          <td>{{item?.updated_at | date:'shortDate'}}</td>
+                          <td>{{item?.waitlist == true ?'Yes': 'No' }}</td>
+                          <td class="tblviewapp">
+                            <button class="tblviewBtn" mat-button color="primary" (click)="viewApplications(item)">View
+                              application</button>
+                          </td>
+                          <td>
+                            <div class="tblActionFlex">
+                              <button class="tblactionBtn" mat-button (click)="messageUser(item)">
+                                Message user
+                              </button>
+                              <button class="tblactionBtn" mat-button
+                              (click)="confirm(item,'Invited To Enroll')">
+                                Invite to enroll
+                              </button>
+                              <button class="tblactionBtn" mat-button
+                              (click)="confirm(item,'Added To Waitlist')">
+                                Add to waitlist
+                              </button>
+                              <button class="tblactionBtn" mat-button>
+                                Schedule a tour
+                              </button>
+                            </div>
+                          </td>
+                          <td class="action-tbl tblRemoveTd">
+                            <button (click)="confirm(item,'Enrolled')" class="actionRmvbtn" mat-button>
+                              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                  d="M8 15L3 10L4.41 8.58L8 12.17L15.59 4.58L17 6M10 0C8.68678 0 7.38642 0.258658 6.17317 0.761205C4.95991 1.26375 3.85752 2.00035 2.92893 2.92893C1.05357 4.8043 0 7.34784 0 10C0 12.6522 1.05357 15.1957 2.92893 17.0711C3.85752 17.9997 4.95991 18.7362 6.17317 19.2388C7.38642 19.7413 8.68678 20 10 20C12.6522 20 15.1957 18.9464 17.0711 17.0711C18.9464 15.1957 20 12.6522 20 10C20 8.68678 19.7413 7.38642 19.2388 6.17317C18.7362 4.95991 17.9997 3.85752 17.0711 2.92893C16.1425 2.00035 15.0401 1.26375 13.8268 0.761205C12.6136 0.258658 11.3132 0 10 0Z"
+                                  fill="#369108" />
+                              </svg>
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <!-- <div class="addChild">
+                              <a href="javascript:void(0)" class="tblView">
+                                View all new applications
+                                <span class="tblDigit">(16)</span>
+                              </a>
+                            </div> -->
+                  </div>
+                </div>
+              </div>
+              <div class="tabelCombine tabelCombineMov">
+                <div class="flexTitleTable hedpara">
+                  <h4 class="providerh4">All application requests</h4>
+                  <p class="providerPara">Showing <span
+                      *ngIf="allApplications.data && allApplications.data.length">{{allApplications.data.length}}</span>
+                    most recent enrollment requests</p>
+                </div>
+                <div class="profleTable boxshadow scrollManage">
+                  <div class="table-responsive">
+                    <table class="table table-hover table-bordered">
+                      <thead>
+                        <tr>
+                          <th scope="col">Parent Name</th>
+                          <th scope="col">Child Name</th>
+                          <th scope="col">Child Age</th>
+                          <th scope="col">Date Added</th>
+                          <th scope="col">On waitlist?</th>
+                          <th scope="col">View Application</th>
+                          <th class="tblactionTh" scope="col">Action</th>
+                          <th scope="col" class="action-tbl tblRemoveTh">Mark as enrolled </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let item of allApplications.data">
+                          <td>
+                            <div class="tblNewFlx">
+                              {{ ucFirst(item?.parent_1?.first_name) }} {{ ucFirst(item?.parent_1?.last_name) }}
+                              <span class="tblnew">New</span>
+                            </div>
+                          </td>
+                          <td>{{ ucFirst(item?.child?.first_name) }} {{ ucFirst(item?.child?.last_name) }}</td>
+                          <td>{{item?.child?.age}}</td>
+                          <td>{{item?.updated_at | date:'shortDate'}}</td>
+                          <td>{{item?.waitlist == true ?'Yes': 'No' }}</td>
+                          <td class="tblviewapp">
+                            <button class="tblviewBtn" mat-button color="primary" (click)="viewApplications(item)">View
+                              application</button>
+                          </td>
+                          <td>
+                            <div class="tblActionFlex">
+                              <button class="tblactionBtn" mat-button (click)="messageUser(item)">
+                                Message user
+                              </button>
+                              <button class="tblactionBtn" mat-button
+                              (click)="confirm(item,'Invited To Enroll')">
+                                Invite to enroll
+                              </button>
+                              <button class="tblactionBtn" mat-button
+                              (click)="confirm(item,'Added To Waitlist')">
+                                Add to waitlist
+                              </button>
+                              <button class="tblactionBtn" mat-button>
+                                Schedule a tour
+                              </button>
+                            </div>
+                          </td>
+                          <td class="action-tbl tblRemoveTd">
+                            <button (click)="confirm(item,'Enrolled')" class="actionRmvbtn" mat-button>
+                              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                  d="M8 15L3 10L4.41 8.58L8 12.17L15.59 4.58L17 6M10 0C8.68678 0 7.38642 0.258658 6.17317 0.761205C4.95991 1.26375 3.85752 2.00035 2.92893 2.92893C1.05357 4.8043 0 7.34784 0 10C0 12.6522 1.05357 15.1957 2.92893 17.0711C3.85752 17.9997 4.95991 18.7362 6.17317 19.2388C7.38642 19.7413 8.68678 20 10 20C12.6522 20 15.1957 18.9464 17.0711 17.0711C18.9464 15.1957 20 12.6522 20 10C20 8.68678 19.7413 7.38642 19.2388 6.17317C18.7362 4.95991 17.9997 3.85752 17.0711 2.92893C16.1425 2.00035 15.0401 1.26375 13.8268 0.761205C12.6136 0.258658 11.3132 0 10 0Z"
+                                  fill="#369108" />
+                              </svg>
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div class="addChild">
+                      <a href="javascript:void(0)" *ngIf="allApplications.count > 10"
+                        (click)="getAllRequestApplications()" class="tblView">
+                        View all new applications
+                        <span class="tblDigit">{{(allApplications.count)}}</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="paymentContinue">
+                <a href="#" class="btn btn-primary">Continue</a>
+              </div> -->
+            </div>
+          </div>
+
+        </div>
+        <!-- <div class="cancleAccoutBtn">
+                <a href="#" class="btn btn-outline-primary">Cancel Account</a>
+            </div> -->
+
+      </div>
+    </div>
+  </section>
+</div>

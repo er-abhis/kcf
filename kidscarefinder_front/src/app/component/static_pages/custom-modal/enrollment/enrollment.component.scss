@@ -1,0 +1,87 @@
+
+
+* {
+    scrollbar-width: auto;
+    scrollbar-color: var(--primaryLight);
+  }
+
+  ::ng-deep .EnrollmentModal ::-webkit-scrollbar {
+    width: 10px;
+    display: none;
+  }
+
+
+  ::ng-deep .EnrollmentModal ::-webkit-scrollbar-track {
+    background: var(--whiteColor);
+  }
+
+  ::ng-deep .EnrollmentModal ::-webkit-scrollbar-thumb {
+    background-color: var(--primaryLight);
+    border-radius: 10px;
+    border: 1px solid #ffffff;
+  }
+
+
+::ng-deep .EnrollmentModal .mat-dialog-container {
+    margin: auto;
+    border-radius: 10px;
+    background: transparent;
+  }
+
+::ng-deep .cdk-overlay-pane.EnrollmentModal {
+    margin-left: 0px !important;
+}
+
+::ng-deep .EnrollmentModal .modal-body{
+    text-align: center;
+    padding:0px;
+}
+
+::ng-deep .contentright {
+  margin-bottom: 0px;
+}
+::ng-deep .mainBgColor .headingbg {
+  border-radius: 10px 10px 0 0;
+  border: 1px solid #8ad5ff;
+}
+
+// ::ng-deep .headingbg {
+//   border: 1px solid #8ad5ff;
+//   border-radius: 10px 10px 0 0;
+// }
+
+.copy-url{
+  font-family: 'Nunito';
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--primarLight);
+  margin-top: 10px;
+}
+.copy-url a{
+  color: var(--primaryColor)
+}
+
+
+.disableWaitlist {
+  background: #fff;
+  padding: 15px 25px;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.disableWaitlist .cancelbtn {
+  position: absolute;
+  top: -8px;
+  right: -3px;
+  color: var(--primaryColor);
+  cursor: pointer;
+}
+.disableWaitlist .h3Url {
+  font-family: 'Nunito';
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0px;
+}
+

@@ -1,0 +1,42 @@
+.disable-section {
+    // opacity: 0.7;
+    pointer-events: none;
+}
+
+.colFlex {
+    display: flex;
+    gap: 15px;
+}
+
+.spaceIputLists mat-form-field {
+    margin-bottom: 0px;
+}
+
+::ng-deep {
+    .inlineFormGroup .spaceIputLists mat-form-field {
+        padding: 0;
+    }
+    .spaceIputLists mat-form-field span {
+        font-weight: 700;
+    }
+    // .inlineFormGroup .spaceIputLists mat-form-field input {
+    //     max-width: 50px;
+    //     border: 1px solid #ccc !important;
+    // }
+    .inlineFormGroup .spaceIputLists mat-form-field input {
+        font-family: 'Nunito';
+        font-size: 18px;
+        max-width: 60px;
+        margin: 0px;
+        border-radius: 5px;
+        border: 1px solid var(--primaryLight) !important;
+    }
+    .propviderSignStepper .inlineFormGroup .spaceIputLists mat-form-field .mat-form-field-flex .mat-form-field-infix {
+        border: 1px solid var(--grayColor);
+    }
+}
+@media screen and (max-width:767px){
+  .disSection{
+    margin-top: 10px !important;
+  }
+}

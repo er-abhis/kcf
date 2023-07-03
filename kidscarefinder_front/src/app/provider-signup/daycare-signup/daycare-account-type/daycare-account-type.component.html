@@ -1,0 +1,754 @@
+<section class="userSignupOuter providerSignup">
+  <div class="contentright">
+    <div class="contentrightBg nobg nobgMod">
+      <section id="" class="main_block form_banner">
+        <div class="container-fluid p-0">
+          <div class="row">
+            <div class="col-12">
+              <div class="SgeperMain propviderSignStepper" id="">
+                <div class="steperAccount">
+                  <div class="steperBox">
+                    <div class="steperRecomedation" *ngIf="stepCount == 0">
+                      <div class="steperheadpara">
+                        <h2 class="steperh2">You’re almost finished!</h2>
+                        <p class="steperPara">Select an account type to continue</p>
+                      </div>
+                      <div class="steperRecomedationInn">
+                        <div class="steperRecomedationBox boxshadow">
+                          <div class="steperRecomedFlex">
+                            <div class="steperThumps">
+                              <svg width="55" height="50" viewBox="0 0 55 50" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                  d="M55 22.5C55 19.725 52.75 17.5 50 17.5H34.2L36.6 6.075C36.65 5.825 36.675 5.55 36.675 5.275C36.675 4.25 36.25 3.3 35.575 2.625L32.925 0L16.475 16.45C15.55 17.375 15 18.625 15 20V45C15 46.3261 15.5268 47.5979 16.4645 48.5355C17.4021 49.4732 18.6739 50 20 50H42.5C44.575 50 46.35 48.75 47.1 46.95L54.65 29.325C54.875 28.75 55 28.15 55 27.5V22.5ZM0 50H10V20H0V50Z"
+                                  fill="#164789" />
+                              </svg>
+                            </div>
+                            <div class="steperThumpsText">
+                              <h3 class="recomendh3">Our recommendation: </h3>
+                              <p class="recomendpara">Since you have space available, we recommend that you choose the
+                                <a href="javascript:void(0)">Premium with Search Result Optimization</a> option to fill
+                                spaces more quickly.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="recomendedPriceDesign">
+                          <div class="recomendedCustom">
+                            <div class="table-responsive-lg">
+                              <table class="table table-striped">
+                                <thead>
+                                  <tr class="recomendHeadGrid">
+                                    <th class="recomtabHead feature" scope="col">
+                                      <div class="recomendFeatureBg priceMiddle">
+                                        <h3 class="priceTitle">Features</h3>
+                                      </div>
+                                    </th>
+                                    <th class="recomtabHead premiumResult" scope="col">
+                                      <div class="recomendResultBg priceMiddle">
+                                        <h3 class="priceTitle">Premium with Search Result Optimization</h3>
+                                      </div>
+                                    </th>
+                                    <th class="recomtabHead premium" scope="col">
+                                      <div class="recomendPremiumBg priceMiddle">
+                                        <h3 class="priceTitle">Premium</h3>
+                                      </div>
+                                    </th>
+                                    <th class="recomtabHead basic" scope="col">
+                                      <div class="recomendBasicBg priceMiddle">
+                                        <h3 class="priceTitle">Basic</h3>
+                                      </div>
+                                    </th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr class="recomendContentGrid">
+                                    <td class="feature">
+                                      <div class="recomendedText">
+                                        <h4 class="recomedh4">Appear in user searches</h4>
+                                      </div>
+
+                                    </td>
+                                    <td class="premiumResult">
+                                      <div class="recomendedText recomendDetail">
+                                        <span class="recoIcon">
+                                          <svg width="20" height="17" viewBox="0 0 20 17" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                              d="M6.74906 16.2705L0.539062 10.0605L3.36906 7.23047L6.74906 10.6205L16.6291 0.730469L19.4591 3.56047L6.74906 16.2705Z"
+                                              fill="black" />
+                                          </svg>
+                                        </span>
+                                      </div>
+                                    </td>
+                                    <td class="premium">
+                                      <div class="recomendedText recomendDetail">
+                                        <span class="recoIcon">
+                                          <svg width="20" height="17" viewBox="0 0 20 17" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                              d="M6.74906 16.2705L0.539062 10.0605L3.36906 7.23047L6.74906 10.6205L16.6291 0.730469L19.4591 3.56047L6.74906 16.2705Z"
+                                              fill="black" />
+                                          </svg>
+                                        </span>
+                                      </div>
+                                    </td>
+                                    <td class="basic">
+                                      <div class="recomendedText recomendDetail">
+                                        <span class="recoIcon">
+                                          <svg width="20" height="17" viewBox="0 0 20 17" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                              d="M6.74906 16.2705L0.539062 10.0605L3.36906 7.23047L6.74906 10.6205L16.6291 0.730469L19.4591 3.56047L6.74906 16.2705Z"
+                                              fill="black" />
+                                          </svg>
+                                        </span>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr class="recomendContentGrid">
+                                    <td class="feature">
+                                      <div class="recomendedText">
+                                        <h4 class="recomedh4">Customized provider page</h4>
+                                      </div>
+                                    </td>
+                                    <td class="premiumResult">
+                                      <div class="recomendedText recomendDetail">
+                                        <span class="recoIcon">
+                                          <svg width="20" height="17" viewBox="0 0 20 17" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                              d="M6.74906 16.2705L0.539062 10.0605L3.36906 7.23047L6.74906 10.6205L16.6291 0.730469L19.4591 3.56047L6.74906 16.2705Z"
+                                              fill="black" />
+                                          </svg>
+                                        </span>
+                                      </div>
+                                    </td>
+                                    <td class="premium">
+                                      <div class="recomendedText recomendDetail">
+                                        <span class="recoIcon">
+                                          <svg width="20" height="17" viewBox="0 0 20 17" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                              d="M6.74906 16.2705L0.539062 10.0605L3.36906 7.23047L6.74906 10.6205L16.6291 0.730469L19.4591 3.56047L6.74906 16.2705Z"
+                                              fill="black" />
+                                          </svg>
+                                        </span>
+                                      </div>
+                                    </td>
+                                    <td class="basic">
+                                      <div class="recomendedText recomendDetail">
+                                        <span class="recoBlank">-</span>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr class="recomendContentGrid">
+                                    <td class="feature">
+                                      <div class="recomendedText">
+                                        <h4 class="recomedh4">Customized provider page</h4>
+                                        <p class="recopriceText">Data reporting showing activity and usage summary
+                                          details</p>
+                                      </div>
+                                    </td>
+                                    <td class="premiumResult">
+                                      <div class="recomendedText recomendDetail">
+                                        <span class="recoIcon">
+                                          <svg width="20" height="17" viewBox="0 0 20 17" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                              d="M6.74906 16.2705L0.539062 10.0605L3.36906 7.23047L6.74906 10.6205L16.6291 0.730469L19.4591 3.56047L6.74906 16.2705Z"
+                                              fill="black" />
+                                          </svg>
+                                        </span>
+                                      </div>
+                                    </td>
+                                    <td class="premium">
+                                      <div class="recomendedText recomendDetail">
+                                        <span class="recoIcon">
+                                          <svg width="20" height="17" viewBox="0 0 20 17" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                              d="M6.74906 16.2705L0.539062 10.0605L3.36906 7.23047L6.74906 10.6205L16.6291 0.730469L19.4591 3.56047L6.74906 16.2705Z"
+                                              fill="black" />
+                                          </svg>
+                                        </span>
+                                      </div>
+                                    </td>
+                                    <td class="basic">
+                                      <div class="recomendedText recomendDetail">
+                                        <span class="recoBlank">-</span>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr class="recomendContentGrid">
+                                    <td class="feature">
+                                      <div class="recomendedText">
+                                        <h4 class="recomedh4">Waitlist functionality</h4>
+                                        <p class="recopriceText">Manage your waitlist quickly and easily. Users can add/
+                                          remove themselves from your waitlist, and you can add/ remove/ reorder, or
+                                          invite users to apply or enroll directly from your waitlist screen</p>
+                                      </div>
+                                    </td>
+                                    <td class="premiumResult">
+                                      <div class="recomendedText recomendDetail">
+                                        <span class="recoIcon">
+                                          <svg width="20" height="17" viewBox="0 0 20 17" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                              d="M6.74906 16.2705L0.539062 10.0605L3.36906 7.23047L6.74906 10.6205L16.6291 0.730469L19.4591 3.56047L6.74906 16.2705Z"
+                                              fill="black" />
+                                          </svg>
+                                        </span>
+                                      </div>
+                                    </td>
+                                    <td class="premium">
+                                      <div class="recomendedText recomendDetail">
+                                        <span class="recoIcon">
+                                          <svg width="20" height="17" viewBox="0 0 20 17" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                              d="M6.74906 16.2705L0.539062 10.0605L3.36906 7.23047L6.74906 10.6205L16.6291 0.730469L19.4591 3.56047L6.74906 16.2705Z"
+                                              fill="black" />
+                                          </svg>
+                                        </span>
+                                      </div>
+                                    </td>
+                                    <td class="basic">
+                                      <div class="recomendedText recomendDetail">
+                                        <span class="recoBlank">-</span>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr class="recomendContentGrid">
+                                    <td class="feature">
+                                      <div class="recomendedText">
+                                        <h4 class="recomedh4">Free annual license verification</h4>
+                                        <p class="recopriceText">Have your license automatically verified annually, and
+                                          receive a verified license badge on your provider page and in search results
+                                        </p>
+                                      </div>
+                                    </td>
+                                    <td class="premiumResult">
+                                      <div class="recomendedText recomendDetail">
+                                        <span class="recoIcon">
+                                          <svg width="20" height="17" viewBox="0 0 20 17" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                              d="M6.74906 16.2705L0.539062 10.0605L3.36906 7.23047L6.74906 10.6205L16.6291 0.730469L19.4591 3.56047L6.74906 16.2705Z"
+                                              fill="black" />
+                                          </svg>
+                                        </span>
+                                      </div>
+                                    </td>
+                                    <td class="premium">
+                                      <div class="recomendedText recomendDetail">
+                                        <span class="recoIcon">
+                                          <svg width="20" height="17" viewBox="0 0 20 17" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                              d="M6.74906 16.2705L0.539062 10.0605L3.36906 7.23047L6.74906 10.6205L16.6291 0.730469L19.4591 3.56047L6.74906 16.2705Z"
+                                              fill="black" />
+                                          </svg>
+                                        </span>
+                                      </div>
+                                    </td>
+                                    <td class="basic">
+                                      <div class="recomendedText recomendDetail">
+                                        <h4 class="recomedh4">Not included</h4>
+                                        <p class="recopriceText">Purchase as add-on for $19.99/year</p>
+                                      </div>
+                                    </td>
+                                  </tr>
+
+                                  <tr class="recomendContentGrid">
+                                    <td class="feature">
+                                      <div class="recomendedText">
+                                        <h4 class="recomedh4">Unlimited messaging to and from users</h4>
+                                      </div>
+                                    </td>
+                                    <td class="premiumResult">
+                                      <div class="recomendedText recomendDetail">
+                                        <span class="recoIcon">
+                                          <svg width="20" height="17" viewBox="0 0 20 17" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                              d="M6.74906 16.2705L0.539062 10.0605L3.36906 7.23047L6.74906 10.6205L16.6291 0.730469L19.4591 3.56047L6.74906 16.2705Z"
+                                              fill="black" />
+                                          </svg>
+                                        </span>
+                                      </div>
+                                    </td>
+                                    <td class="premium">
+                                      <div class="recomendedText recomendDetail">
+                                        <span class="recoIcon">
+                                          <svg width="20" height="17" viewBox="0 0 20 17" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                              d="M6.74906 16.2705L0.539062 10.0605L3.36906 7.23047L6.74906 10.6205L16.6291 0.730469L19.4591 3.56047L6.74906 16.2705Z"
+                                              fill="black" />
+                                          </svg>
+                                        </span>
+                                      </div>
+                                    </td>
+                                    <td class="basic">
+                                      <div class="recomendedText recomendDetail">
+                                        <span class="recoBlank">-</span>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr class="recomendContentGrid">
+                                    <td class="feature">
+                                      <div class="recomendedText">
+                                        <h4 class="recomedh4">Unlimited online applications</h4>
+                                      </div>
+                                    </td>
+                                    <td class="premiumResult">
+                                      <div class="recomendedText recomendDetail">
+                                        <span class="recoIcon">
+                                          <svg width="20" height="17" viewBox="0 0 20 17" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                              d="M6.74906 16.2705L0.539062 10.0605L3.36906 7.23047L6.74906 10.6205L16.6291 0.730469L19.4591 3.56047L6.74906 16.2705Z"
+                                              fill="black" />
+                                          </svg>
+                                        </span>
+                                      </div>
+                                    </td>
+                                    <td class="premium">
+                                      <div class="recomendedText recomendDetail">
+                                        <span class="recoIcon">
+                                          <svg width="20" height="17" viewBox="0 0 20 17" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                              d="M6.74906 16.2705L0.539062 10.0605L3.36906 7.23047L6.74906 10.6205L16.6291 0.730469L19.4591 3.56047L6.74906 16.2705Z"
+                                              fill="black" />
+                                          </svg>
+                                        </span>
+                                      </div>
+                                    </td>
+                                    <td class="basic">
+                                      <div class="recomendedText recomendDetail">
+                                        <span class="recoBlank">-</span>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr class="recomendContentGrid">
+                                    <td class="feature">
+                                      <div class="recomendedText">
+                                        <h4 class="recomedh4">Unlimited online enrollments</h4>
+                                      </div>
+                                    </td>
+                                    <td class="premiumResult">
+                                      <div class="recomendedText recomendDetail">
+                                        <span class="recoIcon">
+                                          <svg width="20" height="17" viewBox="0 0 20 17" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                              d="M6.74906 16.2705L0.539062 10.0605L3.36906 7.23047L6.74906 10.6205L16.6291 0.730469L19.4591 3.56047L6.74906 16.2705Z"
+                                              fill="black" />
+                                          </svg>
+                                        </span>
+                                      </div>
+                                    </td>
+                                    <td class="premium">
+                                      <div class="recomendedText recomendDetail">
+                                        <span class="recoIcon">
+                                          <svg width="20" height="17" viewBox="0 0 20 17" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                              d="M6.74906 16.2705L0.539062 10.0605L3.36906 7.23047L6.74906 10.6205L16.6291 0.730469L19.4591 3.56047L6.74906 16.2705Z"
+                                              fill="black" />
+                                          </svg>
+                                        </span>
+                                      </div>
+                                    </td>
+                                    <td class="basic">
+                                      <div class="recomendedText recomendDetail">
+                                        <span class="recoBlank">-</span>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr class="recomendContentGrid">
+                                    <td class="feature">
+                                      <div class="recomendedText">
+                                        <h4 class="recomedh4">Search result optimization</h4>
+                                        <p class="recopriceText">Appear towards the top of the search results screen
+                                          when you match selected criteria, and appear highlighted and bolded to help
+                                          you stand out among other providers</p>
+                                      </div>
+                                    </td>
+                                    <td class="premiumResult">
+                                      <div class="recomendedText recomendDetail">
+                                        <span class="recoIcon">
+                                          <svg width="20" height="17" viewBox="0 0 20 17" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                              d="M6.74906 16.2705L0.539062 10.0605L3.36906 7.23047L6.74906 10.6205L16.6291 0.730469L19.4591 3.56047L6.74906 16.2705Z"
+                                              fill="black" />
+                                          </svg>
+                                        </span>
+                                      </div>
+                                    </td>
+                                    <td class="premium">
+                                      <div class="recomendedText recomendDetail">
+                                        <span class="recoBlank">-</span>
+                                      </div>
+                                    </td>
+                                    <td class="basic">
+                                      <div class="recomendedText recomendDetail">
+                                        <span class="recoBlank">-</span>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr class="recomendContentGrid">
+                                    <td class="featureEmptyBox">
+                                      <div class="featureEmpty">
+                                        <h1 class="emptyTitle">With paid subscriptions, <b>first month is <a
+                                              href="javascript:void(0)">free!</a></b></h1>
+                                      </div>
+                                    </td>
+                                    <td class="yearlyPlan">
+                                      <div class="planCommon">
+                                        <div class="planCommonInn">
+                                          <h4 class="planh4">$125/month</h4>
+                                          <button class="btn btn-light" (click)="savePlanInfo(1,true)">Select</button>
+                                        </div>
+                                        <div class="planCommonInn">
+                                          <div class="planOr">Or</div>
+                                          <h4 class="planh4">$1,250/year</h4>
+                                          <p class="planpara">Select the annual plan and get two months free ($250
+                                            annual savings)</p>
+                                          <button class="btn btn-light" (click)="savePlanInfo(1)">Select</button>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="monthlyPlan">
+                                      <div class="planCommon">
+                                        <div class="planCommonInn">
+                                          <h4 class="planh4">$25/month</h4>
+                                          <button class="btn btn-light" (click)="savePlanInfo(2,true)">Select</button>
+                                        </div>
+                                        <div class="planCommonInn">
+                                          <div class="planOr">Or</div>
+                                          <h4 class="planh4">$250/year</h4>
+                                          <p class="planpara">Select the annual plan and get two months free ($50 annual
+                                            savings)</p>
+                                          <button class="btn btn-light" (click)="savePlanInfo(2)">Select</button>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="freePlan">
+                                      <div class=" planCommon">
+                                        <div class="planCommonInn">
+                                          <h4 class="planh4">Free</h4>
+                                          <button class="btn btn-light" (click)="basicPlanSelect()">Select</button>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="steperRecomedation" *ngIf="stepCount == 1">
+                      <div class="steperheadpara">
+                        <h2 class="steperh2 steperh2pay">Review & payment</h2>
+                      </div>
+                      <div class="steperReviewPayment">
+                        <div class="reviewPayment boxshadow">
+                          <h5 class="stepPlan stepPlanPay">Your plan</h5>
+                          <h1 class="reviewPayh1 reviewPayh1Paay" *ngIf="defaultPlan?.plan_type == 'PREMIUM_WITH_SRO'">
+                            Premium with
+                            Search Result Optimization</h1>
+                          <h1 class="reviewPayh1 reviewPayh1Paay" *ngIf="defaultPlan?.plan_type == 'BASIC'">Basic</h1>
+                          <h1 class="reviewPayh1 reviewPayh1Paay" *ngIf="defaultPlan?.plan_type == 'PREMIUM'">Premium
+                          </h1>
+                          <div class="steperSubscription">
+                            <div class="subscriptionLeft">
+                              <p class="subscpPara reviewPayh1Paay">Subscription</p>
+                              <p class="subscpPara reviewPayh1Paay">First month <u>free</u></p>
+                              <p class="subscpPara reviewPayh1Paay" *ngIf="!monthly">Yearly, billed annually starting on
+                                {{nextPaymentDate | date :'longDate'}}</p>
+                              <p class="subscpPara reviewPayh1Paay" *ngIf="monthly">Monthly, billed monthly starting on
+                                {{nextPaymentDate | date :'longDate'}}</p>
+                            </div>
+                            <div class="subscriptionRight">
+                              <span *ngIf="defaultPlan?.plan_type == 'PREMIUM_WITH_SRO'"
+                                class="reviewPayh1Paay">{{monthly?'$125/month':'$1,250/year'}}</span>
+                              <span *ngIf="defaultPlan?.plan_type == 'PREMIUM'"
+                                class="reviewPayh1Paay">{{monthly?'$25/month':'$250/year'}}</span>
+                              <span *ngIf="defaultPlan?.plan_type == 'BASIC'" class="reviewPayh1Paay">$0/year</span>
+                            </div>
+                          </div>
+                          <div class="stepSubsTotal">
+                            <p class="subTotalPara reviewPayh1Paay">Total due today:</p>
+                            <p class="subTotalPara">
+                              <span class="subTotalPrice reviewPayh1twenty">$0</span>
+                            </p>
+                            <p class="subTotalPara reviewPayh1Paay">Total due on {{nextPaymentDate | date :'longDate'}}:
+                            </p>
+                            <p class="subTotalPara">
+                              <span class="subTotalPrice reviewPayh1twenty"
+                                *ngIf="defaultPlan?.plan_type == 'PREMIUM_WITH_SRO'">{{monthly?'$125.00':'$1,250.00'}}</span>
+                              <span class="subTotalPrice reviewPayh1twenty"
+                                *ngIf="defaultPlan?.plan_type == 'PREMIUM'">{{monthly?'$25.00':'$250.00'}}</span>
+                              <span class="subTotalPrice reviewPayh1twenty"
+                                *ngIf="defaultPlan?.plan_type == 'BASIC'">$0.00</span>
+                            </p>
+                          </div>
+                        </div>
+
+                        <div class="paymentInformartionCard marginTop4">
+                          <div class="paymentInformartionFlex">
+                            <div class="paymentMethodLeft">
+                              <h2 class="payinfoh2 payinfoh2Center">Update payment information</h2>
+                              <p class="paypara payinfoh2Center">Select payment method to begin</p>
+                              <div class="usernameLink">
+                                <a href="javascript:void(0)" (click)="changeType(1)" [ngClass]="{active: type == 1}">Add
+                                  Bank Account</a>
+                                <a href="javascript:void(0)" (click)="changeType(2)"
+                                  [ngClass]="{active: type == 2}">Debit/Credit Card</a>
+                              </div>
+                              <div *ngIf="type == 1" class="formDesign">
+                                <form [formGroup]="bankDetailForm">
+                                  <div class="mb-3">
+                                    <label class="form-label">Name on Account</label>
+                                    <input formControlName="name" class="form-control" type="text" placeholder=""
+                                      aria-label="default input example" autocomplete="off">
+                                    <span style="color: red" *ngIf="
+                                                (b['name'].errors &&
+                                                  b['name'].touched) ||
+                                                (bankDetailSubmitted && b['name'].errors)
+                                              ">
+                                      <mat-error *ngIf="b['name'].errors['required']">Name on account is
+                                        required</mat-error>
+                                    </span>
+                                  </div>
+                                  <div class="mb-3">
+                                    <label class="form-label">Account Number</label>
+                                    <input formControlName="account_number" class="form-control" type="text"
+                                      placeholder="" aria-label="default input example">
+                                    <span style="color: red" *ngIf="
+                                                (b['account_number'].errors &&
+                                                  b['account_number'].touched) ||
+                                                (bankDetailSubmitted && b['account_number'].errors)
+                                              ">
+                                      <mat-error *ngIf="b['account_number'].errors['required']">Account number is
+                                        required</mat-error>
+                                    </span>
+                                  </div>
+                                  <div class="mb-3">
+                                    <label class="form-label">Verify Account Number</label>
+                                    <input formControlName="verify_account_number" class="form-control" type="text"
+                                      placeholder="" aria-label="default input example">
+                                    <span style="color: red">
+                                      <mat-error
+                                        *ngIf="!b['verify_account_number'].errors && bankDetailForm.value?.account_number != bankDetailForm.value?.verify_account_number">
+                                        Account number does not match
+                                      </mat-error>
+                                    </span>
+                                    <span style="color: red" *ngIf="
+                                          (b['verify_account_number'].errors &&
+                                            b['verify_account_number'].touched) ||
+                                          (bankDetailSubmitted && b['verify_account_number'].errors)
+                                        ">
+                                      <mat-error *ngIf="b['verify_account_number'].errors['required']">Account number is
+                                        required</mat-error>
+                                    </span>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-12">
+                                      <div class="mb-3">
+                                        <label class="form-label">Routing Number</label>
+                                        <input formControlName="routing_number" class="form-control" type="text"
+                                          placeholder="" aria-label="default input example">
+                                        <span style="color: red" *ngIf="
+                                                (b['routing_number'].errors &&
+                                                  b['routing_number'].touched) ||
+                                                (bankDetailSubmitted && b['routing_number'].errors)
+                                              ">
+                                          <mat-error *ngIf="b['routing_number'].errors['required']">Routing number is
+                                            required</mat-error>
+                                        </span>
+                                      </div>
+                                    </div>
+                                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                                      <div class="mb-3">
+                                        <label class="form-label">Account Type</label>
+                                        <div class="col-12">
+                                          <div class="form-check form-check-inline">
+                                            <input formControlName="account_type" [checked]="checkboxType.individual"
+                                              (click)="checkbox('individual')" class="form-check-input" type="checkbox"
+                                              id="inlineCheckbox1" value="individual">
+                                            <label class="prevent-default form-check-label"
+                                              for="inlineCheckbox1">Individual</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input formControlName="account_type" [checked]="checkboxType.company"
+                                              (click)="checkbox('company')" class="form-check-input" type="checkbox"
+                                              id="inlineCheckbox2" value="company">
+                                            <label class="prevent-default form-check-label"
+                                              for="inlineCheckbox2">Company</label>
+                                          </div>
+
+                                        </div>
+                                        <span style="color: red" *ngIf="
+                                                (b['account_type'].errors &&
+                                                  b['account_type'].touched) ||
+                                                (bankDetailSubmitted && b['account_type'].errors)
+                                              ">
+                                          <mat-error *ngIf="b['account_type'].errors['required']">Account type is
+                                            required</mat-error>
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </form>
+                              </div>
+                              <div *ngIf="type == 2" class="formDesign">
+                                <form [formGroup]="cardDetailForm">
+                                  <div class="mb-3">
+                                    <label class="form-label">Name on Card</label>
+                                    <input formControlName="name" class="form-control" type="text" placeholder=""
+                                      aria-label="default input example" autocomplete="off">
+                                    <span style="color: red" *ngIf="
+                                                (c['name'].errors &&
+                                                  c['name'].touched) ||
+                                                (cardDetailSubmitted && c['name'].errors)
+                                              ">
+                                      <mat-error *ngIf="c['name'].errors['required']">Name on account is
+                                        required</mat-error>
+                                    </span>
+                                  </div>
+                                  <div class="mb-3">
+                                    <label class="form-label">Card Number</label>
+                                    <input formControlName="card_number" class="form-control" type="text" placeholder=""
+                                      aria-label="default input example">
+                                    <span style="color: red" *ngIf="
+                                          (c['card_number'].errors &&
+                                            c['card_number'].touched) ||
+                                          (cardDetailSubmitted && c['card_number'].errors)
+                                        ">
+                                      <mat-error *ngIf="c['card_number'].errors['required']">Card number is
+                                        required</mat-error>
+                                    </span>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-12">
+                                      <div class="mb-3">
+                                        <label class="form-label">Expiration Month</label>
+                                        <input formControlName="expiry_month" class="form-control" type="text"
+                                          placeholder="" aria-label="default input example">
+                                        <span style="color: red" *ngIf="
+                                                (c['expiry_month'].errors &&
+                                                  c['expiry_month'].touched) ||
+                                                (cardDetailSubmitted && c['expiry_month'].errors)
+                                              ">
+                                          <mat-error *ngIf="c['expiry_month'].errors['required']">Expiration month is
+                                            required</mat-error>
+                                        </span>
+                                      </div>
+                                    </div>
+                                    <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-12">
+                                      <div class="mb-3">
+                                        <label class="form-label">Expiration Year</label>
+                                        <input formControlName="expiry_year" class="form-control"
+                                          autocomplete="cc-exp-year" type="text" placeholder=""
+                                          aria-label="default input example">
+                                        <span style="color: red" *ngIf="
+                                                (c['expiry_year'].errors &&
+                                                  c['expiry_year'].touched) ||
+                                                (cardDetailSubmitted && c['expiry_year'].errors)
+                                              ">
+                                          <mat-error *ngIf="c['expiry_year'].errors['required']">Expiration year is
+                                            required</mat-error>
+                                        </span>
+                                      </div>
+                                    </div>
+                                    <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-12">
+                                      <div class="mb-3">
+                                        <label class="form-label">CVC</label>
+                                        <input formControlName="cvc" class="form-control" type="password"
+                                          autocomplete="cc-number" placeholder="" aria-label="default input example">
+                                        <span style="color: red" *ngIf="
+                                                (c['cvc'].errors &&
+                                                  c['cvc'].touched) ||
+                                                (cardDetailSubmitted && c['cvc'].errors)
+                                              ">
+                                          <mat-error *ngIf="c['cvc'].errors['required']">CVC is required</mat-error>
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </form>
+                              </div>
+
+                            </div>
+                            <div class="paymentMethodRight">
+                              <p class="choosepay">or choose an alternative payment option:</p>
+                              <div class="paymentSelect">
+                                <div id="payment-request-button">
+                                  <!-- A Stripe Element will be inserted here. -->
+                                </div>
+                                <!-- <a href="#"><img src="./assets/images/paypal.svg" alt=""></a> -->
+                                <!-- <a href="#"><img src="./assets/images/applepay.svg" alt=""></a>
+                                    <a href="#"><img src="./assets/images/gpay.svg" alt=""></a> -->
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                    <div class="steperRecomedation" *ngIf="stepCount >= 2">
+                      <div class="steperheadpara">
+                        <h2 class="steperh2 steperh2two">Congratulations!</h2>
+                        <h4 class="steperh4">Your Kids Care Finder provider page has been successfully created.</h4>
+                      </div>
+                      <div class="steperCongratulation">
+                        <div class="container">
+                          <div class="row">
+                            <div class="col-lg-7 col-md-7 col-sm-8 mx-auto">
+                              <div class="steperCongrateBox">
+                                <div class="steperCongrateDetail">
+                                  <h4 class="steperCongh4">Your unique Kids Care Finder Provider ID is: {{uniqueId}}
+                                  </h4>
+                                  <h5 class="steperCongh5">(You may now use this unique ID to connect to any affiliated
+                                    provider types)</h5>
+                                </div>
+                                <div class="steperCongrateDetail">
+                                  <h4 class="steperCongh4">Your Kids Care Finder link is: <a class="stepDigit"
+                                      (click)="goToMyProviderPage()">{{providerUrl}}</a></h4>
+                                  <h5 class="steperCongh5">(You can share this link to your public, customized provider
+                                    page)</h5>
+                                </div>
+                              </div>
+                              <div class="steperCongrateBottom">
+                                <h5 class="steperh5">Access your provider portal or public provider page here:</h5>
+                                <div class="steper10Btn">
+                                  <button [routerLink]="['/providerSettings/user-activity']"
+                                    class="btn btn-primary">Provider Portal</button>
+                                  <button (click)="goToMyProviderPage()" class="btn btn-primary">View your
+                                    Provider Page</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>

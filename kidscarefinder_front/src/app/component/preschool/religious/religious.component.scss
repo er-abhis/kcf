@@ -1,0 +1,115 @@
+::ng-deep .mat-select-value{
+ color: black !important;
+}
+.reviewPostSection element.style {
+    transform-origin: 50% 62.875px 0px;
+    font-size: 14px;
+    opacity: 1;
+    min-width: calc(100% + 32px);
+    transform: scaleY(1);
+}
+.reviewPostSection .sect_titl,
+.reviewPostSection .sect_titl a {
+    color: #000000;
+    font-family: "Nunito";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 44px;
+    margin-bottom:0px ;
+}
+
+.reviewPostSection {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+
+::ng-deep .mat-option {
+    border-bottom: 1px solid black !important;
+}
+
+::ng-deep .cdk-overlay-container .cdk-overlay-pane .mat-select-panel-wrap {
+  margin-top: 45px;
+  padding-left: 30px;
+  flex-basis: 97.5%;
+}
+.mat-option {
+  padding: 0 10px;
+}
+
+
+::ng-deep  .textShow {
+  color: #000 !important;
+  font-size: 16px;
+  font-weight: 400;
+  transform: none;
+}
+
+::ng-deep  .textShowOut .mat-form-field-appearance-legacy .mat-form-field-label {
+  top: 1.65em;
+  left: 10px;
+}
+// ::ng-deep .textShowOut .mat-select-arrow {
+//   border-left: 12px solid rgba(0, 0, 0, 0) !important;
+//   border-right: 12px solid rgba(0, 0, 0, 0) !important;
+//   border-top: 12px solid !important;
+// }
+
+// ::ng-deep .textShowOut .mat-select-arrow {
+//   color: var(--blackColor);
+// }
+::ng-deep .textShowOut span.mat-form-field-required-marker {
+  visibility: hidden;
+}
+
+
+.multiDropserach {
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: #E7E7E7;
+  padding: 5px 10px;
+  border-radius: 0px;
+  border: none;
+  outline: none;
+  height: 40px;
+}
+.multiDropserach span.sIcon {
+  background: var(--primaryLight);
+  color: var(--whiteColor);
+  width: 35px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+}
+.multiDropserach input {
+  height: 32px;
+  border-radius: 0px;
+  padding: 0px 10px;
+  color: var(--blackColor);
+  font-size: 16px;
+  font-weight: 600;
+}
+.SelectBusinessArea .provider_start .mat-icon{
+  width: 28px;
+  height: 28px;
+}
+
+.textShowOut .mat-form-field .mat-select.mat-select-invalid .mat-select-arrow {
+  color: var(--primaryLight) !important;
+}
+
+::ng-deep{
+  .mat-form-field .mat-select.mat-select-invalid .mat-select-arrow {
+    color: #164789 !important;
+  }
+}
+
+::ng-deep .mat-select-arrow {
+  border: none !important;
+}

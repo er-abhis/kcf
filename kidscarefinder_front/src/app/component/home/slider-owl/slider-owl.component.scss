@@ -1,0 +1,185 @@
+.whatLookSection {
+  padding: 0 45px;
+  overflow: hidden;
+}
+
+::ng-deep {
+  .whatLookSection .owl-stage {
+    height: 400px;
+    padding: 40px 0px 50px;
+  }
+
+  .whatLookSection .owl-stage,
+  .whatLookSection .owl-stage .owl-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .whatLookSection .owl-stage .owl-item .item {
+    position: relative;
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: center;
+    border: 1px solid rgba(118, 118, 118, 1);
+    transition: transform 0.3s ease-in-out;
+    left: 0px;
+    right: 0px;
+    box-shadow: 0px 0px 0px 0px rgba(9, 59, 132, 1);
+    transition: all 0.4s;
+    margin: 2% 8%;
+    // margin: 2% 5%;
+  }
+
+  .whatLookSection .owl-stage .owl-item .item:nth-child(2) {
+    padding-right: 30px !important;
+  }
+
+  .whatLookSection .owl-stage .owl-item .item:hover {
+    box-shadow: 4px 4px 0px 3px rgba(9, 59, 132, 0.7)
+  }
+
+  .whatLookSection .owl-stage .owl-item .item a {
+    color: var(--blackColor);
+    text-decoration: none;
+  }
+
+  .whatLookSection .owl-stage .owl-item .item .slide_title {
+    padding: 5px 13px 0px;
+    font-size: 20px;
+    margin: 0px;
+    font-weight: 400;
+    line-height: 24px;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .whatLookSection .owl-stage .owl-item.active.center {
+    position: relative;
+    z-index: 11;
+  }
+
+  .whatLookSection .owl-stage .owl-item.active.center .item {
+    position: relative;
+    z-index: 99;
+    margin: 0 5%;
+    height: 320px;
+    // transform: scale(1.125);
+  }
+  .whatLookSection .owl-stage .owl-item.active.center .item img{
+    height: 235px;
+  }
+  .whatLookSection .owl-stage .owl-item.active.center .item .slide_title{
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 25px;
+  }
+  .whatLookSection .owl-stage .owl-item.firstactiveitem .item {
+    position: relative;
+    left: -25px;
+  }
+
+  .whatLookSection .owl-stage .owl-item.lastactiveitem .item {
+    position: relative;
+    left: auto;
+    right: -25px;
+  }
+
+  .whatLookSection .owl-nav {
+    display: block;
+  }
+
+  .whatLookSection .owl-nav>button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0px;
+    font-size: 0px;
+  }
+
+  .whatLookSection .owl-nav button::before {
+    content: "\f053";
+    font-family: "Font Awesome 6 Free";
+    font-weight: bold;
+    font-size: 28px;
+    color: #fff;
+  }
+
+  .whatLookSection .owl-nav button.owl-next {
+    left: auto;
+    right: 0px;
+  }
+
+  .whatLookSection .owl-nav button.owl-next::before {
+    content: "\f054";
+  }
+
+
+  // style css
+  .whatLookSection .owl-nav>div {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-40%);
+    left: 0px;
+    font-size: 0px;
+  }
+
+  .whatLookSection .owl-nav>div::before {
+    content: "\f053";
+    font-family: "Font Awesome 6 Free";
+    font-weight: bold;
+    font-size: 28px;
+    color: #fff;
+  }
+
+  .whatLookSection .owl-nav>div.owl-next {
+    left: auto;
+    right: 0px;
+  }
+
+  .owl-theme .owl-nav [class*="owl-"] {
+    background: none !important;
+    font-size: 0;
+  }
+
+  .whatLookSection .owl-nav>div.owl-next::before {
+    content: "\f054";
+  }
+
+  .whatLookSection .owl-nav>div {
+    left: -30px;
+  }
+
+  .whatLookSection .owl-nav>div.owl-next {
+    left: auto;
+    right: -30px;
+  }
+
+  // .owl-dots {
+  //     display: none;
+  // }
+  @media screen and (max-width:1440px){
+    .whatLookSection .owl-stage .owl-item.active.center .item {
+      height: 277px !important;
+      // transform: scale(1.125);
+    }
+    .whatLookSection .owl-stage .owl-item.active.center .item img{
+      height: 201px;
+    }
+  }
+  @media screen and (max-width:1848px){
+    .whatLookSection .owl-stage .owl-item.active.center .item {
+      height: 260px !important;
+      // transform: scale(1.125);
+    }
+    .whatLookSection .owl-stage .owl-item.active.center .item img{
+      height: 180px;
+    }
+  }
+}

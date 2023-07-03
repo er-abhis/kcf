@@ -1,0 +1,146 @@
+
+// .innerBox{
+//     background-color: #fff;
+//     color: #000;
+// }
+
+// .modalButton{
+//     background: #0E2E58;
+//     color: #fff;
+//     padding: 15px 0px 15px 0px;
+//     margin-bottom: 17px;
+//     margin: 16px 20px 15px 14px;
+//     word-wrap: break-word;
+// }
+
+
+// ===== modal term and condition start =====
+
+.providerModal{
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  background: #0E2E58;
+  border: 1px solid #95F2FF;
+  padding: 30px;
+  border-radius: 10px 10px 0px 0px;
+  color: #fff;
+}
+
+.innerBox{
+    background-color: #fff;
+    color: #000;
+    padding: 15px;
+}
+
+.termContent{
+  width: 100%;
+  max-height: 410px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.termHeading {
+  padding: 0 0 30px;
+}
+.termHeading h1.termh1 {
+  font-family: 'Nunito';
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0;
+}
+.termHeading p.paratop {
+  font-size: 16px;
+  font-weight: 400;
+  margin: 10px 0 0;
+}
+.termContent h2.termh2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.termContent .termPara {
+  color: var(--blackColor);
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 27px;
+}
+
+.checkBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+::ng-deep .checkBtn .form-check-input[type=checkbox] {
+  border-radius: 0.1em !important;
+  border: 1.5px solid var(--whitColor);
+  width: 18px;
+  height: 18px;
+}
+// ===== modal term and condition exit =====
+
+
+// ===== login modal start =====
+::ng-deep .CustomModal .mat-dialog-container {
+  border-radius: 10px;
+}
+.providerModal.loginModal {
+  padding: 0;
+}
+.termHeading.loginModalbg {
+  padding: 10px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.termHeading.loginModalbg h1.termh1 {
+  font-size: 24px;
+  font-weight: 400;
+}
+span.modalIcon svg {
+  width: 50px;
+  height: 50px;
+}
+.providerModal.loginModal .termContent {
+  text-align: center;
+}
+.loginModalFlex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.providerModal.loginModal .termContent {
+  max-height: initial;
+  height: auto;
+  overflow: auto;
+}
+
+.loginModalFlex .modalButton {
+  background: var(--primaryLight);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: left;
+  padding: 15px;
+  margin-bottom: 15px;
+  min-height: 84px;
+  border-radius: 10px;
+}
+
+.loginModalFlex .modalOutline {
+  background:transparent;
+  color: var(--primaryLight);
+  border-color:var(--primaryLight) ;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 15px;
+  margin-bottom: 15px;
+  min-width: 200px;
+  min-height: 84px;
+}
+
+
+// ===== login modal exit =====

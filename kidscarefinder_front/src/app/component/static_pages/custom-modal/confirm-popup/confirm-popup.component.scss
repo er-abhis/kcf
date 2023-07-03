@@ -1,0 +1,249 @@
+::ng-deep .CustomModal .mat-dialog-container {
+    overflow-x: hidden;
+    width: 630px;
+    // min-height: 275px;
+    border-radius: 25px;
+  }
+  .resultMessagePopup {
+    padding: 20px 30px;
+    border-radius: 25px;
+  }
+  .resultMessagePopup h1.resultMsgPopTitle {
+    font-family: 'Nunito';
+    color: var(--primaryLight);
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 40px;
+    text-align: center;
+    margin-bottom: 20px
+  }
+  .providerActivity{
+    color: black!important
+  }
+  .resultMessageBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  .resultMessageBtn .modalBtn {
+    background: var(--primaryLight);
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 15px;
+    margin-bottom: 15px;
+    min-width: 163px;
+    min-height: 57px;
+    border-radius: 10px;
+  }
+  ::ng-deep .resultMessageDrop .mat-form-field-flex {
+    padding: 0 !important;
+  }
+  ::ng-deep .resultMessageDrop .mat-form-field-infix {
+    border-top: 0px;
+}
+  ::ng-deep .resultMessageDrop .mat-form-field-appearance-fill .mat-form-field-infix {
+    padding: 0 !important;
+  }
+
+  .resultMessageBtn .modalOutline {
+    background:transparent;
+    color: #0E2E58;
+    border-color:#0E2E58 ;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 15px;
+    margin-bottom: 15px;
+    min-height: 57px;
+    border-radius: 10px;
+  }
+  ::ng-deep .resultMessageDrop .mat-form-field-appearance-fill .mat-form-field-underline::before {
+    height: 0px;
+  }
+  ::ng-deep .resultMessageDrop .mat-form-field-appearance-fill .mat-form-field-ripple {
+    height: 0px;
+  }
+  ::ng-deep .resultMessageDrop .mat-form-field-appearance-fill .mat-select-arrow-wrapper {
+    transform: translateY(0%);
+  }
+
+  ::ng-deep .resultMessageDrop .mat-form-field-appearance-fill .mat-select-arrow-wrapper .mat-select-arrow {
+    color: var(--blackColor);
+    border-left: 12px solid rgba(0,0,0,0);
+    border-right: 12px solid rgba(0,0,0,0);
+    border-top: 12px solid;
+  }
+  ::ng-deep.resultMessageDrop span.mat-select-min-line {
+    font-family: 'Nunito';
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--blackColor);
+  }
+.addSuccsBold {
+    font-weight: 800;
+  }
+
+
+
+  // select dropdwon css
+
+::ng-deep .selectBlock .selectPlaceHolder .ProDrop .mat-select-placeholder {
+  font-family: 'Nunito';
+  color: #b9b9b9 !important;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.SelectBusinessArea .provider_start .mat-icon{
+  width: 28px;
+  height: 28px;
+}
+
+::ng-deep .selectBlock .mat-select-arrow {
+  border-left: 12px solid rgba(0, 0, 0, 0) !important;
+  border-right: 12px solid rgba(0, 0, 0, 0) !important;
+  border-top: 12px solid !important;
+}
+
+::ng-deep .selectBlock .mat-select-arrow {
+  color: var(--blackColor);
+}
+
+
+// ::ng-deep .selectBlock .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+//   transform: translateY(-1.55em) scale(0.75) perspective(100px) translateZ(0.001px);
+//   padding: 0;
+//   color: var(--blackColor);
+// }
+
+::ng-deep .selectBlock .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+  transform: translateY(-2.45em) scale(1.2) perspective(100px) translateZ(1.001px);
+  padding: 0;
+  color: var(--blackColor);
+  display: none;
+}
+
+::ng-deep .selectBlock .mat-form-field-label-wrapper label {
+  font-size: 16px;
+  font-weight: 400;
+}
+// ::ng-deep .selectBlock .selectPlaceHolder.mat-form-field-appearance-legacy .mat-form-field-label {
+//   top: 2.8em;
+// }
+::ng-deep .selectBlock .selectPlaceHolder.mat-form-field-appearance-legacy .mat-form-field-label {
+  top: 2.5em;
+}
+
+
+.multiDropserach {
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: #E7E7E7;
+  padding: 5px 10px;
+  border-radius: 0px;
+  border: none;
+  outline: none;
+  height: 40px;
+}
+.multiDropserach span.sIcon {
+  background: var(--primaryLight);
+  color: var(--whiteColor);
+  width: 35px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+}
+.multiDropserach input {
+  height: 32px;
+  border-radius: 0px;
+  padding: 0px 10px;
+  color: var(--blackColor);
+  font-size: 16px;
+  font-weight: 600;
+}
+.SelectBusinessArea .provider_start .mat-icon{
+  width: 28px;
+  height: 28px;
+}
+
+::ng-deep .loginCust .mat-select-arrow {
+  border-left: 12px solid rgba(0, 0, 0, 0) !important;
+  border-right: 12px solid rgba(0, 0, 0, 0) !important;
+  border-top: 12px solid !important;
+}
+
+::ng-deep .loginCust .mat-select-arrow {
+  color: var(--blackColor);
+}
+
+::ng-deep .loginCust .mat-form-field-appearance-fill .mat-select-arrow-wrapper {
+  transform: translateY(0%);
+}
+
+::ng-deep .sanVibhu mat-option {
+  border-bottom: 1px solid #000;
+}
+
+::ng-deep div#signup_provider-panel {
+  transform: inherit !important;
+  margin-top: 42px;
+  border-radius: 12px 12px 0px 0px;
+}
+
+::ng-deep .cdk-overlay-container .cdk-overlay-pane {
+  margin-top: 0px;
+}
+::ng-deep .cdk-overlay-container .cdk-overlay-pane mat-option {
+  font-size: 16px;
+  font-weight: 400;
+  border-bottom: 1px solid #333;
+  padding: 0 12px;
+}
+
+
+
+::ng-deep .selectBlock .selectPlaceHolder.mat-form-field-appearance-legacy .mat-form-field-label mat-label.invisible {
+  visibility: visible !important;
+  color: var(--blackColor) !important;
+}
+
+::ng-deep .cdk-overlay-container .cdk-overlay-pane .mat-select-panel {
+  border-radius: 0px;
+}
+
+::ng-deep .SelectBusinessArea h4.titleMain4 {
+  margin-bottom: 10px;
+}
+
+::ng-deep .selectBlock .mat-form-field-infix {
+  margin-top: 0;
+  padding: 0;
+  border-top: 0px;
+}
+::ng-deep .selectBlock .mat-form-field-wrapper {
+  padding-bottom: 10px;
+}
+
+
+::ng-deep .mat-select-panel-wrap {
+  flex-basis: 98% !important;
+  margin-top: 45px;
+  margin-left: 4px;
+}
+::ng-deep .cdk-overlay-container .cdk-overlay-pane .mat-select-panel .mat-option.mat-active {
+  background: transparent;
+}
+
+
+
+// custom modal
+::ng-deep .cdk-overlay-pane.CustomModal {
+  width: 100%;
+  max-width: 615px !important;
+}

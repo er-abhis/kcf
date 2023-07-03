@@ -1,0 +1,143 @@
+<div class="introSteps2 basicIntroSteps">
+  <form [formGroup]="basicInfoRegisterForm" (submit)="submit()">
+    <div class="loaderPreschool" *ngIf="false">
+      <img ngSrc="assets/images/loader.gif" alt="" height="324" width="324"/>
+    </div>
+    <div class="main_block sect_head">
+      <h2 class="sect_title">We need to start by creating an account for you</h2>
+    </div>
+    <app-form-alert message="Only first name, last initial and age will be displayed to the public." width="540"
+    ></app-form-alert>
+    <div class="container containerMobile">
+      <div class="row starHide">
+        <div class="col-xxl-4 col-xl-6 col-lg-4 col-md-4 col-sm-6 mb-3">
+          <mat-form-field appearance="fill">
+            <mat-label>First name</mat-label>
+            <input matInput type="text" placeholder="Enter First Name" formControlName="firstName" id="firstName"
+                   name="firstName" autocomplete="off" maxlength="30"/>
+            <span style="color: red"
+                  *ngIf=" submitted && fg['firstName'].errors">
+                  <mat-error *ngIf="fg['firstName'].errors['required']">First name is required</mat-error>
+                  <mat-error *ngIf="fg['firstName'].errors['pattern']">First name is required</mat-error>
+            </span>
+          </mat-form-field>
+        </div>
+        <div class="col-xxl-4 col-xl-6 col-lg-4 col-md-4 col-sm-6 mb-3">
+          <mat-form-field appearance="fill">
+            <mat-label>Last name</mat-label>
+            <input matInput placeholder="Enter Last Name" type="text" formControlName="lastName" id="lastName"
+                   name="lastName" autocomplete="off" maxlength="30"/>
+            <span style="color: red"
+                  *ngIf="submitted && fg['lastName'].errors">
+                  <mat-error *ngIf="fg['lastName'].errors['required']">Last name is required</mat-error>
+                  <mat-error *ngIf="fg['lastName'].errors['pattern']">Last name is invalid</mat-error>
+            </span>
+          </mat-form-field>
+        </div>
+
+        <div class="col-xxl-4 col-xl-6 col-lg-4 col-md-4 col-sm-6 mb-3">
+          <mat-form-field appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input matInput (click)="dobPicker.open()" (focus)="dobPicker.open()" formControlName="dob"
+                   [max]="maxDob" [matDatepicker]="dobPicker">
+            <mat-datepicker #dobPicker></mat-datepicker>
+            <span style="color: red"
+                  *ngIf="submitted && fg['dob'].errors">
+                  <mat-error *ngIf="fg['dob'].errors['required']">Job title is required</mat-error>
+            </span>
+          </mat-form-field>
+        </div>
+        <div class="col-12 mb-3">
+          <mat-form-field appearance="fill">
+            <mat-label>Address</mat-label>
+            <input matInput placeholder="Enter Address" type="text" ngx-google-places-autocomplete
+                   (onAddressChange)="addressChange($event)" autocomplete="off" formControlName="address"/>
+            <span style="color: red"
+                  *ngIf="submitted && fg['address'].errors">
+                  <mat-error *ngIf="fg['address'].errors['required']">Address can't be blank</mat-error>
+                </span>
+          </mat-form-field>
+        </div>
+        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-3">
+          <mat-form-field appearance="fill">
+            <mat-label>E-mail address</mat-label>
+            <input matInput placeholder="Enter email address" type="text" formControlName="email" id="email"
+                   name="email" autocomplete="off"/>
+            <span style="color: red" *ngIf="
+                    submitted &&
+                    fg['email'].errors
+                  ">
+                  <mat-error *ngIf="fg['email'].errors['required']">Email is required</mat-error>
+                  <mat-error *ngIf="fg['email'].errors['pattern']">Email is invalid</mat-error>
+                </span>
+          </mat-form-field>
+        </div>
+        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-3">
+          <mat-form-field appearance="fill">
+            <mat-label>Phone number</mat-label>
+            <input matInput placeholder="Enter Contact Number" type="text" formControlName="contact"
+                   mask="000-000-0000" id="contact" name="contact" autocomplete="off"/>
+            <span style="color: red" *ngIf="submitted && fg['contact'].errors">
+                  <mat-error *ngIf="fg['contact'].errors['required']">Contact number is required</mat-error>
+                  <mat-error *ngIf="fg['contact'].errors['minlength']">Please enter valid contact
+                    number</mat-error>
+                </span>
+          </mat-form-field>
+        </div>
+        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-3 position-relative">
+          <mat-form-field appearance="fill">
+            <mat-label class="position-relative">
+              <ng-container [ngTemplateOutlet]="createYourPasswordLabel"></ng-container>
+            </mat-label>
+            <input matInput placeholder="Enter password" type="password" formControlName="password" id="password"
+                   name="password" autocomplete="off"/>
+            <span style="color: red" *ngIf="submitted && fg['password'].errors">
+                    <mat-error *ngIf="fg['password'].errors['required']">Password is required</mat-error>
+                    <mat-error *ngIf="fg['password'].errors['pattern']">
+                      Please enter a valid password
+                    </mat-error>
+                  </span>
+          </mat-form-field>
+        </div>
+        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-3">
+          <mat-form-field appearance="fill">
+            <mat-label>Confirm your password</mat-label>
+            <input matInput placeholder="Confirm password" type="password" formControlName="confirmPassword"
+                   id="confirmPassword" name="confirmPassword" autocomplete="off"/>
+            <span style="color: red" *ngIf="submitted && fg['confirmPassword'].errors">
+              <mat-error *ngIf="fg['confirmPassword'].errors['passwordNotMatch']">
+                {{customAlertMessage.passwordMismatch[2].message}}
+              </mat-error>
+            </span>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <label class="custom-checkbox m-auto px-4 py-3" for="terms-and-conditions"
+             [ngClass]="fg['isTAndCAccepted'].value ? 'checked' : ''">
+        <input style="display: none" type="checkbox" id="terms-and-conditions" name="terms-and-conditions"
+               formControlName="isTAndCAccepted"/>
+        <span class="checkbox-icon" [ngClass]="fg['isTAndCAccepted'].value ? 'checked' : ''"></span>
+        <span class="checkbox-label">Accept Terms and Conditions</span>
+      </label>
+      <button type="submit" class="btn btn-primary submit-button submit-button-default my-3">
+        <div>
+          <span>Continue</span>
+          <span class="icon"></span>
+        </div>
+      </button>
+    </div>
+  </form>
+</div>
+
+<ng-template #createYourPasswordLabel>
+  Create your password
+  <svg style="pointer-events: auto" width="21" height="21" viewBox="0 0 21 21" fill="none"
+       xmlns="http://www.w3.org/2000/svg" matTooltip="Password must be at least eight characters in length, contain at least one uppercase and one lowercase letter,
+                    one number, and at least one special character">
+    <path
+      d="M11.5 7.5H9.5V5.5H11.5M11.5 15.5H9.5V9.5H11.5M10.5 0.5C9.18678 0.5 7.88642 0.758658 6.67317 1.2612C5.45991 1.76375 4.35752 2.50035 3.42893 3.42893C1.55357 5.3043 0.5 7.84784 0.5 10.5C0.5 13.1522 1.55357 15.6957 3.42893 17.5711C4.35752 18.4997 5.45991 19.2362 6.67317 19.7388C7.88642 20.2413 9.18678 20.5 10.5 20.5C13.1522 20.5 15.6957 19.4464 17.5711 17.5711C19.4464 15.6957 20.5 13.1522 20.5 10.5C20.5 9.18678 20.2413 7.88642 19.7388 6.67317C19.2362 5.45991 18.4997 4.35752 17.5711 3.42893C16.6425 2.50035 15.5401 1.76375 14.3268 1.2612C13.1136 0.758658 11.8132 0.5 10.5 0.5Z"
+      fill="white"/>
+  </svg>
+</ng-template>

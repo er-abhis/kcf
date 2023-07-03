@@ -1,0 +1,96 @@
+.frequently .frequenth2 {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #fff;
+  margin: 30px 0 0;
+}
+
+.frequentlyGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 40px auto 40px;
+  gap: 40px;
+}
+
+.frequentlyItem {
+  background: var(--primaryColor);
+  color: var(--whiteColor);
+  border: 1px solid #95f2ff;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  cursor: pointer;
+  height: 236px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.frequentlyItem a {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+}
+
+.frequentIcon svg {
+  height: 75px;
+}
+
+.frequentIcon svg path {
+  fill: var(--whiteColor);
+}
+
+.frequenth3 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-top: 15px;
+}
+
+.frequentLink {
+  color: var(--whiteColor);
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 30px;
+  display: inline-block;
+}
+.frequentIconMobile {
+  display: none;
+}
+@media screen and (max-width: 575px) {
+  .frequently .frequenth2 {
+    font-size: 20px;
+    text-align: left;
+  }
+  .frequentlyGrid {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0 70px;
+  }
+  .frequenth3 {
+    font-size: 20px;
+  }
+  .frequentLink {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  .frequentIcon {
+    display: none;
+  }
+  .frequentIconMobile {
+    display: block;
+  }
+  .frequentlyItem {
+    height: auto;
+    padding: 18px !important;
+  }
+  .main_block.sect_head.banner{
+    padding-left: 25px;
+  }
+  .frequentlyGrid{
+    margin: 20px auto 20px;
+    gap: 20px
+    ;
+  }
+}

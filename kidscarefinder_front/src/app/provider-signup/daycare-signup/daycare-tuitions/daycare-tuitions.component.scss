@@ -1,0 +1,165 @@
+.uploadstepCust7 {
+    margin: 0 auto;
+    min-width: 340px;
+    width: 340px;
+}
+::ng-deep .tutionFiled .mat-form-field-infix {
+    width: 100%;
+}
+
+.tutionColGrp.oneThird .btnSquare {
+    color: var(--whiteColor);
+}
+.disable-section {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+// tution dropdown
+.tutionFlex {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.tutionPrice {
+    font-size: 25px;
+    font-weight: 500;
+    color: var(--whiteColor);
+    padding-right: 5px;
+}
+.tutionFlex .tutionFiled {
+    width: 200px;
+}
+
+.tutionDropdown {
+    width: 115px;
+    padding-top: 15px;
+}
+::ng-deep .tutionDropdown mat-select {
+    background: #ffffff;
+    border: 1px solid #d9d9d9;
+    border-radius: 10px;
+    padding: 9px 10px;
+    color: #000000;
+    font-family: "Nunito";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 28px;
+}
+::ng-deep .tutionDropdown .mat-select .mat-select-value {
+    color: #000;
+}
+::ng-deep .tutionDropdown .mat-select-trigger {
+    position: relative;
+}
+::ng-deep .tutionDropdown .mat-select-trigger::after {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    content: "\f078";
+    color: var(--blackColor);
+    font-size: 14px;
+    position: absolute;
+    height: 15px;
+    top: -3px;
+    right: 2px;
+    z-index: 1;
+}
+::ng-deep .tutionDropdown .mat-select-arrow {
+    border-left: 5px solid rgba(0, 0, 0, 0) !important;
+    border-right: 5px solid rgba(0, 0, 0, 0) !important;
+    border-top: 5px solid !important;
+    border: none !important;
+}
+
+.tutionReviewFlex {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+.tutionReviewFlex .mat-form-field {
+    width: 140px;
+}
+.tutionDropdown.tutionRewDrop mat-select {
+    font-size: 15px;
+    padding: 7px 10px;
+    line-height: inherit;
+}
+.reviewDolar {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--blackColor);
+    padding-right: 5px;
+}
+
+.uploadFilesComponent.uploadstepCust7.gaping {
+    width: 100%;
+}
+
+
+.detailsRow.tutionDetailsRow {
+    padding: 0 15px;
+}
+.DetailPhotoLeft.bgWhiteDetails.tutgap {
+    margin: 0;
+}
+
+
+.clearCenter .btn.clearbtn {
+    background: #fff;
+    font-family: "Nunito";
+    font-size: 20px;
+    font-weight: 300;
+    color: #000;
+    padding: 10px 12px;
+    width: 100px;
+    border: 1px solid #d9d9d9;
+    border-radius: 10px;
+}
+
+
+.clearCenter .btn.clearbtn:hover {
+    background-color: var(--primaryLight) !important;
+    color: #fff;
+    border: 1px solid var(--primaryLight);
+}
+
+p.uploadTopTitle.stp7para {
+    margin-bottom: 10px;
+}
+
+::ng-deep .uploadFilesComponent p {
+    margin: 5px 0 0;
+}
+::ng-deep .uploadFilesComponent small.uploadsize {
+    color: #767676;
+}
+
+// media query start
+@media screen and (max-width:1480px) {
+    .tutionDropdown {
+        width: 128px;
+    }
+    .uploadFilesComponent.uploadstepCust7.gaping {
+        min-width: 270px;
+    }
+}
+
+@media screen and (max-width:1199px) {
+    .tutionReviewFlex {
+        width: 72%;
+    }
+    .uploadFilesComponent.uploadstepCust7.gaping {
+        min-width: 245px;
+    }
+    .tutionDropdown {
+        width: 150px;
+    }
+
+}
+@media screen and (max-width:767px) {
+    .tutionDropdown {
+        padding-top: 18px;
+    }
+}

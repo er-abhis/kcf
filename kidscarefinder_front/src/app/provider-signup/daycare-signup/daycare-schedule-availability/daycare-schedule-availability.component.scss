@@ -1,0 +1,117 @@
+::ng-deep.toast-container {
+    position: fixed !important;
+}
+.disable-section {
+    // opacity: 0.7;
+    pointer-events: none;
+}
+
+::ng-deep .napCheckCust .mat-checkbox-frame {
+  border: 2px solid var(--blackColor);
+  border-radius: 1px;
+}
+
+.optional{
+  width: 100%;
+    max-width: calc(50% - 20px);
+    margin: 0 10px 20px 0;
+    display: inline-block;
+    text-align: center;
+    color: var(--whiteColor);
+    font-size: 20px;
+}
+
+::ng-deep .napCheckCust .mat-checkbox-checked.mat-accent .mat-checkbox-frame {
+  border-color: #000;
+  border-radius: 0px;
+}
+
+.scheduleCross {
+    position:absolute;
+    right: 0;
+ }
+.scheduleBtnicon {
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+}
+
+.scheduleBtnicon  .mat-icon {
+  width: auto;
+  height: auto;
+  font-size: 28px;
+  color: var(--whiteColor);
+}
+
+
+/* profile css here start */
+::ng-deep .profilePicture {
+  width: 140px;
+  height: 140px;
+  background: #ddd;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profilePicture img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+::ng-deep .profileUpload {
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.profileUpload .spanRemove {
+  font-size: 14px;
+  font-weight: 600;
+  padding-left: 8px;
+  color: var(--primaryColor);
+}
+/* profile css here start */
+// time and date drop
+.SelectTime.StartTime.step2time mat-label.timevisibel {
+  color: var(--blackColor) !important;
+  font-size: 20px;
+}
+.SelectTime.StartTime.step2time mat-select {
+  min-width: 64px;
+  max-width: inherit;
+}
+.toddlerInfant {
+  width: 225px;
+  margin: auto;
+}
+
+.clearCenter .btn.clearbtn {
+  background: #fff;
+  font-family: "Nunito";
+  font-size: 20px;
+  font-weight: 300;
+  color: #000;
+  padding: 10px 12px;
+  width: 100px;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+  margin: 0 0 15px 0;
+}
+
+.clearCenter .btn.clearbtn:hover {
+  background-color: var(--primaryLight) !important;
+ color: #fff;
+ border: 1px solid var(--primaryLight);
+}
+
+::ng-deep .cdk-overlay-container .cdk-overlay-pane {
+  margin-top: 50px !important;
+}
+
+.uploadFilesComponent p {
+  margin: 5px 0px 0px;
+}
+.uploadFilesComponent small.uploadsize {
+  color: #767676;
+}

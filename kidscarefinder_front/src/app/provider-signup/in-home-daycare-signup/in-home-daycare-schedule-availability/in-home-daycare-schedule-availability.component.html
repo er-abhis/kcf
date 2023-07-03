@@ -1,0 +1,539 @@
+<div class="signUpAvailSection">
+  <div class="AvailSteps1" *ngIf="stepCount === 0">
+    <div class="main_block sect_head">
+      <h2 class="sect_title">What is your Daycare's start and end time?</h2>
+    </div>
+    <div class="signupAvailablity">
+      <form [formGroup]="scheduleAvailable">
+        <div class="signupAvailablityIn" formArrayName="scheduleAvailability"
+          *ngFor="let csrGrp of scheduleAForm; let i = index">
+          <div *ngIf="i > 0">
+            <div class="scheduleCross">
+              <button (click)="removeSchedule(i)" class="scheduleBtnicon">
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </div>
+          </div>
+          <div class="container" [formGroupName]="i">
+            <div class="row">
+              <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-4 col-sm-6">
+                <div class="SelectTime StartTime">
+                  <label></label>
+                  <mat-label>Start time</mat-label>
+                  <mat-select placeholder="Hour" formControlName="startHour">
+                    <mat-option [value]="key" *ngFor="let key of hourArray">{{
+                      key
+                      }}</mat-option>
+                  </mat-select>
+                  <mat-select placeholder="Minute" formControlName="startMinute">
+                    <mat-option [value]="key" *ngFor="let key of minuteArray">{{
+                      key
+                      }}</mat-option>
+                  </mat-select>
+                  <mat-select placeholder="Format" formControlName="startFormat">
+                    <mat-option value="am">am</mat-option>
+                    <mat-option value="pm">pm</mat-option>
+                  </mat-select>
+                </div>
+              </div>
+
+              <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-4 col-sm-6">
+                <div class="SelectTime StartTime">
+                  <label></label>
+                  <mat-label>End time</mat-label>
+                  <mat-select placeholder="Hour" formControlName="endHour">
+                    <mat-option [value]="key" *ngFor="let key of endHourArray">{{ key }}</mat-option>
+                  </mat-select>
+                  <mat-select placeholder="Minute" formControlName="endMinute">
+                    <mat-option [value]="key" *ngFor="let key of minuteArray">{{
+                      key
+                      }}</mat-option>
+                  </mat-select>
+                  <mat-select placeholder="Format" formControlName="endFormat">
+                    <mat-option value="am">am</mat-option>
+                    <mat-option value="pm">pm</mat-option>
+                  </mat-select>
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <h3 class="steperMDTitle">
+                  Select the days these hours apply to:
+                </h3>
+              </div>
+              <div class="col-sm-12 steperMDTitleMob">
+                <div class="daysCheckBoxs daysCheckBoxsButton availFlex matCheckBlue">
+                  <mat-checkbox formControlName="monday" value="Monday"
+                    (change)="dayAdded($event, i)">Monday</mat-checkbox>
+                  <mat-checkbox formControlName="tuesday" value="Tuesday" (change)="dayAdded($event, i)">
+                    Tuesday
+                  </mat-checkbox>
+                  <mat-checkbox formControlName="wednesday" value="Wednesday" (change)="dayAdded($event, i)">
+                    Wednesday
+                  </mat-checkbox>
+                  <mat-checkbox formControlName="thrusday" value="Thrusday" (change)="dayAdded($event, i)">
+                    Thursday
+                  </mat-checkbox>
+                  <mat-checkbox formControlName="friday" value="Friday" (change)="dayAdded($event, i)">
+                    Friday
+                  </mat-checkbox>
+                  <mat-checkbox formControlName="saturday" value="Saturday" (change)="dayAdded($event, i)">
+                    Saturday
+                  </mat-checkbox>
+                  <mat-checkbox formControlName="sunday" value="Sunday" (change)="dayAdded($event, i)">
+                    Sunday
+                  </mat-checkbox>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="col-sm-12">
+        <div class="buttonTimeCont">
+          <button mat-button class="addTimeBtn" (click)="addPreschoolAvailable()" [disabled]="disableAddBtn">
+            <span class="timeIcon"></span>
+            Add additional start/end time
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Step 2 Start Schedule/Avialbilty  Step 2:1 End -->
+  <!-- Step 2 Start Schedule/Avialbilty  Step 2:2 Start -->
+  <div class="AvailSteps1" *ngIf="stepCount === 1">
+    <form [formGroup]="beforeAfterCareGroup">
+      <div class="main_block sect_head">
+        <h2 class="sect_title">Do you provide before or aftercare?</h2>
+      </div>
+      <div class="licenceBtns radioButtons">
+        <mat-radio-group matInput aria-labelledby="example-radio-group-label" class="example-radio-group"
+          formControlName="is_before_after_care" required>
+          <span *ngFor="let season of beforeAfterYes" class="spanRadio">
+            <mat-radio-button (change)="radioChange($event, season)" class="example-radio-button form-control1"
+              [value]="season">
+              {{ season }}
+            </mat-radio-button>
+          </span>
+        </mat-radio-group>
+      </div>
+      <div class="beforeAfterCare" *ngIf="beforeAfterCare">
+        <div class="main_block sect_head">
+          <h2 class="sect_title">
+            What is your Daycare’s before or aftercare hours?
+          </h2>
+        </div>
+        <div class="signupAvailablity">
+          <form [formGroup]="beforeAfterCareGroup">
+            <div class="signupAvailablityIn" formArrayName="scheduleAvailability"
+              *ngFor="let csrGrp of scheduleAfterBeforeForm; let i = index">
+              <div *ngIf="i > 0">
+                <div class="scheduleCross">
+                  <button (click)="removeAfterSchedule(i)" class="scheduleBtnicon">
+                    <mat-icon>cancel</mat-icon>
+                  </button>
+                </div>
+              </div>
+              <div class="container" [formGroupName]="i">
+                <div class="row">
+                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-4 col-sm-6">
+                    <div class="SelectTime StartTime">
+                      <label></label>
+                      <mat-label>Start time</mat-label>
+                      <mat-select placeholder="Hour" formControlName="startHour">
+                        <mat-option [value]="key" *ngFor="let key of hourArray">{{ key }}</mat-option>
+                      </mat-select>
+                      <mat-select placeholder="Minute" formControlName="startMinute">
+                        <mat-option [value]="key" *ngFor="let key of minuteArray">{{ key }}</mat-option>
+                      </mat-select>
+                      <mat-select placeholder="Format" formControlName="startFormat">
+                        <mat-option [value]="key" *ngFor="let key of formatArray">{{ key }}</mat-option>
+                      </mat-select>
+                    </div>
+                  </div>
+                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-4 col-sm-6">
+                    <div class="SelectTime StartTime">
+                      <label></label>
+                      <mat-label>End time</mat-label>
+                      <mat-select placeholder="Hour" formControlName="endHour">
+                        <mat-option [value]="key" *ngFor="let key of hourArray">{{ key }}</mat-option>
+                      </mat-select>
+                      <mat-select placeholder="Minute" formControlName="endMinute">
+                        <mat-option [value]="key" *ngFor="let key of minuteArray">{{ key }}</mat-option>
+                      </mat-select>
+                      <mat-select placeholder="Format" formControlName="endFormat">
+                        <mat-option [value]="key" *ngFor="let key of formatArray">{{ key }}</mat-option>
+                      </mat-select>
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <h3 class="steperMDTitle">
+                      Select the days these hours apply to:
+                    </h3>
+                  </div>
+                  <div class="col-sm-12 steperMDTitleMob">
+                    <div class="daysCheckBoxs daysCheckBoxsButton availFlex matCheckBlue">
+                      <mat-checkbox value="Monday" formControlName="monday"
+                        (change)="BeforeAfterdayAdded($event, i)">Monday</mat-checkbox>
+                      <mat-checkbox value="Tuesday" formControlName="tuesday"
+                        (change)="BeforeAfterdayAdded($event, i)">Tuesday</mat-checkbox>
+                      <mat-checkbox value="Wednesday" formControlName="wednesday"
+                        (change)="BeforeAfterdayAdded($event, i)">Wednesday</mat-checkbox>
+                      <mat-checkbox value="Thrusday" formControlName="thrusday"
+                        (change)="BeforeAfterdayAdded($event, i)">Thursday</mat-checkbox>
+                      <mat-checkbox value="Friday" formControlName="friday"
+                        (change)="BeforeAfterdayAdded($event, i)">Friday</mat-checkbox>
+                      <mat-checkbox value="Saturday" formControlName="saturday"
+                        (change)="BeforeAfterdayAdded($event, i)">Saturday</mat-checkbox>
+                      <mat-checkbox value="Sunday" formControlName="sunday"
+                        (change)="BeforeAfterdayAdded($event, i)">Sunday</mat-checkbox>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="col-sm-12">
+          <div class="buttonTimeCont">
+            <button mat-button class="addTimeBtn" (click)="addPreschoolAvailable(true)">
+              <span class="timeIcon"></span>
+              Add additional start/end time
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <!-- Step 2 Start Schedule/Avialbilty  Step 2:2 End -->
+  <!-- Step 2 Start Schedule/Avialbilty  Step 2:3 Start -->
+  <div class="AvailSteps2" *ngIf="stepCount === 2">
+    <form [formGroup]="availabileNowFormGroup">
+      <div class="main_block sect_head">
+        <h2 class="sect_title">Do you have availability now?</h2>
+      </div>
+      <div class="licenceBtns radioButtons mt-0">
+        <mat-radio-group matInput aria-labelledby="example-radio-group-label" class="example-radio-group"
+          formControlName="availability_now">
+          <span *ngFor="let season of availableNowYes" class="spanRadio">
+            <mat-radio-button (change)="availableNowChange($event)" class="example-radio-button form-control1"
+              [value]="season">
+              {{ season }}
+            </mat-radio-button>
+          </span>
+        </mat-radio-group>
+      </div>
+      <div class="spaceAvailable" *ngIf="spaceAvailableINPUT">
+        <h2 class="sect_title mb-0">How many spaces are available?</h2>
+        <p>If none, enter '0'</p>
+        <div class="toddlerInfant toddlerInfantMob">
+          <div class="spaceIputLists" formArrayName="ageGroup" *ngFor="let item of ageGroupCategory; let i = index">
+            <ng-container *ngIf="item.is_present">
+              <mat-form-field appearance="fill" [formGroupName]="i">
+                <span>{{ item.agegroupcategory.agegroupcategory }}</span>
+                <input matInput formControlName="available_seats" type="number" min="0" />
+                <input type="hidden" [value]="item.id" formControlName="id" />
+              </mat-form-field>
+            </ng-container>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-5 mx-auto">
+            <div class="alertCustom alertSpace">
+              <span class="exclamation">!</span>
+              Note: If a user enrolls online, we will update your number of
+              available spaces. Otherwise, you will need to keep this updated as
+              you fill openings
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="spaceAvailable" *ngIf="!spaceAvailableINPUT && spaceAvailableThreeMonths">
+        <h2 class="sect_title">Will you have availability in 3 months ?</h2>
+        <div class="licenceBtns radioButtons">
+          <mat-radio-group matInput aria-labelledby="example-radio-group-label" class="example-radio-group"
+            formControlName="availability_in_3_months">
+            <span *ngFor="let season of availableNowYes" class="spanRadio">
+              <mat-radio-button (click)="availChange(season, 3)" class="example-radio-button form-control1"
+                [value]="season">
+                {{ season }}
+              </mat-radio-button>
+            </span>
+          </mat-radio-group>
+        </div>
+      </div>
+      <div class="spaceAvailable" *ngIf="!spaceAvailableINPUT && spaceAvailableSixMonths">
+        <h2 class="sect_title">Will you have availability in 6 months ?</h2>
+        <div class="licenceBtns radioButtons">
+          <mat-radio-group matInput aria-labelledby="example-radio-group-label" class="example-radio-group"
+            formControlName="availability_in_6_months">
+            <span *ngFor="let season of availableNowYes" class="spanRadio">
+              <mat-radio-button (click)="availChange(season, 6)" class="example-radio-button form-control1"
+                [value]="season">
+                {{ season }}
+              </mat-radio-button>
+            </span>
+          </mat-radio-group>
+        </div>
+      </div>
+      <div class="spaceAvailable" *ngIf="!spaceAvailableINPUT && spaceAvailableTwelveMonths">
+        <h2 class="sect_title">Will you have availability in 12 months ?</h2>
+        <div class="licenceBtns radioButtons">
+          <mat-radio-group matInput aria-labelledby="example-radio-group-label" class="example-radio-group"
+            formControlName="availability_in_12_months">
+            <span *ngFor="let season of availableNowYes" class="spanRadio">
+              <mat-radio-button (click)="availChange(season, 12)" class="example-radio-button form-control1"
+                [value]="season">
+                {{ season }}
+              </mat-radio-button>
+            </span>
+          </mat-radio-group>
+        </div>
+      </div>
+    </form>
+  </div>
+  <!-- Step 2 Start Schedule/Avialbilty  Step 2:3 End -->
+  <!-- Step 2 Start Schedule/Avialbilty  Step 2:4 start -->
+  <div class="AvailSteps3" *ngIf="stepCount === 3">
+    <form [formGroup]="timeFormGroup">
+      <div class="main_block sect_head">
+        <h2 class="sect_title sec_titleMargin">What schedule options do you offer?</h2>
+        <h3 class="steperMDTitle steperMDTitleMargin">Select all that apply</h3>
+      </div>
+      <div class="col-sm-6 mx-auto">
+        <div class="daysCheckBoxs checkHalfBoxed matCheckBlue daysCheckBoxsMobile">
+          <mat-checkbox formControlName="is_full_time" class="dayCheck_matCheck" value="fulltime">
+            Full time
+          </mat-checkbox>
+          <mat-checkbox formControlName="is_part_time" class="dayCheck_matCheck" value="parttime">
+            Part time
+          </mat-checkbox>
+          <mat-checkbox formControlName="is_half_days" class="dayCheck_matCheck" value="halfday">
+            Half/ partial days
+          </mat-checkbox>
+          <mat-checkbox formControlName="is_full_days" class="dayCheck_matCheck" value="fulldays">
+            Full days
+          </mat-checkbox>
+        </div>
+      </div>
+    </form>
+  </div>
+  <!-- Step 2 Start Schedule/Avialbilty  Step 2:4 End -->
+  <!-- Step 2 Start Schedule/Avialbilty  Step 2:5 start -->
+  <div class="AvailSteps4" *ngIf="stepCount === 4">
+    <form [formGroup]="napFormGroup">
+      <div class="main_block sect_head">
+        <h2 class="sect_title">What time is nap time?</h2>
+      </div>
+      <div class="col-sm-8 mx-auto">
+        <div class="napTimeDataTable">
+          <div class="napTimeList">
+            <div class="napLeftContent">
+              <label>
+                <div class="col-sm-12">
+                  <div class="napCheckCust matCheckBlack">
+                    <mat-checkbox formControlName="not_applicable"
+                      (change)="changeControlSelect($event)">N/A</mat-checkbox>
+                  </div>
+                </div>
+              </label>
+            </div>
+            <div class="napRTTimeForms napRTTimeFormsMob">&nbsp;</div>
+          </div>
+
+          <div class="napTimeList" *ngIf="programsOffers.includes(INFANT)">
+            <div class="napLeftContent">
+              <label>
+                <div class="col-sm-12">
+                  <div class="napCheckCust matCheckBlack">
+                    <mat-checkbox formControlName="is_infant"
+                      (change)="changeControlSelect($event, true)">Infant</mat-checkbox>
+                  </div>
+                </div>
+              </label>
+            </div>
+            <div class="napRTTimeForms" [ngClass]="{
+                  'disable-section': !napFormGroup.controls['is_infant'].value
+                }">
+              <div class="napTimeLists">
+                <h3 class="napHeading">Morning nap</h3>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-4 col-sm-6 ps-0">
+                      <div class="SelectTime StartTime step2time">
+                        <label></label>
+                        <mat-label class="timevisibel">Start time</mat-label>
+                        <mat-select placeholder="Hour" formControlName="morning_start_hour">
+                          <mat-option [value]="key" *ngFor="let key of hourArray">{{ key }}</mat-option>
+                        </mat-select>
+                        <mat-select placeholder="Minute" formControlName="morning_start_minute">
+                          <mat-option [value]="key" *ngFor="let key of minuteArray">{{ key }}</mat-option>
+                        </mat-select>
+                        <mat-select placeholder="Format" formControlName="morning_start_format">
+                          <mat-option [value]="key" *ngFor="let key of formatArray">{{ key }}</mat-option>
+                        </mat-select>
+                      </div>
+                    </div>
+                    <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-4 col-sm-6">
+                      <div class="SelectTime StartTime step2time">
+                        <label></label>
+                        <mat-label class="timevisibel">End time</mat-label>
+                        <mat-select placeholder="Hour" formControlName="morning_end_hour">
+                          <mat-option [value]="key" *ngFor="let key of hourArray">{{ key }}</mat-option>
+                        </mat-select>
+                        <mat-select placeholder="Minute" formControlName="morning_end_minute">
+                          <mat-option [value]="key" *ngFor="let key of minuteArray">{{ key }}</mat-option>
+                        </mat-select>
+                        <mat-select placeholder="Format" formControlName="morning_end_format">
+                          <mat-option [value]="key" *ngFor="let key of formatArray">{{ key }}</mat-option>
+                        </mat-select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="napTimeLists">
+                <h3 class="napHeading">Afternoon nap</h3>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-4 col-sm-6 ps-0">
+                      <div class="SelectTime StartTime step2time">
+                        <label></label>
+                        <mat-label class="timevisibel">Start time</mat-label>
+                        <mat-select placeholder="Hour" formControlName="afternoon_start_hour">
+                          <mat-option [value]="key" *ngFor="let key of hourArray">{{ key }}</mat-option>
+                        </mat-select>
+                        <mat-select placeholder="Minute" formControlName="afternoon_start_minute">
+                          <mat-option [value]="key" *ngFor="let key of minuteArray">{{ key }}</mat-option>
+                        </mat-select>
+                        <mat-select placeholder="Format" formControlName="afternoon_start_format">
+                          <mat-option [value]="key" *ngFor="let key of formatArray">{{ key }}</mat-option>
+                        </mat-select>
+                      </div>
+                    </div>
+                    <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-4 col-sm-6">
+                      <div class="SelectTime StartTime step2time">
+                        <label></label>
+                        <mat-label class="timevisibel">End time</mat-label>
+                        <mat-select placeholder="Hour" formControlName="afternoon_end_hour">
+                          <mat-option [value]="key" *ngFor="let key of hourArray">{{ key }}</mat-option>
+                        </mat-select>
+                        <mat-select placeholder="Minute" formControlName="afternoon_end_minute">
+                          <mat-option [value]="key" *ngFor="let key of minuteArray">{{ key }}</mat-option>
+                        </mat-select>
+                        <mat-select placeholder="Format" formControlName="afternoon_end_format">
+                          <mat-option [value]="key" *ngFor="let key of formatArray">{{ key }}</mat-option>
+                        </mat-select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="napTimeList" *ngIf="
+                programsOffers.includes(TODDLER) ||
+                programsOffers.includes(PREK) ||
+                programsOffers.includes(PRESCHOOL)
+              ">
+            <div class="napLeftContent">
+              <label>
+                <div class="col-sm-12">
+                  <div class="napCheckCust matCheckBlack">
+                    <mat-checkbox formControlName="is_toddler" (change)="changeControlSelect($event, true)">{{
+                      getProgramsOffered() }}</mat-checkbox>
+                  </div>
+                </div>
+              </label>
+            </div>
+            <div class="napRTTimeForms" style="margin-top: 35px" [ngClass]="{
+                  'disable-section': !napFormGroup.controls['is_toddler'].value
+                }">
+              <div class="napTimeLists">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-4 col-sm-6 ps-0">
+                      <div class="SelectTime StartTime step2time">
+                        <label></label>
+                        <mat-label>Start time</mat-label>
+                        <mat-select placeholder="Hour" formControlName="start_time_hour">
+                          <mat-option [value]="key" *ngFor="let key of hourArray">{{ key }}</mat-option>
+                        </mat-select>
+                        <mat-select placeholder="Minute" formControlName="start_time_minute">
+                          <mat-option [value]="key" *ngFor="let key of minuteArray">{{ key }}</mat-option>
+                        </mat-select>
+                        <mat-select placeholder="Format" formControlName="start_time_format">
+                          <mat-option [value]="key" *ngFor="let key of formatArray">{{ key }}</mat-option>
+                        </mat-select>
+                      </div>
+                    </div>
+                    <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-4 col-sm-6 ps-0">
+                      <div class="SelectTime StartTime step2time">
+                        <label></label>
+                        <mat-label>End time</mat-label>
+                        <mat-select placeholder="Hour" formControlName="end_time_hour">
+                          <mat-option [value]="key" *ngFor="let key of hourArray">{{ key }}</mat-option>
+                        </mat-select>
+                        <mat-select placeholder="Minute" formControlName="end_time_minute">
+                          <mat-option [value]="key" *ngFor="let key of minuteArray">{{ key }}</mat-option>
+                        </mat-select>
+                        <mat-select placeholder="Format" formControlName="end_time_format">
+                          <mat-option [value]="key" *ngFor="let key of formatArray">{{ key }}</mat-option>
+                        </mat-select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <!-- Step 2 Start Schedule/Avialbilty  Step 2:5 End -->
+  <!-- Step 2 Start Schedule/Avialbilty  Step 2:6 start -->
+  <div class="AvailSteps5" *ngIf="stepCount === 5">
+    <form [formGroup]="observedHolidayFormGroup">
+      <div class="main_block sect_head">
+        <h2 class="sect_title">What are your observed holidays?</h2>
+      </div>
+      <div class="col-12 text-center clearCenter">
+        <button (click)="clearAll()" class="btn btn-primary clearbtn">Clear</button>
+      </div>
+      <div class="col-sm-4 mx-auto">
+        <div class="uploadFilesComponent">
+          <h3 *ngIf="pdfData && pdfData.name">{{ pdfData.name }}</h3>
+          <h3 *ngIf="!this.scheduleData?.observed_holiday_pdf_link && !pdfData" class="noFile">No file uploaded</h3>
+          <h3 *ngIf="this.scheduleData?.observed_holiday_pdf_link && !pdfData">
+            {{this.scheduleData?.observed_holiday_pdf_link.split('//')[1].split('/')[1]}}</h3>
+          <input class="ng-hide" #holidayPhoto type="file" (change)="handle($event)" accept=".pdf" />
+          <button mat-button class="btnSquare" (click)="handleUpload(holidayPhoto)" type="button">
+            <span class="btnIcon upload"></span>
+            Upload file
+          </button>
+          <p>Upload documents with supported file type (.pdf)</p>
+          <small class="uploadsize">* Max file size 10 mb</small>
+        </div>
+        <div class="fileUrlsGroup">
+          <p>or add a URL to your holiday schedule</p>
+          <input type="text" matInput placeholder="URL" formControlName="observed_holiday_web_link" />
+          <span style="color: red" *ngIf="
+          (o['observed_holiday_web_link'].errors &&
+            o['observed_holiday_web_link'].touched) ||
+          (step5Submitted && o['observed_holiday_web_link'].errors)
+        ">
+            <mat-error *ngIf="o['observed_holiday_web_link'].errors['pattern']">URL is invalid</mat-error>
+          </span>
+        </div>
+        <div class="skipButton">
+          <button mat-button class="btnSquare" (click)="skipStep()">
+            Skip this step
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="introSteps6 PreLicenced" *ngIf="stepCount === 6">
+    <app-in-home-daycare-schedule-review (moveToStep)="moveToStep($event)"></app-in-home-daycare-schedule-review>
+  </div>
+</div>

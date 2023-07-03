@@ -1,0 +1,126 @@
+<div class="mainBgColor">
+  <app-header></app-header>
+  <section class="userSignupOuter">
+    <div class="customCombine customCombineProviderPort">
+      <app-provider-setting-sidebar></app-provider-setting-sidebar>
+      <div class="contentright">
+        <div class="contentrightBg contentrightBgMobPortal">
+          <div class="accountSetting">
+            <div class="headingbg headingbgMobPortal">
+              <h1 class="headingh1">User activity</h1>
+              <p class="paratop">View information on user activity for yourself and Kids Care Finder as a whole.</p>
+            </div>
+            <!-- <div class="accountHeading">
+                    <h1>Medical Contacts</h1>
+                    <p>This information will not be shared unless you’ve authorized</p>
+                </div> -->
+          </div>
+
+          <div class="paymentInformartion">
+            <div class="shareBoxFixed">
+              <div class="cardBox boxshadow">
+                <div class="userActivity">
+                  <div class="userActivityTop userActivityTopMobPortal">
+                    <div class="userActivityTopLeft">
+                      <h2 class="userActivityh2">Current month-to-date</h2>
+                      <h6 class="userActivityh6 userActivityh6Mov">{{selectedInterval}}</h6>
+                    </div>
+                    <div class="userActivityTopRight">
+                      <div class="healthSelectOut">
+                        <div class="healthSelect">
+                          <mat-form-field appearance="fill">
+                            <mat-select placeholder="Current month-to-date" [formControl]="selectInterval">
+                              <mat-option *ngFor="let interval of intervals" [value]="interval">
+                                {{interval.format('MMM') === moment().format('MMM') ? 'Current month-to-date' : interval.format('MMM') }}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                          <h6 class="userActivityh6Date">1/1/23 - 1/4/23</h6>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="userActivityGridBox">
+                    <h4 class="userActivityh4">The {{organizationName}}’s usage</h4>
+                    <div class="userActivityGrid4">
+                      <div class="userActivityGrid4Item">
+                        <h5 class="userActivityh5"># of user searches you appeared in:</h5>
+                        <div class="activityDivider1"></div>
+                        <h3 class="userActivityh3">{{statics?.user_searches_you_appeared_in}}</h3>
+                      </div>
+                      <div class="userActivityGrid4Item">
+                        <h5 class="userActivityh5"># of users who visited your provider page:</h5>
+                        <div class="activityDivider1"></div>
+                        <h3 class="userActivityh3">{{statics?.user_who_visited_your_provider_page}}</h3>
+                      </div>
+                      <div class="userActivityGrid4Item">
+                        <h5 class="userActivityh5"># of users who saved you to their favorites:</h5>
+                        <div class="activityDivider1"></div>
+                        <h3 class="userActivityh3">{{statics?.user_who_saved_you_to_their_favourite}}</h3>
+                      </div>
+                      <div class="userActivityGrid4Item">
+                        <h5 class="userActivityh5"># of user messages received:</h5>
+                        <div class="activityDivider1"></div>
+                        <h3 class="userActivityh3">{{statics?.user_message_received}}</h3>
+                      </div>
+                      <div class="userActivityGrid4Item">
+                        <h5 class="userActivityh5"># of users added to your waitlist:</h5>
+                        <div class="activityDivider1"></div>
+                        <h3 class="userActivityh3">{{ statics?.user_added_to_your_waitlist}}</h3>
+                      </div>
+                      <div class="userActivityGrid4Item">
+                        <h5 class="userActivityh5"># of new online applications:</h5>
+                        <div class="activityDivider1"></div>
+                        <h3 class="userActivityh3">{{ statics?.new_online_application}}</h3>
+                      </div>
+                      <div class="userActivityGrid4Item">
+                        <h5 class="userActivityh5"># of enrollment requests:</h5>
+                        <div class="activityDivider1"></div>
+                        <h3 class="userActivityh3">{{statics?.enrollment_requests}}</h3>
+                      </div>
+                      <div class="userActivityGrid4Item">
+                        <h5 class="userActivityh5"># of online enrollments:</h5>
+                        <div class="activityDivider1"></div>
+                        <h3 class="userActivityh3">{{ statics?.online_enrollment}}</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="activityDivider"></div>
+                  <div class="userActivityGridBox">
+                    <h4 class="userActivityh4">Kids Care Finder’s usage</h4>
+                    <div class="userActivityGrid2">
+                      <div class="userActivityGrid2Item">
+                        <h5 class="userActivityh5"># of users who visited Kids Care Finder</h5>
+                        <div class="activityDivider2"></div>
+                        <h3 class="userActivityh3">{{statics?.user_visited_kidscarefinder}}</h3>
+                      </div>
+                      <div class="userActivityGrid2Item">
+                        <h5 class="userActivityh5"># of users who searched for Preschool providers on Kids Care Finder
+                        </h5>
+                        <div class="activityDivider2"></div>
+                        <h3 class="userActivityh3">{{statics?.user_who_searched_preschool_providers_on_kidscarefinder}}
+                        </h3>
+                      </div>
+                      <div class="userActivityGrid2Item">
+                        <h5 class="userActivityh5"># of new user accounts created in your city</h5>
+                        <div class="activityDivider2"></div>
+                        <h3 class="userActivityh3">{{statics?.new_user_account_created_in_a_city}}</h3>
+                      </div>
+                      <div class="userActivityGrid2Item">
+                        <h5 class="userActivityh5"># of new user accounts in your city who are interested in Preschool
+                        </h5>
+                        <div class="activityDivider2"></div>
+                        <h3 class="userActivityh3">
+                          {{statics?.new_user_account_created_in_a_city_who_are_interested_in_your_provider}}</h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,84 @@
+
+.descriptionBox {
+    margin-top: 15px;
+    border-radius: 10px;
+    height: 296px;
+  }
+  .descriptionBox textarea {
+    height: 100%;
+    resize: none;
+  }
+
+  .settingSave {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .settingSave .mat-button.saveShareBtn {
+    color: #164789;
+    border: 2px solid #164789;
+    background-color: transparent;
+    min-width: 130px;
+    padding: 2px 12px;
+    height: 50px;
+    line-height: 32px;
+  }
+  .settingSave .mat-button.saveShareBtn:hover {
+    box-shadow: none;
+  }
+// Review section Profile pic design
+
+.uploadRemovPhotoBtns {
+    gap: 15px;
+  }
+  .photoUploads{
+    box-sizing: border-box;
+    width: 150px;
+    height: 150px;
+    border: 1px solid #B9B9B9;
+    border-radius: 180px;
+    object-fit: cover;
+    object-position: top;
+  }
+  .buttonsGroupsUploadPhoto .btnSquare {
+    color: #fff;
+  }
+  
+  .buttonsGroupsUploadPhoto .whiteBtn {
+    color: var(--primaryColor);
+      height: 50px;
+      line-height: 28px;
+      border-radius: 10px !important;
+      margin-top: 10px;
+  }
+  .buttonsGroupsUploadPhoto .btnwidth140{
+    min-width: 144px;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 0px 10px;
+  }
+  .buttonsGroupsUploadPhoto .whiteBtn {
+    display: flex;
+    align-content: center;
+    align-items: center;
+  }
+  ::ng-deep .buttonsGroupsUploadPhoto .whiteBtn span.mat-button-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+  }
+  .buttonsGroupsUploadPhoto .whiteBtn span.btnIcon.remove {
+    width: 18px;
+    height: 18px;
+    background-size: 14px;
+  }
+  
+  
+  
+  @media screen and (max-width:1848px) {
+    .buttonsGroupsUploadPhoto {
+      width: 45%;
+    }
+  }
+  
+

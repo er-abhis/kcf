@@ -1,0 +1,58 @@
+<ng-container [formGroup]="formGroup" *ngIf="formGroup">
+  <div class="historyIlluness">
+    <div class="historyIllunessItem" *ngFor="let item of illnessArray; let i = index"
+         formArrayName="illness">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" [value]="item.id" (change)="onSelected(item,$event,'id')"
+               name="illness" id="illness-data-{{i}}" type="checkbox">
+        <label class="form-check-label" for="illness-data-{{i}}">
+          {{ item.illness }}
+        </label>
+      </div>
+      <div class="form-check form-check-inline expandInput" *ngIf="">
+        <select class="form-select" (change)="onSelected(item,$event,'month')">
+          <option [value]="key" *ngFor="let key of monthNameArray">
+            {{key}}
+          </option>
+        </select>
+      </div>
+      <div class="form-check form-check-inline expandInput">
+        <select class="form-select" (change)="onSelected(item,$event,'year')">
+          <option [value]="key" *ngFor="let key of yearArray">{{key}}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<!--<div class="historyIlluness">-->
+<!--  <div [formArrayName]="illness">-->
+<!--    <div class="historyIllunessItem" *ngFor="let item of illnessArray; let i = index">-->
+<!--      <div class="form-check form-check-inline">-->
+<!--        <input class="form-check-input" [value]="item.id" (change)="onSelected(item,$event,'id')"-->
+<!--               name="illnessData_{{item.id}}" id="illnessData_{{item.id}}" type="checkbox">-->
+<!--        <label class="form-check-label" for="illnessData_{{item.id}}">-->
+<!--          {{ item.illness }}-->
+<!--        </label>-->
+<!--      </div>-->
+<!--    <div class="form-check form-check-inline expandInput"-->
+<!--         *ngIf="item.checked || selectedProvider.indexOf(item.id) != -1">-->
+<!--      <select class="form-select" aria-label="Default select example"-->
+<!--              (change)="onSelected(item,$event,'month')">-->
+<!--        <option [value]="key" [selected]="item.month == key" *ngFor="let key of monthNameArray">-->
+<!--          {{key}}-->
+<!--        </option>-->
+<!--      </select>-->
+<!--    </div>-->
+<!--    <div class="form-check form-check-inline expandInput"-->
+<!--         *ngIf="item.checked || selectedProvider.indexOf(item.id) !=-1">-->
+<!--      <select class="form-select" aria-label="Default select example"-->
+<!--              (change)="onSelected(item,$event,'year')">-->
+<!--        <option [value]="key" [selected]="item.year == key" *ngFor="let key of yearArray">{{key}}-->
+<!--        </option>-->
+
+<!--      </select>-->
+<!--    </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->

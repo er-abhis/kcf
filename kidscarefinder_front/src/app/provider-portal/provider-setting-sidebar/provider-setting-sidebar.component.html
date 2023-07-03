@@ -1,0 +1,206 @@
+<div class="sidebarleft">
+  <nav class="sidebar">
+    <div class="userPortal">
+      <span class="userportIcon userportIconSide">
+        <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M12.5 0.5C10.9241 0.5 9.36371 0.810389 7.9078 1.41345C6.45189 2.0165 5.12902 2.90042 4.01472 4.01472C1.76428 6.26516 0.5 9.3174 0.5 12.5C0.5 15.6826 1.76428 18.7348 4.01472 20.9853C5.12902 22.0996 6.45189 22.9835 7.9078 23.5866C9.36371 24.1896 10.9241 24.5 12.5 24.5C15.6826 24.5 18.7348 23.2357 20.9853 20.9853C23.2357 18.7348 24.5 15.6826 24.5 12.5C24.5 10.9241 24.1896 9.36371 23.5866 7.9078C22.9835 6.45189 22.0996 5.12902 20.9853 4.01472C19.871 2.90042 18.5481 2.0165 17.0922 1.41345C15.6363 0.810389 14.0759 0.5 12.5 0.5ZM6.584 20.036C7.1 18.956 10.244 17.9 12.5 17.9C14.756 17.9 17.9 18.956 18.416 20.036C16.784 21.332 14.732 22.1 12.5 22.1C10.268 22.1 8.216 21.332 6.584 20.036ZM20.132 18.296C18.416 16.208 14.252 15.5 12.5 15.5C10.748 15.5 6.584 16.208 4.868 18.296C3.644 16.7 2.9 14.684 2.9 12.5C2.9 7.208 7.208 2.9 12.5 2.9C17.792 2.9 22.1 7.208 22.1 12.5C22.1 14.684 21.356 16.7 20.132 18.296ZM12.5 5.3C10.172 5.3 8.3 7.172 8.3 9.5C8.3 11.828 10.172 13.7 12.5 13.7C14.828 13.7 16.7 11.828 16.7 9.5C16.7 7.172 14.828 5.3 12.5 5.3ZM12.5 11.3C12.0226 11.3 11.5648 11.1104 11.2272 10.7728C10.8896 10.4352 10.7 9.97739 10.7 9.5C10.7 9.02261 10.8896 8.56477 11.2272 8.22721C11.5648 7.88964 12.0226 7.7 12.5 7.7C12.9774 7.7 13.4352 7.88964 13.7728 8.22721C14.1104 8.56477 14.3 9.02261 14.3 9.5C14.3 9.97739 14.1104 10.4352 13.7728 10.7728C13.4352 11.1104 12.9774 11.3 12.5 11.3Z"
+            fill="white" />
+        </svg>
+      </span>
+      <span class="mobileMenu menuRefixed">Menu</span>
+      <span class="crossSideBar menuRefixed" (click)="hideSidebar()">x</span>
+      <h5 class="userportMain">Provider Portal</h5>
+    </div>
+    <div class="userProfle">
+      <div class="user_btn">
+        <span class="user_btn"><img class="menuImg" *ngIf="this.profilePicProvider!=null"
+            src="{{this.profilePicProvider}}" alt="user_image" />
+          <p class="menuText" *ngIf="this.profilePicProvider==null">{{ this.welcome_icon_provider }}</p>
+        </span>
+      </div>
+      <h4 class="userTitle">{{this.organizationName}}</h4>
+      <h6 class="providerId">Provider ID: <b>{{this.providerService.uniqueProviderId}}</b></h6>
+      <a class="viewpublic" href="javascript:void(0)" #viewUrl (click)="providerUrl()">View Public Provider Page URL</a>
+    </div>
+    <ul class="nav flex-column proivset" id="nav_accordion">
+      <li class="nav-item">
+        <a class="nav-link userActiveBg" href="javascript:void(0)" data-bs-toggle="collapse"
+          data-bs-target="#uaCollapse">
+          <label class="setnavnabel">{{this.organizationName}}
+            ({{!this.organizationType?this.organizationType:'Preschool'}})</label>
+          <mat-icon class="mat-icon-rtl-mirror ms-auto">expand_more</mat-icon>
+        </a>
+        <div class="collapse collapseCustom show" id="uaCollapse">
+          <ul class="settingDropdown">
+            <li class="dropdownLink">
+              <p class="toglpara">Search result optimization</p>
+              <div class="navTogbtn" (click)="toggle('optimization')">
+                <mat-slide-toggle (click)="$event.preventDefault()" [checked]="optimization == 'on'">{{optimization}}
+                </mat-slide-toggle>
+              </div>
+            </li>
+            <li class="dropdownLink">
+              <p class="toglpara">Waitlist</p>
+              <div class="navTogbtn" (click)="toggle('Waitlist')">
+                <mat-slide-toggle (click)="$event.preventDefault()" [checked]="Waitlist == 'on'">{{Waitlist}}
+                </mat-slide-toggle>
+              </div>
+            </li>
+            <li class="dropdownLink">
+              <p class="toglpara">Online applications</p>
+              <div class="navTogbtn" (click)="toggle('applications')">
+                <mat-slide-toggle (click)="$event.preventDefault()" [checked]="applications == 'on'">{{applications}}
+                </mat-slide-toggle>
+              </div>
+            </li>
+            <li class="dropdownLink">
+              <p class="toglpara">Online enrollments</p>
+              <div class="navTogbtn" (click)="toggle('enrollments')">
+                <mat-slide-toggle (click)="$event.preventDefault()" [checked]="enrollments == 'on'">{{enrollments}}
+                </mat-slide-toggle>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" aria-current="page" [routerLink]="['/providerSettings/user-activity']"
+          routerLinkActive="active" [ngClass]="{'active': activeTab === 'app-user-activity'}">
+          <span class="navIcon">
+            <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M0 8.32949V5.62949C0 7.60949 3.78947 9.22949 8.42105 9.22949C13.0526 9.22949 16.8421 7.60949 16.8421 5.62949V8.32949C16.8421 8.77949 16.6316 9.13949 16.3158 9.58949C15.4737 9.31949 14.6316 9.22949 13.6842 9.22949C11.0526 9.22949 8.52632 10.2195 6.94737 11.8395C2.94737 11.5695 0 10.1295 0 8.32949ZM8.42105 7.42949C13.0526 7.42949 16.8421 5.80949 16.8421 3.82949C16.8421 1.84949 13.0526 0.229492 8.42105 0.229492C3.78947 0.229492 0 1.84949 0 3.82949C0 5.80949 3.78947 7.42949 8.42105 7.42949ZM5.36842 15.2595L5.05263 14.6295L5.36842 13.9995C5.47368 13.8195 5.57895 13.7295 5.57895 13.5495C2.31579 13.0095 0 11.7495 0 10.1295V12.8295C0 14.4495 2.52632 15.7995 6 16.2495C5.78947 15.9795 5.57895 15.6195 5.36842 15.2595ZM13.6842 13.7295C13.0526 13.7295 12.6316 14.0895 12.6316 14.6295C12.6316 15.1695 13.0526 15.5295 13.6842 15.5295C14.3158 15.5295 14.7368 15.1695 14.7368 14.6295C14.7368 14.0895 14.3158 13.7295 13.6842 13.7295ZM20 14.6295C19.0526 16.6995 16.5263 18.2295 13.6842 18.2295C10.8421 18.2295 8.31579 16.6995 7.36842 14.6295C8.31579 12.5595 10.8421 11.0295 13.6842 11.0295C16.5263 11.0295 19.0526 12.5595 20 14.6295ZM16.3158 14.6295C16.3158 13.3695 15.1579 12.3795 13.6842 12.3795C12.2105 12.3795 11.0526 13.3695 11.0526 14.6295C11.0526 15.8895 12.2105 16.8795 13.6842 16.8795C15.1579 16.8795 16.3158 15.8895 16.3158 14.6295Z"
+                fill="white" />
+            </svg>
+          </span>
+          <span class="navTxthid">User Activity</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/providerSettings/provider-message-center']" routerLinkActive="active"
+          [ngClass]="{'active': activeTab === 'app-provider-message-center'}">
+          <span class="navIcon">
+            <svg width="20" height="18" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M3.33333 14.2305C3.33333 12.2305 7.77778 11.1305 10 11.1305C12.2222 11.1305 16.6667 12.2305 16.6667 14.2305V15.2305H3.33333M13.3333 6.23047C13.3333 7.02612 12.9821 7.78918 12.357 8.35179C11.7319 8.9144 10.8841 9.23047 10 9.23047C9.11595 9.23047 8.2681 8.9144 7.64298 8.35179C7.01786 7.78918 6.66667 7.02612 6.66667 6.23047C6.66667 5.43482 7.01786 4.67176 7.64298 4.10915C8.2681 3.54654 9.11595 3.23047 10 3.23047C10.8841 3.23047 11.7319 3.54654 12.357 4.10915C12.9821 4.67176 13.3333 5.43482 13.3333 6.23047ZM0 2.23047V16.2305C0 16.7609 0.234126 17.2696 0.650874 17.6447C1.06762 18.0198 1.63285 18.2305 2.22222 18.2305H17.7778C18.3671 18.2305 18.9324 18.0198 19.3491 17.6447C19.7659 17.2696 20 16.7609 20 16.2305V2.23047C20 1.70004 19.7659 1.19133 19.3491 0.816255C18.9324 0.441182 18.3671 0.230469 17.7778 0.230469H2.22222C0.988889 0.230469 0 1.13047 0 2.23047Z"
+                fill="white" />
+            </svg>
+          </span>
+          <span class="navTxthid">Message center <span class="SideMeessage"
+              *ngIf="this.userService.newMsgCount">{{this.userService.newMsgCount}}</span></span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/providerSettings/manage-waitlist']" routerLinkActive="active"
+          [ngClass]="{'active': activeTab === 'app-manage-waitlist'}">
+          <span class="navIcon">
+            <svg width="20" height="18" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M3.33333 14.2305C3.33333 12.2305 7.77778 11.1305 10 11.1305C12.2222 11.1305 16.6667 12.2305 16.6667 14.2305V15.2305H3.33333M13.3333 6.23047C13.3333 7.02612 12.9821 7.78918 12.357 8.35179C11.7319 8.9144 10.8841 9.23047 10 9.23047C9.11595 9.23047 8.2681 8.9144 7.64298 8.35179C7.01786 7.78918 6.66667 7.02612 6.66667 6.23047C6.66667 5.43482 7.01786 4.67176 7.64298 4.10915C8.2681 3.54654 9.11595 3.23047 10 3.23047C10.8841 3.23047 11.7319 3.54654 12.357 4.10915C12.9821 4.67176 13.3333 5.43482 13.3333 6.23047ZM0 2.23047V16.2305C0 16.7609 0.234126 17.2696 0.650874 17.6447C1.06762 18.0198 1.63285 18.2305 2.22222 18.2305H17.7778C18.3671 18.2305 18.9324 18.0198 19.3491 17.6447C19.7659 17.2696 20 16.7609 20 16.2305V2.23047C20 1.70004 19.7659 1.19133 19.3491 0.816255C18.9324 0.441182 18.3671 0.230469 17.7778 0.230469H2.22222C0.988889 0.230469 0 1.13047 0 2.23047Z"
+                fill="white" />
+            </svg>
+          </span>
+          <span class="navTxthid">Manage waitlist</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/providerSettings/provider-applications']" routerLinkActive="active"
+          [ngClass]="{'active': activeTab === 'app-provider-applications'}">
+          <span class="navIcon">
+            <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M16.9081 11.1295L11.7543 16.8295H9.67467V14.5295L14.8285 8.82949L16.9081 11.1295ZM19.9823 10.3295C19.9823 10.6295 19.711 10.9295 19.4398 11.2295L17.1793 13.7295L16.3656 12.8295L18.7164 10.2295L18.1739 9.62949L17.541 10.3295L15.4614 8.02949L17.4506 5.92949C17.6314 5.72949 17.9931 5.72949 18.2643 5.92949L19.5302 7.32949C19.711 7.52949 19.711 7.92949 19.5302 8.22949C19.3493 8.42949 19.1685 8.62949 19.1685 8.82949C19.1685 9.02949 19.3493 9.22949 19.5302 9.42949C19.8014 9.72949 20.0727 10.0295 19.9823 10.3295ZM1.80835 18.2295V2.22949H8.13757V7.22949H12.6584V8.72949L14.4668 6.72949V6.22949L9.04175 0.229492H1.80835C0.813757 0.229492 0 1.12949 0 2.22949V18.2295C0 19.3295 0.813757 20.2295 1.80835 20.2295H12.6584C13.653 20.2295 14.4668 19.3295 14.4668 18.2295H1.80835ZM9.04175 15.3295C8.86091 15.3295 8.68008 15.4295 8.58966 15.4295L8.13757 13.2295H6.78131L4.88254 14.9295L5.42505 12.2295H4.06879L3.16461 17.2295H4.52087L7.14298 14.6295L7.68549 16.9295H8.58966L9.04175 16.8295V15.3295Z"
+                fill="white" />
+            </svg>
+          </span>
+          <span class="navTxthid">Applications</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/providerSettings/provider-enrollment']" routerLinkActive="active"
+          [ngClass]="{'active': activeTab === 'app-provider-enrollment'}">
+          <span class="navIcon">
+            <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M1.66667 0.229492H18.3333C19.2083 0.229492 20 1.28505 20 2.45171V18.0073C20 19.1739 19.2083 20.2295 18.3333 20.2295H1.66667C0.791667 20.2295 0 19.1739 0 18.0073V2.45171C0 1.28505 0.791667 0.229492 1.66667 0.229492ZM11.6667 3.56283V4.67394H18.3333V3.56283H11.6667ZM11.6667 5.78505V6.89616H17.9167H18.3333V5.78505H11.6667ZM11.6667 8.00727V9.11838H17.5V8.00727H11.6667ZM6.66667 12.3517C5 12.3517 1.66667 13.5628 1.66667 15.785V16.8962H11.6667V15.785C11.6667 13.5628 8.33333 12.3517 6.66667 12.3517ZM6.66667 3.56283C6.00363 3.56283 5.36774 3.91402 4.8989 4.53914C4.43006 5.16426 4.16667 6.0121 4.16667 6.89616C4.16667 7.78021 4.43006 8.62806 4.8989 9.25318C5.36774 9.8783 6.00363 10.2295 6.66667 10.2295C7.32971 10.2295 7.96559 9.8783 8.43443 9.25318C8.90327 8.62806 9.16667 7.78021 9.16667 6.89616C9.16667 6.0121 8.90327 5.16426 8.43443 4.53914C7.96559 3.91402 7.32971 3.56283 6.66667 3.56283Z"
+                fill="white" />
+            </svg>
+          </span>
+          <span class="navTxthid">Enrollments</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/providerSettings/my-information']" routerLinkActive="active"
+          [ngClass]="{'active': activeTab === 'app-my-information'}">
+          <span class="navIcon">
+            <svg width="20" height="18" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M3.33333 14.2305C3.33333 12.2305 7.77778 11.1305 10 11.1305C12.2222 11.1305 16.6667 12.2305 16.6667 14.2305V15.2305H3.33333M13.3333 6.23047C13.3333 7.02612 12.9821 7.78918 12.357 8.35179C11.7319 8.9144 10.8841 9.23047 10 9.23047C9.11595 9.23047 8.2681 8.9144 7.64298 8.35179C7.01786 7.78918 6.66667 7.02612 6.66667 6.23047C6.66667 5.43482 7.01786 4.67176 7.64298 4.10915C8.2681 3.54654 9.11595 3.23047 10 3.23047C10.8841 3.23047 11.7319 3.54654 12.357 4.10915C12.9821 4.67176 13.3333 5.43482 13.3333 6.23047ZM0 2.23047V16.2305C0 16.7609 0.234126 17.2696 0.650874 17.6447C1.06762 18.0198 1.63285 18.2305 2.22222 18.2305H17.7778C18.3671 18.2305 18.9324 18.0198 19.3491 17.6447C19.7659 17.2696 20 16.7609 20 16.2305V2.23047C20 1.70004 19.7659 1.19133 19.3491 0.816255C18.9324 0.441182 18.3671 0.230469 17.7778 0.230469H2.22222C0.988889 0.230469 0 1.13047 0 2.23047Z"
+                fill="white" />
+            </svg>
+          </span>
+          <span class="navTxthid">My information</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/providerSettings/account-billing']" routerLinkActive="active"
+          [ngClass]="{'active': activeTab === 'app-account-billing'}">
+          <span class="navIcon">
+            <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M18 0.229492H2C1.46957 0.229492 0.960859 0.492884 0.585786 0.961725C0.210714 1.43057 0 2.06645 0 2.72949V17.7295C0 18.3925 0.210714 19.0284 0.585786 19.4973C0.960859 19.9661 1.46957 20.2295 2 20.2295H18C18.5304 20.2295 19.0391 19.9661 19.4142 19.4973C19.7893 19.0284 20 18.3925 20 17.7295V2.72949C20 2.06645 19.7893 1.43057 19.4142 0.961725C19.0391 0.492884 18.5304 0.229492 18 0.229492ZM18 8.97949H2V5.22949H18V8.97949Z"
+                fill="white" />
+            </svg>
+          </span>
+          <span class="navTxthid">Account type and billing</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" style="cursor: pointer;" (click)="editProviderDetails()" routerLinkActive="active"
+          [ngClass]="{'active': activeTab === 'app-user-activity'}">
+          <span class="navIcon">
+            <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M16 12.2305H14V14.2305H16M16 8.23047H14V10.2305H16M18 16.2305H10V14.2305H12V12.2305H10V10.2305H12V8.23047H10V6.23047H18M8 4.23047H6V2.23047H8M8 8.23047H6V6.23047H8M8 12.2305H6V10.2305H8M8 16.2305H6V14.2305H8M4 4.23047H2V2.23047H4M4 8.23047H2V6.23047H4M4 12.2305H2V10.2305H4M4 16.2305H2V14.2305H4M10 4.23047V0.230469H0V18.2305H20V4.23047H10Z"
+                fill="white" />
+            </svg>
+          </span>
+          <span class="navTxthid">Update provider details</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/providerSettings/provider-support']" routerLinkActive="active"
+          [ngClass]="{'active': activeTab === 'app-provider-support'}">
+          <span class="navIcon">
+            <svg width="18" height="18" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M13.07 9.72192L12.17 10.6419C11.45 11.3619 11 11.9719 11 13.4719H9V12.9719C9 11.8619 9.45 10.8619 10.17 10.1419L11.41 8.88192C11.78 8.52192 12 8.02192 12 7.47192C12 6.36192 11.1 5.47192 10 5.47192C9.46957 5.47192 8.96086 5.68264 8.58579 6.05771C8.21071 6.43278 8 6.94149 8 7.47192H6C6 6.41106 6.42143 5.39364 7.17157 4.6435C7.92172 3.89335 8.93913 3.47192 10 3.47192C11.0609 3.47192 12.0783 3.89335 12.8284 4.6435C13.5786 5.39364 14 6.41106 14 7.47192C14 8.35192 13.64 9.14192 13.07 9.72192ZM11 17.4719H9V15.4719H11M10 0.471924C8.68678 0.471924 7.38642 0.730582 6.17317 1.23313C4.95991 1.73568 3.85752 2.47227 2.92893 3.40086C1.05357 5.27622 0 7.81976 0 10.4719C0 13.1241 1.05357 15.6676 2.92893 17.543C3.85752 18.4716 4.95991 19.2082 6.17317 19.7107C7.38642 20.2133 8.68678 20.4719 10 20.4719C12.6522 20.4719 15.1957 19.4184 17.0711 17.543C18.9464 15.6676 20 13.1241 20 10.4719C20 4.94192 15.5 0.471924 10 0.471924Z"
+                fill="#E7E7E7" />
+            </svg>
+          </span>
+          <span class="navTxthid">Support</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+<div class="providerPortelMobile">
+  <div class="outer_menu_steps">
+    <p class="menu_steps">Menu</p>
+    <div class="menu_btn" (click)="showSideBar()">
+      <p class="spanMobile"></p>
+    </div>
+  </div>
+  <div class="providerImgText">
+    <span class="userportIcon">
+      <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M12.5 0.5C10.9241 0.5 9.36371 0.810389 7.9078 1.41345C6.45189 2.0165 5.12902 2.90042 4.01472 4.01472C1.76428 6.26516 0.5 9.3174 0.5 12.5C0.5 15.6826 1.76428 18.7348 4.01472 20.9853C5.12902 22.0996 6.45189 22.9835 7.9078 23.5866C9.36371 24.1896 10.9241 24.5 12.5 24.5C15.6826 24.5 18.7348 23.2357 20.9853 20.9853C23.2357 18.7348 24.5 15.6826 24.5 12.5C24.5 10.9241 24.1896 9.36371 23.5866 7.9078C22.9835 6.45189 22.0996 5.12902 20.9853 4.01472C19.871 2.90042 18.5481 2.0165 17.0922 1.41345C15.6363 0.810389 14.0759 0.5 12.5 0.5ZM6.584 20.036C7.1 18.956 10.244 17.9 12.5 17.9C14.756 17.9 17.9 18.956 18.416 20.036C16.784 21.332 14.732 22.1 12.5 22.1C10.268 22.1 8.216 21.332 6.584 20.036ZM20.132 18.296C18.416 16.208 14.252 15.5 12.5 15.5C10.748 15.5 6.584 16.208 4.868 18.296C3.644 16.7 2.9 14.684 2.9 12.5C2.9 7.208 7.208 2.9 12.5 2.9C17.792 2.9 22.1 7.208 22.1 12.5C22.1 14.684 21.356 16.7 20.132 18.296ZM12.5 5.3C10.172 5.3 8.3 7.172 8.3 9.5C8.3 11.828 10.172 13.7 12.5 13.7C14.828 13.7 16.7 11.828 16.7 9.5C16.7 7.172 14.828 5.3 12.5 5.3ZM12.5 11.3C12.0226 11.3 11.5648 11.1104 11.2272 10.7728C10.8896 10.4352 10.7 9.97739 10.7 9.5C10.7 9.02261 10.8896 8.56477 11.2272 8.22721C11.5648 7.88964 12.0226 7.7 12.5 7.7C12.9774 7.7 13.4352 7.88964 13.7728 8.22721C14.1104 8.56477 14.3 9.02261 14.3 9.5C14.3 9.97739 14.1104 10.4352 13.7728 10.7728C13.4352 11.1104 12.9774 11.3 12.5 11.3Z"
+          fill="white" />
+      </svg>
+    </span>
+    <span class="providerText">Provider Portal</span>
+
+  </div>
+</div>

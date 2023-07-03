@@ -1,0 +1,47 @@
+
+$primaryLight: #164789;
+
+
+@mixin btn-primary-1() {
+  background: var($primaryLight);
+  border-color: var($primaryLight);
+  padding: 11px 10px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+::ng-deep.toast-container {
+  position: fixed;
+}
+
+::ng-deep.child-select-dropdown {
+  top: 32px;
+  position: absolute;
+  min-width: 232px !important;
+  left: 6px;
+  .mat-option {
+    border: 1px solid var(--primaryColor);
+    border-radius: 3px;
+    height: 37px !important;
+    &.mat-selected {
+      .checkbox-icon {
+        .content {
+          background: #000;
+        }
+      }
+    }
+  }
+}
+
+::ng-deep.toast-container>:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+::ng-deep.input-with-help-icon {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  input {
+    width: 85%;
+  }
+}

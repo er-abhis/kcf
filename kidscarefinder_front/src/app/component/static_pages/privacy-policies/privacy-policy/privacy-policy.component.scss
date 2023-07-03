@@ -1,0 +1,246 @@
+.mCenterSearch {
+  width: 100%;
+}
+.mCenterSearch .headingbgSearch {
+  width: 100%;
+}
+.mat-form-field {
+  width: 100%;
+}
+.headingbgSearch .mat-form-field-appearance-fill .mat-form-field-flex {
+  background: #fff;
+  border-radius: 30px;
+  width: 100%;
+  padding: 0em 2.85em 0 1.2em;
+}
+.headingbgSearch .mat-form-field-appearance-fill .mat-form-field-infix {
+  padding: 0em 0 0.85em 0;
+}
+.headingbgSearch input.mat-input-element {
+  background: none;
+  color: #7d7b7b;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: inherit;
+}
+.headingbgSearch .mat-form-field-label-wrapper {
+  top: -0.84375em;
+}
+.headingbgSearch .hedflxBtn {
+  min-width: 20px !important;
+  background: transparent;
+  color: #a09e9e;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 2px;
+  padding: 0 10px;
+  height: auto;
+  line-height: inherit;
+}
+.headingbgSearch .hedflxBtn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.faqBackcheckLeft {
+  display: flex;
+  align-items: center;
+}
+.faqBackcheckLeft span.faqIconTop svg {
+  height: 40px;
+}
+.faqBackcheckLeft h1.faqToph1 {
+  font-family: "Nunito";
+  min-width: 200px;
+  font-size: 36px;
+  font-weight: 700;
+}
+.userSignupOuter {
+  width: 100%;
+  min-height: 80vh;
+  margin-top: 25px;
+}
+.customCombine {
+  display: flex;
+  position: relative;
+  padding-left: 300px;
+  // padding-right: 50px;
+}
+.customCombine.positionOveride {
+  padding-left: 0px;
+  position: inherit;
+}
+.contentright {
+  width: 100%;
+  padding-left: 25px;
+  margin: 0 0 30px;
+}
+.contentrightBg {
+  background: #e7f6ff;
+  height: 95vh;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.faqContent {
+  padding: 20px;
+  height: calc(100% - 83px);
+}
+.faqContentScroll {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 100%;
+}
+.faqContentInn {
+  padding: 15px 100px 15px 15px;
+  background: #ffffff;
+  border: 1px solid #767676;
+  box-shadow: 5px 6px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+.faqContentInn h2.faqh2 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+// .faqContentInn h3.faqh3 {
+//   font-family: "Nunito";
+//     font-size: 24px;
+//     font-weight: 600;
+//     font-style: italic;
+//     margin-bottom: 5px;
+// }
+
+.faqContentInn h3.faqh3 {
+  color: var(--blackColor);
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 27px;
+  margin-bottom: 2px;
+}
+
+.faqContentInn h4.faqh4 {
+  color: var(--blackColor);
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 27px;
+}
+
+// .faqContentInn p.faqpara {
+//   font-size: 20px;
+//   font-weight: 400;
+//   margin-bottom: 20px;
+// }
+.faqContentInn p.faqpara {
+  color: var(--blackColor);
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 27px;
+}
+.faqContentInn p.faqpara a.faqemail {
+  color: var(--blackColor);
+  font-weight: 400;
+}
+.faqContentInn address {
+  color: var(--blackColor);
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 27px;
+}
+
+.faqUnderList .faqList {
+  color: var(--blackColor);
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 27px;
+}
+
+@media screen and (max-width: 991px) {
+  .faqContentInn h2.faqh2 {
+    font-size: 28px;
+  }
+  .faqContentInn h3.faqh3 {
+    font-size: 20px;
+    line-height: 25px;
+    font-weight: 500;
+  }
+  .faqContentInn p.faqpara {
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .faqBackcheckLeft {
+    gap: 8px;
+  }
+  .faqBackcheckLeft h1.faqToph1 {
+    min-width: 140px;
+    font-size: 28px;
+    font-weight: 500;
+  }
+  .faqBackcheckLeft span.faqIconTop {
+    display: none;
+  }
+}
+
+h2.faqUserTitle {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--whiteColor);
+  padding-left: 15px;
+  margin-bottom: 25px;
+}
+@media screen and (max-width: 767px) {
+  h2.faqUserTitle {
+    font-size: 20px;
+    padding-left: 25px !important;
+    margin-bottom: 15px !important;
+  }
+  .contentright {
+    padding-left: 0px;
+  }
+  .faqContent {
+    padding: 0px;
+  }
+  .contentrightBg {
+    border: 1px solid #95f2ff;
+    background-color: #fff;
+    height: auto;
+  }
+  .faqContentInn {
+    border: none;
+  }
+  .faqContentInn h2.faqh2 {
+    font-size: 16px;
+  }
+  .faqContentInn {
+    padding: 15px;
+  }
+  .faqContentInn h4.faqh4 {
+    font-size: 16px;
+  }
+  .faqContentInn h3.faqh3 {
+    font-size: 16px;
+  }
+  .faqContentInn p.faqpara {
+    font-size: 16px;
+  }
+  .faqUnderList .faqList {
+    font-size: 16px;
+  }
+  // .customCombine {
+  //   padding-right: 25px;
+  // }
+}

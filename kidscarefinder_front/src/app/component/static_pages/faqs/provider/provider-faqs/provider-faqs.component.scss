@@ -1,0 +1,323 @@
+.accountHeading {
+  padding: 30px;
+  background: var(--primaryColor);
+  color: var(--whiteColor);
+  border-radius: 25px 25px 0 0;
+}
+
+// Provider title
+h2.faqUserTitle {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--whiteColor);
+  margin-bottom: 0px;
+  min-width: 260px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--whiteColor);
+}
+
+.faqpara a {
+  text-decoration: underline;
+  color: var(--blackColor) !important;
+}
+
+.mCenterSearch {
+  width: 100%;
+}
+
+.HeadingPlusSearch {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 0 50px 0 20px;
+  margin-bottom: 30px;
+}
+
+.mCenterSearch .headingbgSearch {
+  width: 100%;
+  position: relative;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.headingbgSearch .mat-form-field-appearance-fill .mat-form-field-flex {
+  background: #fff;
+  border-radius: 30px;
+  width: 100%;
+  height: 50px;
+  padding: 5px 5px 5px 30px;
+}
+
+.headingbgSearch .mat-form-field-appearance-fill .mat-form-field-infix {
+  padding: 0px 12px 0.85em 15px;
+}
+
+.headingbgSearch input.mat-input-element {
+  background: none;
+  color: var(--primaryLight);
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: inherit;
+}
+
+.headingbgSearch .mat-form-field-label-wrapper {
+  top: -0.84375em;
+}
+
+// .headingbgSearch .hedflxBtn {
+//   min-width: 20px !important;
+//   background: transparent;
+//   color: #a09e9e;
+//   position: absolute;
+//   top: 50%;
+//   transform: translateY(-50%);
+//   left: 0px;
+//   padding: 0 10px;
+//   height: auto;
+//   line-height: inherit;
+// }
+// .headingbgSearch .hedflxBtn svg {
+//   width: 15px;
+//   height: 15px;
+// }
+
+.headingbgSearch .hedflxBtn.mat-button {
+  position: absolute;
+  top: 50%;
+  left: 0px;
+  transform: translateY(-50%);
+  padding: 0 10px;
+  height: auto;
+  line-height: inherit;
+  min-width: auto !important;
+  max-width: 40px;
+  z-index: 1;
+}
+
+.headingbgSearch .hedflxBtn.mat-button:hover {
+  background: transparent;
+  box-shadow: none;
+}
+
+.headingbgSearch .hedflxBtn.mat-button svg {
+  width: 24px;
+  height: 24px;
+}
+
+.headingbgSearch .hedflxBtn.mat-button path {
+  fill: var(--primaryLight);
+}
+
+.faqBackcheckLeft {
+  display: flex;
+  align-items: center;
+}
+
+.faqBackcheckLeft span.faqIconTop svg {
+  height: 40px;
+}
+
+.faqBackcheckLeft h1.faqToph1 {
+  font-family: "Nunito";
+  min-width: 200px;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.userSignupOuter {
+  width: 100%;
+  min-height: 80vh;
+  margin-top: 30px;
+}
+
+.customCombine {
+  display: flex;
+  position: relative;
+  // padding-left: 300px;
+  // padding-right: 50px;
+}
+
+.customCombine.positionOveride {
+  padding-left: 0;
+  position: inherit;
+}
+
+// .contentright {
+//   width: 100%;
+//   padding-left: 30px;
+// }
+
+.contentrightBg {
+  background: #e7f6ff;
+  // height: 95vh;
+  border-radius: 25px;
+  transition: all .3s ease;
+}
+
+.faqContent {
+  padding: 20px;
+  // height: calc(100% - 70px);
+}
+
+.faqContentScroll {
+  overflow: auto;
+  height: 430px;
+}
+
+.faqContentInn {
+  padding: 15px 100px 15px 15px;
+  background: #FFFFFF;
+  border: 1px solid #767676;
+  box-shadow: 5px 6px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+
+.faqContentInn h2.faqh2 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.faqContentInn h3.faqh3 {
+  font-family: "Nunito";
+  font-size: 24px;
+  font-weight: 600;
+  font-style: bold;
+  margin-bottom: 5px;
+}
+
+.faqContentInn p.faqpara {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.faqList ul {
+  padding-left: 28px;
+  list-style-type: '-';
+}
+
+.faqList li {
+  font-family: "Nunito";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 25px;
+}
+
+
+/* search bar css */
+.headingbgSearch {
+  position: relative;
+  width: 570px;
+}
+
+::ng-deep .headingbgSearch .mat-form-field-label-wrapper {
+  top: -0.84375em;
+}
+
+::ng-deep .headingbgSearch .mat-form-field-appearance-fill .mat-form-field-label {
+  top: 1.09375em;
+  margin-top: -0.5em;
+}
+
+::ng-deep .headingbgSearch .mat-form-field-label-wrapper label {
+  color: #000;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+::ng-deep .headingbgSearch .mat-form-field-appearance-fill .mat-form-field-flex {
+  background: #fff;
+  border-radius: 30px;
+  width: 100%;
+  height: 50px;
+  padding: 5px 5px 5px 30px;
+}
+
+::ng-deep .headingbgSearch .mat-form-field-appearance-fill .mat-form-field-infix {
+  padding: 0px 12px 0.85em 15px;
+}
+
+::ng-deep .headingbgSearch .mat-form-field-underline {
+  bottom: 0em;
+}
+
+::ng-deep .headingbgSearch .mat-form-field-appearance-fill .mat-form-field-underline::before {
+  height: 0px;
+}
+
+::ng-deep .headingbgSearch .mat-form-field-appearance-fill .mat-form-field-ripple {
+  height: 0px;
+}
+
+::ng-deep .headingbgSearch .mat-input-element::placeholder {
+  color: var(--primaryLight);
+}
+
+/* search bar css exit */
+
+// Step 1 CSS Start
+.faqBackcheckLeft {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.faqBackcheckLeft span.faqIconTop svg {
+  height: 40px;
+}
+
+.faqBackcheckLeft h1.faqToph1 {
+  font-family: "Nunito";
+  min-width: 250px;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.faqBackcheckLeft span.faqIconTop svg {
+  width: 40px;
+  height: 40px;
+}
+
+.faqContentInn p.faqpara a.faqemail {
+  color: var(--blackColor);
+  font-weight: 400;
+}
+
+// Step 1 CSS End
+.headPara {
+  font-size: 16px;
+  font-weight: 400;
+  margin: 10px 0 0;
+}
+
+.positionOveride {
+  text-align: left;
+}
+
+// Search color change
+input .search-query {
+  background-color: #f47443;
+  color: white;
+}
+
+.highlighted-text {
+  background-color: yellow !important;
+}
+
+.searchAsync {
+  display: flex;
+  align-items: center;
+}
+
+.faqUserTitle a:hover {
+  color: #fff;
+}

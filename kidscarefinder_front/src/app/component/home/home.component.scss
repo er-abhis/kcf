@@ -1,0 +1,384 @@
+/* banner Blue bar start */
+.bannerBluebar {
+  max-width: 100%;
+  background: var(--primaryColor);
+  padding: 10px 20px;
+  margin: 34px 0 10px;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid var(--borderBlue);
+  border-bottom: 1px solid var(--borderBlue);
+}
+.bluebar h3.blueTexth3 {
+  font-family: "Nunito";
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 40px;
+  color: var(--whiteColor);
+  text-align: center;
+  margin-bottom: 0px;
+}
+.bluebar h3.blueTexth3 .blueBold {
+  font-weight: 900;
+}
+
+/* banner Blue bar css */
+
+/* banner tiles btn comming soon css start */
+.tilesLinebtn {
+  position: relative;
+}
+
+.tilesLinebtn::before {
+  content: "Coming Soon!";
+  background: #772162;
+  color: var(--whiteColor);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 13px;
+  font-style: italic;
+  padding: 10px;
+  position: absolute;
+  right: -5px;
+  bottom: -12px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 1px solid var(--whiteColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.tilesLinebtn.prenew {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.tilesLinebtn.prenew::before {
+  content: inherit;
+}
+.tilesLinebtn.prenew::after {
+  content: "Now Available!";
+  background: #6ca3c6;
+  color: var(--whiteColor);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 13px;
+  padding: 4px 20px;
+  position: absolute;
+  right: -50px;
+  top: -42px;
+  width: 100px;
+  height: 90px;
+  border: 1px solid #b9b9b9;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: center;
+  transform: rotate(45deg);
+}
+
+#find_provider .provider_serv .prenew.provider_block a {
+  // box-shadow: 0px 0px 0px 3px #95f2ff;
+  // border: 3px solid #95f2ff;
+}
+#find_provider .provider_serv .provider_block {
+  min-width: inherit;
+  max-width: inherit;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 70px;
+}
+#find_provider .provider_serv .prenew.provider_block {
+  border: 3px solid #95f2ff;
+  overflow: hidden;
+}
+/* banner tiles btn comming soon css exit */
+
+::ng-deep {
+  .slick-slider {
+    width: 90%;
+    margin: auto;
+    background: #000;
+  }
+
+  .nav-btn {
+    height: 47px;
+    position: absolute;
+    width: 26px;
+    cursor: pointer;
+    top: 100px !important;
+  }
+
+  .prev-slide {
+    background: url(../../../assets/images/nav-icon.png) no-repeat scroll 0 0;
+    left: -33px;
+  }
+
+  .next-slide {
+    background: url(../../../assets/images/nav-icon.png) no-repeat scroll -24px 0px;
+    right: -33px;
+  }
+
+  .prev-slide:hover {
+    background-position: 0px -53px;
+  }
+
+  .next-slide:hover {
+    background-position: -24px -53px;
+  }
+}
+
+// ========== our mission ==========
+
+.missionFlex {
+  display: flex;
+}
+
+// .missionFlex .image_side {
+//   width: 50%;
+//   flex-basis: 50%;
+// }
+
+.missionFlex .content_side {
+  width: 50%;
+  flex-basis: 50%;
+}
+
+// .missionFlex .image_side {
+//   width: 50%;
+//   flex-basis: 50%;
+//   position: relative;
+//   background: #CBCED7;
+//   height: 710px;
+//   aspect-ratio: 3 / 2;
+// }
+.missionFlex .image_side {
+  width: 50%;
+  flex-basis: 50%;
+  position: relative;
+  // background: #CBCED7;
+  aspect-ratio: 3 / 2;
+  // background-image: url(../../../assets/images/mission_hand.svg);
+  background-image: url(../../../assets/images/mission_hand.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:center;
+}
+
+.missionFlex .image_side img {
+  width: 100%;
+  height: 100%;
+  // object-fit: cover;
+  // object-position: top;
+}
+
+// ========== home background gradient change start ==========
+.mainBgColor.homeBgNo {
+  background: none;
+}
+.bannerBg {
+  background-image: linear-gradient(
+    180deg,
+    #093b84 0%,
+    rgba(9, 59, 132, 0.6) 57.81%,
+    #a7dfec 100%
+  );
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 658px;
+}
+
+// .bannerMargin {
+//   margin: 25px 0 25px;
+// }
+
+// ========== home background gradient change exit ==========
+
+// Adv Space
+#advertise_space {
+  background: #dfcdb1;
+}
+
+.advertiseSpace {
+  display: flex;
+}
+#advertise_space .image_side {
+  position: relative;
+}
+#advertise_space .image_side img {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  width: auto;
+  max-width: 100%;
+  max-height: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#advertise_space .content_side {
+  padding: 15px 25px;
+  background: #d9d9d9;
+}
+#advertise_space .content_side .sect_head {
+  padding-bottom: 0px;
+}
+#advertise_space .content_side p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.btn.btn-custom-desg {
+  background: #093b84;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 12px 35px;
+  border: none;
+}
+
+.main_block.provider_serv {
+  padding: 40px 30px;
+}
+
+// .roww.tilesLine {
+//   display: grid;
+//   grid-template-columns: repeat(7, 1fr);
+//   grid-template-rows: repeat(2, 1fr);
+//   column-gap: 15px;
+//   row-gap: 20px;
+// }
+
+.roww.tilesLine {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  column-gap: 20px;
+  row-gap: 30px;
+}
+// .image_side{
+//   background-image: url(../images/mission_hand.svg);
+//   background-size: 100% 100%;
+//   background-repeat: no-repeat;
+// }
+
+@media screen and (max-width: 2464px) {
+  #find_provider .provider_serv .provider_block a {
+    padding: 10px 80px;
+  }
+}
+
+@media screen and (max-width: 2310px) {
+  #find_provider .provider_serv .provider_block a {
+    padding: 10px 70px;
+  }
+}
+
+@media screen and (max-width: 2054px) {
+  #find_provider .provider_serv .provider_block a {
+    padding: 10px 50px;
+  }
+}
+@media screen and (max-width: 1680px) {
+  #find_provider .provider_serv .provider_block a {
+    padding: 10px 24px;
+  }
+}
+@media screen and (max-width: 1480px) {
+  #find_provider .provider_serv .provider_block a {
+    padding: 10px 24px;
+  }
+}
+
+@media screen and (max-width: 1366px) {
+  .main_block.provider_serv {
+    padding: 30px 20px;
+  }
+  .roww.tilesLine {
+    column-gap: 15px;
+    row-gap: 20px;
+  }
+  #find_provider .provider_serv .provider_block a {
+    font-size: 18px;
+    padding: 10px 15px;
+  }
+
+  #our_mission .content_side {
+    padding: 40px;
+  }
+}
+@media screen and (max-width: 1080px) {
+  .main_block.provider_serv {
+    padding: 20px 10px;
+  }
+  .roww.tilesLine {
+    column-gap: 10px;
+    row-gap: 10px;
+  }
+  #find_provider .provider_serv .provider_block a {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 8px;
+  }
+}
+@media screen and (max-width: 991px) {
+  .missionFlex .content_side {
+    width: 100%;
+    flex-basis: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .roww.tilesLine {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+@media screen and (max-width: 767px){
+  #find_provider .provider_serv .provider_block a {
+    font-size: 14px !important;
+  }
+}
+@media screen and (max-width: 600px) {
+  .roww.tilesLine {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: 575px) {
+  .btn.btn-custom-desg {
+    margin: auto;
+    display: block;
+    width: 158px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .tilesLinebtn.prenew::after {
+    content: "Now Available!";
+    right: -53px;
+    top: -46px;
+  }
+  .roww.tilesLine {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .roww.tilesLine {
+    column-gap: 24px;
+    row-gap: 24px;
+  }
+  .header p.headerPara,
+  .bluebar h3.blueTexth3 {
+    font-size: 16px !important;
+    line-height: 21.82px;
+  }
+  #available_kids .sect_title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}

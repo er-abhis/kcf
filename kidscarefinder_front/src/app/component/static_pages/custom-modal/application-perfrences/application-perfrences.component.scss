@@ -1,0 +1,203 @@
+ /* Firefox */
+ ::ng-deep .preferenceInn {
+  scrollbar-width: 8px;
+  scrollbar-color: #4f4d4d var(--whiteColor);
+}
+
+/* Chrome, Edge, and Safari */
+::ng-deep .preferenceInn::-webkit-scrollbar {
+  width: 8px;
+}
+
+::ng-deep .preferenceInn::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+::ng-deep .preferenceInn::-webkit-scrollbar-thumb {
+  background-color: #4f4d4d ;
+  border-radius: 10px;
+}
+
+
+::ng-deep .cdk-overlay-pane.modalApplicationPrefer {
+  width: 1300px;
+  max-width: inherit !important;
+}
+::ng-deep .cdk-overlay-pane .mat-dialog-container {
+  border-radius: 10px;
+}
+.preferencePopup{
+  width: 100%;
+}
+.preferenceBoxbg {
+  background: #e7f6ff;
+  border: 1px solid #8AD5FF;
+  border-radius: 10px;
+  min-height: inherit;
+  transition: all 0.3s ease;
+}
+.headingbg {
+  padding: 25px 20px;
+  border-radius: 10px 10px 0 0;
+}
+::ng-deep .preferenceInn {
+  padding: 30px;
+  height: 570px;
+  overflow: auto;
+}
+
+.preferenceBox {
+  background: var(--whiteColor);
+  padding: 10px;
+  box-shadow: 3px 6px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.preferenceDesign hr.preDivd {
+  margin: 10px 0px 0px;
+}
+
+.headingbg h1.headingh1 {
+  font-family: "Nunito";
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 43px;
+  margin: 0;
+}
+.headingbg p.paratop {
+  font-family: "Nunito";
+  font-size: 16px;
+  font-weight: 400;
+  margin: 5px 0 0;
+}
+
+.headingParaGroup h3.preh3 {
+  font-family: "Nunito";
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--primaryLight);
+  margin: 0;
+}
+.headingParaGroup p.para {
+  font-family: "Nunito";
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--primaryLight);
+  margin-bottom: 0px;
+}
+.grayboxOuter {
+  display: inline-block;
+}
+.graybox {
+  background: var(--tableGray);
+  border: 1px solid var(--grayColor);
+  padding: 10px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.graybox .mat-icon {
+  font-size: 20px;
+  height: 24px;
+  width: 20px;
+}
+.graybox p {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 0px;
+}
+
+.grayboxFour {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.generalFields {
+  background: var(--tableGray);
+  border: 1px solid var(--grayColor);
+  padding: 10px;
+  margin-top: 10px;
+}
+.headingParaGroup h4.preh4 {
+  font-family: "Nunito";
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--blackColor);
+  margin: 0 0 10px;
+}
+
+.generalFields .graybox {
+  background: transparent;
+  border: 0px;
+  padding: 0px;
+  margin-top: 0px;
+}
+.graybox .form-check-label {
+  font-size: 20px;
+  font-weight: 600;
+}
+.preferenceBtn {
+  display: flex;
+  justify-content: center;
+}
+.preferenceBtn .btn-primary {
+  font-family: 'Nunito';
+  font-size: 20px;
+  font-weight: 600;
+  background: var(--primaryLight);
+  border-color: var(--primaryLight);
+  border-radius: 10px;
+  height: 57px;
+  padding: 15px;
+  margin-bottom:0px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+@media screen and (max-width:767px){
+  ::ng-deep .cdk-overlay-pane.modalApplicationPrefer {
+    width: 100%;
+    max-width: inherit !important;
+  }
+  .preferenceBoxbg{
+    border: none;
+    background-color: transparent;
+  }
+  #header .header_user{
+    z-index: -1 !important;
+  }
+  .headingbg{
+    background-color: #fff;
+  }
+  .headingbg h1.headingh1,.headingbg p.paratop{
+    font-size: 16px;
+    color: #000;
+  }
+  .headingParaGroup p.para{
+    font-size: 14px;
+  }
+  .headingParaGroup h3.preh3{
+    font-size: 16px;
+  }
+  .graybox p,.graybox .form-check-label,.preferenceBtn .btn-primary{
+    font-size: 14px;
+  }
+  .graybox{
+    font-size: 14px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: baseline;
+  }
+  .checkBlock{
+    display: block !important;
+  }
+//  ::ng-deep.mat-dialog-container{
+//   width: 98%;
+//   display: block;
+//   margin: auto;
+//  }
+}

@@ -1,0 +1,28 @@
+<div class="resultMessagePopup">
+  <h1 class="resultMsgPopTitle">Availbility</h1>
+  <div class="resultMessagePopTable">
+    <table class="table table-bordered table-striped">
+      <tbody>
+        <tr>
+          <th scope="row">Infant</th>
+          <td>{{Infant?'Yes':'No'}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Toddler</th>
+          <td>{{Toddler?'Yes':'No'}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Preschool</th>
+          <td>{{Preschool?'Yes':'No'}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Pre-K</th>
+          <td>{{PreK?'Yes':'No'}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="resultMessageBtn">
+    <button class="btn modalBtn" (click)="closeModal()">Close</button>
+  </div>
+</div>

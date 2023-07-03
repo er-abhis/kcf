@@ -1,0 +1,83 @@
+<div class="mainBgColor">
+    <app-header></app-header>
+    <section class="userSignupOuter">
+      <div class="customCombine">
+        <app-update-details-sidebar></app-update-details-sidebar>
+        <div class="contentright">
+          <div class="contentrightBg">
+            <div class="accountSetting">
+              <div class="headingbg">
+                <h1 class="headingh1">Child requirements</h1>
+              </div>
+            </div>
+            <div class="paymentInformartion">
+              <div class="addBriefBoxOuter">
+                <div class="addBriefBox cardBox boxshadow">
+                    <div class="addBriefDetail StepDetailsLists stepDetail4 signUpChildNeedSection">
+                        <form [formGroup]="stepsChildNeedsDetailsForm">
+                            <div class="detailsRow">
+                                <div class="DetailPhotoLeft
+                                  bgWhiteDetails">
+                                  <div class="detailsColBg">
+                                    <h3 class="headingBlackText">Age requirement</h3>
+                                    <h3>Do you have a minimum age requirement to attend your facility?</h3>
+                                    <mat-radio-group  matInput aria-labelledby="example-radio-group-label" class="radioBasic"
+                                      formControlName="attendFacDetails" required>
+                                      <span *ngFor="let season of attendFacDetailsYesNo" class="spanRadio">
+                                        <mat-radio-button class="example-radio-button
+                                          form-control1" [value]="season">
+                                         {{season}}
+                                        </mat-radio-button>
+                                      </span>
+                                    </mat-radio-group>
+                                    <ng-container *ngIf="yearMonthReqYes">
+                                    <h3>Minimum age requirement</h3>
+                                    <div class="childYearDropdowns">
+                                      <div class="SelectTime">
+                                        <mat-label class="selectLabel">Years </mat-label>
+                                          <mat-select formControlName="minimumAgeYear" >
+                                            <mat-option [value]="stepsChildNeedsDetailsForm.get('minimumAgeYear')?.value">{{stepsChildNeedsDetailsForm.get('minimumAgeYear')?.value}}</mat-option>
+                                          </mat-select>
+                                        <mat-label class="selectLabel">Months </mat-label>
+                                          <mat-select formControlName="minimumAgeMonth" >
+                                            <mat-option [value]="stepsChildNeedsDetailsForm.get('minimumAgeMonth')?.value">{{stepsChildNeedsDetailsForm.get('minimumAgeMonth')?.value}}</mat-option>
+                                          </mat-select>
+                                      </div>
+                                    </div>
+                                  </ng-container>
+                                  </div>
+                                </div>
+                                <div class="DetailPhotoRight
+                                  bgWhiteDetails">
+                                  <div class="detailsColBg">
+                  
+                                    <h3 class="headingBlackText">Potty
+                                      training requirement</h3>
+                                    <h3>Do you require kids to be potty
+                                      trained?</h3>
+                                    <mat-radio-group matInput aria-labelledby="example-radio-group-label" class="radioBasic"
+                                      formControlName="pottyTrainnedDetails" required>
+                                      <span *ngFor="let season of attendFacDetailsYesNo" class="spanRadio">
+                                        <mat-radio-button  class="example-radio-button
+                                          form-control1" [value]="season">
+                                          {{season}}
+                                        </mat-radio-button>
+                                      </span>
+                                    </mat-radio-group>
+                                  </div>
+                                </div>
+                              </div>
+                        </form>
+                    </div>
+                </div>
+              </div>
+                      <div class="settingSave">
+                        <button class="saveShareBtn" mat-focus-indicator mat-button mat-button-base color="primary"><span
+                            class="saveIcon"></span> Save</button>
+                      </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>

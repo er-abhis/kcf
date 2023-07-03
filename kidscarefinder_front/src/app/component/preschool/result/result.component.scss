@@ -1,0 +1,196 @@
+// ::-webkit-scrollbar {
+//   background: #b6d1e2;
+// }
+
+// ::-webkit-scrollbar-track {
+//   background: #b6d1e2;
+//   border-radius: 10px;
+// }
+
+// ::-webkit-scrollbar-thumb {
+//   background: #6ca3c6;
+//   border-radius: 10px;
+// }
+
+// ::-webkit-scrollbar-thumb:hover {
+//   background: #772162 ;
+// }
+
+.capitalize {
+  text-transform: capitalize;
+}
+.providerTopRight{
+  cursor: pointer;
+}
+
+.opacitypt5 {
+  opacity: 0.5;
+}
+
+
+.resultOuter .resultTableBox .resultTableInner {
+  width: 100%;
+  max-height: 770px;
+  overflow: auto;
+  border: 1px solid #767676;
+  border-radius: 10px;
+}
+
+/* ===================== user signup setting page css start =====================*/
+
+.verified {
+  background: var(--primaryColor) !important;
+  color: var(--whiteColor) !important;
+  border-top: 4px solid #ff0 !important;
+  border-bottom: 4px solid #ff0 !important;
+
+  .tblMatCell {
+    color: var(--whiteColor) !important;
+  }
+
+  &:first-child {
+    border-left: 4px solid #ff0 !important;
+  }
+}
+
+.loaderCustom {
+  position: relative;
+  height: 420px;
+}
+
+.loaderCustom::after {
+  position: absolute;
+  content: "";
+  background: var(--whiteColor);
+  z-index: 3;
+}
+
+.loaderPreschool {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  display: inline-block;
+}
+
+.loaderPreschool img {
+  height: 200px;
+}
+
+.loaderPreschoolFixed {
+  width: 60%;
+  height: 100%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.sect_button .btn-custom-desg {
+  background: var(--primaryColor);
+}
+
+#preschoolForm.resultBreadcum {
+  max-width: inherit;
+}
+
+.religious-table-column {
+  width: 100px;
+  white-space: break-space;
+}
+
+// new css
+::ng-deep .resultOuter .resultTableBox .resultTableInner table.mat-table thead th.mat-sort-header.tblMatFullTh {
+  min-width: 130px;
+}
+
+::ng-deep .resultOuter .resultTableBox .resultTableInner table.mat-table thead th.mat-sort-header.tblMatReliTh {
+  min-width: 130px;
+}
+
+.verified a {
+  color: var(--whiteColor) !important;
+}
+
+// ::ng-deep .tblMatCell.tblNaptime {
+//   min-width: 250px;
+// }
+
+
+::ng-deep .mat-sort-header-container:not(.mat-sort-header-sorted) .mat-sort-header-arrow {
+  opacity: 1 !important;
+  transform: none !important;
+  position: relative;
+  right: -8px;
+}
+::ng-deep .mat-sort-header-container:not(.mat-sort-header-sorted) .mat-sort-header-arrow:after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background: url(../../../../assets/images/sort.svg);
+  background-repeat: no-repeat;
+}
+::ng-deep .mat-sort-header-indicator {
+  visibility: hidden;
+}
+::ng-deep .mat-sort-header-stem {
+  visibility: hidden;
+}
+
+::ng-deep .resultTableInner .mat-sort-header-content {
+  flex-grow: 1;
+  min-width: 100px;
+  justify-content: center;
+}
+
+::ng-deep .resultTableInner .firstthd .mat-sort-header-content {
+  justify-content: flex-start;
+}
+.starCellFlx span.starCell {
+  padding-right: 3px;
+  display: flex;
+}
+
+.starCellFlx span.starCell .mat-icon {
+  width: 18px;
+  height: 18px;
+  font-size: 20px;
+}
+@media screen and (max-width:767px){
+  ::ng-deep .resultTableInner .mat-sort-header-content {
+    font-size: 16px;
+  }
+  // .sect_headerMov
+  #results_sect .sect_headerMov h3{
+    font-size: 13px;
+  }
+  #results_sect .sect_headerMov .sect_button .btn{
+    font-size: 10px;
+  }
+  #results_sect .sect_headerMov{
+    display: flex;
+  }
+  ::ng-deep.resultOuter .resultTableBox .resultTableInner table.mat-table thead th.mat-sort-header .mat-sort-header-container{
+    height: 0px;
+  }
+  ::ng-deep.resultTableInner .mat-sort-header-content{
+    font-size: 11.7px;
+  }
+  .schoolLink.capitalize{
+    font-size: 11px !important;
+  }
+  .tblReview span{
+    font-size: 11px;
+  }
+  .providerCell{
+    min-width: 290px !important;
+  }
+  .providerTab button{
+    font-size: 10px !important;
+  }
+}

@@ -1,0 +1,132 @@
+<div class="mainBgColor pb-4">
+  <app-header></app-header>
+  <div class="container">
+    <div class="SelectBusinessArea headingbg">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1 class="titleMain headingh1 mb-3">
+            Showcase your business with Kids Care Finder
+          </h1>
+          <p>
+            Help families find you and learn about your business more quickly
+            and easily than ever before! Kids Care Finder is the premiere way to
+            connect child service providers with families - a one stop shop for
+            so many services parents need for their kids. After completing our
+            unique provider questionnaire, parents will be able to see important
+            information about your business, and determine if it is a viable fit
+            for their family’s needs.
+          </p>
+          <h4 class="titleMain4">What type of provider are you?</h4>
+          <form [formGroup]="providerForm">
+            <div class="selectBlock">
+              <mat-form-field class="selectPlaceHolder">
+                <mat-label class="invisible">Search provider type(s)</mat-label>
+                <mat-select placeholder="Select provider type(s)" formControlName="selectProvider" class="ProDrop">
+                  <div class="multiDropserach">
+                    <input type="search" matInput placeholder="Search for provider type(s)" (keyup)="search($event)" />
+                    <span class="sIcon">
+                      <svg width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M9.67379 8.83064C10.4302 7.79825 10.7691 6.51828 10.6224 5.24679C10.4758 3.9753 9.85458 2.80606 8.88301 1.973C7.91145 1.13994 6.66121 0.704488 5.38242 0.753769C4.10363 0.80305 2.8906 1.33343 1.98601 2.23879C1.08142 3.14415 0.551989 4.35773 0.50363 5.63674C0.455271 6.91574 0.891553 8.16585 1.72519 9.13695C2.55883 10.1081 3.72835 10.7285 4.99977 10.8743C6.27118 11.02 7.55073 10.6802 8.58243 9.92294H8.58165C8.60508 9.95419 8.63008 9.98388 8.65821 10.0128L11.6659 13.0209C11.8124 13.1675 12.0111 13.2499 12.2183 13.25C12.4256 13.2501 12.6244 13.1678 12.7709 13.0213C12.9175 12.8748 12.9999 12.6761 13 12.4688C13.0001 12.2615 12.9178 12.0627 12.7713 11.9161L9.76363 8.90799C9.7357 8.87971 9.70567 8.85359 9.67379 8.82985V8.83064ZM9.87535 5.8272C9.87535 6.39153 9.76421 6.95034 9.54828 7.47171C9.33235 7.99309 9.01586 8.46682 8.61687 8.86586C8.21788 9.26491 7.74422 9.58145 7.22292 9.79741C6.70162 10.0134 6.14289 10.1245 5.57864 10.1245C5.01438 10.1245 4.45566 10.0134 3.93435 9.79741C3.41305 9.58145 2.93939 9.26491 2.5404 8.86586C2.14141 8.46682 1.82492 7.99309 1.60899 7.47171C1.39306 6.95034 1.28192 6.39153 1.28192 5.8272C1.28192 4.68748 1.73461 3.59444 2.5404 2.78854C3.34619 1.98264 4.43908 1.52988 5.57864 1.52988C6.71819 1.52988 7.81108 1.98264 8.61687 2.78854C9.42266 3.59444 9.87535 4.68748 9.87535 5.8272Z"
+                          fill="white" />
+                      </svg>
+                    </span>
+                    <!-- <span class="sIcon"><mat-icon>search</mat-icon></span> -->
+                  </div>
+                  <mat-option *ngFor="let provider of filteredProvidersList" [value]="provider.id">
+                    {{ provider.value }}
+                  </mat-option>
+                  <span *ngIf="filteredProvidersList.length == 0" class="ps-3">No provider found</span>
+                </mat-select>
+                <!-- <mat-error *ngIf="providerForm.controls['selectProvider'].hasError('required') && providerForm.controls['selectProvider'].pristine">Please Select Provider</mat-error> -->
+              </mat-form-field>
+            </div>
+            <button class="provider_start" routerLinkActive="router-link-active" mat-button type="primary"
+              (click)="getStarted()">
+              Get Started<mat-icon>keyboard_arrow_right</mat-icon>
+              <span nz-icon nzType="right" nzTheme="outline"></span>
+            </button>
+          </form>
+          <div class="alertCustom">
+            <span class="exclamation">
+              <svg width="5" height="20" viewBox="0 0 5 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0.5 0H4.94444V12.2222H0.5V0ZM0.5 20V15.5556H4.94444V20H0.5Z" fill="#772162" />
+              </svg>
+            </span>
+            Note: If you offer multiple care types and more than one provider
+            type fits your business, please complete the following questionnaire
+            and create a provider profile for each of the provider types that
+            apply to you
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container containerMobile">
+    <div class="SignUpGrid">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col p-0">
+          <div class="boxBg">
+            <div class="BoxHead">Customized Provider Page</div>
+            <div class="BoxContent">
+              <p>
+                Reduce the amount of time you spend answering phone calls and
+                emails providing the same basic information. With a customized
+                provider page, it's like having your own sophisticated website
+                without having to build one!
+              </p>
+              <p>
+                Your provider page will highlight what sets you apart from other
+                providers, and answer most commonly asked questions from
+                perspective families.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col p-0">
+          <div class="boxBg">
+            <div class="BoxHead">Fill openings more quickly</div>
+            <div class="BoxContent">
+              <p>
+                Utilize our Search Result Optimization service to stand out
+                among competitors. You will receive a premium badge, and appear
+                bolded, highlighted, and towards the top of the search results
+                screen when you match user search criteria.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col p-0">
+          <div class="boxBg">
+            <div class="BoxHead">Reduce administrative load</div>
+            <div class="BoxContent">
+              <p>
+                Gain access to a number of time saving, paper reducing, and cost
+                savings features!
+              </p>
+              <p>
+                Functionality is provider specific, but includes features such
+                as messaging, waitlist management, online applications, online
+                enrollment, availability calendar, online booking, and more!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 outerBottomNote">
+          <p class="bottomNote">
+            *The benefits listed above are all included with our Premium account
+            options.
+            <br />
+            You will be able to select the type of account you want once you
+            complete the questionnaire for your provider type.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="clearFix"></div>
+<app-footer></app-footer>

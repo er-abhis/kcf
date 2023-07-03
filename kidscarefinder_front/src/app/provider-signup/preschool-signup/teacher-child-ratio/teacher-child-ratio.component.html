@@ -1,0 +1,237 @@
+<div class="signUpChildRatioSection">
+  <div class="ChildRatioSteps0">
+    <div class="main_block sect_head">
+      <h2 class="sect_title ">What is your teacher-to-child ratio?</h2>
+    </div>
+    <div class="just_test">
+      <form [formGroup]="stepsChildMeslsDetailsForm" *ngIf="stepCount === 0">
+        <div class="container p-0">
+          <div class="row">
+            <div class="col-xxl-7 col-xl-7 col-lg-8 col-md-12 mx-auto">
+              <div class="row justify-content-left gx-3">
+                <div class="col-xl-6 col-lg-6 col-md-12" *ngIf="programsOffers.includes(INFANT)">
+                  <div class="ratioBoxGrid">
+                    <label class="ratioBoxLeftLabel">Infant</label>
+                    <div class="ratColTwoBoxes">
+                      <div class="RatTeachLt">
+                        <label class="ratGreyLabel">Teacher</label>
+                        <label class="blackGreyLabel">
+                          <input matInput placeholder="1" value="1"></label>
+                      </div>
+                      <div class="midColum">:</div>
+                      <div class="RatChildRt">
+                        <label class="ratGreyLabel">Children</label>
+                        <mat-form-field appearance="fill">
+                          <mat-select formControlName="infant_teacher_to_child_ratio">
+                            <mat-option *ngFor="let topping
+                              of toppingList" [value]="topping">{{topping}}</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-12" *ngIf="programsOffers.includes(TODDLER)">
+                  <div class="ratioBoxGrid">
+                    <label class="ratioBoxLeftLabel">Toddler</label>
+                    <div class="ratColTwoBoxes">
+                      <div class="RatTeachLt">
+                        <label class="ratGreyLabel">Teacher</label>
+                        <label class="blackGreyLabel">
+                          <input matInput placeholder="1" value="1"></label>
+                      </div>
+                      <div class="midColum">:</div>
+                      <div class="RatChildRt">
+                        <label class="ratGreyLabel">Children</label>
+                        <mat-form-field appearance="fill">
+                          <mat-select formControlName="toddler_teacher_to_child_ratio">
+                            <mat-option *ngFor="let topping
+                              of toppingList" [value]="topping">{{topping}}</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-12" *ngIf="programsOffers.includes(PRESCHOOL)">
+                  <div class="ratioBoxGrid">
+                    <label class="ratioBoxLeftLabel">Preschool</label>
+                    <div class="ratColTwoBoxes">
+                      <div class="RatTeachLt">
+                        <label class="ratGreyLabel">Teacher</label>
+                        <label class="blackGreyLabel">
+                          <input matInput placeholder="1" value="1"></label>
+                      </div>
+                      <div class="midColum">:</div>
+                      <div class="RatChildRt">
+                        <label class="ratGreyLabel">Children</label>
+                        <mat-form-field appearance="fill">
+                          <mat-select formControlName="preschool_teacher_to_child_ratio">
+                            <mat-option *ngFor="let topping
+                              of toppingList" [value]="topping">{{topping}}</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-12" *ngIf="programsOffers.includes(PREK)">
+                  <div class="ratioBoxGrid">
+                    <label class="ratioBoxLeftLabel">Pre-K</label>
+                    <div class="ratColTwoBoxes">
+                      <div class="RatTeachLt">
+                        <label class="ratGreyLabel">Teacher</label>
+                        <label class="blackGreyLabel">
+                          <input matInput placeholder="1" value="1"></label>
+                      </div>
+                      <div class="midColum">:</div>
+                      <div class="RatChildRt">
+                        <label class="ratGreyLabel">Children</label>
+                        <mat-form-field appearance="fill">
+                          <mat-select formControlName="prek_teacher_to_child_ratio">
+                            <mat-option *ngFor="let topping
+                              of toppingList" [value]="topping">{{topping}}</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- Step 6 Teacher to child Ratio section 6:1 End -->
+    <!-- Step 6 Teacher to child Ratio Review section 6:2 Start -->
+    <div class="ChildRatioSteps1" *ngIf="stepCount === 1">
+      <form [formGroup]="stepsChildMeslsDetailsForm">
+        <div class="container p-0">
+          <div class="StepDetailsLists stepDetail4 stepDetail6">
+            <div class="row">
+              <div class="col-sm-12 mx-auto">
+                <div class="main_block sect_head
+                    StepDetailHeading">
+                  <h2 class="titleDetails">Review | Step
+                    6:
+                    Teacher-to-child ratio</h2>
+                  <p class="smallTextDetails">Review and
+                    edit
+                    adult-to-child ratio</p>
+                </div>
+              </div>
+              <div class="detailsRow detailsRowMobile">
+                <div class="DetailPhotoLeft bgWhiteDetails
+                    ">
+                  <div class="detailsColBg">
+                    <h3 class="headingBlackText
+                        spaceBottom">
+                      Teacher-to-child ratio</h3>
+
+                    <div class="col-sm-12 mx-auto mt-3">
+                      <div class="row gx-3">
+                        <div class="col-xl-6 col-lg-6 col-md-12" *ngIf="programsOffers.includes(INFANT)">
+                          <div class="ratioBoxGrid">
+                            <label class="ratioBoxLeftLabel border-0">Infant</label>
+                            <div class="ratColTwoBoxes">
+                              <div class="RatTeachLt">
+                                <label class="ratGreyLabel">Teacher</label>
+                                <label class="blackGreyLabel">
+                                  <input matInput placeholder="1" value="1" disabled="true"></label>
+                              </div>
+                              <div class="midColum">
+                                :</div>
+                              <div class="RatChildRt">
+                                <label class="ratGreyLabel">Children</label>
+                                <mat-form-field appearance="fill">
+                                  <mat-select  formControlName="infant_teacher_to_child_ratio" [disabled]="true">
+                                    <mat-option  *ngFor="let topping
+                                        of toppingList" [value]="topping">{{topping}}</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-12" *ngIf="programsOffers.includes(TODDLER)">
+                          <div class="ratioBoxGrid">
+                            <label class="ratioBoxLeftLabel border-0">Toddler</label>
+                            <div class="ratColTwoBoxes">
+                              <div class="RatTeachLt">
+                                <label class="ratGreyLabel">Teacher</label>
+                                <label class="blackGreyLabel">
+                                  <input matInput placeholder="1" value="1" disabled="true"></label>
+                              </div>
+                              <div class="midColum">
+                                :</div>
+                              <div class="RatChildRt">
+                                <label class="ratGreyLabel">Children</label>
+                                <mat-form-field appearance="fill">
+                                  <mat-select formControlName="toddler_teacher_to_child_ratio" [disabled]="true">
+                                    <mat-option *ngFor="let topping
+                                        of toppingList" [value]="topping">{{topping}}</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-12" *ngIf="programsOffers.includes(PRESCHOOL)">
+                          <div class="ratioBoxGrid">
+                            <label class="ratioBoxLeftLabel border-0">Preschool</label>
+                            <div class="ratColTwoBoxes">
+                              <div class="RatTeachLt">
+                                <label class="ratGreyLabel">Teacher</label>
+                                <label class="blackGreyLabel">
+                                  <input matInput placeholder="1" value="1" disabled="true"></label>
+                              </div>
+                              <div class="midColum">
+                                :</div>
+                              <div class="RatChildRt">
+                                <label class="ratGreyLabel">Children</label>
+                                <mat-form-field appearance="fill">
+                                  <mat-select formControlName="preschool_teacher_to_child_ratio" [disabled]="true">
+                                    <mat-option *ngFor="let topping
+                                        of toppingList" [value]="topping">{{topping}}</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-12" *ngIf="programsOffers.includes(PREK)">
+                          <div class="ratioBoxGrid">
+                            <label class="ratioBoxLeftLabel border-0">Pre-K</label>
+                            <div class="ratColTwoBoxes">
+                              <div class="RatTeachLt">
+                                <label class="ratGreyLabel">Teacher</label>
+                                <label class="blackGreyLabel">
+                                  <input matInput placeholder="1" value="1" disabled="true"></label>
+                              </div>
+                              <div class="midColum">
+                                :</div>
+                              <div class="RatChildRt">
+                                <label class="ratGreyLabel">Children</label>
+                                <mat-form-field appearance="fill">
+                                  <mat-select formControlName="prek_teacher_to_child_ratio" [disabled]="true">
+                                    <mat-option *ngFor="let topping
+                                        of toppingList" [value]="topping">{{topping}}</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

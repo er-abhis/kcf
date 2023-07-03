@@ -1,0 +1,86 @@
+.offer{
+    color: var(--whiteColor);
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+
+.featureEmptyBox {
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent !important;
+  border-bottom: 0px;
+}
+
+.featureEmpty {
+  width: 100%;
+  height: 220px;
+  padding: 20px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--primaryColor);
+  color: var(--whiteColor);
+  border: 1px solid #95f2ff;
+}
+.featureEmpty h1.emptyTitle {
+  font-family: 'Nunito';
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 50px;
+  text-align: center;
+  margin: 0;
+}
+.featureEmpty h1.emptyTitle a {
+  font-weight: 800;
+  color: var(--whiteColor);
+  text-decoration: underline;
+}
+
+// .contentrightBg {
+//   border: 1px solid #8AD5FF;
+// }
+
+@media screen and (max-width:767px){
+  .contentrightBg.nobg.nobgMod{
+    border: none;
+  }
+  .featureEmpty{
+    background-color: #772162;
+  }
+  .subscriptionLeft p.subscpPara,.stepSubsTotal p.subTotalPara{
+    margin: 0px;
+  }
+  .payinfoh2Center{
+    text-align: center;
+  }
+  .usernameLink{
+    display: flex;
+    justify-content: center;
+  }
+  .featureEmpty h1.emptyTitle {
+    font-size: 18px;
+    line-height: 30px;
+  }
+  .steperh2two{
+    font-size: 28px !important;
+  }
+  .steperheadpara h4.steperh4,.steperCongrateBottom h5.steperh5{
+    font-size: 16px;
+    line-height: 22px;
+  }
+  .steperCongrateDetail h4.steperCongh4{
+    font-size: 16px;
+    line-height: 22px;
+  }
+  .steper10Btn{
+    flex-direction: column;
+  }
+  .stepDigit{
+    word-break: break-all;
+  }
+}

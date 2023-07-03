@@ -1,0 +1,26 @@
+<div class="container" [ngClass]="{'loaderWaitlist': showLoader}">
+  <div class="logo text-center p-4">
+    <svg width="111" height="110" viewBox="0 0 111 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M55.5 0C25.25 0 0.5 24.75 0.5 55C0.5 85.25 25.25 110 55.5 110C85.75 110 110.5 85.25 110.5 55C110.5 24.75 85.75 0 55.5 0ZM44.5 82.5L17 55L24.755 47.245L44.5 66.935L86.245 25.19L94 33L44.5 82.5Z"
+        fill="#164789" />
+    </svg>
+  </div>
+  <div class="paraWait">
+    <div class="loaderPreschool" *ngIf="showLoader">
+      <img src="../../../../assets/images/loader.gif" alt="">
+    </div>
+
+    <div>
+      <h3 class="addSuccPop">You’ve added <span class="addSuccsBold">{{this.childName?this.childName:'Upcoming Pregnancy'}}</span>
+        <span class="addSuccsBold"> to {{this.waitlist?.data?.provider?.organization_name}} waitlist</span>
+      </h3>
+      <p>Waitlist position <span class="addSuccsBold">#{{this.waitlist?.data1[0]?.waiting_number}}</span></p>
+    </div>
+
+  </div>
+  <!-- data1[0].waiting_number -->
+  <div class="resultMessageBtn text-center">
+    <button class="btn modalBtn" (click)="closeModal()">Close</button>
+  </div>
+</div>
